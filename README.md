@@ -1,17 +1,19 @@
-<p align="center">
+<p style="text-align: center">
     <a href="https://adshares.net/" title="Adshares sp. z o.o." target="_blank">
         <img src="https://adshares.net/logos/ads.svg" alt="Adshares" width="100" height="100">
     </a>
 </p>
-<h3 align="center"><small>Adshares / Docs</small></h3>
+<h3 style="text-align: center"><small>Adshares / Docs</small></h3>
 
 Build Documentation
 -------------------
 
 ```bash
-$ apt-get install python3-sphinx
-
-$ make html
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -U sphinx
+make html
+deactivate
 ```
 
 After generating docs, open `./_build/html/index.html` file in browser.

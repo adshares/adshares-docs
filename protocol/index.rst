@@ -1,5 +1,5 @@
 
-How to integrate Adshares protocol?
+Protocol - how to integrate?
 ===================================
 
 Abstract
