@@ -8,12 +8,14 @@ If you are interested in integration with the Adshares' protocol refer to :doc:`
 
    protocol/index
 
-Adshares' services
+Adshares' projects
 ------------------
 
 .. toctree::
    :maxdepth: 1
 
-   adpanel/index
-   adpay/index
    adselect/index
+   ads-browser-wallet/index
+   ads-operator/index
+   ads-operator-panel/index
+   ads-php-client/index

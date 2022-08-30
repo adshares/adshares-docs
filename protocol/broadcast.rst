@@ -119,7 +119,7 @@ https://github.com/adshares/ads/wiki/ADS-API#broadcast
 
 We provide a PHP client for the ADS blockchain.
 Source code is available on GitHub: https://github.com/adshares/ads-php-client.
-Install package with composer
+Install package with Composer
 
 ::
 
