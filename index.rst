@@ -14,6 +14,8 @@ Adshares' projects
 .. toctree::
    :maxdepth: 1
 
+   ads/index
+   adserver/index
    adselect/index
    ads-browser-wallet/index
    ads-operator/index

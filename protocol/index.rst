@@ -1,5 +1,5 @@
 
-Protocol - how to integrate?
+Protocol - how to integrate
 ===================================
 
 Abstract
