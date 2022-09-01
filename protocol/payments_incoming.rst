@@ -25,5 +25,6 @@ Fetch valid transaction's data - get_transaction
 
 Extract `type` - it should match ('send_many' || 'send_one')
 
+**See**
 
-https://github.com/adshares/ads/wiki/How-to-check-incoming-transactions
+:ref:`How to check incoming transactions <how-to-check-incoming-transactions>`

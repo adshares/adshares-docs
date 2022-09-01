@@ -128,7 +128,7 @@ It's visible after approx. 15 minutes, as soon as the blockchain scans it.
 It is also possible to access Block Explorer from the main panel after clicking the "Details" button.
 
 If you want to know how to transfer your funds from the Adshares platform to your ADS Wallet,
-click `here <https://github.com/adshares/adserver/wiki/How-to-use-Advertising-Ecosystem#how-to-withdraw-ads-coins-from-the-platform>`_.
+click :ref:`here <how-to-withdraw-ads-coins-from-the-platform>`.
 
 Importing private keys
 ----------------------

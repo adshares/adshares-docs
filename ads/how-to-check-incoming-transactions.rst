@@ -1,4 +1,6 @@
 
+.. _how-to-check-incoming-transactions:
+
 How to check incoming transactions
 ==================================
 

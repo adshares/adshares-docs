@@ -115,7 +115,7 @@ Broadcast should be done twice a day, i.e. every 12 hours.
 
 **TODO** Do we want to show details of ads (install, set up, send message)?
 Instruction how to broadcast using *ads* client:
-https://github.com/adshares/ads/wiki/ADS-API#broadcast
+:ref:`ADS API broadcast <broadcast>`
 
 We provide a PHP client for the ADS blockchain.
 Source code is available on GitHub: https://github.com/adshares/ads-php-client.

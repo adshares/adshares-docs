@@ -142,6 +142,8 @@ Once the plugin is installed, all you need to do is type in AdServer url address
 
 In case of high demand for a similar plugin for other popular platforms, we may consider creating dedicated plugins. If you own a website based on a popular platform and would be interested in such a plugin, please get in touch with us.
 
+.. _how-to-withdraw-ads-coins-from-the-platform:
+
 How to withdraw ADS coins from the platform
 -------------------------------------------
 
