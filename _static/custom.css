@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'HCo Gotham';
+    src: url('/_static/fonts/woff2/Gotham-Thin_Web.woff2') format('woff2'),
+    url('/_static/fonts/woff/Gotham-Thin_Web.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HCo Gotham';
+    src: url('/_static/fonts/woff2/Gotham-ThinItalic_Web.woff2') format('woff2'),
+    url('/_static/fonts/woff/Gotham-ThinItalic_Web.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'HCo Gotham';
+    src: url('/_static/fonts/woff2/Gotham-Book_Web.woff2') format('woff2'),
+    url('/_static/fonts/woff/Gotham-Book_Web.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HCo Gotham';
+    src: url('/_static/fonts/woff2/Gotham-BookItalic_Web.woff2') format('woff2'),
+    url('/_static/fonts/woff/Gotham-BookItalic_Web.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'HCo Gotham';
+    src: url('/_static/fonts/woff2/Gotham-Bold_Web.woff2') format('woff2'),
+    url('/_static/fonts/woff/Gotham-Bold_Web.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HCo Gotham';
+    src: url('/_static/fonts/woff2/Gotham-BoldItalic_Web.woff2') format('woff2'),
+    url('/_static/fonts/woff/Gotham-BoldItalic_Web.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+div.sphinxsidebarwrapper p.logo {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+div.sphinxsidebar ul {
+    margin-bottom: 20px;
+}
+
+div.sphinxsidebar ul li.toctree-l1 > a {
+    font-size: 1rem;
+}

@@ -11,7 +11,7 @@ Build Documentation
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-python3 -m pip install -U sphinx
+python3 -m pip install -U sphinx sphinx-design
 make html
 deactivate
 ```
