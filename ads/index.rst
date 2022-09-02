@@ -26,7 +26,7 @@ The `white paper <https://adshares.net/assets/ESC.pdf>`_ provides a more detaile
 ..  toctree::
     :maxdepth: 1
 
-    how-to-use-ads-wallet
+    ../ads-browser-wallet/how-to-use-ads-wallet
     how-to-get-ads
     burning-and-staking
     wrapped-ads
