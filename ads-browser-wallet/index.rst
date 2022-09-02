@@ -9,4 +9,5 @@ Contents
 .. toctree::
    :maxdepth: 2
 
+   how-to-use-ads-wallet
    building-extension
