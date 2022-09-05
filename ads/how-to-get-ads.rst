@@ -35,6 +35,18 @@ You can purchase ADS coins on a cryptocurrency exchange:
    * - PancakeSwap
      - https://exchange.pancakeswap.finance/
      - `BNB BEP-20 <https://exchange.pancakeswap.finance/#/swap?outputCurrency=0xcfcecfe2bd2fed07a9145222e8a7ad9cf1ccd22a>`_
+   * - Quickswap
+     - https://quickswap.exchange/
+     - `POLYGON MATIC <https://quickswap.exchange/#/swap?inputCurrency=0x2791bca1f2de4661ed88a30c99a7a9449aa84174&outputCurrency=0x598e49f01befeb1753737934a5b11fea9119c796>`_
+   * - BitMart
+     - https://www.bitmart.com/
+     - `BNB BEP-20 <https://www.bitmart.com/trade/en?symbol=ADS_USDT>`_
+   * - Changelly
+     - https://www.changelly.com/
+     - `BNB BEP-20 <https://changelly.com/exchange/ads>`_
+   * - Changelly Pro
+     - https://pro.changelly.com
+     - `BNB BEP-20 <https://pro.changelly.com/ads-to-btc>`_
 
 
 You can track ADS on many websites, e.g.:
