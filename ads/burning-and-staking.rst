@@ -1,18 +1,25 @@
 
-Burning and staking ADS
+Fees, burning and ADS staking
 ================================
+Adshares fees are related to three burning mechanisms embedded in the system. Burning temporarily reduces the free floating supply. Liquid staking rewards bring back the burned ADS flowing them from active users to long term holders every 2048 blocks.
 
-ADS Burning
+Adshares Blockchain fees
 ---------------------
-Adshares approach to burning. We have two burn-like mechanisms embedded in our system. One is in blockchain itself - staking. We put all fees collected from transfers and other blockchain operations into liquid staking fund. Staking funds are then proportionally given to ADS holders every 2048 blocks (around 12 days). This creates mechanism that ADS are flowing from active users (who pay fees) to long term holders. This in turn reduces free floating supply.
-Second scheme is tied to application layer. Our Adserver network works around principle that 1% of ad turnover is sent to a certain ADS Address. Those funds will be locked forever or at least until we establish DAO-style governance and there will be future decision to employ those funds for network benefit. We also build same mechanism in our future services, such as soon to be launched Adshares Social services, that will enable advertisers to buy paid promotion on social networks in decentralized manner.
+The network transaction fee is 1‰ (one per mille) of which:
+* 20% goes to node operator account
+* 80% is burned
+When transaction is made internally in one node, the fee is 2 times lower.
 
-Adshares (ADS) Liquid Staking
----------------------------------------
-The fees charged by the network are added to liquid staking fund. However, each masternode involved in the transaction has an operating fee and its operator account receives 1/5 of the transaction fee and the remaining part of the collected fee goes to the liquid staking fund.
-Every 2048 blocks (~ 2 weeks) the staking fund is distributed proportionally between all accounts with a positive ADS balance and activity in last 12 months. For example, if there are 100,000 ADS in a staking fund, a person with 387582 ADS (1% of the total) will receive 1000 ADS of the reward, while a person with 3875 ADS will receive 10 ADS of the staking reward.
+Adshares Protocol fees
+--------------------------------------
+The protocol fees are tied to application layer where:
+* 1% of ad turnover of every AdServer is burned.
 
 ADS Wallet inactivity fee
 --------------------------------------
-There is a small inactivity fee after 2 years to encourage regular checking of key backups and prevent permanent loss of coins. The inactivity fee is 1 promile every 2048 blocks. Funds from the account go into a liquid staking fund. Thanks to this mechanism, uninterrupted network activity is ensured. We encourage you to log into your account and make at least one empty transaction during the year.
-We will also soon be introducing wrapped ADS on Ethereum as an ERC20 token. This will allow you to own wrapped ADS and not have to worry about inactivity, as it will be handled by the wrapping gateway. However, it is worth remembering that the wrapped ADS token will not participate in the liquid staking.
+There is a third burning mechanism in Adshares ecosystem which is a small inactivity fee after 2 years to encourage regular checking of key backups and prevent permanent loss of coins. The inactivity fee is 1 promile every 2048 blocks. ADS charged due to inactivity fee are burned. Thanks to this mechanism, uninterrupted network activity is ensured. We encourage you to log into your account and make at least one empty transaction during the year.
+Wrapped ADS can be used to avoid inactivity fee. Using ADS bridged to Ethereum, BNB chain or Polygon as an ERC-20/BEP-20/MATIC token will prevent the fee. However, it is worth remembering that the wrapped ADS token will not participate in the liquid staking.
+
+Adshares (ADS) Liquid Staking
+---------------------------------------
+The burning mechanisms are causing the temporary deficit of ADS in circulation in relation to total supply. The blockchain is rebalancing its circulating supply in 2048 blocks cycles in form of liquid staking rewards. Every cycle (~ 2 weeks) the burned ADS amount comes back to circulation as liquid staking rewards are distributed proportionally between all accounts with a positive ADS balance and activity in last 12 months. This creates mechanism that ADS are flowing from active users (who pay fees) to long term holders. For example, if there are 100,000 ADS in unpaid staking rewards balance, a person with 387582 ADS (1% of the total) will receive 1000 ADS of the reward, while a person with 3875 ADS will receive 10 ADS of the staking reward.
