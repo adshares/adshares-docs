@@ -14,9 +14,9 @@ The main features of the ADS Blockchain can be summarized as follows:
 -	Small account and transaction identifiers, reduced transaction set and parallel processing of transactions to facilitate high transaction volumes (>100kHz one-one transactions, >1MHz one-many transactions)
 -	Nodes are heavily penalized for double spends so most transactions can be trusted almost instantly
 -	Small set of VIP nodes responsible for network integrity to facilitate incorporation of slow nodes with reduced transaction processing capabilities
--	Hash of all accounts is part of the block and enables instant synchronization with the block chain
--	Hierarchical organization of accounts and nodes facilitates KYC, AML , eID  supply and governance
--	Dividend payments to account holders and node managers to support the growth of the economy of the ESC system
+-	Hash of all accounts is part of the block, enabling instant synchronization with blockchain
+-	Hierarchical organization of accounts and nodes is ready to facilitate KYC, AML, eID supply and governance
+-	Liquid staking rewards to account holders and node managers to support the growth of the economy of the ADS ecosystem
 
 Details
 ----------------------
