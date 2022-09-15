@@ -1,5 +1,5 @@
 
-Protocol - how to integrate
+Adshares Protocol
 ===================================
 
 Abstract

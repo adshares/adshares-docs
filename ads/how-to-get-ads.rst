@@ -2,7 +2,7 @@
 .. _how-to-get-ads:
 
 How to get ADS
-===============
+==============
 .. warning::
 
    Please remember that it is necessary to include a message when transferring ADS coins TO a cryptocurrency exchange.
