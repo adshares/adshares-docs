@@ -54,4 +54,4 @@ Events flow
     browser -> supplyServer : Click event
     supplyServer -> demandServer : Click event (redirected)
     demandServer -> advertiser : Click event (redirected)
-    advertiser --> demandServer: click confirmation (optional)
+    advertiser --> demandServer: Click confirmation (optional)
