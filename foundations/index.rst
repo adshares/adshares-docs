@@ -1,7 +1,41 @@
 Foundations
 ===========
 
-A three-layer complete solution for web3 transition:
+A three-layer ecosystem for web3 transition:
+
+.. digraph:: foo
+    :name: adshares.ecosystem
+    :align: center
+
+    graph [fontname="Segoe UI,Arial,sans-serif", fontsize="12"];
+    node [fontname="Segoe UI,Arial,sans-serif", fontsize="12", target="_top"];
+    edge [fontname="Segoe UI,Arial,sans-serif", fontsize="9", style="dashed", arrowhead="empty"];
+
+    adserver [
+        label="Ad servers and Apps",
+        href="../foundations#ad-servers-and-apps"
+        shape="box3d",
+        color="",
+    ];
+    protocol [
+        label="Adshares Protocol",
+        href="../foundations#adshares-protocol"
+        shape="box3d",
+        fillcolor="#FF414D",
+        fontcolor="#FFFFFF",
+        style="filled",
+    ];
+    blockchain [
+        label="Adshares Blockchain",
+        href="../foundations#adshares-blockchain"
+        shape="box3d",
+        fillcolor="#1AA8BF",
+        fontcolor="#FFFFFF",
+        style="filled",
+    ];
+
+    adserver -> protocol;
+    protocol -> blockchain;
 
 1. Adshares Blockchain
 ----------------------
