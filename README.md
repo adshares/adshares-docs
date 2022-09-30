@@ -34,3 +34,7 @@ More info
 - [Sphinx](https://www.sphinx-doc.org/)
 - [Sphinx Design](https://sphinx-design.readthedocs.io/)
 - [Furo](https://github.com/pradyunsg/furo)
+- [Graphviz extension](https://www.sphinx-doc.org/en/master/usage/extensions/graphviz.html)
+- [Graphviz](https://graphviz.org/)
+- [PlantUML extension](https://github.com/sphinx-contrib/plantuml/)
+- [PlantUML](https://plantuml.com/)

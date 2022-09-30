@@ -11,7 +11,7 @@ The aim of this article is to guide how to join the Adshares ecosystem.
 Contents
 --------
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     blockchain_account
     broadcast
@@ -19,3 +19,4 @@ Contents
     inventory
     payments_outgoing
     payments_incoming
+    displaying_ads

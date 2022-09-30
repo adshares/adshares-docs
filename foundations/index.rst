@@ -7,9 +7,9 @@ A three-layer ecosystem for web3 transition:
     :name: adshares.ecosystem
     :align: center
 
-    graph [fontname="Verdana", fontsize="12"];
-    node [fontname="Verdana", fontsize="12", target="_top"];
-    edge [fontname="Sans", fontsize="9", style="dashed", arrowhead="empty"];
+    graph [fontname="Segoe UI,Arial,sans-serif", fontsize="12"];
+    node [fontname="Segoe UI,Arial,sans-serif", fontsize="12", target="_top"];
+    edge [fontname="Segoe UI,Arial,sans-serif", fontsize="9", style="dashed", arrowhead="empty"];
 
     adserver [
         label="Ad servers and Apps",
