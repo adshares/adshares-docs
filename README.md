@@ -9,9 +9,10 @@ Build Documentation
 -------------------
 
 ```bash
+sudo apt install plantuml
 python3 -m venv .venv
 source .venv/bin/activate
-python3 -m pip install -U sphinx sphinx-design furo
+python3 -m pip install -U sphinx sphinx-design furo sphinxcontrib-plantuml graphviz
 make html
 deactivate
 ```
