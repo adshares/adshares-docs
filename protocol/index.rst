@@ -1,4 +1,6 @@
 
+.. _adshares-protocol:
+
 Adshares Protocol
 ===================================
 
