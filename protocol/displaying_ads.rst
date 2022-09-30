@@ -21,14 +21,14 @@ Events flow
     participant "Demand AdUser"     as demandUser
     actor       "Advertiser"        as advertiser
 
-    == Initialization ==
+    ==Initialization==
 
     browser -> supplyServer : Register event
     supplyServer -> supplyUser : Register event (redirected)
     supplyUser --> browser: Return context scripts
     browser -> supplyUser: Send user's context
 
-    == Displaying ==
+    ==Displaying==
 
     loop 30s
         browser -> supplyServer : Fetch banners
@@ -49,13 +49,9 @@ Events flow
         end
     end
 
-    == Clicking ==
+    ==Clicking==
 
     browser -> supplyServer : Click event
     supplyServer -> demandServer : Click event (redirected)
     demandServer -> advertiser : Click event (redirected)
-
-    == Conversion ==
-
-    advertiser -> demandServer : Conversion event
-    demandServer --> supplyServer: Additional payment
+    advertiser --> demandServer: click confirmation (optional)

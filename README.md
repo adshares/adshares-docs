@@ -9,7 +9,7 @@ Build Documentation
 -------------------
 
 ```bash
-sudo apt install plantuml
+sudo apt install graphviz plantuml
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install -U sphinx sphinx-design furo sphinxcontrib-plantuml graphviz
