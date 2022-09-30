@@ -48,15 +48,10 @@
 
 /* ------------------------------------------------------------------------------------------------------------------ */
 
-div.sphinxsidebarwrapper p.logo {
-    margin-bottom: 20px;
-    text-align: left;
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
 }
 
-div.sphinxsidebar ul {
-    margin-bottom: 20px;
-}
-
-div.sphinxsidebar ul li.toctree-l1 > a {
-    font-size: 1rem;
+.sidebar-tree ul {
+    margin-bottom: 1rem;
 }

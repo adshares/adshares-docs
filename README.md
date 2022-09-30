@@ -11,7 +11,7 @@ Build Documentation
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-python3 -m pip install -U sphinx sphinx-design
+python3 -m pip install -U sphinx sphinx-design furo
 make html
 deactivate
 ```
@@ -25,3 +25,11 @@ php -S localhost:8000 -t _build/html/
 ```
 
 Browse `http://localhost:8000` to read the docs.
+
+
+More info
+---------
+
+- [Sphinx](https://www.sphinx-doc.org/)
+- [Sphinx Design](https://sphinx-design.readthedocs.io/)
+- [Furo](https://github.com/pradyunsg/furo)

@@ -1,6 +1,8 @@
 
+.. _ads-blockchain:
+
 ADS Blockchain
-==========================
+==============
 
 The ADS Blockchain is a fork of the `Enterprise Service Chain (ESC) <https://github.com/EnterpriseServiceChain/esc>`_,
 a blockchain software technology capable of facilitating high volumes of simple transactions which,
@@ -19,14 +21,14 @@ The main features of the ADS Blockchain can be summarized as follows:
 -	Liquid staking rewards to account holders and node managers to support the growth of the economy of the ADS ecosystem
 
 Details
-----------------------
+-------
 
-The `white paper <https://adshares.net/assets/ESC.pdf>`_ provides a more detailed description of the concept of the Enterprise Service Chain which is foundation of the ADS Blockchain.
+The `white paper <https://adshares.net/docs/esc_whitepaper.pdf>`_ provides a more detailed description of the concept of the Enterprise Service Chain which is foundation of the ADS Blockchain.
 
 ..  toctree::
     :maxdepth: 1
 
-    ../ads-browser-wallet/how-to-use-ads-wallet
+    wallet/how-to-use-ads-wallet
     how-to-get-ads
     burning-and-staking
     wrapped-ads
@@ -50,3 +52,14 @@ Technical
     how-to-check-incoming-transactions
     how-to-validate-account-address
     how-to-start-ads-node
+
+Tools
+----------------------
+
+..  toctree::
+    :maxdepth: 1
+
+    wallet/index
+    ads-php-client/index
+    ads-operator/index
+    ads-operator-panel/index

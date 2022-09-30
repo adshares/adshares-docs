@@ -4,7 +4,7 @@ Incoming payments
 The supply side is responsible for scanning incoming ADS transfers for advertisement payments.
 
 Scan ADS blockchain for payments
---------------------------------
+---------------------------------
 Check account log - get_log
 
 Fetch incoming payments - entries with `type` ('send_many' || 'send_one') and `inout` equal `in`.

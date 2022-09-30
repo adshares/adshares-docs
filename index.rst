@@ -1,7 +1,13 @@
-Adshares Documentation
+:hide-toc:
+
+Adshares Docs
 =========================================
 
-If you are interested in integration with the Adshares protocol refer to :doc:`protocol/index`.
+Adshares is a Web3 & metaverse advertising standard. ADS blockchain & protocol designed for AdTech allows advertising in
+wesbites, metaverses, games, AR, VR using any media format.
+
+You are welcome to join our community. You can build new decentralized apps on our blockchain, integrate your solutions
+with the Adshares protocol, develop ad server modules or just use our open source AdServer.
 
 .. toctree::
     :hidden:
@@ -11,55 +17,35 @@ If you are interested in integration with the Adshares protocol refer to :doc:`p
 .. toctree::
     :hidden:
 
-    protocol/index
-
-Adshares projects
-------------------
-
-.. toctree::
-    :maxdepth: 1
-    :hidden:
-
+    foundations/index
     ads/index
+    protocol/index
     adserver/index
-    adselect/index
-    ads-browser-wallet/index
-    ads-operator/index
-    ads-operator-panel/index
-    ads-php-client/index
 
-.. grid:: 1 2 2 3
+.. grid:: 1 2 2 2
     :margin: 4 4 0 0
     :gutter: 1
 
-    .. grid-item-card:: :octicon:`git-branch` ADS Blockchain
+    .. grid-item-card:: :octicon:`rocket` Foundations
+        :link: foundations/index
+        :link-type: doc
+
+        What is Adshares?
+
+    .. grid-item-card:: :octicon:`package` ADS Blockchain
         :link: ads/index
         :link-type: doc
 
         A blockchain capable of facilitating high volumes of simple transactions.
 
-    .. grid-item-card:: :octicon:`code-square` ADS Blockexplorer
-        :link: ads-operator/index
+    .. grid-item-card:: :octicon:`arrow-switch` Adshares Protocol
+        :link: protocol/index
         :link-type: doc
 
-        ADS Blockchain blockexplorer.
-
-    .. grid-item-card:: :octicon:`lock` ADS Wallet
-        :link: ads-browser-wallet/index
-        :link-type: doc
-
-        Secure identity vault for Adshares network.
+        A blockchain capable of facilitating high volumes of simple transactions.
 
     .. grid-item-card:: :octicon:`server` AdServer
         :link: adserver/index
         :link-type: doc
 
         Open-source ad server that connect web2 and web3.
-
-    .. grid-item-card:: :octicon:`plug` ADS PHP Client
-        :link: ads-php-client/index
-        :link-type: doc
-
-        PHP 7.4/8.0 client for the ADS blockchain API.
-
-

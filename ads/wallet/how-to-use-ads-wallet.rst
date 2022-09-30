@@ -12,7 +12,7 @@ It can also be used to create or import accounts and send basic transactions.
 Our wallet provides integration with internal and external services connected to Adshares network.
 It is a convenient, free, open-source client-side tool.
 
-There are two versions of the plugin - the first one works with Chrome and Opera browsers
+There are two versions of the plugin - the first one works with Chrome and Opera browsers
 (install via `Chrome Web Store <http://adshar.es/ADSwallet>`_),
 while the other one was designed for Mozilla Firefox
 (install via `Firefox Add-ons <http://adshar.es/WalletFirefox>`_).
