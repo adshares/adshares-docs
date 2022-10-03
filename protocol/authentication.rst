@@ -1,6 +1,11 @@
 
+.. _authentication:
+
+Authentication
+==============
+
 Set up a blockchain account
-===========================
+---------------------------
 The foundation of the whole ecosystem is ADS blockchain.
 The first step is to set up an account on blockchain.
 This account will be used for handling incoming and outgoing payments, and sending broadcasts.

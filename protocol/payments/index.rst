@@ -1,7 +1,7 @@
 
-.. _adshares-protocol:
+.. _payments:
 
-Adshares Protocol
+Payments
 ===================================
 
 Abstract
@@ -13,8 +13,5 @@ Contents
 .. toctree::
     :maxdepth: 1
 
-    authentication
-    inventory/index
-    impressions/index
-    payments/index
-    conversions/index
+    payments_outgoing
+    payments_incoming

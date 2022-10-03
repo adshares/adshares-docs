@@ -55,3 +55,23 @@ h1, h2, h3, h4, h5, h6 {
 .sidebar-tree ul {
     margin-bottom: 1rem;
 }
+
+@media (max-width: 97em) {
+    .content {
+        padding: 0 2em;
+        width: 51em;
+    }
+}
+
+.plantuml {
+    overflow-x: auto;
+}
+
+.plantuml img {
+    position: relative;
+    z-index: 100;
+}
+
+.plantuml img:hover {
+    max-width: none;
+}

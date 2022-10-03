@@ -1,18 +1,18 @@
 
-.. _displaying-ads:
+.. _impressions:
 
-Displaying ads
-==============
+Impressions
+===========
 
 
-Events flow
------------
+Workflow
+--------
 
 .. uml::
+    :align: center
+    :scale: 80 %
 
-    skinparam defaultFontName "Segoe UI,Arial,sans-serif"
-    skinparam shadowing false
-    skinparam monochrome false
+    skinparam monochrome true
 
     actor       "Browser"           as browser
     participant "Supply AdServer"   as supplyServer
@@ -24,13 +24,13 @@ Events flow
     ==Initialization==
 
     browser -> supplyServer : Register event
-    supplyServer -> supplyUser : Register event (redirected)
+    supplyServer -> supplyUser : Register event //redirected//
     supplyUser --> browser: Return context scripts
-    browser -> supplyUser: Send user's context
+    browser -> supplyUser: Send user's context //optional//
 
-    ==Displaying==
+    ==Displaying ads==
 
-    loop 30s
+    loop periodically
         browser -> supplyServer : Fetch banners
         supplyServer -> supplyUser : Get user's context
         supplyUser --> supplyServer : Return user's context
@@ -41,17 +41,17 @@ Events flow
             demandServer --> browser : Return banner content
 
             browser -> supplyServer : View event
-            supplyServer -> demandServer: View event (redirected)
+            supplyServer -> demandServer: View event //redirected//
             demandServer --> browser: Return register URL
             browser -> demandUser : Register event
             demandUser --> browser: Return context scripts
-            browser -> demandUser: Send user's context
+            browser -> demandUser: Send user's context //optional//
         end
     end
 
     ==Clicking==
 
     browser -> supplyServer : Click event
-    supplyServer -> demandServer : Click event (redirected)
-    demandServer -> advertiser : Click event (redirected)
-    advertiser --> demandServer: Click confirmation (optional)
+    supplyServer -> demandServer : Click event //redirected//
+    demandServer -> advertiser : Click event //redirected//
+    advertiser --> demandServer: Click confirmation //optional//
