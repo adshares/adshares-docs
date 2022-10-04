@@ -14,7 +14,7 @@ Contents
     :maxdepth: 1
 
     authentication
-    inventory/index
+    synchronization/index
     impressions/index
     payments/index
     conversions/index

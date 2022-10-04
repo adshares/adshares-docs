@@ -1,8 +1,8 @@
 
 .. _inventory:
 
-Inventory
-=========
+Synchronization
+===============
 
 Abstract
 --------
@@ -54,6 +54,6 @@ Contents
 .. toctree::
     :maxdepth: 1
 
-    broadcast
-    get_broadcast
-    fetch_inventory
+    broadcasting
+    discovering
+    updating
