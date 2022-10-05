@@ -11,6 +11,7 @@ Simplified workflow
     :align: center
 
     skinparam monochrome true
+    skinparam shadowing false
 
     actor       "Publisher"         as publisher
     actor       "User"              as user

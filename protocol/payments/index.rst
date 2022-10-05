@@ -11,6 +11,7 @@ Workflow
     :align: center
 
     skinparam monochrome true
+    skinparam shadowing false
 
     actor       "Publisher"         as publisher
     collections "Supply AdServers"  as supplyServer
