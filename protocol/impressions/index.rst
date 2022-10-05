@@ -9,7 +9,6 @@ Workflow
 
 .. uml::
     :align: center
-    :scale: 80 %
 
     skinparam monochrome true
 
