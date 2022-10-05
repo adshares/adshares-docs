@@ -4,10 +4,6 @@
 Synchronization
 ===============
 
-Abstract
---------
-.. @TODO
-
 Workflow
 --------
 
@@ -17,8 +13,8 @@ Workflow
     skinparam monochrome true
 
     participant "Supply AdServer"   as supplyServer
-    collections "Demand AdServers"  as demandServer
     participant "ADS Blockchain"    as blockchain
+    collections "Demand AdServers"  as demandServer
 
     ==Broadcasting==
 

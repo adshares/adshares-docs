@@ -15,8 +15,8 @@ The other option is to make a direct API call.
 
 Each conversion has a unique conversion link.
 
-In the *basic mode*, the link has only one (optional) parameter *value*.
-Such a link could be used as an src attribute of a HTML element.
+In the *basic mode*, the link has only one (optional) parameter *value*.
+Such a link could be used as an src attribute of a HTML element.
 It could be used only once per impression.
 
 Here are sample links.
@@ -26,7 +26,7 @@ Here are sample links.
    https://example.com/kw/6d0bd92b28aa4deb811d6f9cf8aff96b.gif
    https://example.com/kw/6d0bd92b28aa4deb811d6f9cf8aff96b.gif?value=1.2
 
-In the *advanced mode*, the link has placeholders that should be filled.
+In the *advanced mode*, the link has placeholders that should be filled.
 
 Here’s a sample link.
 
@@ -47,7 +47,7 @@ Preparation of the conversion link in the advanced mode
 Helper methods
 ^^^^^^^^^^^^^^
 
-The  ``urlSafeBase64Encode`` function encodes data to base64 format and replaces characters that are not allowed in the URL.
+The  ``urlSafeBase64Encode`` function encodes data to base64 format and replaces characters that are not allowed in the URL.
 
 .. code-block:: php
 
@@ -68,7 +68,7 @@ The  ``urlSafeBase64Encode`` function encodes data to base64 format and replac
        );
    }
 
-The ``urlSafeBase64Decode`` function is a reverse function to the ``urlSafeBase64Encode``. It replaces non-standard base64 characters and decodes base64 string.
+The ``urlSafeBase64Decode`` function is a reverse function to the ``urlSafeBase64Encode``. It replaces non-standard base64 characters and decodes base64 string.
 
 .. code-block:: php
 
@@ -134,14 +134,14 @@ This link must be generated for each conversion event.
        );
    }
 
-The ``CONVERSION_LINK_TEMPLATE`` and ``CONVERSION_SECRET`` constants should be read from the conversion definition.
+The ``CONVERSION_LINK_TEMPLATE`` and ``CONVERSION_SECRET`` constants should be read from the conversion definition.
 They are unique for each conversion.
-The ``$value`` parameter is optional, in case it was defined in the conversion.
+The ``$value`` parameter is optional, in case it was defined in the conversion.
 
 Direct API call
 ^^^^^^^^^^^^^^^
 
-The direct API call from the advertiser’s backend to the adserver needs another parameter: ``cid``.
-The ``cid`` parameter can be obtained during the first user visit on the advertiser’s site.
-It is the advertiser’s responsibility to store ``cid`` and connect it with a proper user.
-The ``cid`` parameter should be attached to other GET parameters of the advanced conversion link.
+The direct API call from the advertiser’s backend to the adserver needs another parameter: ``cid``.
+The ``cid`` parameter can be obtained during the first user visit on the advertiser’s site.
+It is the advertiser’s responsibility to store ``cid`` and connect it with a proper user.
+The ``cid`` parameter should be attached to other GET parameters of the advanced conversion link.

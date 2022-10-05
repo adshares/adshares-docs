@@ -4,10 +4,6 @@
 Payments
 ========
 
-Abstract
---------
-.. @TODO
-
 Workflow
 --------
 
@@ -16,10 +12,10 @@ Workflow
 
     skinparam monochrome true
 
-    participant "Demand AdServer"   as demandServer
-    participant "ADS Blockchain"    as blockchain
-    collections "Supply AdServers"  as supplyServer
     actor       "Publisher"         as publisher
+    collections "Supply AdServers"  as supplyServer
+    participant "ADS Blockchain"    as blockchain
+    participant "Demand AdServer"   as demandServer
 
     ==Outgoing payments==
 
@@ -33,12 +29,13 @@ Workflow
 
     loop periodically
         supplyServer -> blockchain: Fetch transactions
+        blockchain --> supplyServer: List of transactions
         supplyServer -> supplyServer: Analyze transactions
 
         supplyServer -> demandServer: Fetch report
         demandServer --> supplyServer: Return report
         supplyServer -> supplyServer: Analyze report
-        supplyServer -> publisher: Profit
+        supplyServer -> publisher: Post profit
     end
 
 Contents
