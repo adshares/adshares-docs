@@ -13,8 +13,8 @@ Although compilation from source is available, we suggest to use binaries from A
 ::
 
     sudo add-apt-repository ppa:adshares/releases -y
-    sudo apt-get update -y
-    sudo apt-get install ads ads-tools
+    sudo apt update
+    sudo apt install ads ads-tools -y
 
 Compilation
 --------------------------
@@ -23,8 +23,8 @@ To compile the software you need boost and ssl libraries. Check the Makefile if 
 
 ::
 
-    sudo apt-get update -y
-    sudo apt-get install -y openssl libboost-all-dev libssl-dev cmake
+    sudo apt update
+    sudo apt install openssl libboost-all-dev libssl-dev cmake -y
 
 Start with cloning the git directory.
 
