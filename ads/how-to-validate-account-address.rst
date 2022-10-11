@@ -1,4 +1,6 @@
 
+.. _how-to-validate-account-address:
+
 How to validate account address
 ===============================
 
