@@ -14,13 +14,13 @@ The account can be created by the node operator, but more convenient way is ADS 
 Detailed instruction can be found on `Setup guide <https://adshares.net/wallet#wallet-installation-steps>`_ or
 :ref:`How to use ADS Wallet page <how-to-use-ads-wallet>`.
 
-After creating an account you will receive an **account number**, a **public key** and a **secret key**.
+After creating an account you will receive an **account address**, a **public key** and a **secret key**.
 
 ADS authentication
 ------------------
 
 Authentication between servers or modules is performed by sending a signed ``Authorization`` header with the ADS account
-number. Checking the signature allows you to verify the account number and identify the sender.
+address. Checking the signature allows you to verify the account address and identify the sender.
 
 Authentication header
 ^^^^^^^^^^^^^^^^^^^^^
@@ -29,7 +29,7 @@ Authentication header
 
     ADS account="<string>", nonce="<string>", created="<string>", signature="<string>"
 
-* ``account`` - the ADS account number
+* ``account`` - the ADS account address
 * ``nonce`` - a cryptographically random string encoded in `Base64 <https://datatracker.ietf.org/doc/html/rfc4648.html>`_
 * ``created`` - a datetime in `W3C (ISO 8601) <https://www.w3.org/TR/NOTE-datetime>`_ format
 * ``signature`` - a signature of the nonce and the timestamp from ``created`` datetime signed with the the ADS private key
@@ -41,7 +41,7 @@ Example::
 Header signing
 ^^^^^^^^^^^^^^
 
-To sign the header you need an ADS account number, the appropriate secret/private key and a sodium library.
+To sign the header you need an ADS account address, the appropriate secret/private key and a sodium library.
 
 To test signatures you can use :ref:`command line tool <signing-message>`.
 
@@ -49,7 +49,7 @@ PHP example code:
 
 .. code:: php
 
-    $adsAcount = '0001-00000001-8B4E'; // change this
+    $adsAccount = '0001-00000001-8B4E'; // change this
     $adsPrivateKey = 'DF7C4188C7F77A182FA7655D5E971863D600A770858804735AFB1B667D2D055A'; // change this
 
     $nonce = random_bytes(32);
@@ -61,7 +61,7 @@ PHP example code:
 
     $header = sprintf(
         'ADS account="%s", nonce="%s", created="%s", signature="%s"',
-        $adsAcount,
+        $adsAccount,
         base64_encode($nonce),
         $created->format('c'),
         $signature
@@ -70,7 +70,7 @@ PHP example code:
 Header verification
 ^^^^^^^^^^^^^^^^^^^
 
-To verify the signature, you need to :ref:`validate the account number <how-to-validate-account-address>`,
+To verify the signature, you need to :ref:`validate the account address <how-to-validate-account-address>`,
 :ref:`get the public key from the ADS blockchain <get_account>`, and use the sodium library.
 
 Additionally, you should verify that the ``Created`` header value is valid within five minutes and that the ``Nonce``
@@ -89,14 +89,14 @@ PHP example code:
 
     $adsRegex = '/ADS account="(?P<account>[^"]+)", nonce="(?P<nonce>[a-zA-Z0-9+\/]+={0,2})", created="(?P<created>[^"]+)", signature="(?P<signature>[^"]+)"/';
     if (1 === preg_match($adsRegex, $header, $matches)) {
-        $adsAcount = $matches['account'];
+        $adsAccount = $matches['account'];
         // Check if the account is valid
         $nonce = base64_decode($matches['nonce']);
         // Check if the nonce is not used before
         $created = new DateTimeImmutable($matches['created']);
         // Check if the timestamp is not obsolete
         $signature = $matches['signature'];
-        $publicKey = $adsClient->getAccount($adsAcount)->getPublicKey();
+        $publicKey = $adsClient->getAccount($adsAccount)->getPublicKey();
         $message = $nonce . $created->format('U');
 
         $verified = sodium_crypto_sign_verify_detached(hex2bin($signature), $message, hex2bin($publicKey));
