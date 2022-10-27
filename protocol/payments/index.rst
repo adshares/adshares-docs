@@ -13,39 +13,47 @@ Money flow
     skinparam monochrome true
     skinparam linetype ortho
 
-    actor   "Advertiser"    as advertiser
-    actor   "Publisher"     as publisher
-    agent   "Software provider"      as provider
-    agent   "Community"     as community
+    actor   "Advertiser"        as advertiser
+    actor   "Publisher"         as publisher
+    agent   "Software provider" as provider
+    agent   "Community"         as community
 
     node "Demand AdServer" as demandServerNode {
-        circle  " "         as demandIn #black
+        circle  " " as demandIn #black
         card demandLicenseFee [
             License fee
-            ========
+            -----------
             <i>license dependent
             <i>CE free of charge
         ]
-        card  "Operator fee"   as demandOperatorFee
+        card demandOperatorFee [
+            Operator fee
+            ------------
+            <i>set by the operator
+        ]
         card demandCommunityFee [
             Community fee
-            =========
+            -------------
             <i>1% fees
             <i>set by the DAO
         ]
-        circle  " "         as demandOut #white
+        circle  " " as demandOut #white
     }
 
     node "Supply AdServer" as supplyServerNode {
-        circle  " "         as supplyIn #black
+        circle  " " as supplyIn #black
         card supplyLicenseFee [
             License fee
-            ========
+            -----------
             <i>license dependent
             <i>CE free of charge
         ]
-        card  "Operator fee"   as supplyOperatorFee
-        circle  " "         as supplyOut #white
+        card supplyOperatorFee [
+            Operator fee
+            ------------
+            <i>set by the operator
+        ]
+        circle  " " as supplyOut #white
     }
 
     advertiser -ri-> demandServerNode
@@ -57,7 +65,7 @@ Money flow
     demandCommunityFee --> community
     demandCommunityFee -[dashed]do-> demandOut
 
-    demandServerNode -[thickness=4]ri-> supplyServerNode: "payments"
+    demandServerNode -[bold]ri-> supplyServerNode
 
     supplyIn -[dashed]do-> supplyLicenseFee
     supplyLicenseFee --> provider
