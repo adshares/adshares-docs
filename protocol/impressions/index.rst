@@ -11,7 +11,6 @@ Workflow
     :align: center
 
     skinparam monochrome true
-    skinparam shadowing false
 
     actor       "User"              as user
     participant "Supply AdServer"   as supplyServer

@@ -11,7 +11,6 @@ Workflow
     :align: center
 
     skinparam monochrome true
-    skinparam shadowing false
 
     participant "Supply AdServer"   as supplyServer
     participant "ADS Blockchain"    as blockchain
