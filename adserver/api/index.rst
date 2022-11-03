@@ -1,0 +1,13 @@
+
+.. _adserver-api:
+
+AdServer API
+============
+
+Contents
+--------
+
+..  toctree::
+    :maxdepth: 1
+
+    impressions

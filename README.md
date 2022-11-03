@@ -9,10 +9,10 @@ Build Documentation
 -------------------
 
 ```bash
-sudo apt install graphviz plantuml
+sudo apt install graphviz plantuml texlive-latex-extra texlive-lang-all latexmk
 python3 -m venv .venv
 source .venv/bin/activate
-python3 -m pip install -U sphinx sphinx-design furo sphinxcontrib-plantuml graphviz
+python3 -m pip install -U sphinx sphinx-design furo sphinxcontrib-plantuml graphviz sphinxcontrib.httpdomain
 make html
 deactivate
 ```
