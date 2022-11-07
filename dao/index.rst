@@ -65,7 +65,7 @@ Fundamentally, Adshares DAO is governed by its members. Anyone who holds enough 
 
 #. **Ideas and Discussion.** AIP ideas typically start on the Adshares Discord, Telegram, live meetings, or somewhere else in the community.
 #. **Proposal form.** If a DAO member wants to submit an AIP, he needs to use an AIP template and submit it to the Adshares DAO forum in the right one section. AIP Idea is submitted as a new proposal post.
-#. **Forum Feedback.** Forum is a place for initial discussion on the dedicated AIP proposal page on the forum in the [ideas] category. The original post cannot be changed by the author; any modifications or improvements to the original idea must be made in the comments. The Discussion topic is closed by a moderator when the author and community agree that it's ok to create AIP. This will filter out bad ideas and encourage thoughtful proposals.
+#. **Forum Feedback.** `Forum <https://forum.adshares.net/>`_ is a place for initial discussion on the dedicated AIP proposal page on the forum in the `[ideas] <https://adshar.es/ideas>`_ category. The original post cannot be changed by the author; any modifications or improvements to the original idea must be made in the comments. The Discussion topic is closed by a moderator when the author and community agree that it's ok to create AIP. This will filter out bad ideas and encourage thoughtful proposals.
 #. **AIP creation.** After initial community feedback author fills out the template again. He should include any forum suggestions that will help the proposal better serve the DAO community. If further information is required to fully express the purposes, details, and ramifications of the AIP Draft, it can be added by the author to the template.
 #. **Voting** occurs on the Adshares DAO platform, and it takes 7 days. Only moderators can submit the AIP to ensure that each proposal is following the proposal form template. One ADS Coin is equal to one vote. To ensure the fairness of the voting, the system calculates your voting power based on the latest snapshot of your ADS wallet balance which happened prior to the API creation. Snapshots are taken at the time of latest distribution of staking rewards (every 2048 blocks which usually  takes about 12 days).
 #. **Implementation.** Proposals that receive a majority "In favor" vote are moved into implementation. In quorum will not be reached proposal is rejected and the author can resubmit the proposal about the given subject after 14 day cooldown period which can be used for discussions and enhancement of the original proposal.
@@ -179,3 +179,8 @@ With more companies joining the Adshares ecosystem our goal is to build a totall
 Adshares DAO will gradually integrate the proposal and vote procedures into a comprehensive, on-chain platform in the form selected by the community.
 
 .. [#] Allied Market Research
+
+.. toctree::
+    :hidden:
+
+    Discourse (forum) <https://forum.adshares.net/>

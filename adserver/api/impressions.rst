@@ -11,7 +11,7 @@ Register
     The response will return scripts to run on the client side (optional).
 
     :query iid: the impression ID (unique, eg. `UUID v4 <https://www.rfc-editor.org/rfc/rfc4122.html>`_)
-    :query stid: optional transaction ID seed
+    :query stid: optional transaction ID seed (eg., internal user ID, wallet account address)
     :reqheader Accept: ``application/html``
     :reqheader User-Agent: the user agent originating the request
     :statuscode 302: and then redirects to AdUser service
