@@ -92,7 +92,7 @@ Fundamentally, Adshares DAO is governed by its members. Anyone who holds enough 
             }
         }
         document {
-           BackgroundColor transparent
+           BackgroundColor #FFF
         }
     </style>
 
