@@ -32,7 +32,7 @@ Simplified workflow
 
     user -> supplyServer : Register event
 
-    user -> supplyServer : Fetch banners
+    user -> supplyServer : Find banners
     supplyServer --> user : Return banners
 
     user -> demandServer : Get banner content

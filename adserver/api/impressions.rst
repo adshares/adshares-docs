@@ -1,6 +1,8 @@
 Impressions
 ===========
 
+This API implements :ref:`the impressions sections of the Adshares protocol <impressions>`.
+
 Register
 --------
 
@@ -49,7 +51,7 @@ Find banners
 
 .. http:post:: /supply/find
 
-    The posts tagged with `tag` that the user (`user_id`) wrote.
+    Finds banners that match the zones.
 
     :reqheader Accept: ``application/json``
     :resheader Content-Type: ``application/json``
@@ -64,16 +66,16 @@ Find banners
     :<json string zones[].id: the zone ID
 
     :>jsonarr string id: the banner ID
-    :>jsonarr string publisher_id: the publisher ID
-    :>jsonarr string zone_id: the zone ID
-    :>jsonarr string pay_from: the demand server account address
-    :>jsonarr string pay_to: the supply server account address
+    :>jsonarr string zoneId: the zone ID
+    :>jsonarr string publisherId: the publisher ID
+    :>jsonarr string demandServer: the demand server account address
+    :>jsonarr string supplyServer: the supply server account address
     :>jsonarr string type: the banner type: ``image``, ``video``, ``html``, ``model``
     :>jsonarr string size: the banner size
-    :>jsonarr string serve_url: URL to download the content of the banner
-    :>jsonarr string creative_sha1: checksum of the banner content
-    :>jsonarr string click_url: click event URL
-    :>jsonarr string view_url: view event URL
+    :>jsonarr string hash: checksum of the banner content
+    :>jsonarr string serveUrl: URL to download the content of the banner
+    :>jsonarr string viewUrl: view event URL
+    :>jsonarr string clickUrl: click event URL
     :>jsonarr float rpm: average campaign's RPM
 
     **Example request**:
@@ -93,7 +95,7 @@ Find banners
             },
             "zones": [
                 {
-                    "id": "45aa32c81e9d43b19ed531b70c8ce2c3"
+                    "id": "2c81e9ed531b70c8ced43b19245aa3c3"
                 }
             ]
         }
@@ -107,17 +109,17 @@ Find banners
 
         [
             {
-                "id": "3aa3ef230d524f32a79fb4cbd93e6110",
-                "publisher_id": "2e33b20c4bd64bf2a15c5de6100c2d5d",
-                "zone_id": "45aa32c81e9d43b19ed531b70c8ce2c3",
-                "pay_from": "0001-00000028-3E05",
-                "pay_to": "0001-00000050-C19A",
+                "id": "32a79fb61103aa3ef230d524cbd93e4f",
+                "zoneId": "2c81e9ed531b70c8ced43b19245aa3c3",
+                "publisherId": "d64bf2a15c5de2e33b20c4b6100c2d5d",
+                "demandServer": "0001-00000001-8B4E",
+                "supplyServer": "0001-00000002-BB2D",
                 "type": "image",
                 "size": "300x250",
-                "serve_url": "https://app.example.com/serve/xec91eb4be7b640a49ed20941614d13ed.doc?v=42f4",
-                "creative_sha1": "42f406760ccc9a4fe2e0519c56436e1fdcb36f46",
-                "click_url": "https://app.example.com/l/n/click/3aa3ef230d524f32a79fb4cbd93e6110?r=aHR0cHM6Ly9hcHAuYWRhcm91bmQubmV0L2NsaWNrL2VjOTFlYjRiZTdiNjQwYTQ5ZWQyMDk0MTYxNGQxM2Vk",
-                "view_url": "https://app.example.com/l/n/view/3aa3ef230d524f32a79fb4cbd93e6110?r=aHR0cHM6Ly9hcHAuYWRhcm91bmQubmV0L3ZpZXcvZWM5MWViNGJlN2I2NDBhNDllZDIwOTQxNjE0ZDEzZWQ",
+                "hash": "56436e1fdcb42f406760ccc9a4fe2e0519c36f46",
+                "serveUrl": "https://app.example.com/serve/xed20914d13ed416ec91eb4be7b640a49.doc?v=67f4",
+                "viewUrl": "https://app.example.com/l/n/view/32a79fb61103aa3ef230d524cbd93e4f?r=aHR0cHM6Ly9hcHAuZXhhbXBsZS5jb20vdmlldy9lZDIwOTE0ZDEzZWQ0MTZlYzkxZWI0YmU3YjY0MGE0OQ",
+                "clickUrl": "https://app.example.com/l/n/click/32a79fb61103aa3ef230d524cbd93e4f?r=aHR0cHM6Ly9hcHAuYWRhcm91bmQubmV0L3ZpZXcvZWM5MWViNGJlN2I2NDBhNDllZDIwOTQxNjE0ZDEzZWQ",
                 "rpm": 2.13
             }
         ]
@@ -127,7 +129,7 @@ Dynamic find banners
 
 .. http:post:: /supply/find
 
-    The posts tagged with `tag` that the user (`user_id`) wrote.
+    Finds banners that mach the query with automatic creation of users (if enabled) and zones.
 
     :reqheader Accept: ``application/json``
     :resheader Content-Type: ``application/json``
@@ -139,27 +141,27 @@ Dynamic find banners
     :<json string page.url: the page URL
     :<json boolean, optional page.metamask: is the MetaMask enabled
     :<json array zones: list of zones info
-    :<json string zones[].pay_to: the publisher account address
+    :<json string zones[].publisher: the publisher ID or account address (ADS or BSC)
     :<json string, optional zones[].medium: the medium name
     :<json string, optional zones[].vendor: the vendor name
     :<json string zones[].width: width of the placement
     :<json string zones[].height: height of the placement
     :<json string, optional zones[].depth: depth of the placement
-    :<json string, optional zones[].min_dpi: the minimum DPI
+    :<json string, optional zones[].minDpi: the minimum DPI
     :<json string, optional zones[].type: list of accepted types
-    :<json string, optional zones[].mime_type: list of accepted MIME types
+    :<json string, optional zones[].mimeType: list of accepted MIME types
 
     :>jsonarr string id: the banner ID
-    :>jsonarr string publisher_id: the publisher ID
-    :>jsonarr string zone_id: the zone ID
-    :>jsonarr string pay_from: the demand server account address
-    :>jsonarr string pay_to: the supply server account address
+    :>jsonarr string zoneId: the zone ID
+    :>jsonarr string publisherId: the publisher ID
+    :>jsonarr string demandServer: the demand server account address
+    :>jsonarr string supplyServer: the supply server account address
     :>jsonarr string type: the banner type: ``image``, ``video``, ``html``, ``model``
     :>jsonarr string size: the banner size
-    :>jsonarr string serve_url: URL to download the content of the banner
-    :>jsonarr string creative_sha1: checksum of the banner content
-    :>jsonarr string click_url: click event URL
-    :>jsonarr string view_url: view event URL
+    :>jsonarr string hash: checksum of the banner content
+    :>jsonarr string serveUrl: URL to download the content of the banner
+    :>jsonarr string viewUrl: view event URL
+    :>jsonarr string clickUrl: click event URL
     :>jsonarr float rpm: average campaign's RPM
 
     **Example request**:
@@ -180,18 +182,18 @@ Dynamic find banners
             },
             "zones": [
                 {
-                    "pay_to": "ads:0001-00000000-9B6F"
+                    "publisher": "ads:0001-00000000-9B6F"
                     "medium": "metaverse",
                     "vendor": "my-metaverse",
                     "name": "Main gallery",
                     "width": 2.5,
                     "height": 4.75,
-                    "min_dpi": 10,
+                    "minDpi": 10,
                     "type": [
                         "image",
                         "video"
                     ],
-                    "mime_type": [
+                    "mimeType": [
                         "image/jpeg",
                         "image/png",
                         "video/mp4"
@@ -209,17 +211,17 @@ Dynamic find banners
 
         [
             {
-                "id": "3aa3ef230d524f32a79fb4cbd93e6110",
-                "publisher_id": "2e33b20c4bd64bf2a15c5de6100c2d5d",
-                "zone_id": "45aa32c81e9d43b19ed531b70c8ce2c3",
-                "pay_from": "0001-00000028-3E05",
-                "pay_to": "0001-00000050-C19A",
+                "id": "32a79fb61103aa3ef230d524cbd93e4f",
+                "zoneId": "2c81e9ed531b70c8ced43b19245aa3c3",
+                "publisherId": "d64bf2a15c5de2e33b20c4b6100c2d5d",
+                "demandServer": "0001-00000001-8B4E",
+                "supplyServer": "0001-00000002-BB2D",
                 "type": "image",
                 "size": "300x250",
-                "serve_url": "https://app.example.com/serve/xec91eb4be7b640a49ed20941614d13ed.doc?v=42f4",
-                "creative_sha1": "42f406760ccc9a4fe2e0519c56436e1fdcb36f46",
-                "click_url": "https://app.example.com/l/n/click/3aa3ef230d524f32a79fb4cbd93e6110?r=aHR0cHM6Ly9hcHAuYWRhcm91bmQubmV0L2NsaWNrL2VjOTFlYjRiZTdiNjQwYTQ5ZWQyMDk0MTYxNGQxM2Vk",
-                "view_url": "https://app.example.com/l/n/view/3aa3ef230d524f32a79fb4cbd93e6110?r=aHR0cHM6Ly9hcHAuYWRhcm91bmQubmV0L3ZpZXcvZWM5MWViNGJlN2I2NDBhNDllZDIwOTQxNjE0ZDEzZWQ",
+                "hash": "56436e1fdcb42f406760ccc9a4fe2e0519c36f46",
+                "serveUrl": "https://app.example.com/serve/xed20914d13ed416ec91eb4be7b640a49.doc?v=67f4",
+                "viewUrl": "https://app.example.com/l/n/view/32a79fb61103aa3ef230d524cbd93e4f?r=aHR0cHM6Ly9hcHAuZXhhbXBsZS5jb20vdmlldy9lZDIwOTE0ZDEzZWQ0MTZlYzkxZWI0YmU3YjY0MGE0OQ",
+                "clickUrl": "https://app.example.com/l/n/click/32a79fb61103aa3ef230d524cbd93e4f?r=aHR0cHM6Ly9hcHAuYWRhcm91bmQubmV0L3ZpZXcvZWM5MWViNGJlN2I2NDBhNDllZDIwOTQxNjE0ZDEzZWQ",
                 "rpm": 2.13
             }
         ]

@@ -29,7 +29,7 @@ Workflow
     ==Displaying ads==
 
     loop periodically
-        user -> supplyServer : Fetch banners
+        user -> supplyServer : Find banners
         supplyServer -> supplyUser : Get user's context
         supplyUser --> supplyServer : Return user's context
         supplyServer --> user : Return banners
