@@ -6,6 +6,7 @@ Adshares DAO
 
 Adshares DAO is a decentralized autonomous organization (DAO) run by holders of the Adshares coin. Its governance framework has been created by the Adshares founding team. This document provides an overview of the first iteration of the main decision-making mechanisms of the DAO, its roadmap, and plans for the future.
 
+**This governance guide provides a high-level overview of the DAO and proposal process. It is a living document that will evolve and improve with the help of the DAO community.**
 
 Introduction
 ------------
@@ -180,7 +181,13 @@ Adshares DAO will gradually integrate the proposal and vote procedures into a co
 
 .. [#] Allied Market Research
 
-.. toctree::
-    :hidden:
 
-    Discourse (forum) <https://forum.adshares.net/>
+Important links
+---------------
+
+.. toctree::
+    :maxdepth: 1
+
+    Forum <https://forum.adshares.net/>
+    Webpage <https://adshares.net/dao>
+    FAQ <https://adshares.net/dao#faq>
