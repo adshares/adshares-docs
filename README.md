@@ -9,6 +9,7 @@ Build Documentation
 -------------------
 
 ```bash
+sudo apt-get update
 sudo apt install graphviz plantuml texlive-latex-extra texlive-lang-all latexmk
 python3 -m venv .venv
 source .venv/bin/activate
