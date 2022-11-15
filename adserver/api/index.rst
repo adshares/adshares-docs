@@ -10,4 +10,5 @@ Contents
 ..  toctree::
     :maxdepth: 1
 
+    oauth
     impressions

@@ -17,16 +17,17 @@ This flow consist of single request for token.
 
 .. http:post:: /oauth/token
 
-    Acquires access token
+    Acquires access token.
 
-    :reqheader Content-Type: ``application/x-www-form-urlencoded``
+    :reqheader Content-Type: ``application/json``
 
     :statuscode 200: no error
+    :statuscode 422: error
 
-    :form grant_type: (constant) ``client_credentials``
-    :form client_id: **CLIENT_ID**
-    :form client_secret: **CLIENT_SERVER**
-    :form scope: (optional) comma-separated scope of token
+    :<json constant, string grant_type: (constant) ``client_credentials``
+    :<json string client_id: **CLIENT_ID**
+    :<json string client_secret: **CLIENT_SERVER**
+    :<json string scope: (optional) a space delimited list of token's scopes
 
     **Example response**:
 
@@ -47,6 +48,8 @@ Authorization code grant
 
 Below is the sample flow in which AdController is the client server.
 This flow is divided into sections but represents single authentication process.
+Diagram could be simplified when user interacts with AdPanel and is still logged in.
+In this situation user does not have to log in once again.
 
 .. uml::
     :align: center
@@ -79,3 +82,82 @@ This flow is divided into sections but represents single authentication process.
     adcontroller -> adserver: Fetch data
     adserver -> adcontroller: Data
     adcontroller -> user: Display page
+
+.. http:post:: /auth/login
+
+    Logs user in to the AdServer. Returns API token.
+
+    :statuscode 200: no error
+    :statuscode 422: invalid credentials
+
+    :<json string email: user's e-mail
+    :<json string password: user's password
+
+    **Example response**:
+
+    .. sourcecode::
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
+
+        {
+            ...
+            "apiToken": "WQQ6KU37jqgsnamUhkMRzpMmyY44C8c4db7i7HFeRC5xJQTNaVtrWRaH8YxQ",
+            ...
+        }
+
+
+.. http:get:: /auth/authorize
+
+    Generates authorization code.
+
+    :reqheader Authorization: authorization header should contain API token ``Bearer <API_TOKEN>``
+
+    :statuscode 200: no error, code in response body
+    :statuscode 302: no error, redirection to callback URI
+    :statuscode 422: error
+
+    :query client_id: **CLIENT_ID**
+    :query no_redirect: (optional) if present server will return code in body, default action is redirection to callback URI
+    :query redirect_uri: code callback URI
+    :query response_type: (constant) ``code``
+    :query scope: (optional) a space delimited list of scopes
+    :query state: (optional) CSRF token, will be returned in callback
+
+    **Example response if no_redirect param is present**:
+
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
+
+        {
+            "location": "https://example.com/callback?code=349834jbgtbgbdsd&state=3WJPbImynfEzj34ggMOD7%27hsXrT6Tbjl"
+        }
+
+.. http:post:: /oauth/token
+
+    Acquires access token.
+
+    :statuscode 200: no error
+    :statuscode 422: error
+
+    :<json string client_id: **CLIENT_ID**
+    :<json string client_secret: **CLIENT_SERVER**
+    :<json string code: authorization code from previous request
+    :<json constant, string grant_type: ``authorization_code``
+    :<json string redirect_uri: code callback URI, must match previous request
+
+    **Example response**:
+
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
+
+        {
+            "token_type": "Bearer",
+            "expires_in": 31536000,
+            "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJtZXNzYWdlIjogIkJlZXIgYW5kIGNoZWVzZSBteSBmcmllbmQifQ.A2lO5mO7R8LLAKAXNvmAsVAPOJBc",
+            "refresh_token": "d936cc8586ead4b5"
+        }
