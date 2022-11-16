@@ -59,9 +59,12 @@ ___________________________
 
 Since we want to only propose early solution and let people decide about DAO futures, below rules can be later changed via separate DAO voting.
 
+There are two possible votes: **"In Favor"** and **"Against"**. Voting "In favor" indicates support for enacting the AIP in its current form. Voting "Against" signifies opposing the AIP's implementation in its current form; you may vote "Against" to urge the author to revise the AIP before resubmitting it.
+
 - Anyone can propose AIP on Adshares Forum.
 - 30 positive votes are needed to pass the initial forum voting. Voting options: “Yes”, “No”.
 - To put AIP on-chain, through the Voting Platform, wallet needs to have at least 100 ADS in its balance and the proposal need to pass initial forum voting.
+- There is no fee for proposal creation, you just need to hold the appropriate ADS balance.
 - On-chain voting starts next block after the proposal is posted.
 - Each voting will last 1024 blocks (about 6 days), starting from the next block where proposal was posted.
 - Each wallet can only vote once in single proposal (first vote counts). After that it is not possible to change the vote.
@@ -73,6 +76,7 @@ Since we want to only propose early solution and let people decide about DAO fut
 - The minimum quorum is 30% of the total possible voting power.
 - Exchanges wallets and LP contracts will be excluded from quorum. List of those wallets will be publicly available in the doc DAO section.
 - Proposal requires a simple majority (50% + 1) to pass (more YES votes than NO).
+
 
 
 Adshares Improvement Proposal (AIP)
@@ -161,18 +165,6 @@ Proposals that were not approved the first time around and are being resubmitted
 - The reason it was denied
 - Changes made and reasons why it should now be approved
 
-
-Voting Requirements
--------------------
-
-There are two possible votes: **"In Favor"** and **"Against"**. Voting "In favor" indicates support for enacting the AIP in its current form. Voting "Against" signifies opposing the AIP's implementation in its current form; you may vote "Against" to urge the author to revise the AIP before resubmitting it.
-
-- A proposal creator can only have one active proposal at a time but can vote on other proposals.
-- To create a proposal, you will need to hold at least 100 ADS.
-- There is no fee for proposal creation, you just need to hold the appropriate ADS balance.
-- The minimum quorum is 30% of the total ADS supply.
-- Exchanges wallets and LP contracts will be excluded from quorum. List of those wallets will be publicly available.
-- Proposal requires a simple majority (50% + 1) to pass.
 
 
 DAO Activation
