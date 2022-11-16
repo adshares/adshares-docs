@@ -53,6 +53,25 @@ Decentralized autonomous organizations, or DAOs, are automatic and democratic on
 | Through the public governance module, the DAO coin/token holders will govern the core products, a special DAO treasury, and key decisions around the ecosystem.
 | Members of Adshares DAO will be able to work and connect in novel ways that are not feasible with centralized organizations. A more connected, engaged, and invested community brings extra value to the project.
 | The Adshares core development team will create the public governance module in-house. In the first iteration, AdsharesDAO will be partially centralized when it comes to decision execution, as it will assure the effectiveness of resources and activities. As the Adshares ecosystem expands and gains more users and DAO grows, it will become increasingly decentralized.
+| 
+**DAO General Voting Rules:**
+
+Since we want to only propose early solution and let people decide about DAO futures, below rules can be later changed via separate DAO voting.
+
+- Anyone can propose AIP on Adshares Forum.
+- 30 positive votes are needed to pass the initial forum voting. Voting options: “Yes”, “No”.
+- To put AIP on-chain, through the Voting Platform, wallet needs to have at least 100 ADS in its balance and the proposal need to pass initial forum voting.
+- On-chain voting starts next block after the proposal is posted.
+- Each voting will last 1024 blocks (about 6 days), starting from the next block where proposal was posted.
+- Each wallet can only vote once in single proposal (first vote counts). After that it is not possible to change the vote.
+- Each wallet can only submit one proposal at a time.
+- “Yes”, “No” and “Pass” votes are available option for voting.
+- 1 ADS Coin is equal to 1 Vote (Voting Power).
+- Snapshot of the voting power is taken every 2048 blocks (about 12 days), when staking rewards for current cycle starts to be distributed.
+- User can wait up to 2048 blocks for his voting power to be updated.
+- The minimum quorum is 30% of the total possible voting power.
+- Exchanges wallets and LP contracts will be excluded from quorum. List of those wallets will be publicly available in the doc DAO section.
+- Proposal requires a simple majority (50% + 1) to pass (more YES votes than NO).
 
 
 Adshares Improvement Proposal (AIP)
@@ -150,7 +169,7 @@ There are two possible votes: **"In Favor"** and **"Against"**. Voting "In favor
 - A proposal creator can only have one active proposal at a time but can vote on other proposals.
 - To create a proposal, you will need to hold at least 100 ADS.
 - There is no fee for proposal creation, you just need to hold the appropriate ADS balance.
-- The minimum quorum is 10% of the total ADS supply.
+- The minimum quorum is 30% of the total ADS supply.
 - Exchanges wallets and LP contracts will be excluded from quorum. List of those wallets will be publicly available.
 - Proposal requires a simple majority (50% + 1) to pass.
 
