@@ -53,8 +53,9 @@ Decentralized autonomous organizations, or DAOs, are automatic and democratic on
 | Through the public governance module, the DAO coin/token holders will govern the core products, a special DAO treasury, and key decisions around the ecosystem.
 | Members of Adshares DAO will be able to work and connect in novel ways that are not feasible with centralized organizations. A more connected, engaged, and invested community brings extra value to the project.
 | The Adshares core development team will create the public governance module in-house. In the first iteration, AdsharesDAO will be partially centralized when it comes to decision execution, as it will assure the effectiveness of resources and activities. As the Adshares ecosystem expands and gains more users and DAO grows, it will become increasingly decentralized.
-| 
-**DAO General Voting Rules:**
+
+DAO General Voting Rules
+___________________________
 
 Since we want to only propose early solution and let people decide about DAO futures, below rules can be later changed via separate DAO voting.
 
