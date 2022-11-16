@@ -22,7 +22,7 @@ With more and more industries adopting blockchain technology, AdTech is a perfec
 
 
 AdTech can be enhanced by web3 tools
-````````````````````````````````````
+____________________________________
 
 | The Internet Advertising Market is expected to reach $1.08 Trillion by the end of 2027 [#]_.
 | Despite the size of this market, the AdTech sector – whose sole purpose is to exist for publishers, advertisers, and brands – has been lacking any significant innovation over the past decade.
@@ -34,7 +34,7 @@ The most precious resource on the web3 world is the people and communities. In w
 
 
 Think globally, act locally
-```````````````````````````
+___________________________
 
 Since Adshares' goal is to become an infrastructure for the whole AdTech sector it should also set trends within the industry. Especially, if it aims to become a Metaverse advertising standard. Moving the digital advertising ecosystem into web3 will not be an easy thing to do and it will require a collaborative mindset. With more and more companies joining the ecosystem there will be a need for a decentralized organization that should govern the blockchain and the protocol.
 
@@ -156,7 +156,7 @@ There are two possible votes: **"In Favor"** and **"Against"**. Voting "In favor
 
 
 DAO Activation
-``````````````
+______________
 
 The DAO will be officially launched with its first voting about DAO creation. In order to proposal to pass it is required for quorum to reach 50% + 1 to pass
 
@@ -165,12 +165,12 @@ Future of Adshares DAO
 ----------------------
 
 Adshares DAO 2.0 and Adshares DAO AI
-````````````````````````````````````
+____________________________________
 
 Imagine all AdTech layers, the whole advertising world governed by code and controlled by AI. All those things are built by the community consensus, where the community also benefits from this system. Like the Adshares ecosystem, Adshares DAO will constantly evolve. After the successful implementation of the first DAO iteration, the community and all the teams who participate in Adshares ecosystem development will also focus on the future of Adshares DAO to make it more robust and decentralized over time. The ideal Adshares Ecosystem should be developed by a hundred of independent developers, AdTech companies and Metaverse creators which are working together on building the whole AdTech world with the use of web3 tools. Like Ethereum is the biggest Ecosystem for DeFi, we want Adshares to be the biggest ecosystem for AdTech. The more ad servers and ad networks are built on Adshares protocol the more irresistible and decentralized will be the future of advertising system.
 
 Adshares DAO Council
-````````````````````
+____________________
 
 With more companies joining the Adshares ecosystem our goal is to build a totally decentralized AdTech infrastructure governed by DAO. To achieve this, on the next stage of DAO development we plan to establish a council of finite number of members. Those members will come from the core team, community, and the most involved companies from the ecosystem.
 
