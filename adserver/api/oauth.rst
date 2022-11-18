@@ -29,6 +29,10 @@ This flow consist of single request for token.
     :<json string client_secret: **CLIENT_SERVER**
     :<json string scope: (optional) a space delimited list of token's scopes
 
+    :>json constant, string token_type: "Bearer"
+    :>json integer expires_in: token TTL in seconds
+    :>json string access_token: token
+
     **Example response**:
 
     .. sourcecode:: http
@@ -93,6 +97,8 @@ In this situation user does not have to log in once again.
     :<json string email: user's e-mail
     :<json string password: user's password
 
+    :>json string apiToken: API token
+
     **Example response**:
 
     .. sourcecode::
@@ -124,6 +130,8 @@ In this situation user does not have to log in once again.
     :query scope: (optional) a space delimited list of scopes
     :query state: (optional) CSRF token, will be returned in callback
 
+    :>json string location: callback URI (containing code in query). Present if `no_redirect` param was set
+
     **Example response if no_redirect param is present**:
 
     .. sourcecode:: http
@@ -147,6 +155,11 @@ In this situation user does not have to log in once again.
     :<json string code: authorization code from previous request
     :<json constant, string grant_type: ``authorization_code``
     :<json string redirect_uri: code callback URI, must match previous request
+
+    :>json constant, string token_type: "Bearer"
+    :>json integer expires_in: token TTL in seconds
+    :>json string access_token: token
+    :>json string refresh_token: refresh token
 
     **Example response**:
 
