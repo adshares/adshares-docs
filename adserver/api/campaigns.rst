@@ -69,3 +69,128 @@ Campaigns list
 
     :statuscode 200: no error
     :statuscode 404: campaign does not exist
+
+Parameters
+-----------------
+
+.. http:get:: /api/v2/options/campaigns
+
+    Fetch campaign limits.
+
+    :reqheader Content-Type: ``application/json``
+
+    :statuscode 200: no error
+
+    :>json integer minBudget: minimal hourly budget in clicks
+    :>json integer minCpm: minimal CPM in clicks
+    :>json integer minCpa: minimal CPA in clicks
+
+
+.. http:get:: /api/v2/options/campaigns/media
+
+    Fetch supported media.
+
+    :reqheader Content-Type: ``application/json``
+
+    :statuscode 200: no error
+
+    :response json object: Map of supported media. Key is medium ID. Value is medium name
+
+.. http:get:: /api/v2/options/campaigns/media/(medium)/vendors
+
+    Fetch supported vendors by medium.
+
+    :param medium: medium ID
+
+    :reqheader Content-Type: ``application/json``
+
+    :statuscode 200: no error
+
+    :response json object: Map of supported vendors. Key is vendor ID. Value is vendor name
+
+.. http:get:: /api/v2/options/campaigns/media/(medium)
+
+    Fetch taxonomy for medium.
+
+    :param medium: medium ID
+
+    :query vendor: (optional) vendor ID. If omitted, default vendor will be returned
+
+    :reqheader Content-Type: ``application/json``
+
+    :statuscode 200: no error
+
+    :>json string name: medium ID
+    :>json string label: medium name
+    :>json string vendor: vendor ID
+    :>json string vendorLabel: vendor name
+    :>json object formats[].type: format type
+    :>json array<string> formats[].mimes: array of MIME types
+    :>json object formats[].scopes: map of scopes. Key is scope. Value is description
+    :>json Targeting object targeting.user: user targeting
+    :>json Targeting object targeting.site: site targeting
+    :>json Targeting object targeting.device: device targeting
+
+Targeting object
+^^^^^^^^^^^^^^^^^
+
+Targeting object contains features which campaign can require or forbid.
+There are two types:
+
+- dictionary - list of supported values
+- custom input - values entered by advertiser
+
+Dictionary targeting object
+""""""""""""""""""""""""""""""""""""
+
+- **type** (`string`) – constant ``dict``
+- **name** (`string`) – name
+- **label** (`string`) – label
+- **items** (`TargetingDictionary object`) – possible values
+
+**TargetingDictionary object**
+
+TargetingDictionary object holds possible values.
+Usually this is a map, where key is an ID and value is a label (`string`).
+
+In general it is a nested structure. Key is an ID. Value is an object or a string.
+If value is an object it has fields:
+
+- **label** (`string`) - option label
+- **values** (`TargetingDictionary object`) - possible values
+
+**Example**
+
+.. sourcecode:: json
+
+    {
+        "type": "dict",
+        "name": "tag",
+        "label": "Tags",
+        "items": {
+            "nft": {
+                "label": "NFTs",
+                "values": {
+                    "nft-sports": "Sports",
+                    "nft-tickets": "Tickets"
+                }
+            }
+        }
+    }
+
+Custom input targeting object
+"""""""""""""""""""""""""""""""""""
+
+- **type** (`string`) – constant ``input``
+- **name** (`string`) – name
+- **label** (`string`) – label
+
+**Example**
+
+.. sourcecode:: json
+
+    {
+        "type": "input",
+        "name": "domain",
+        "label": "Domains"
+    }
