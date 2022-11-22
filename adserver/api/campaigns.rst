@@ -22,18 +22,8 @@ Campaigns list
     :>json string data[].classifications[].classifier: classifier
     :>json string data[].classifications[].status: status
     :>json object data[].classifications[].keywords: classification result, conforms taxonomy
-    :>json integer data[].basicInformation.status: status
-    :>json string data[].basicInformation.name: name
-    :>json string data[].basicInformation.targetUrl: landing URL
-    :>json integer, null data[].basicInformation.maxCpc: maximal CPC
-    :>json integer, null data[].basicInformation.maxCpm: maximal CPM
-    :>json integer, null data[].basicInformation.budget: budget
-    :>json string data[].basicInformation.medium: medium, e.g. "web"
-    :>json string, null data[].basicInformation.vendor: vendor
-    :>json string data[].basicInformation.dateStart: date of start
-    :>json string, null data[].basicInformation.dateEnd: date of end, if `null` campaign will last forever
-    :>json object data[].targeting.requires: required features, conforms taxonomy
-    :>json object data[].targeting.excludes: forbidden features, conforms taxonomy
+    :>json CampaignBasicInformation data[].basicInformation: basic information
+    :>json CampaignTargeting data[].targeting: required and forbidden features, conforms taxonomy
     :>json integer data[].ads[].id: banner ID
     :>json string data[].ads[].uuid: UUID
     :>json string data[].ads[].createdAt: date of banner creation
@@ -68,6 +58,13 @@ Campaigns list
     :reqheader Content-Type: ``application/json``
 
     :statuscode 200: no error
+    :statuscode 404: campaign does not exist
+
+.. http:delete:: /api/v2/campaigns/{id}
+
+    Delete campaign by ID.
+
+    :statuscode 204: no error
     :statuscode 404: campaign does not exist
 
 Parameters
@@ -127,14 +124,98 @@ Parameters
     :>json object formats[].type: format type
     :>json array<string> formats[].mimes: array of MIME types
     :>json object formats[].scopes: map of scopes. Key is scope. Value is description
-    :>json Targeting object targeting.user: user targeting
-    :>json Targeting object targeting.site: site targeting
-    :>json Targeting object targeting.device: device targeting
+    :>json TargetingOption[] targeting.user: (optional) user targeting options
+    :>json TargetingOption[] targeting.site: (optional) site targeting options
+    :>json TargetingOption[] targeting.device: (optional) device targeting options
+
+Upload advertisement
+--------------------------
+
+.. http:post:: /api/v2/campaigns/banner
+
+    Upload advertisement.
+
+    :reqheader Content-Type: ``multipart/form-data``
+
+    :form binary file: file
+    :form string medium: medium ID
+    :form string vendor: (optional) vendor ID
+
+    :statuscode 200: no error
+
+    :>json string name: temporary name
+    :>json string url: temporary URL
+    :>json string size: space occupied by advertisement
+
+Add campaign
+--------------------
+
+.. http:post:: /api/v2/campaigns
+
+    Add campaign.
+
+    :reqheader Content-Type: ``application/json``
+
+    :statuscode 200: no error
+    :statuscode 422: validation error
+
+    :<json CampaignBasicInformation campaign.basicInformation: basic information
+    :<json CampaignTargeting campaign.targeting: targeting (required and forbidden features)
+    :<json Advertisement[] campaign.ads: advertisements
+
+Data structures
+--------------------
+
+CampaignBasicInformation object
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- **status** (`integer`) – status
+- **name** (`string`) – name
+- **targetUrl** (`string`) – landing URL
+- **maxCpc** (`integer, null`) – maximal CPC
+- **maxCpm** (`integer, null`) – maximal CPM
+- **budget** (`integer`) – budget
+- **medium** (`string`) – medium
+- **vendor** (`string, null`) – vendor
+- **dateStart** (`string`) – date of start
+- **dateEnd** (`string, null`) – date of end, if `null` campaign will last forever
+
+CampaignTargeting object
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- **requires** (`Targeting`) – required features
+- **excludes** (`Targeting`) – forbidden features
 
 Targeting object
 ^^^^^^^^^^^^^^^^^
 
-Targeting object contains features which campaign can require or forbid.
+- **user** (`TargetingFeatures`) – (optional) user features
+- **site** (`TargetingFeatures`) – (optional) site features
+- **device** (`TargetingFeatures`) – (optional) device features
+
+TargetingFeatures object
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+TargetingFeatures object has selected features.
+It is a map in which key is a name of TargetingOption, and value is array of selected items.
+Both key and value must match taxonomy.
+
+**Example**
+
+.. sourcecode:: json
+
+    {
+        "quality": ["high"],
+        "domain": ["example.com"]
+        "tag": ["nft", "nft-sports", "nft-tickets"]
+    }
+
+
+TargetingOption object
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+TargetingOption object contains features which campaign can require or forbid.
+
 There are two types:
 
 - dictionary - list of supported values
@@ -146,7 +227,7 @@ Dictionary targeting object
 - **type** (`string`) – constant ``dict``
 - **name** (`string`) – name
 - **label** (`string`) – label
-- **items** (`TargetingDictionary object`) – possible values
+- **items** (`TargetingDictionary`) – possible values
 
 **TargetingDictionary object**
 
@@ -194,3 +275,14 @@ Custom input targeting object
         "name": "domain",
         "label": "Domains"
     }
+
+
+Advertisement object
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- **status** (`integer`) – status
+- **name** (`string`) – name
+- **creativeSize** (`string`) – occupied space
+- **creativeType** (`string`) – type
+- **url** (`string`) – (optional) temporary URL returned in response to upload advertisement request. It is required for advertisement which needs to be uploaded, e.g. image
+- **creativeContents** (`string`) – (optional) content. It is suggested for advertisement which does not use upload, e.g. direct links. By default content is campaign landing URL
