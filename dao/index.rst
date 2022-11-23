@@ -59,7 +59,7 @@ ___________________________
 
 Since we want to only propose early solution and let people decide about DAO futures, below rules can be later changed via separate DAO voting.
 
-There are two possible votes: **"In Favor"** and **"Against"**. Voting "In favor" indicates support for enacting the AIP in its current form. Voting "Against" signifies opposing the AIP's implementation in its current form; you may vote "Against" to urge the author to revise the AIP before resubmitting it.
+There are three possible votes: **"In Favor"** , **"Against"** and **"Abstain"**. Voting "In favor" indicates support for enacting the AIP in its current form. Voting "Against" signifies opposing the AIP's implementation in its current form; you may vote "Against" to urge the author to revise the AIP before resubmitting it. "Abstain" vote allows DAO member to contribute towards the quorum without a need to choose a side for particular voting.
 
 - Anyone can propose AIP on Adshares Forum.
 - 30 positive votes are needed to pass the initial forum voting. Voting options: “Yes”, “No”.
@@ -69,20 +69,18 @@ There are two possible votes: **"In Favor"** and **"Against"**. Voting "In favor
 - Each voting will last 1024 blocks (about 6 days), starting from the next block where proposal was posted.
 - Each wallet can only vote once in single proposal (first vote counts). After that it is not possible to change the vote.
 - Each wallet can only submit one proposal at a time.
-- “Yes”, “No” and “Pass” votes are available option for voting.
+- “In Favor”, “Against” and “Abstain” votes are available option for voting.
 - 1 ADS Coin is equal to 1 Vote (Voting Power).
 - Snapshot of the voting power is taken every 2048 blocks (about 12 days), when staking rewards for current cycle starts to be distributed.
 - User can wait up to 2048 blocks for his voting power to be updated.
 - The minimum quorum is 30% of the total possible voting power.
 - Exchanges wallets and LP contracts will be excluded from quorum. List of those wallets will be publicly available in the doc DAO section.
-- Proposal requires a simple majority (50% + 1) to pass (more YES votes than NO).
+- Proposal requires a simple majority (50% + 1) to pass (more “In Favor” votes than “Against”).
 
 
 
 Adshares Improvement Proposal (AIP)
 -----------------------------------
-
-The proposal procedure is described in general in this governance guide. It is a dynamic document that will change and evolve with the help of the DAO community.
 
 Fundamentally, Adshares DAO is governed by its members. Anyone who holds enough ADS can create a proposal. As a result, significant changes to Adshares DAO should be approved by the entire community through a process called **"Adshares Improvement Proposal"** (AIP).
 
@@ -92,8 +90,8 @@ Fundamentally, Adshares DAO is governed by its members. Anyone who holds enough 
 #. **Proposal form.** If a DAO member wants to submit an AIP, he needs to use an AIP template and submit it to the Adshares DAO forum in the right one section. AIP Idea is submitted as a new proposal post.
 #. **Forum Feedback.** `Forum <https://forum.adshares.net/>`_ is a place for initial discussion on the dedicated AIP proposal page on the forum in the `[ideas] <https://adshar.es/ideas>`_ category. The original post cannot be changed by the author; any modifications or improvements to the original idea must be made in the comments. The Discussion topic is closed by a moderator when the author and community agree that it's ok to create AIP. This will filter out bad ideas and encourage thoughtful proposals.
 #. **AIP creation.** After initial community feedback author fills out the template again. He should include any forum suggestions that will help the proposal better serve the DAO community. If further information is required to fully express the purposes, details, and ramifications of the AIP Draft, it can be added by the author to the template.
-#. **Voting** occurs on the Adshares DAO platform, and it takes 7 days. Only moderators can submit the AIP to ensure that each proposal is following the proposal form template. One ADS Coin is equal to one vote. To ensure the fairness of the voting, the system calculates your voting power based on the latest snapshot of your ADS wallet balance which happened prior to the API creation. Snapshots are taken at the time of latest distribution of staking rewards (every 2048 blocks which usually  takes about 12 days).
-#. **Implementation.** Proposals that receive a majority "In favor" vote are moved into implementation. In quorum will not be reached proposal is rejected and the author can resubmit the proposal about the given subject after 14 day cooldown period which can be used for discussions and enhancement of the original proposal.
+#. **Voting** occurs on the Adshares DAO platform, and it takes 6 days. Only moderators can submit the AIP to ensure that each proposal is following the proposal form template. One ADS Coin is equal to one vote. To ensure the fairness of the voting, the system calculates your voting power based on the latest snapshot of your ADS wallet balance which happened prior to the AIP creation. Snapshots are taken at the time of latest distribution of staking rewards (every 2048 blocks which usually  takes about 12 days).
+#. **Implementation.** Proposals that receive a majority "In Favor" vote are moved into implementation. In quorum will not be reached proposal is rejected and the author can resubmit the proposal about the given subject after 14 day cooldown period which can be used for discussions and enhancement of the original proposal.
 
 .. uml::
     :align: center
@@ -170,7 +168,7 @@ Proposals that were not approved the first time around and are being resubmitted
 DAO Activation
 ______________
 
-The DAO will be officially launched with its first voting about DAO creation. In order to proposal to pass it is required for quorum to reach 50% + 1 to pass
+The DAO will be officially launched with its first voting about DAO creation. In order to proposal to pass it is required for quorum to reach 50% + 1 to pass.
 
 
 Future of Adshares DAO
