@@ -11,6 +11,6 @@ Contents
     :maxdepth: 1
 
     response
-    oauth
+    authorization
     campaigns
     impressions
