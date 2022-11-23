@@ -280,7 +280,6 @@ Custom input targeting object
 Advertisement object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **status** (`integer`) – status
 - **name** (`string`) – name
 - **creativeSize** (`string`) – occupied space
 - **creativeType** (`string`) – type
