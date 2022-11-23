@@ -1,7 +1,7 @@
 Authorization
 ===================
 
-AdServer authorizes API users with JWT access token.
+AdServer authorizes API users with Bearer Token (JWT).
 Access token is generated according to OAuth2.
 AdServer has a built-in OAuth2 server thanks to `Laravel Passport <https://laravel.com/docs/passport>`_.
 
@@ -10,6 +10,12 @@ AdServer supports three methods of acquiring an access token:
 - ``personal access token`` - for users which want to interact directly with API, prepare machine access, e.g. third party integrations
 - ``authorization code grant`` - for server applications with user interaction, e.g. AdController
 - ``client credentials grant`` - for machine access, e.g. maintenance
+
+To authorize, token must be passed in HTTP **Authorization** header.
+
+.. sourcecode::
+
+    Authorization: Bearer <ACCESS_TOKEN>
 
 
 Personal Access Token
