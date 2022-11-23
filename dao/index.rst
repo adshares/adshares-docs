@@ -22,7 +22,7 @@ With more and more industries adopting blockchain technology, AdTech is a perfec
 
 
 AdTech can be enhanced by web3 tools
-____________________________________
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | The Internet Advertising Market is expected to reach $1.08 Trillion by the end of 2027 [#]_.
 | Despite the size of this market, the AdTech sector – whose sole purpose is to exist for publishers, advertisers, and brands – has been lacking any significant innovation over the past decade.
@@ -54,29 +54,29 @@ Decentralized autonomous organizations, or DAOs, are automatic and democratic on
 | Members of Adshares DAO will be able to work and connect in novel ways that are not feasible with centralized organizations. A more connected, engaged, and invested community brings extra value to the project.
 | The Adshares core development team will create the public governance module in-house. In the first iteration, AdsharesDAO will be partially centralized when it comes to decision execution, as it will assure the effectiveness of resources and activities. As the Adshares ecosystem expands and gains more users and DAO grows, it will become increasingly decentralized.
 
+
 DAO General Voting Rules
-___________________________
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Since we want to only propose early solution and let people decide about DAO futures, below rules can be later changed via separate DAO voting.
 
 There are three possible votes: **"In Favor"** , **"Against"** and **"Abstain"**. Voting "In favor" indicates support for enacting the AIP in its current form. Voting "Against" signifies opposing the AIP's implementation in its current form; you may vote "Against" to urge the author to revise the AIP before resubmitting it. "Abstain" vote allows DAO member to contribute towards the quorum without a need to choose a side for particular voting.
 
 - Anyone can propose AIP on Adshares Forum.
-- 30 positive votes are needed to pass the initial forum voting. Voting options: “Yes”, “No”.
+- 30 positive votes are needed to pass the initial forum voting. Voting options: "Yes", "No".
 - To put AIP on-chain, through the Voting Platform, wallet needs to have at least 100 ADS in its balance and the proposal need to pass initial forum voting.
 - There is no fee for proposal creation, you just need to hold the appropriate ADS balance.
 - On-chain voting starts next block after the proposal is posted.
 - Each voting will last 1024 blocks (about 6 days), starting from the next block where proposal was posted.
 - Each wallet can only vote once in single proposal (first vote counts). After that it is not possible to change the vote.
 - Each wallet can only submit one proposal at a time.
-- “In Favor”, “Against” and “Abstain” votes are available option for voting.
+- "In Favor", "Against" and "Abstain" votes are available option for voting.
 - 1 ADS Coin is equal to 1 Vote (Voting Power).
 - Snapshot of the voting power is taken every 2048 blocks (about 12 days), when staking rewards for current cycle starts to be distributed.
 - User can wait up to 2048 blocks for his voting power to be updated.
 - The minimum quorum is 30% of the total possible voting power.
 - Exchanges wallets and LP contracts will be excluded from quorum. List of those wallets will be publicly available in the doc DAO section.
-- Proposal requires a simple majority (50% + 1) to pass (more “In Favor” votes than “Against”).
-
+- Proposal requires a simple majority (50% + 1) to pass (more "In Favor" votes than "Against").
 
 
 Adshares Improvement Proposal (AIP)
@@ -164,9 +164,8 @@ Proposals that were not approved the first time around and are being resubmitted
 - Changes made and reasons why it should now be approved
 
 
-
 DAO Activation
-______________
+^^^^^^^^^^^^^^
 
 The DAO will be officially launched with its first voting about DAO creation. In order to proposal to pass it is required for quorum to reach 50% + 1 to pass.
 
@@ -175,12 +174,12 @@ Future of Adshares DAO
 ----------------------
 
 Adshares DAO 2.0 and Adshares DAO AI
-____________________________________
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Imagine all AdTech layers, the whole advertising world governed by code and controlled by AI. All those things are built by the community consensus, where the community also benefits from this system. Like the Adshares ecosystem, Adshares DAO will constantly evolve. After the successful implementation of the first DAO iteration, the community and all the teams who participate in Adshares ecosystem development will also focus on the future of Adshares DAO to make it more robust and decentralized over time. The ideal Adshares Ecosystem should be developed by a hundred of independent developers, AdTech companies and Metaverse creators which are working together on building the whole AdTech world with the use of web3 tools. Like Ethereum is the biggest Ecosystem for DeFi, we want Adshares to be the biggest ecosystem for AdTech. The more ad servers and ad networks are built on Adshares protocol the more irresistible and decentralized will be the future of advertising system.
 
 Adshares DAO Council
-____________________
+^^^^^^^^^^^^^^^^^^^^
 
 With more companies joining the Adshares ecosystem our goal is to build a totally decentralized AdTech infrastructure governed by DAO. To achieve this, on the next stage of DAO development we plan to establish a council of finite number of members. Those members will come from the core team, community, and the most involved companies from the ecosystem.
 
@@ -198,6 +197,6 @@ Important links
 .. toctree::
     :maxdepth: 1
 
+    Learn more <https://adshares.net/dao>
     Forum <https://forum.adshares.net/>
-    Webpage <https://adshares.net/dao>
     FAQ <https://adshares.net/dao#faq>
