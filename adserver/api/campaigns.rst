@@ -145,7 +145,7 @@ Upload advertisement
 
     :>json string name: temporary name
     :>json string url: temporary URL
-    :>json string size: space occupied by advertisement
+    :>json string size: (optional) space occupied by advertisement, size is not present in case of resizable advertisements, e.g. HTML
 
 Add campaign
 --------------------
@@ -281,7 +281,7 @@ Advertisement object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - **name** (`string`) – name
-- **creativeSize** (`string`) – occupied space
+- **creativeSize** (`string`) – occupied space. It should be the same as size returned during upload if was present
 - **creativeType** (`string`) – type
 - **url** (`string`) – (optional) temporary URL returned in response to upload advertisement request. It is required for advertisement which needs to be uploaded, e.g. image
 - **creativeContents** (`string`) – (optional) content. It is suggested for advertisement which does not use upload, e.g. direct links. By default content is campaign landing URL
