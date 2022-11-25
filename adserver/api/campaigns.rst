@@ -22,10 +22,19 @@ Campaigns list
     :>json string data[].classifications[].classifier: classifier
     :>json string data[].classifications[].status: status
     :>json object data[].classifications[].keywords: classification result, conforms taxonomy
-    :>json CampaignBasicInformation data[].basicInformation: basic information
+    :>json integer data[]status: status
+    :>json string data[]name: name
+    :>json string data[]targetUrl: landing URL
+    :>json integer, null data[]maxCpc: maximal CPC
+    :>json integer, null data[]maxCpm: maximal CPM
+    :>json integer data[]budget: budget
+    :>json string data[]medium: medium
+    :>json string, null data[]vendor: vendor
+    :>json string data[]dateStart: date of start in ISO 8601 format
+    :>json string, null data[]dateEnd: date of end in ISO 8601 format, if `null` campaign will last forever
     :>json CampaignTargeting data[].targeting: required and forbidden features, conforms taxonomy
     :>json integer data[].ads[].id: banner ID
-    :>json string data[].ads[].uuid: UUID
+    :>json string data[].ads[].uuid: banner UUID
     :>json string data[].ads[].createdAt: date of banner creation
     :>json string data[].ads[].updatedAt: date of last banner update
     :>json string data[].ads[].creativeType: banner type
@@ -159,26 +168,45 @@ Add campaign
     :statuscode 200: no error
     :statuscode 422: validation error
 
-    :<json CampaignBasicInformation campaign.basicInformation: basic information
+    :<json integer status: status
+    :<json string name: name
+    :<json string targetUrl: landing URL
+    :<json integer, null maxCpc: maximal CPC
+    :<json integer, null maxCpm: maximal CPM
+    :<json integer budget: budget
+    :<json string medium: medium
+    :<json string, null vendor: vendor
+    :<json string dateStart: date of start in ISO 8601 format
+    :<json string, null dateEnd: date of end in ISO 8601 format, if `null` campaign will last forever
     :<json CampaignTargeting campaign.targeting: targeting (required and forbidden features)
     :<json Advertisement[] campaign.ads: advertisements
 
-Data structures
+Edit campaign
 --------------------
 
-CampaignBasicInformation object
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. http:post:: /api/v2/campaigns/(id)
 
-- **status** (`integer`) – status
-- **name** (`string`) – name
-- **targetUrl** (`string`) – landing URL
-- **maxCpc** (`integer, null`) – maximal CPC
-- **maxCpm** (`integer, null`) – maximal CPM
-- **budget** (`integer`) – budget
-- **medium** (`string`) – medium
-- **vendor** (`string, null`) – vendor
-- **dateStart** (`string`) – date of start
-- **dateEnd** (`string, null`) – date of end, if `null` campaign will last forever
+    Edit campaign.
+
+    :param id: capmaign ID
+
+    :reqheader Content-Type: ``application/json``
+
+    :statuscode 200: no error
+    :statuscode 422: validation error
+
+    :<json integer status: (optional) status
+    :<json string name: (optional) name
+    :<json string targetUrl: (optional) landing URL
+    :<json integer, null maxCpc: (optional) maximal CPC
+    :<json integer, null maxCpm: (optional) maximal CPM
+    :<json integer budget: (optional) budget
+    :<json string dateStart: (optional) date of start in ISO 8601 format
+    :<json string, null dateEnd: (optional) date of end in ISO 8601 format, if `null` campaign will last forever
+    :<json CampaignTargeting campaign.targeting: (optional) targeting (required and forbidden features)
+
+Data structures
+--------------------
 
 CampaignTargeting object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
