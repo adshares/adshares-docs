@@ -45,8 +45,7 @@ Campaigns list
     :>json integer data[].ads[].status: banner status
     :>json string, null data[].ads[].cdnUrl: banner content URL on CDN, may be `null` if was not uploaded to CDN
     :>json string data[].ads[].url: banner content URL
-    :>json string data[].bidStrategy.name: bid strategy name
-    :>json string data[].bidStrategy.uuid: bid strategy UUID
+    :>json string data[].bidStrategyUuid: bid strategy UUID
     :>json string data[].conversions[].uuid: conversion UUID
     :>json string data[].conversions[].campaignId: campaign ID
     :>json string data[].conversions[].name: conversion name
@@ -204,6 +203,7 @@ Edit campaign
     :<json string dateStart: (optional) date of start in ISO 8601 format
     :<json string, null dateEnd: (optional) date of end in ISO 8601 format, if `null` campaign will last forever
     :<json CampaignTargeting campaign.targeting: (optional) targeting (required and forbidden features)
+    :<json string bidStrategyUuid: (optional) bid strategy UUID
 
 Data structures
 --------------------
