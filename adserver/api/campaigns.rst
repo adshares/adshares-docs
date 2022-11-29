@@ -12,61 +12,20 @@ Campaigns list
 
     :statuscode 200: no error
 
-    :>json integer data[].id: ID
-    :>json string data[].uuid: UUID
-    :>json string data[].createdAt: date of creation
-    :>json string data[].updatedAt: date of last update
-    :>json string data[].secret: conversion secret
-    :>json integer data[].conversionClick: type of click conversion
-    :>json string, null data[].conversionClickLink: click conversion callback URL, may be `null` if click conversion is not set
-    :>json string data[].classifications[].classifier: classifier
-    :>json string data[].classifications[].status: status
-    :>json object data[].classifications[].keywords: classification result, conforms taxonomy
-    :>json integer data[].status: status
-    :>json string data[].name: name
-    :>json string data[].targetUrl: landing URL
-    :>json integer, null data[].maxCpc: maximal CPC
-    :>json integer, null data[].maxCpm: maximal CPM
-    :>json integer data[].budget: budget
-    :>json string data[].medium: medium
-    :>json string, null data[].vendor: vendor
-    :>json string data[].dateStart: date of start in ISO 8601 format
-    :>json string, null data[].dateEnd: date of end in ISO 8601 format, if `null` campaign will last forever
-    :>json CampaignTargeting data[].targeting: required and forbidden features, conforms taxonomy
-    :>json integer data[].ads[].id: banner ID
-    :>json string data[].ads[].uuid: banner UUID
-    :>json string data[].ads[].createdAt: date of banner creation
-    :>json string data[].ads[].updatedAt: date of last banner update
-    :>json string data[].ads[].creativeType: banner type
-    :>json string data[].ads[].creativeMime: banner MIME type
-    :>json string data[].ads[].creativeSha1: SHA-1 checksum of banner content
-    :>json string data[].ads[].creativeSize: space occupied by banner
-    :>json string data[].ads[].name: banner name
-    :>json integer data[].ads[].status: banner status
-    :>json string, null data[].ads[].cdnUrl: banner content URL on CDN, may be `null` if was not uploaded to CDN
-    :>json string data[].ads[].url: banner content URL
-    :>json string data[].bidStrategyUuid: bid strategy UUID
-    :>json string data[].conversions[].uuid: conversion UUID
-    :>json string data[].conversions[].campaignId: campaign ID
-    :>json string data[].conversions[].name: conversion name
-    :>json string data[].conversions[].limitType: conversion limit type
-    :>json string data[].conversions[].eventType: conversion event type
-    :>json string data[].conversions[].type: conversion type
-    :>json integer data[].conversions[].value: conversion value
-    :>json boolean data[].conversions[].isValueMutable: conversion type
-    :>json integer data[].conversions[].cost: conversion cost
-    :>json integer data[].conversions[].occurrences: number of conversion occurrences
-    :>json boolean data[].conversions[].isRepeatable: can conversion be repeated
-    :>json boolean data[].conversions[].link: conversion link
+    :>json Campaign[] data: campaign list
 
-.. http:get:: /api/v2/campaigns/{id}
+.. http:get:: /api/v2/campaigns/(id)
 
     Fetch campaign by ID.
+
+    :param id: campaign ID
 
     :reqheader Content-Type: ``application/json``
 
     :statuscode 200: no error
     :statuscode 404: campaign does not exist
+
+    :>json Campaign data: campaign
 
 Parameters
 -----------------
@@ -182,7 +141,7 @@ Edit campaign
 
     Edit campaign.
 
-    :param id: capmaign ID
+    :param id: campaign ID
 
     :reqheader Content-Type: ``application/json``
 
@@ -207,7 +166,7 @@ Delete campaign
 
     Delete campaign by ID.
 
-    :param id: capmaign ID
+    :param id: campaign ID
 
     :statuscode 204: no error
     :statuscode 404: campaign does not exist
@@ -219,7 +178,7 @@ Add advertisement
 
     Add advertisement.
 
-    :param id: capmaign ID
+    :param id: campaign ID
 
     :reqheader Content-Type: ``application/json``
 
@@ -241,6 +200,56 @@ Add advertisement
 
 Data structures
 --------------------
+
+Campaign object
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- **id** (`integer`) – campaign ID
+- **uuid** (`string`) – campaign UUID
+- **createdAt** (`string`) – date of creation
+- **updatedAt** (`string`) – date of last update
+- **secret** (`string`) – conversion secret
+- **conversionClick** (`integer`) – type of click conversion
+- **conversionClickLink** (`string`) – click conversion callback URL, may be `null` if click conversion is not set
+- **classifications[].classifier** (`string`) – classifier
+- **classifications[].status** (`string`) – classification status
+- **classifications[].keywords** (`string`) – classification result, conforms taxonomy
+- **status** (`string`) – status
+- **name** (`string`) – name
+- **targetUrl** (`string`) – landing URL
+- **maxCpc** (`integer, null`) – maximal CPC
+- **maxCpm** (`integer, null`) – maximal CPM
+- **budget** (`integer`) – budget
+- **medium** (`string`) – medium
+- **vendor** (`string, null`) – vendor
+- **dateStart** (`string`) – date of start in ISO 8601 format
+- **dateEnd** (`string, null`) – date of end in ISO 8601 format, if `null` campaign will last forever
+- **targeting** (`CampaignTargeting`) – required and forbidden features, conforms taxonomy
+- **ads[].id** (`integer`) – advertisement ID
+- **ads[].uuid** (`string`) – advertisement UUID
+- **ads[].createdAt** (`string`) – date of advertisement creation
+- **ads[].updatedAt** (`string`) – date of last advertisement update
+- **ads[].creativeType** (`string`) – advertisement type
+- **ads[].creativeMime** (`string`) – advertisement MIME type
+- **ads[].creativeSha1** (`string`) – SHA-1 checksum of advertisement content
+- **ads[].creativeSize** (`string`) – space occupied by advertisement
+- **ads[].name** (`string`) – advertisement name
+- **ads[].status** (`integer`) – advertisement status
+- **ads[].cdnUrl** (`string, null`) – advertisement content URL on CDN, may be `null` if was not uploaded to CDN
+- **ads[].url** (`string`) – advertisement content URL
+- **bidStrategyUuid** (`string`) – bid strategy UUID
+- **conversions[].uuid** (`string`) – conversion UUID
+- **conversions[].campaignId** (`integer`) – campaign ID
+- **conversions[].name** (`string`) – conversion name
+- **conversions[].limitType** (`string`) – conversion limit type
+- **conversions[].eventType** (`string`) – conversion event type
+- **conversions[].type** (`string`) – conversion type
+- **conversions[].value** (`integer`) – conversion value
+- **conversions[].isValueMutable** (`boolean`) – indicates that value can change
+- **conversions[].cost** (`integer`) – conversion cost
+- **conversions[].occurrences** (`integer`) – number of conversion occurrences
+- **conversions[].isRepeatable** (`boolean`) – indicates that conversion can be repeated
+- **conversions[].link** (`string`) – conversion link
 
 CampaignTargeting object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
