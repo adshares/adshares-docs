@@ -71,7 +71,7 @@ Find banners
     :>jsonarr string demandServer: the demand server account address
     :>jsonarr string supplyServer: the supply server account address
     :>jsonarr string type: the banner type: ``image``, ``video``, ``html``, ``model``
-    :>jsonarr string size: the banner size
+    :>jsonarr string scope: the banner scope (size)
     :>jsonarr string hash: checksum of the banner content
     :>jsonarr string serveUrl: URL to download the content of the banner
     :>jsonarr string viewUrl: view event URL
@@ -115,7 +115,7 @@ Find banners
                 "demandServer": "0001-00000001-8B4E",
                 "supplyServer": "0001-00000002-BB2D",
                 "type": "image",
-                "size": "300x250",
+                "scope": "300x250",
                 "hash": "56436e1fdcb42f406760ccc9a4fe2e0519c36f46",
                 "serveUrl": "https://app.example.com/serve/xed20914d13ed416ec91eb4be7b640a49.doc?v=67f4",
                 "viewUrl": "https://app.example.com/l/n/view/32a79fb61103aa3ef230d524cbd93e4f?r=aHR0cHM6Ly9hcHAuZXhhbXBsZS5jb20vdmlldy9lZDIwOTE0ZDEzZWQ0MTZlYzkxZWI0YmU3YjY0MGE0OQ",
@@ -148,8 +148,8 @@ Dynamic find banners
     :<json string zones[].height: height of the placement
     :<json string, optional zones[].depth: depth of the placement
     :<json string, optional zones[].minDpi: the minimum DPI
-    :<json string, optional zones[].type: list of accepted types
-    :<json string, optional zones[].mimeType: list of accepted MIME types
+    :<json string, optional zones[].types: list of accepted types
+    :<json string, optional zones[].mimeTypes: list of accepted MIME types
 
     :>jsonarr string id: the banner ID
     :>jsonarr string zoneId: the zone ID
@@ -157,7 +157,7 @@ Dynamic find banners
     :>jsonarr string demandServer: the demand server account address
     :>jsonarr string supplyServer: the supply server account address
     :>jsonarr string type: the banner type: ``image``, ``video``, ``html``, ``model``
-    :>jsonarr string size: the banner size
+    :>jsonarr string scope: the banner scope (size)
     :>jsonarr string hash: checksum of the banner content
     :>jsonarr string serveUrl: URL to download the content of the banner
     :>jsonarr string viewUrl: view event URL
@@ -217,7 +217,7 @@ Dynamic find banners
                 "demandServer": "0001-00000001-8B4E",
                 "supplyServer": "0001-00000002-BB2D",
                 "type": "image",
-                "size": "300x250",
+                "scope": "300x250",
                 "hash": "56436e1fdcb42f406760ccc9a4fe2e0519c36f46",
                 "serveUrl": "https://app.example.com/serve/xed20914d13ed416ec91eb4be7b640a49.doc?v=67f4",
                 "viewUrl": "https://app.example.com/l/n/view/32a79fb61103aa3ef230d524cbd93e4f?r=aHR0cHM6Ly9hcHAuZXhhbXBsZS5jb20vdmlldy9lZDIwOTE0ZDEzZWQ0MTZlYzkxZWI0YmU3YjY0MGE0OQ",
