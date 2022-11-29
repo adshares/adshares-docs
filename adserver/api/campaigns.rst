@@ -32,12 +32,12 @@ Fetch campaign
 
     :>json Campaign data: campaign
 
-Upload advertisement
+Upload banner
 --------------------------
 
 .. http:post:: /api/v2/campaigns/banner
 
-    Upload advertisement.
+    Upload banner.
 
     :reqheader Content-Type: ``multipart/form-data``
 
@@ -50,7 +50,7 @@ Upload advertisement
 
     :>json string name: temporary name
     :>json string url: temporary URL
-    :>json string size: (optional) space occupied by advertisement, size is not present in case of resizable advertisements, e.g. HTML
+    :>json string size: (optional) space occupied by banner, size is not present in case of resizable banners, e.g. HTML
 
 Add campaign
 --------------------
@@ -75,7 +75,7 @@ Add campaign
     :<json string dateStart: date of start in ISO 8601 format
     :<json string, null dateEnd: date of end in ISO 8601 format, if `null` campaign will last forever
     :<json CampaignTargeting campaign.targeting: targeting (required and forbidden features)
-    :<json Advertisement[] campaign.ads: advertisements
+    :<json Advertisement[] campaign.ads: banners
 
     :>json Campaign data: campaign
 
@@ -116,12 +116,44 @@ Delete campaign
     :statuscode 204: no error
     :statuscode 404: campaign does not exist
 
-Add advertisement
+Fetch banner list
+--------------------------
+
+.. http:get:: /api/v2/campaigns/(campaignId)/banners
+
+    Fetch banners.
+
+    :param campaignId: campaign ID
+
+    :reqheader Content-Type: ``application/json``
+
+    :statuscode 200: no error
+
+    :>json Advertisement[] data: banner list
+
+Fetch banner
+--------------------------
+
+.. http:get:: /api/v2/campaigns/(campaignId)/banners/(bannerId)
+
+    Fetch banner by ID.
+
+    :param campaignId: campaign ID
+    :param bannerId: banner ID
+
+    :reqheader Content-Type: ``application/json``
+
+    :statuscode 200: no error
+    :statuscode 404: banner does not exist
+
+    :>json Advertisement data: banner
+
+Add banner
 --------------------
 
 .. http:post:: /api/v2/campaigns/(id)/banners
 
-    Add advertisement.
+    Add banner.
 
     :param id: campaign ID
 
@@ -130,18 +162,39 @@ Add advertisement
     :statuscode 200: no error
     :statuscode 422: validation error
 
-    :<json integer status: status
-    :<json string name: name
-    :<json string targetUrl: landing URL
-    :<json integer, null maxCpc: maximal CPC
-    :<json integer, null maxCpm: maximal CPM
-    :<json integer budget: budget
-    :<json string medium: medium
-    :<json string, null vendor: vendor
-    :<json string dateStart: date of start in ISO 8601 format
-    :<json string, null dateEnd: date of end in ISO 8601 format, if `null` campaign will last forever
-    :<json CampaignTargeting campaign.targeting: targeting (required and forbidden features)
-    :<json Advertisement[] campaign.ads: advertisements
+    :request json object: banner data :ref:`(Advertisement)<advertisement-object>`
+
+Edit banner
+--------------------
+
+.. http:post:: /api/v2/campaigns/(campaignId)/banners/(bannerId)
+
+    Edit banner.
+
+    :param campaignId: campaign ID
+    :param bannerId: banner ID
+
+    :reqheader Content-Type: ``application/json``
+
+    :statuscode 200: no error
+    :statuscode 404: banner not found
+    :statuscode 422: validation error
+
+    :<json string name: (optional) name
+    :<json integer status: (optional) status
+
+Delete banner
+--------------------
+
+.. http:delete:: /api/v2/campaigns/(campaignId)/banners/(bannerId)
+
+    Delete banner.
+
+    :param campaignId: campaign ID
+    :param bannerId: banner ID
+
+    :statuscode 200: no error
+    :statuscode 404: banner not found
 
 Taxonomy
 -----------------
@@ -217,18 +270,18 @@ Campaign object
 - **dateStart** (`string`) – date of start in ISO 8601 format
 - **dateEnd** (`string, null`) – date of end in ISO 8601 format, if `null` campaign will last forever
 - **targeting** (`CampaignTargeting`) – required and forbidden features, conforms taxonomy
-- **ads[].id** (`integer`) – advertisement ID
-- **ads[].uuid** (`string`) – advertisement UUID
-- **ads[].createdAt** (`string`) – date of advertisement creation
-- **ads[].updatedAt** (`string`) – date of last advertisement update
-- **ads[].creativeType** (`string`) – advertisement type
-- **ads[].creativeMime** (`string`) – advertisement MIME type
-- **ads[].creativeSha1** (`string`) – SHA-1 checksum of advertisement content
-- **ads[].creativeSize** (`string`) – space occupied by advertisement
-- **ads[].name** (`string`) – advertisement name
-- **ads[].status** (`integer`) – advertisement status
-- **ads[].cdnUrl** (`string, null`) – advertisement content URL on CDN, may be `null` if was not uploaded to CDN
-- **ads[].url** (`string`) – advertisement content URL
+- **ads[].id** (`integer`) – banner ID
+- **ads[].uuid** (`string`) – banner UUID
+- **ads[].createdAt** (`string`) – date of banner creation
+- **ads[].updatedAt** (`string`) – date of last banner update
+- **ads[].creativeType** (`string`) – banner type
+- **ads[].creativeMime** (`string`) – banner MIME type
+- **ads[].creativeSha1** (`string`) – SHA-1 checksum of banner content
+- **ads[].creativeSize** (`string`) – space occupied by banner
+- **ads[].name** (`string`) – banner name
+- **ads[].status** (`integer`) – banner status
+- **ads[].cdnUrl** (`string, null`) – banner content URL on CDN, may be `null` if was not uploaded to CDN
+- **ads[].url** (`string`) – banner content URL
 - **bidStrategyUuid** (`string`) – bid strategy UUID
 - **conversions[].uuid** (`string`) – conversion UUID
 - **conversions[].campaignId** (`integer`) – campaign ID
@@ -339,6 +392,7 @@ Custom input targeting object
         "label": "Domains"
     }
 
+.. _advertisement-object:
 
 Advertisement object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -346,5 +400,5 @@ Advertisement object
 - **name** (`string`) – name
 - **creativeSize** (`string`) – occupied space. It should be the same as size returned during upload if was present
 - **creativeType** (`string`) – type
-- **url** (`string`) – (optional) temporary URL returned in response to upload advertisement request. It is required for advertisement which needs to be uploaded, e.g. image
-- **creativeContents** (`string`) – (optional) content. It is suggested for advertisement which does not use upload, e.g. direct links. By default content is campaign landing URL
+- **url** (`string`) – (optional) temporary URL returned in response to upload banner request. It is required for banner which needs to be uploaded, e.g. image
+- **creativeContents** (`string`) – (optional) content. It is suggested for banner which does not use upload, e.g. direct links. By default content is campaign landing URL
