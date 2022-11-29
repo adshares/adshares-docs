@@ -18,20 +18,20 @@ Campaigns list
     :>json string data[].updatedAt: date of last update
     :>json string data[].secret: conversion secret
     :>json integer data[].conversionClick: type of click conversion
-    :>json string data[].conversionClickLink: click conversion callback URL
+    :>json string, null data[].conversionClickLink: click conversion callback URL, may be `null` if click conversion is not set
     :>json string data[].classifications[].classifier: classifier
     :>json string data[].classifications[].status: status
     :>json object data[].classifications[].keywords: classification result, conforms taxonomy
-    :>json integer data[]status: status
-    :>json string data[]name: name
-    :>json string data[]targetUrl: landing URL
-    :>json integer, null data[]maxCpc: maximal CPC
-    :>json integer, null data[]maxCpm: maximal CPM
-    :>json integer data[]budget: budget
-    :>json string data[]medium: medium
-    :>json string, null data[]vendor: vendor
-    :>json string data[]dateStart: date of start in ISO 8601 format
-    :>json string, null data[]dateEnd: date of end in ISO 8601 format, if `null` campaign will last forever
+    :>json integer data[].status: status
+    :>json string data[].name: name
+    :>json string data[].targetUrl: landing URL
+    :>json integer, null data[].maxCpc: maximal CPC
+    :>json integer, null data[].maxCpm: maximal CPM
+    :>json integer data[].budget: budget
+    :>json string data[].medium: medium
+    :>json string, null data[].vendor: vendor
+    :>json string data[].dateStart: date of start in ISO 8601 format
+    :>json string, null data[].dateEnd: date of end in ISO 8601 format, if `null` campaign will last forever
     :>json CampaignTargeting data[].targeting: required and forbidden features, conforms taxonomy
     :>json integer data[].ads[].id: banner ID
     :>json string data[].ads[].uuid: banner UUID
@@ -66,13 +66,6 @@ Campaigns list
     :reqheader Content-Type: ``application/json``
 
     :statuscode 200: no error
-    :statuscode 404: campaign does not exist
-
-.. http:delete:: /api/v2/campaigns/{id}
-
-    Delete campaign by ID.
-
-    :statuscode 204: no error
     :statuscode 404: campaign does not exist
 
 Parameters
@@ -180,6 +173,8 @@ Add campaign
     :<json CampaignTargeting campaign.targeting: targeting (required and forbidden features)
     :<json Advertisement[] campaign.ads: advertisements
 
+    :>json Campaign data: campaign
+
 Edit campaign
 --------------------
 
@@ -204,6 +199,45 @@ Edit campaign
     :<json string, null dateEnd: (optional) date of end in ISO 8601 format, if `null` campaign will last forever
     :<json CampaignTargeting campaign.targeting: (optional) targeting (required and forbidden features)
     :<json string bidStrategyUuid: (optional) bid strategy UUID
+
+Delete campaign
+--------------------
+
+.. http:delete:: /api/v2/campaigns/(id)
+
+    Delete campaign by ID.
+
+    :param id: capmaign ID
+
+    :statuscode 204: no error
+    :statuscode 404: campaign does not exist
+
+Add advertisement
+--------------------
+
+.. http:post:: /api/v2/campaigns/(id)/banners
+
+    Add advertisement.
+
+    :param id: capmaign ID
+
+    :reqheader Content-Type: ``application/json``
+
+    :statuscode 200: no error
+    :statuscode 422: validation error
+
+    :<json integer status: status
+    :<json string name: name
+    :<json string targetUrl: landing URL
+    :<json integer, null maxCpc: maximal CPC
+    :<json integer, null maxCpm: maximal CPM
+    :<json integer budget: budget
+    :<json string medium: medium
+    :<json string, null vendor: vendor
+    :<json string dateStart: date of start in ISO 8601 format
+    :<json string, null dateEnd: date of end in ISO 8601 format, if `null` campaign will last forever
+    :<json CampaignTargeting campaign.targeting: targeting (required and forbidden features)
+    :<json Advertisement[] campaign.ads: advertisements
 
 Data structures
 --------------------
