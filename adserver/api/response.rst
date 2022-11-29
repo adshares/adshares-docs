@@ -11,6 +11,8 @@ Below are enlisted all fields related to pagination.
 
     Return paginated resources.
 
+    :query limit: (optional) maximal number of entries per page
+
     :>json integer currentPage: number of current page
     :>json array data: array of resources
     :>json string firstPageUrl: URL of first page
