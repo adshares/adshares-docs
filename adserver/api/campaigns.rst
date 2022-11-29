@@ -30,20 +30,7 @@ Campaigns list
 Parameters
 -----------------
 
-.. http:get:: /api/v2/options/campaigns
-
-    Fetch campaign limits.
-
-    :reqheader Content-Type: ``application/json``
-
-    :statuscode 200: no error
-
-    :>json integer minBudget: minimal hourly budget in clicks
-    :>json integer minCpm: minimal CPM in clicks
-    :>json integer minCpa: minimal CPA in clicks
-
-
-.. http:get:: /api/v2/options/campaigns/media
+.. http:get:: /api/v2/taxonomy/media
 
     Fetch supported media.
 
@@ -53,7 +40,7 @@ Parameters
 
     :response json object: Map of supported media. Key is medium ID. Value is medium name
 
-.. http:get:: /api/v2/options/campaigns/media/(medium)/vendors
+.. http:get:: /api/v2/taxonomy/media/(medium)/vendors
 
     Fetch supported vendors by medium.
 
@@ -65,7 +52,7 @@ Parameters
 
     :response json object: Map of supported vendors. Key is vendor ID. Value is vendor name
 
-.. http:get:: /api/v2/options/campaigns/media/(medium)
+.. http:get:: /api/v2/taxonomy/media/(medium)
 
     Fetch taxonomy for medium.
 
