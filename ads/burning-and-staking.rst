@@ -1,7 +1,7 @@
 
 Fees, burning and ADS staking
 ======================================
-Adshares fees are related to three burning mechanisms embedded in the system. Burning temporarily reduces the free floating supply. Liquid staking rewards bring back the burned ADS flowing them from active users to long term holders every 2048 blocks.
+Adshares fees are related to three burning mechanisms embedded in the system. Burning temporarily reduces the free floating supply. Liquid staking rewards bring back the burned ADS to long term holders every 2048 blocks.
 
 Adshares Blockchain fees
 --------------------------------------
