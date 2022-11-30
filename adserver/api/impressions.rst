@@ -63,9 +63,11 @@ Find banners
     :<json string page.url: the page URL
     :<json boolean, optional page.metamask: is the MetaMask enabled
     :<json array zones: list of zones info
-    :<json string zones[].id: the zone ID
+    :<json string zones[].zoneId: the zone ID
+    :<json string, optional zones[].types: list of accepted types
+    :<json string, optional zones[].mimeTypes: list of accepted MIME types
 
-    :>jsonarr string id: the banner ID
+    :>jsonarr string placementId: the banner ID
     :>jsonarr string zoneId: the zone ID
     :>jsonarr string publisherId: the publisher ID
     :>jsonarr string demandServer: the demand server account address
@@ -95,7 +97,7 @@ Find banners
             },
             "zones": [
                 {
-                    "id": "2c81e9ed531b70c8ced43b19245aa3c3"
+                    "zoneId": "2c81e9ed531b70c8ced43b19245aa3c3"
                 }
             ]
         }
@@ -109,7 +111,7 @@ Find banners
 
         [
             {
-                "id": "32a79fb61103aa3ef230d524cbd93e4f",
+                "placementId": "32a79fb61103aa3ef230d524cbd93e4f",
                 "zoneId": "2c81e9ed531b70c8ced43b19245aa3c3",
                 "publisherId": "d64bf2a15c5de2e33b20c4b6100c2d5d",
                 "demandServer": "0001-00000001-8B4E",
@@ -139,11 +141,13 @@ Dynamic find banners
     :<json object page: the page info
     :<json string page.iid: the impression ID
     :<json string page.url: the page URL
+    :<json string page.publisher: the publisher ID or account address (ADS or BSC)
+    :<json string page.medium: the medium name
+    :<json string, optional page.vendor: the vendor name
     :<json boolean, optional page.metamask: is the MetaMask enabled
     :<json array zones: list of zones info
-    :<json string zones[].publisher: the publisher ID or account address (ADS or BSC)
-    :<json string, optional zones[].medium: the medium name
-    :<json string, optional zones[].vendor: the vendor name
+    :<json string zones[].id: the request ID
+    :<json string, optional zones[].name: name of the placement
     :<json string zones[].width: width of the placement
     :<json string zones[].height: height of the placement
     :<json string, optional zones[].depth: depth of the placement
@@ -151,7 +155,8 @@ Dynamic find banners
     :<json string, optional zones[].types: list of accepted types
     :<json string, optional zones[].mimeTypes: list of accepted MIME types
 
-    :>jsonarr string id: the banner ID
+    :>jsonarr string id: the request ID
+    :>jsonarr string placementId: the banner ID
     :>jsonarr string zoneId: the zone ID
     :>jsonarr string publisherId: the publisher ID
     :>jsonarr string demandServer: the demand server account address
@@ -178,22 +183,23 @@ Dynamic find banners
             "page": {
                 "iid": "8ac04a70-886c-4d25-a8f8-10f1c5ed22f7",
                 "url": "https://mysite.com",
+                "publisher": "ads:0001-00000000-9B6F"
+                "medium": "metaverse",
+                "vendor": "my-metaverse",
                 "metamask": true
             },
             "zones": [
                 {
-                    "publisher": "ads:0001-00000000-9B6F"
-                    "medium": "metaverse",
-                    "vendor": "my-metaverse",
+                    "id": "1234",
                     "name": "Main gallery",
                     "width": 2.5,
                     "height": 4.75,
                     "minDpi": 10,
-                    "type": [
+                    "types": [
                         "image",
                         "video"
                     ],
-                    "mimeType": [
+                    "mimeTypes": [
                         "image/jpeg",
                         "image/png",
                         "video/mp4"
@@ -211,7 +217,8 @@ Dynamic find banners
 
         [
             {
-                "id": "32a79fb61103aa3ef230d524cbd93e4f",
+                "id": "1234",
+                "placementId": "32a79fb61103aa3ef230d524cbd93e4f",
                 "zoneId": "2c81e9ed531b70c8ced43b19245aa3c3",
                 "publisherId": "d64bf2a15c5de2e33b20c4b6100c2d5d",
                 "demandServer": "0001-00000001-8B4E",
