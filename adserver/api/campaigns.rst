@@ -48,9 +48,9 @@ Upload banner
     :statuscode 200: no error
     :statuscode 422: validation error
 
-    :>json string name: temporary name
-    :>json string url: temporary URL
-    :>json string size: (optional) space occupied by banner, size is not present in case of resizable banners, e.g. HTML
+    :>json string data.name: temporary name
+    :>json string data.url: temporary URL
+    :>json string data.size: (optional) space occupied by banner, size is not present in case of resizable banners, e.g. HTML
 
 Add campaign
 --------------------
