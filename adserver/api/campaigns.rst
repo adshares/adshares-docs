@@ -67,13 +67,13 @@ Add campaign
     :<json string status: :ref:`status<campaign-status>`
     :<json string name: name
     :<json string targetUrl: landing URL
-    :<json integer, null maxCpc: maximal CPC
-    :<json integer, null maxCpm: maximal CPM
-    :<json integer budget: budget
+    :<json integer, null maxCpc: maximal CPC in clicks
+    :<json integer, null maxCpm: maximal CPM in clicks, ``null`` for automatic
+    :<json integer budget: budget in clicks
     :<json string medium: medium
     :<json string, null vendor: vendor
     :<json string dateStart: date of start in ISO 8601 format
-    :<json string, null dateEnd: date of end in ISO 8601 format, if `null` campaign will last forever
+    :<json string, null dateEnd: date of end in ISO 8601 format, `null` for interminable campaign
     :<json CampaignTargeting campaign.targeting: targeting (required and forbidden features)
     :<json Advertisement[] campaign.ads: banners
 
@@ -96,11 +96,11 @@ Edit campaign
     :<json string status: (optional) :ref:`status<campaign-status>`
     :<json string name: (optional) name
     :<json string targetUrl: (optional) landing URL
-    :<json integer, null maxCpc: (optional) maximal CPC
-    :<json integer, null maxCpm: (optional) maximal CPM
-    :<json integer budget: (optional) budget
+    :<json integer, null maxCpc: (optional) maximal CPC in clicks
+    :<json integer, null maxCpm: (optional) maximal CPM in clicks, ``null`` for automatic
+    :<json integer budget: (optional) budget in clicks
     :<json string dateStart: (optional) date of start in ISO 8601 format
-    :<json string, null dateEnd: (optional) date of end in ISO 8601 format, if `null` campaign will last forever
+    :<json string, null dateEnd: (optional) date of end in ISO 8601 format, `null` for interminable campaign
     :<json CampaignTargeting campaign.targeting: (optional) targeting (required and forbidden features)
     :<json string bidStrategyUuid: (optional) bid strategy UUID
 
@@ -277,13 +277,13 @@ Campaign object
 - **status** (`string`) – :ref:`status<campaign-status>`
 - **name** (`string`) – name
 - **targetUrl** (`string`) – landing URL
-- **maxCpc** (`integer, null`) – maximal CPC
-- **maxCpm** (`integer, null`) – maximal CPM
-- **budget** (`integer`) – budget
+- **maxCpc** (`integer, null`) – maximal CPC in clicks
+- **maxCpm** (`integer, null`) – maximal CPM in clicks, ``null`` for automatic
+- **budget** (`integer`) – budget in clicks
 - **medium** (`string`) – medium
 - **vendor** (`string, null`) – vendor
 - **dateStart** (`string`) – date of start in ISO 8601 format
-- **dateEnd** (`string, null`) – date of end in ISO 8601 format, if `null` campaign will last forever
+- **dateEnd** (`string, null`) – date of end in ISO 8601 format, `null` for interminable campaign
 - **targeting** (`CampaignTargeting`) – required and forbidden features, conforms taxonomy
 - **ads[].id** (`integer`) – banner ID
 - **ads[].uuid** (`string`) – banner UUID
