@@ -28,7 +28,7 @@ Fetch campaign
     :reqheader Content-Type: ``application/json``
 
     :statuscode 200: no error
-    :statuscode 404: campaign does not exist
+    :statuscode 404: campaign not found
 
     :>json Campaign data: campaign
 
@@ -113,8 +113,10 @@ Delete campaign
 
     :param id: campaign ID
 
-    :statuscode 204: no error
-    :statuscode 404: campaign does not exist
+    :statuscode 200: no error
+    :statuscode 404: campaign not found
+
+    :>json data: empty array
 
 Fetch banner list
 --------------------------
@@ -144,7 +146,7 @@ Fetch banner
     :reqheader Content-Type: ``application/json``
 
     :statuscode 200: no error
-    :statuscode 404: banner does not exist
+    :statuscode 404: banner not found
 
     :>json Advertisement data: banner
 
@@ -163,6 +165,8 @@ Add banner
     :statuscode 422: validation error
 
     :request json object: banner data :ref:`(Advertisement)<advertisement-object>`
+
+    :>json Advertisement data: banner
 
 Edit banner
 --------------------
@@ -183,6 +187,8 @@ Edit banner
     :<json string name: (optional) name
     :<json integer status: (optional) :ref:`status<banner-status>`
 
+    :>json Advertisement data: banner
+
 Delete banner
 --------------------
 
@@ -196,8 +202,13 @@ Delete banner
     :statuscode 200: no error
     :statuscode 404: banner not found
 
+    :>json data: empty array
+
 Taxonomy
 -----------------
+
+Media
+^^^^^^^^^^^^^^^^^
 
 .. http:get:: /api/v2/taxonomy/media
 
@@ -208,6 +219,9 @@ Taxonomy
     :statuscode 200: no error
 
     :>json object data: map of supported media. Key is medium ID. Value is medium name
+
+Vendors
+^^^^^^^^^^^^^^^^^
 
 .. http:get:: /api/v2/taxonomy/media/(medium)/vendors
 
@@ -220,6 +234,9 @@ Taxonomy
     :statuscode 200: no error
 
     :>json object data: map of supported vendors. Key is vendor ID. Value is vendor name
+
+Taxonomy by medium
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. http:get:: /api/v2/taxonomy/media/(medium)
 
