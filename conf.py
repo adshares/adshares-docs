@@ -20,7 +20,12 @@ author = "Adshares"
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ["sphinx_design", "sphinx.ext.graphviz", "sphinxcontrib.plantuml", "sphinxcontrib.httpdomain"]
+extensions = [
+  "sphinx_design",
+  "sphinx.ext.graphviz",
+  "sphinxcontrib.plantuml",
+  "sphinxcontrib.httpdomain",
+]
 
 templates_path = ["_templates"]
 exclude_patterns = [".venv", "_build", "Thumbs.db", ".DS_Store", "README.md"]
