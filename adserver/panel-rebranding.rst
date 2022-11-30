@@ -7,40 +7,34 @@ This article describes how to change brand - dependent assets in `adpanel <https
 Requirements
 ^^^^^^^^^^^^
 
-This article assumes that the environmental variables are defined:
+This article assumes that the `adcontroller <https://github.com/adshares/adcontroller>`_ project is installed.
 
-* ``ADPANEL_PARENT_DIR`` - directory in which adpanel project is cloned
-* ``BRAND_ASSETS_DIR`` - directory in which custom assets will be stored. It should be placed outside project directory to ensure that files will not be deleted
-* ``COPY_BRAND_ASSETS`` - switch enabling assets change, should be ``Y`` for enable,
+Customize metadata and styling login page
+^^^^^^^^^^^^^^^^^^
 
-Collect assets
-^^^^^^^^^^^^^^
+* Page metadata can be changed. In the adcontroller, on page ``/panel`` enter the data to be added. After refreshing the adpanel page, personalized data will appear in the appropriate tags
 
-Brand - dependent assets are icons and logos in different sizes for different screens.
-They are stored inside adpanel ``src`` directory.
+* You can also customize the login page by adding your own HTML and CSS code in the appropriate fields,
 
-Copy project assets to own directory.
+.. image:: /_static/images/change_metadata.png
+   :target: /_static/images/change_metadata.png
+   :alt: change panel metadata
 
-.. code-block::
-
-   cp ${ADPANEL_PARENT_DIR}/adpanel/src/favicon* ${BRAND_ASSETS_DIR}
-   cp ${ADPANEL_PARENT_DIR}/adpanel/src/assets/images/logo* ${BRAND_ASSETS_DIR}
 
 Customize assets
 ^^^^^^^^^^^^^^^^
 
-Content of image files can be changed. It is important to preserve file names and images' sizes in pixels.
+Content of image files can be changed. It is important to preserve file names and images sizes in pixels.
 
-Build adpanel
-^^^^^^^^^^^^^
+* **Required assets**: in the adcontroller, on page ``/panel`` in ``Required assets`` tab, you can select a new desired file. After saving changes will be added and will be available in the adpanel after page refresh.
 
-The adpanel project must be rebuild to properly replace Adshares assets with custom.
+.. image:: /_static/images/change_required_assets_tab.png
+   :target: /_static/images/change_required_assets_tab.png
+   :alt: change required assets tab
 
-If you use interactive installer, you will be asked if you want to copy brand assets inside project directory.
-In case of automatic installer two environment variables should be set. They were mentioned in `Requirements <#requirements>`_
+* **Additional assets**: in the adcontroller, on page ``/panel`` in ``Additional assets`` tab, you can select a new files and change existing ones. After uploading files will be added. For each file will be generate path with which this file can be used. If you change existing file, path will not change. If you upload a file named as an existing file, the existing file will be overwritten.
 
+.. image:: /_static/images/change_additional_assets_tab.png
+   :target: /_static/images/change_additional_assets_tab.png
+   :alt: change additional assets tab
 
-* ``COPY_BRAND_ASSETS`` should be ``Y``
-* ``BRAND_ASSETS_DIR`` should be full path to assets directory
-
-Files from custom assets directory will overwrite the standard files.
