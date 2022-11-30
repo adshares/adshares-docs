@@ -64,7 +64,7 @@ Add campaign
     :statuscode 200: no error
     :statuscode 422: validation error
 
-    :<json integer status: status
+    :<json string status: :ref:`status<campaign-status>`
     :<json string name: name
     :<json string targetUrl: landing URL
     :<json integer, null maxCpc: maximal CPC
@@ -93,7 +93,7 @@ Edit campaign
     :statuscode 200: no error
     :statuscode 422: validation error
 
-    :<json integer status: (optional) status
+    :<json string status: (optional) :ref:`status<campaign-status>`
     :<json string name: (optional) name
     :<json string targetUrl: (optional) landing URL
     :<json integer, null maxCpc: (optional) maximal CPC
@@ -181,7 +181,7 @@ Edit banner
     :statuscode 422: validation error
 
     :<json string name: (optional) name
-    :<json integer status: (optional) status
+    :<json integer status: (optional) :ref:`status<banner-status>`
 
 Delete banner
 --------------------
@@ -237,6 +237,30 @@ Taxonomy
 Data structures
 --------------------
 
+.. _campaign-status:
+
+Campaign status
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Campaign status is a string. Campaign can be in one of following states:
+
+- draft - campaign during creation
+- inactive - campaign is not active, e.g. stopped
+- active - campaign is active
+- suspended - campaign suspended, e.g. in case of insufficient funds to run campaign
+
+.. _banner-status:
+
+Banner status
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Banner status is a string. Banner can be in one of following states:
+
+- draft - banner during creation
+- inactive - banner is not active, will not be displayed
+- active - banner is active
+- rejected - banner is permanently disabled, e.g. does not comply with terms
+
 Campaign object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -250,7 +274,7 @@ Campaign object
 - **classifications[].classifier** (`string`) – classifier
 - **classifications[].status** (`string`) – classification status
 - **classifications[].keywords** (`string`) – classification result, conforms taxonomy
-- **status** (`string`) – status
+- **status** (`string`) – :ref:`status<campaign-status>`
 - **name** (`string`) – name
 - **targetUrl** (`string`) – landing URL
 - **maxCpc** (`integer, null`) – maximal CPC
@@ -270,7 +294,7 @@ Campaign object
 - **ads[].creativeSha1** (`string`) – SHA-1 checksum of banner content
 - **ads[].creativeSize** (`string`) – space occupied by banner
 - **ads[].name** (`string`) – banner name
-- **ads[].status** (`integer`) – banner status
+- **ads[].status** (`integer`) – banner :ref:`status<banner-status>`
 - **ads[].cdnUrl** (`string, null`) – banner content URL on CDN, may be `null` if was not uploaded to CDN
 - **ads[].url** (`string`) – banner content URL
 - **bidStrategyUuid** (`string`) – bid strategy UUID
