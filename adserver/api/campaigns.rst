@@ -269,8 +269,8 @@ Campaign object
 - **createdAt** (`string`) – date of creation
 - **updatedAt** (`string`) – date of last update
 - **secret** (`string`) – conversion secret
-- **conversionClick** (`integer`) – type of click conversion
-- **conversionClickLink** (`string`) – click conversion callback URL, may be `null` if click conversion is not set
+- **conversionClick** (`string`) – type of click conversion, i.e. ``none``, ``basic``, ``advanced``
+- **conversionClickLink** (`string, null`) – click conversion callback URL, may be `null` if click conversion is not set
 - **classifications[].classifier** (`string`) – classifier
 - **classifications[].status** (`string`) – classification status
 - **classifications[].keywords** (`string`) – classification result, conforms taxonomy
