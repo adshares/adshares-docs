@@ -6,7 +6,7 @@ Fetch campaign list
 
 .. http:get:: /api/v2/campaigns
 
-    Fetch campaigns.
+    Fetch campaigns. Response uses :ref:`Pagination<response-pagination>`.
 
     :query limit: (optional) maximal number of campaigns per page
 
@@ -121,7 +121,7 @@ Fetch banner list
 
 .. http:get:: /api/v2/campaigns/(campaignId)/banners
 
-    Fetch banners.
+    Fetch banners. Response uses :ref:`Pagination<response-pagination>`.
 
     :param campaignId: campaign ID
 
@@ -207,7 +207,7 @@ Taxonomy
 
     :statuscode 200: no error
 
-    :response json object: Map of supported media. Key is medium ID. Value is medium name
+    :>json object data: map of supported media. Key is medium ID. Value is medium name
 
 .. http:get:: /api/v2/taxonomy/media/(medium)/vendors
 
@@ -219,7 +219,7 @@ Taxonomy
 
     :statuscode 200: no error
 
-    :response json object: Map of supported vendors. Key is vendor ID. Value is vendor name
+    :>json object data: map of supported vendors. Key is vendor ID. Value is vendor name
 
 .. http:get:: /api/v2/taxonomy/media/(medium)
 
@@ -232,16 +232,7 @@ Taxonomy
 
     :statuscode 200: no error
 
-    :>json string name: medium ID
-    :>json string label: medium name
-    :>json string vendor: vendor ID
-    :>json string vendorLabel: vendor name
-    :>json object formats[].type: format type
-    :>json array<string> formats[].mimes: array of MIME types
-    :>json object formats[].scopes: map of scopes. Key is scope. Value is description
-    :>json TargetingOption[] targeting.user: (optional) user targeting options
-    :>json TargetingOption[] targeting.site: (optional) site targeting options
-    :>json TargetingOption[] targeting.device: (optional) device targeting options
+    :>json Taxonomy data: taxonomy
 
 Data structures
 --------------------
@@ -391,6 +382,21 @@ Custom input targeting object
         "name": "domain",
         "label": "Domains"
     }
+
+
+Taxonomy object
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- **name** (`string`) – medium ID
+- **label** (`string`) – medium name
+- **vendor** (`string`) – vendor ID
+- **vendorLabel** (`string`) – vendor name
+- **formats[].type** (`string`) – format type
+- **formats[].mimes** (`string[]`) – MIME types
+- **formats[].scopes** (`object`) – map of scopes. Key is scope. Value is description
+- **targeting.user** (`TargetingOption[]`) – (optional) user targeting options
+- **targeting.site** (`TargetingOption[]`) – (optional) site targeting options
+- **targeting.device** (`TargetingOption[]`) – (optional) device targeting options
 
 .. _advertisement-object:
 
