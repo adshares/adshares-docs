@@ -1,8 +1,11 @@
 Campaigns
 ===========
 
-Fetch campaign list
+Campaign
 --------------------------
+
+Fetch campaign list
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. http:get:: /api/v2/campaigns
 
@@ -14,10 +17,10 @@ Fetch campaign list
 
     :statuscode 200: no error
 
-    :>json Campaign[] data: campaign list
+    :>json Campaign[] data: :ref:`campaign list<campaign-object>`
 
 Fetch campaign
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. http:get:: /api/v2/campaigns/(id)
 
@@ -30,30 +33,10 @@ Fetch campaign
     :statuscode 200: no error
     :statuscode 404: campaign not found
 
-    :>json Campaign data: campaign
-
-Upload banner
---------------------------
-
-.. http:post:: /api/v2/campaigns/banner
-
-    Upload banner.
-
-    :reqheader Content-Type: ``multipart/form-data``
-
-    :form binary file: file
-    :form string medium: medium ID
-    :form string vendor: (optional) vendor ID
-
-    :statuscode 200: no error
-    :statuscode 422: validation error
-
-    :>json string data.name: temporary name
-    :>json string data.url: temporary URL
-    :>json string data.size: (optional) space occupied by banner, size is not present in case of resizable banners, e.g. HTML
+    :>json Campaign data: :ref:`campaign<campaign-object>`
 
 Add campaign
---------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. http:post:: /api/v2/campaigns
 
@@ -74,13 +57,13 @@ Add campaign
     :<json string, null vendor: vendor
     :<json string dateStart: date of start in ISO 8601 format
     :<json string, null dateEnd: date of end in ISO 8601 format, `null` for interminable campaign
-    :<json CampaignTargeting campaign.targeting: targeting (required and forbidden features)
-    :<json Advertisement[] campaign.ads: banners
+    :<json CampaignTargeting campaign.targeting: :ref:`targeting<campaign-targeting-object>` (required and forbidden features)
+    :<json AdvertisementInput[] campaign.ads: :ref:`banners<advertisement-input-object>`
 
-    :>json Campaign data: campaign
+    :>json Campaign data: :ref:`campaign<campaign-object>`
 
 Edit campaign
---------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. http:post:: /api/v2/campaigns/(id)
 
@@ -101,11 +84,11 @@ Edit campaign
     :<json integer budget: (optional) budget in clicks
     :<json string dateStart: (optional) date of start in ISO 8601 format
     :<json string, null dateEnd: (optional) date of end in ISO 8601 format, `null` for interminable campaign
-    :<json CampaignTargeting campaign.targeting: (optional) targeting (required and forbidden features)
+    :<json CampaignTargeting campaign.targeting: (optional) :ref:`targeting<campaign-targeting-object>` (required and forbidden features)
     :<json string bidStrategyUuid: (optional) bid strategy UUID
 
 Delete campaign
---------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. http:delete:: /api/v2/campaigns/(id)
 
@@ -118,8 +101,33 @@ Delete campaign
 
     :>json data: empty array
 
-Fetch banner list
+Banner
 --------------------------
+
+.. _upload-banner:
+
+Upload banner
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. http:post:: /api/v2/campaigns/banner
+
+    Upload banner.
+
+    :reqheader Content-Type: ``multipart/form-data``
+
+    :form binary file: file
+    :form string medium: medium ID
+    :form string vendor: (optional) vendor ID
+
+    :statuscode 200: no error
+    :statuscode 422: validation error
+
+    :>json string data.name: temporary name
+    :>json string data.url: temporary URL
+    :>json string data.size: (optional) space occupied by banner, size is not present in case of resizable banners, e.g. HTML
+
+Fetch banner list
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. http:get:: /api/v2/campaigns/(campaignId)/banners
 
@@ -131,10 +139,10 @@ Fetch banner list
 
     :statuscode 200: no error
 
-    :>json Advertisement[] data: banner list
+    :>json Banner[] data: :ref:`banner list<banner-object>`
 
 Fetch banner
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. http:get:: /api/v2/campaigns/(campaignId)/banners/(bannerId)
 
@@ -148,10 +156,10 @@ Fetch banner
     :statuscode 200: no error
     :statuscode 404: banner not found
 
-    :>json Advertisement data: banner
+    :>json Banner data: :ref:`banner<banner-object>`
 
 Add banner
---------------------
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. http:post:: /api/v2/campaigns/(id)/banners
 
@@ -164,12 +172,12 @@ Add banner
     :statuscode 200: no error
     :statuscode 422: validation error
 
-    :request json object: banner data :ref:`(Advertisement)<advertisement-object>`
+    :request json object: banner data (:ref:`AdvertisementInput<advertisement-input-object>`)
 
-    :>json Advertisement data: banner
+    :>json Banner data: :ref:`banner<banner-object>`
 
 Edit banner
---------------------
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. http:post:: /api/v2/campaigns/(campaignId)/banners/(bannerId)
 
@@ -187,10 +195,10 @@ Edit banner
     :<json string name: (optional) name
     :<json integer status: (optional) :ref:`status<banner-status>`
 
-    :>json Advertisement data: banner
+    :>json Banner data: :ref:`banner<banner-object>`
 
 Delete banner
---------------------
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. http:delete:: /api/v2/campaigns/(campaignId)/banners/(bannerId)
 
@@ -249,7 +257,7 @@ Taxonomy by medium
 
     :statuscode 200: no error
 
-    :>json Taxonomy data: taxonomy
+    :>json Taxonomy data: :ref:`taxonomy<taxonomy-object>`
 
 Data structures
 --------------------
@@ -278,6 +286,8 @@ Banner status is a string. Banner can be in one of following states:
 - active - banner is active
 - rejected - banner is permanently disabled, e.g. does not comply with terms
 
+.. _campaign-object:
+
 Campaign object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -301,22 +311,10 @@ Campaign object
 - **vendor** (`string, null`) – vendor
 - **dateStart** (`string`) – date of start in ISO 8601 format
 - **dateEnd** (`string, null`) – date of end in ISO 8601 format, `null` for interminable campaign
-- **targeting** (`CampaignTargeting`) – required and forbidden features, conforms taxonomy
-- **ads[].id** (`integer`) – banner ID
-- **ads[].uuid** (`string`) – banner UUID
-- **ads[].createdAt** (`string`) – date of banner creation
-- **ads[].updatedAt** (`string`) – date of last banner update
-- **ads[].creativeType** (`string`) – banner type
-- **ads[].creativeMime** (`string`) – banner MIME type
-- **ads[].creativeSha1** (`string`) – SHA-1 checksum of banner content
-- **ads[].creativeSize** (`string`) – space occupied by banner
-- **ads[].name** (`string`) – banner name
-- **ads[].status** (`integer`) – banner :ref:`status<banner-status>`
-- **ads[].cdnUrl** (`string, null`) – banner content URL on CDN, may be `null` if was not uploaded to CDN
-- **ads[].url** (`string`) – banner content URL
+- **targeting** (:ref:`CampaignTargeting<campaign-targeting-object>`) – required and forbidden features, conforms taxonomy
+- **ads** (:ref:`Banner[]<banner-object>`) – banner
 - **bidStrategyUuid** (`string`) – bid strategy UUID
 - **conversions[].uuid** (`string`) – conversion UUID
-- **conversions[].campaignId** (`integer`) – campaign ID
 - **conversions[].name** (`string`) – conversion name
 - **conversions[].limitType** (`string`) – conversion limit type
 - **conversions[].eventType** (`string`) – conversion event type
@@ -328,18 +326,24 @@ Campaign object
 - **conversions[].isRepeatable** (`boolean`) – indicates that conversion can be repeated
 - **conversions[].link** (`string`) – conversion link
 
+.. _campaign-targeting-object:
+
 CampaignTargeting object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **requires** (`Targeting`) – required features
-- **excludes** (`Targeting`) – forbidden features
+- **requires** (:ref:`Targeting<targeting-object>`) – required features
+- **excludes** (:ref:`Targeting<targeting-object>`) – forbidden features
+
+.. _targeting-object:
 
 Targeting object
 ^^^^^^^^^^^^^^^^^
 
-- **user** (`TargetingFeatures`) – (optional) user features
-- **site** (`TargetingFeatures`) – (optional) site features
-- **device** (`TargetingFeatures`) – (optional) device features
+- **user** (:ref:`TargetingFeatures<targeting-features-object>`) – (optional) user features
+- **site** (:ref:`TargetingFeatures<targeting-features-object>`) – (optional) site features
+- **device** (:ref:`TargetingFeatures<targeting-features-object>`) – (optional) device features
+
+.. _targeting-features-object:
 
 TargetingFeatures object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -424,6 +428,25 @@ Custom input targeting object
         "label": "Domains"
     }
 
+.. _banner-object:
+
+Banner object
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- **id** (`integer`) – banner ID
+- **uuid** (`string`) – banner UUID
+- **createdAt** (`string`) – date of banner creation
+- **updatedAt** (`string`) – date of last banner update
+- **creativeType** (`string`) – banner type
+- **creativeMime** (`string`) – banner MIME type
+- **creativeSha1** (`string`) – SHA-1 checksum of banner content
+- **creativeSize** (`string`) – space occupied by banner
+- **name** (`string`) – banner name
+- **status** (`integer`) – banner :ref:`status<banner-status>`
+- **cdnUrl** (`string, null`) – banner content URL on CDN, may be `null` if was not uploaded to CDN
+- **url** (`string`) – banner content URL
+
+.. _taxonomy-object:
 
 Taxonomy object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -439,13 +462,13 @@ Taxonomy object
 - **targeting.site** (`TargetingOption[]`) – (optional) site targeting options
 - **targeting.device** (`TargetingOption[]`) – (optional) device targeting options
 
-.. _advertisement-object:
+.. _advertisement-input-object:
 
-Advertisement object
+AdvertisementInput object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - **name** (`string`) – name
 - **creativeSize** (`string`) – occupied space. It should be the same as size returned during upload if was present
 - **creativeType** (`string`) – type
-- **url** (`string`) – (optional) temporary URL returned in response to upload banner request. It is required for banner which needs to be uploaded, e.g. image
+- **url** (`string`) – (optional) temporary URL returned in response to :ref:`upload banner request<upload-banner>`. It is required for banner which needs to be uploaded, e.g. image
 - **creativeContents** (`string`) – (optional) content. It is suggested for banner which does not use upload, e.g. direct links. By default content is campaign landing URL
