@@ -58,7 +58,7 @@ Add campaign
     :<json string dateStart: date of start in ISO 8601 format
     :<json string, null dateEnd: date of end in ISO 8601 format, `null` for interminable campaign
     :<json CampaignTargeting campaign.targeting: :ref:`targeting<campaign-targeting-object>` (required and forbidden features)
-    :<json AdvertisementInput[] campaign.ads: :ref:`banners<advertisement-input-object>`
+    :<json CreativeInput[] campaign.creatives: :ref:`creatives<creative-input-object>`
 
     :>json Campaign data: :ref:`campaign<campaign-object>`
 
@@ -101,17 +101,17 @@ Delete campaign
 
     :>json data: empty array
 
-Banner
+Creative
 --------------------------
 
-.. _upload-banner:
+.. _upload-creative:
 
-Upload banner
+Upload creative
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. http:post:: /api/v2/campaigns/banner
+.. http:post:: /api/v2/campaigns/creative
 
-    Upload banner.
+    Upload creative.
 
     :reqheader Content-Type: ``multipart/form-data``
 
@@ -124,14 +124,14 @@ Upload banner
 
     :>json string data.name: temporary name
     :>json string data.url: temporary URL
-    :>json string data.size: (optional) space occupied by banner, size is not present in case of resizable banners, e.g. HTML
+    :>json string data.size: (optional) space occupied by creative, size is not present in case of resizable creatives, e.g. HTML
 
-Fetch banner list
+Fetch creative list
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-.. http:get:: /api/v2/campaigns/(campaignId)/banners
+.. http:get:: /api/v2/campaigns/(campaignId)/creatives
 
-    Fetch banners. Response uses :ref:`Pagination<response-pagination>`.
+    Fetch creatives. Response uses :ref:`Pagination<response-pagination>`.
 
     :param campaignId: campaign ID
 
@@ -139,31 +139,31 @@ Fetch banner list
 
     :statuscode 200: no error
 
-    :>json Banner[] data: :ref:`banner list<banner-object>`
+    :>json Creative[] data: :ref:`creative list<creative-object>`
 
-Fetch banner
+Fetch creative
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-.. http:get:: /api/v2/campaigns/(campaignId)/banners/(bannerId)
+.. http:get:: /api/v2/campaigns/(campaignId)/creatives/(creativeId)
 
-    Fetch banner by ID.
+    Fetch creative by ID.
 
     :param campaignId: campaign ID
-    :param bannerId: banner ID
+    :param creativeId: creative ID
 
     :reqheader Content-Type: ``application/json``
 
     :statuscode 200: no error
-    :statuscode 404: banner not found
+    :statuscode 404: creative not found
 
-    :>json Banner data: :ref:`banner<banner-object>`
+    :>json Creative data: :ref:`creative<creative-object>`
 
-Add banner
+Add creative
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-.. http:post:: /api/v2/campaigns/(id)/banners
+.. http:post:: /api/v2/campaigns/(id)/creatives
 
-    Add banner.
+    Add creative.
 
     :param id: campaign ID
 
@@ -172,43 +172,43 @@ Add banner
     :statuscode 200: no error
     :statuscode 422: validation error
 
-    :request json object: banner data (:ref:`AdvertisementInput<advertisement-input-object>`)
+    :request json object: creative data (:ref:`CreativeInput<creative-input-object>`)
 
-    :>json Banner data: :ref:`banner<banner-object>`
+    :>json Creative data: :ref:`creative<creative-object>`
 
-Edit banner
+Edit creative
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-.. http:post:: /api/v2/campaigns/(campaignId)/banners/(bannerId)
+.. http:post:: /api/v2/campaigns/(campaignId)/creatives/(creativeId)
 
-    Edit banner.
+    Edit creative.
 
     :param campaignId: campaign ID
-    :param bannerId: banner ID
+    :param creativeId: creative ID
 
     :reqheader Content-Type: ``application/json``
 
     :statuscode 200: no error
-    :statuscode 404: banner not found
+    :statuscode 404: creative not found
     :statuscode 422: validation error
 
     :<json string name: (optional) name
-    :<json integer status: (optional) :ref:`status<banner-status>`
+    :<json integer status: (optional) :ref:`status<creative-status>`
 
-    :>json Banner data: :ref:`banner<banner-object>`
+    :>json Creative data: :ref:`creative<creative-object>`
 
-Delete banner
+Delete creative
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-.. http:delete:: /api/v2/campaigns/(campaignId)/banners/(bannerId)
+.. http:delete:: /api/v2/campaigns/(campaignId)/creatives/(creativeId)
 
-    Delete banner.
+    Delete creative.
 
     :param campaignId: campaign ID
-    :param bannerId: banner ID
+    :param creativeId: creative ID
 
     :statuscode 200: no error
-    :statuscode 404: banner not found
+    :statuscode 404: creative not found
 
     :>json data: empty array
 
@@ -227,17 +227,17 @@ Campaign status is a string. Campaign can be in one of following states:
 - active - campaign is active
 - suspended - campaign suspended, e.g. in case of insufficient funds to run campaign
 
-.. _banner-status:
+.. _creative-status:
 
-Banner status
+Creative status
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Banner status is a string. Banner can be in one of following states:
+Creative status is a string. Creative can be in one of following states:
 
-- draft - banner during creation
-- inactive - banner is not active, will not be displayed
-- active - banner is active
-- rejected - banner is permanently disabled, e.g. does not comply with terms
+- draft - creative during creation
+- inactive - creative is not active, will not be displayed
+- active - creative is active
+- rejected - creative is permanently disabled, e.g. does not comply with terms
 
 .. _campaign-object:
 
@@ -265,7 +265,7 @@ Campaign object
 - **dateStart** (`string`) – date of start in ISO 8601 format
 - **dateEnd** (`string, null`) – date of end in ISO 8601 format, `null` for interminable campaign
 - **targeting** (:ref:`CampaignTargeting<campaign-targeting-object>`) – required and forbidden features, conforms taxonomy
-- **ads** (:ref:`Banner[]<banner-object>`) – banner
+- **creatives** (:ref:`Creative[]<creative-object>`) – creative
 - **bidStrategyUuid** (`string`) – bid strategy UUID
 - **conversions[].uuid** (`string`) – conversion UUID
 - **conversions[].name** (`string`) – conversion name
@@ -381,31 +381,31 @@ Custom input targeting object
         "label": "Domains"
     }
 
-.. _banner-object:
+.. _creative-object:
 
-Banner object
+Creative object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **id** (`integer`) – banner ID
-- **uuid** (`string`) – banner UUID
-- **createdAt** (`string`) – date of banner creation
-- **updatedAt** (`string`) – date of last banner update
-- **creativeType** (`string`) – banner type
-- **creativeMime** (`string`) – banner MIME type
-- **creativeSha1** (`string`) – SHA-1 checksum of banner content
-- **creativeSize** (`string`) – space occupied by banner
-- **name** (`string`) – banner name
-- **status** (`integer`) – banner :ref:`status<banner-status>`
-- **cdnUrl** (`string, null`) – banner content URL on CDN, may be `null` if was not uploaded to CDN
-- **url** (`string`) – banner content URL
+- **id** (`integer`) – creative ID
+- **uuid** (`string`) – creative UUID
+- **createdAt** (`string`) – date of creative creation
+- **updatedAt** (`string`) – date of last creative update
+- **creativeType** (`string`) – creative type
+- **creativeMime** (`string`) – creative MIME type
+- **creativeSha1** (`string`) – SHA-1 checksum of creative content
+- **creativeSize** (`string`) – space occupied by creative
+- **name** (`string`) – creative name
+- **status** (`integer`) – creative :ref:`status<creative-status>`
+- **cdnUrl** (`string, null`) – creative content URL on CDN, may be `null` if was not uploaded to CDN
+- **url** (`string`) – creative content URL
 
-.. _advertisement-input-object:
+.. _creative-input-object:
 
-AdvertisementInput object
+CreativeInput object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - **name** (`string`) – name
 - **creativeSize** (`string`) – occupied space. It should be the same as size returned during upload if was present
 - **creativeType** (`string`) – type
-- **url** (`string`) – (optional) temporary URL returned in response to :ref:`upload banner request<upload-banner>`. It is required for banner which needs to be uploaded, e.g. image
-- **creativeContents** (`string`) – (optional) content. It is suggested for banner which does not use upload, e.g. direct links. By default content is campaign landing URL
+- **url** (`string`) – (optional) temporary URL returned in response to :ref:`upload creative request<upload-creative>`. It is required for creative which needs to be uploaded, e.g. image
+- **creativeContents** (`string`) – (optional) content. It is suggested for creative which does not use upload, e.g. direct links. By default content is campaign landing URL
