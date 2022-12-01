@@ -10,8 +10,9 @@ Contents
 ..  toctree::
     :maxdepth: 1
 
-    response
     authorization
+    pagination
     impressions
     campaigns
     taxonomy
+    errors

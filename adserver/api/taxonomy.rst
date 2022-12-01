@@ -1,6 +1,8 @@
 Taxonomy
 ========
 
+First, read about :ref:`authorization<api-authorization>` and :ref:`error handling<api-response-errors>`.
+
 Media
 -----
 
