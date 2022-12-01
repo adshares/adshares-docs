@@ -390,12 +390,12 @@ Creative object
 
 - **id** (`integer`) – creative ID
 - **uuid** (`string`) – creative UUID
-- **createdAt** (`string`) – date of creative creation
-- **updatedAt** (`string`) – date of last creative update
-- **creativeType** (`string`) – creative type
-- **creativeMime** (`string`) – creative MIME type
-- **creativeSha1** (`string`) – SHA-1 checksum of creative content
-- **creativeSize** (`string`) – space occupied by creative
+- **createdAt** (`string`) – date of creation in ISO 8601 format
+- **updatedAt** (`string`) – date of last update in ISO 8601 format
+- **type** (`string`) – creative type
+- **mimeType** (`string`) – creative MIME type
+- **hash** (`string`) – SHA-1 checksum of creative content
+- **size** (`string`) – space occupied by creative
 - **name** (`string`) – creative name
 - **status** (`integer`) – creative :ref:`status<creative-status>`
 - **cdnUrl** (`string, null`) – creative content URL on CDN, may be `null` if was not uploaded to CDN
@@ -407,7 +407,7 @@ CreativeInput object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - **name** (`string`) – name
-- **creativeSize** (`string`) – occupied space. It should be the same as size returned during upload if was present
-- **creativeType** (`string`) – type
+- **size** (`string`) – occupied space. It should be the same as size returned during upload if was present
+- **type** (`string`) – type
 - **url** (`string`) – (optional) temporary URL returned in response to :ref:`upload creative request<upload-creative>`. It is required for creative which needs to be uploaded, e.g. image
-- **creativeContents** (`string`) – (optional) content. It is suggested for creative which does not use upload, e.g. direct links. By default content is campaign landing URL
+- **contents** (`string`) – (optional) content. It is suggested for creative which does not use upload, e.g. direct links. By default content is campaign landing URL
