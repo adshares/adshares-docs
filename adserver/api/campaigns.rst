@@ -388,18 +388,18 @@ Custom input targeting object
 Creative object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **id** (`integer`) – creative ID
-- **uuid** (`string`) – creative UUID
+- **id** (`integer`) – ID
+- **uuid** (`string`) – UUID
 - **createdAt** (`string`) – date of creation in ISO 8601 format
 - **updatedAt** (`string`) – date of last update in ISO 8601 format
-- **type** (`string`) – creative type
-- **mimeType** (`string`) – creative MIME type
-- **hash** (`string`) – SHA-1 checksum of creative content
-- **size** (`string`) – space occupied by creative
-- **name** (`string`) – creative name
-- **status** (`integer`) – creative :ref:`status<creative-status>`
-- **cdnUrl** (`string, null`) – creative content URL on CDN, may be `null` if was not uploaded to CDN
-- **url** (`string`) – creative content URL
+- **type** (`string`) – type
+- **mimeType** (`string`) – MIME type
+- **hash** (`string`) – SHA-1 checksum of content
+- **size** (`string`) – occupied space
+- **name** (`string`) – name
+- **status** (`integer`) – :ref:`status<creative-status>`
+- **cdnUrl** (`string, null`) – content URL on CDN, may be `null` if was not uploaded to CDN
+- **url** (`string`) – content URL
 
 .. _creative-input-object:
 
