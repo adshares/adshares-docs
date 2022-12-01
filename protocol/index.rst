@@ -32,11 +32,11 @@ Simplified workflow
 
     user -> supplyServer : Register event
 
-    user -> supplyServer : Find banners
-    supplyServer --> user : Return banners
+    user -> supplyServer : Find creatives
+    supplyServer --> user : Return creatives
 
-    user -> demandServer : Get banner content
-    demandServer --> user : Return banner content
+    user -> demandServer : Get creative content
+    demandServer --> user : Return creative content
 
     user -> supplyServer: View event
     supplyServer -> demandServer: View event //redirected//

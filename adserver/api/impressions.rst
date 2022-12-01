@@ -46,12 +46,12 @@ Register
         </body>
         </html>
 
-Find banners
+Find creatives
 ------------
 
 .. http:post:: /supply/find
 
-    Finds banners that match the zones.
+    Finds creatives that fit the placements.
 
     :reqheader Accept: ``application/json``
     :resheader Content-Type: ``application/json``
@@ -62,20 +62,21 @@ Find banners
     :<json string page.iid: the impression ID
     :<json string page.url: the page URL
     :<json boolean, optional page.metamask: is the MetaMask enabled
-    :<json array zones: list of zones info
-    :<json string zones[].zoneId: the zone ID
-    :<json string, optional zones[].types: list of accepted types
-    :<json string, optional zones[].mimeTypes: list of accepted MIME types
+    :<json array placements: list of placements info
+    :<json string placements[].placementId: the placement ID
+    :<json string, optional placements[].types: list of accepted types
+    :<json string, optional placements[].mimeTypes: list of accepted MIME types
 
-    :>jsonarr string placementId: the banner ID
-    :>jsonarr string zoneId: the zone ID
+    :>jsonarr string creativeId: the creative ID
+    :>jsonarr string placementId: the placement ID
+    :>jsonarr string siteId: the site ID
     :>jsonarr string publisherId: the publisher ID
     :>jsonarr string demandServer: the demand server account address
     :>jsonarr string supplyServer: the supply server account address
-    :>jsonarr string type: the banner type: ``image``, ``video``, ``html``, ``model``
-    :>jsonarr string scope: the banner scope (size)
-    :>jsonarr string hash: checksum of the banner content
-    :>jsonarr string serveUrl: URL to download the content of the banner
+    :>jsonarr string type: the creative type: ``image``, ``video``, ``html``, ``model``
+    :>jsonarr string scope: the creative scope (size)
+    :>jsonarr string hash: checksum of the creative content
+    :>jsonarr string serveUrl: URL to download the content of the creative
     :>jsonarr string viewUrl: view event URL
     :>jsonarr string clickUrl: click event URL
     :>jsonarr float rpm: average campaign's RPM
@@ -95,9 +96,9 @@ Find banners
                 "iid": "8ac04a70-886c-4d25-a8f8-10f1c5ed22f7",
                 "url": "https://mysite.com"
             },
-            "zones": [
+            "placements": [
                 {
-                    "zoneId": "2c81e9ed531b70c8ced43b19245aa3c3"
+                    "placementId": "2c81e9ed531b70c8ced43b19245aa3c3"
                 }
             ]
         }
@@ -111,8 +112,9 @@ Find banners
 
         [
             {
-                "placementId": "32a79fb61103aa3ef230d524cbd93e4f",
-                "zoneId": "2c81e9ed531b70c8ced43b19245aa3c3",
+                "creativeId": "32a79fb61103aa3ef230d524cbd93e4f",
+                "placementId": "2c81e9ed531b70c8ced43b19245aa3c3",
+                "siteId": "ccc0c4b6109a4fe2ee2eb103a20c2d5d",
                 "publisherId": "d64bf2a15c5de2e33b20c4b6100c2d5d",
                 "demandServer": "0001-00000001-8B4E",
                 "supplyServer": "0001-00000002-BB2D",
@@ -126,12 +128,12 @@ Find banners
             }
         ]
 
-Dynamic find banners
+Dynamic find creatives
 --------------------
 
 .. http:post:: /supply/find
 
-    Finds banners that mach the query with automatic creation of users (if enabled) and zones.
+    Finds creatives that mach the query with automatic creation of users (if enabled) and placements.
 
     :reqheader Accept: ``application/json``
     :resheader Content-Type: ``application/json``
@@ -145,26 +147,27 @@ Dynamic find banners
     :<json string page.medium: the medium name
     :<json string, optional page.vendor: the vendor name
     :<json boolean, optional page.metamask: is the MetaMask enabled
-    :<json array zones: list of zones info
-    :<json string zones[].id: the request ID
-    :<json string, optional zones[].name: name of the placement
-    :<json string zones[].width: width of the placement
-    :<json string zones[].height: height of the placement
-    :<json string, optional zones[].depth: depth of the placement
-    :<json string, optional zones[].minDpi: the minimum DPI
-    :<json string, optional zones[].types: list of accepted types
-    :<json string, optional zones[].mimeTypes: list of accepted MIME types
+    :<json array placements: list of placements info
+    :<json string placements[].id: the request ID
+    :<json string, optional placements[].name: name of the placement
+    :<json string placements[].width: width of the placement
+    :<json string placements[].height: height of the placement
+    :<json string, optional placements[].depth: depth of the placement
+    :<json string, optional placements[].minDpi: the minimum DPI
+    :<json string, optional placements[].types: list of accepted types
+    :<json string, optional placements[].mimeTypes: list of accepted MIME types
 
     :>jsonarr string id: the request ID
-    :>jsonarr string placementId: the banner ID
-    :>jsonarr string zoneId: the zone ID
+    :>jsonarr string creativeId: the creative ID
+    :>jsonarr string placementId: the placement ID
+    :>jsonarr string siteId: the site ID
     :>jsonarr string publisherId: the publisher ID
     :>jsonarr string demandServer: the demand server account address
     :>jsonarr string supplyServer: the supply server account address
-    :>jsonarr string type: the banner type: ``image``, ``video``, ``html``, ``model``
-    :>jsonarr string scope: the banner scope (size)
-    :>jsonarr string hash: checksum of the banner content
-    :>jsonarr string serveUrl: URL to download the content of the banner
+    :>jsonarr string type: the creative type: ``image``, ``video``, ``html``, ``model``
+    :>jsonarr string scope: the creative scope (size)
+    :>jsonarr string hash: checksum of the creative content
+    :>jsonarr string serveUrl: URL to download the content of the creative
     :>jsonarr string viewUrl: view event URL
     :>jsonarr string clickUrl: click event URL
     :>jsonarr float rpm: average campaign's RPM
@@ -188,7 +191,7 @@ Dynamic find banners
                 "vendor": "my-metaverse",
                 "metamask": true
             },
-            "zones": [
+            "placements": [
                 {
                     "id": "1234",
                     "name": "Main gallery",
@@ -218,8 +221,9 @@ Dynamic find banners
         [
             {
                 "id": "1234",
-                "placementId": "32a79fb61103aa3ef230d524cbd93e4f",
-                "zoneId": "2c81e9ed531b70c8ced43b19245aa3c3",
+                "creativeId": "32a79fb61103aa3ef230d524cbd93e4f",
+                "placementId": "2c81e9ed531b70c8ced43b19245aa3c3",
+                "siteId": "ccc0c4b6109a4fe2ee2eb103a20c2d5d",
                 "publisherId": "d64bf2a15c5de2e33b20c4b6100c2d5d",
                 "demandServer": "0001-00000001-8B4E",
                 "supplyServer": "0001-00000002-BB2D",

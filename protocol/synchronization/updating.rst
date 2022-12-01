@@ -8,8 +8,8 @@ The URL should support ``limit`` and ``offset`` query parameters for pagination.
 
 Inventory is list of campaigns.
 Each campaign has defined date range in which it is active and amount which it can pay up to.
-Campaign has one or more banners (advertisements) of different type and size.
-Each banner can be classified by one or more external classifiers.
+Campaign has one or more creatives (advertisements) of different type and size.
+Each creative can be classified by one or more external classifiers.
 Adserver can use classification of known classifier if it is valid.
 Details of inventory response format can be found :ref:`below<inventory_response_format>`.
 
@@ -58,8 +58,8 @@ Campaign
 +--------------------+----------------------------------------------+-------------------------------------------------------------------+
 | budget             | integer                                      | Maximal amount which can be payed for all events per hour         |
 +--------------------+----------------------------------------------+-------------------------------------------------------------------+
-| banners            | array of                                     | Banners                                                           |
-|                    | :ref:`Banner<inventory_banner_format>`       |                                                                   |
+| creatives          | array of                                     | Creatives                                                         |
+|                    | :ref:`Creative<inventory_creative_format>`   |                                                                   |
 |                    | objects                                      |                                                                   |
 +--------------------+----------------------------------------------+-------------------------------------------------------------------+
 | targeting_requires | array of                                     | Required targeting                                                |
@@ -71,16 +71,16 @@ Campaign
 |                    | objects                                      |                                                                   |
 +--------------------+----------------------------------------------+-------------------------------------------------------------------+
 
-.. _inventory_banner_format:
+.. _inventory_creative_format:
 
-Banner
-~~~~~~
+Creative
+~~~~~~~~
 +----------------+--------------------------------------------------------+---------------------------------------------------------------------------------+
 | Field          | Type                                                   | Description                                                                     |
 +================+========================================================+=================================================================================+
 | id             | string                                                 | UUID                                                                            |
 +----------------+--------------------------------------------------------+---------------------------------------------------------------------------------+
-| size           | string                                                 | Space occupied by banner                                                        |
+| size           | string                                                 | Space occupied by creative content                                              |
 +----------------+--------------------------------------------------------+---------------------------------------------------------------------------------+
 | type           | string                                                 | Type: "image", "video", etc.                                                    |
 +----------------+--------------------------------------------------------+---------------------------------------------------------------------------------+
@@ -88,7 +88,7 @@ Banner
 +----------------+--------------------------------------------------------+---------------------------------------------------------------------------------+
 | checksum       | string                                                 | SHA-1 checksum of content                                                       |
 +----------------+--------------------------------------------------------+---------------------------------------------------------------------------------+
-| serve_url      | string                                                 | The URL of banner                                                               |
+| serve_url      | string                                                 | The URL of creative content                                                     |
 +----------------+--------------------------------------------------------+---------------------------------------------------------------------------------+
 | click_url      | string                                                 | The URL of click callback                                                       |
 +----------------+--------------------------------------------------------+---------------------------------------------------------------------------------+
@@ -131,7 +131,7 @@ Example::
         "max_cpc": 0,
         "max_cpm": null,
         "budget": 72184612500,
-        "banners": [
+        "creatives": [
           {
             "id": "0c3439d1ae2c420d8864a86a660217b8",
             "size": "300x250",
@@ -173,4 +173,4 @@ Example::
         }
       }
     ]
-    
+

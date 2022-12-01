@@ -29,14 +29,14 @@ Workflow
     ==Displaying ads==
 
     loop periodically
-        user -> supplyServer : Find banners
+        user -> supplyServer : Find creatives
         supplyServer -> supplyUser : Get user's context
         supplyUser --> supplyServer : Return user's context
-        supplyServer --> user : Return banners
+        supplyServer --> user : Return creatives
 
-        loop for each banner
-            user -> demandServer : Get banner content
-            demandServer --> user : Return banner content
+        loop for each creative
+            user -> demandServer : Get creative content
+            demandServer --> user : Return creative content
 
             user -> supplyServer : View event
             supplyServer -> demandServer: View event //redirected//
