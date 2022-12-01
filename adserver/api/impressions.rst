@@ -64,8 +64,8 @@ Find creatives
     :<json boolean, optional page.metamask: is the MetaMask enabled
     :<json array placements: list of placements info
     :<json string placements[].placementId: the placement ID
-    :<json string, optional placements[].types: list of accepted types
-    :<json string, optional placements[].mimeTypes: list of accepted MIME types
+    :<json string[], optional placements[].types: list of accepted types
+    :<json string[], optional placements[].mimeTypes: list of accepted MIME types
 
     :>json Creaative[] data: :ref:`creative list<creative-object>`
 
@@ -146,8 +146,8 @@ Dynamic find creatives
     :<json string placements[].height: height of the placement
     :<json string, optional placements[].depth: depth of the placement
     :<json string, optional placements[].minDpi: the minimum DPI
-    :<json string, optional placements[].types: list of accepted types
-    :<json string, optional placements[].mimeTypes: list of accepted MIME types
+    :<json string[], optional placements[].types: list of accepted types
+    :<json string[], optional placements[].mimeTypes: list of accepted MIME types
 
     :>json Creaative[] data: :ref:`creative list<creative-object>`
 
