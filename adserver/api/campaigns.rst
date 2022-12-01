@@ -1,6 +1,8 @@
 Campaigns
 ===========
 
+First, read about :ref:`authorization<api-authorization>`, :ref:`error handling<api-response-errors>` and :ref:`pagination<api-response-pagination>`.
+
 Campaign
 --------------------------
 
