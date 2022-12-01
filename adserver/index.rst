@@ -12,8 +12,7 @@ Contents
 ..  toctree::
     :maxdepth: 1
 
-    .. api/index
-
+    api/index
     how-to-start-adserver
     how-to-add-html-banner
     list-of-active-adservers

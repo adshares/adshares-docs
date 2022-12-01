@@ -47,7 +47,7 @@ Register
         </html>
 
 Find creatives
-------------
+--------------
 
 .. http:post:: /supply/find
 
@@ -67,19 +67,7 @@ Find creatives
     :<json string, optional placements[].types: list of accepted types
     :<json string, optional placements[].mimeTypes: list of accepted MIME types
 
-    :>jsonarr string creativeId: the creative ID
-    :>jsonarr string placementId: the placement ID
-    :>jsonarr string siteId: the site ID
-    :>jsonarr string publisherId: the publisher ID
-    :>jsonarr string demandServer: the demand server account address
-    :>jsonarr string supplyServer: the supply server account address
-    :>jsonarr string type: the creative type: ``image``, ``video``, ``html``, ``model``
-    :>jsonarr string scope: the creative scope (size)
-    :>jsonarr string hash: checksum of the creative content
-    :>jsonarr string serveUrl: URL to download the content of the creative
-    :>jsonarr string viewUrl: view event URL
-    :>jsonarr string clickUrl: click event URL
-    :>jsonarr float rpm: average campaign's RPM
+    :>json Creaative[] data: :ref:`creative list<creative-object>`
 
     **Example request**:
 
@@ -103,6 +91,8 @@ Find creatives
             ]
         }
 
+    .. _find-creatives-response:
+
     **Example response**:
 
     .. sourcecode:: http
@@ -110,26 +100,28 @@ Find creatives
         HTTP/1.1 200 OK
         Content-Type: application/json
 
-        [
-            {
-                "creativeId": "32a79fb61103aa3ef230d524cbd93e4f",
-                "placementId": "2c81e9ed531b70c8ced43b19245aa3c3",
-                "siteId": "ccc0c4b6109a4fe2ee2eb103a20c2d5d",
-                "publisherId": "d64bf2a15c5de2e33b20c4b6100c2d5d",
-                "demandServer": "0001-00000001-8B4E",
-                "supplyServer": "0001-00000002-BB2D",
-                "type": "image",
-                "scope": "300x250",
-                "hash": "56436e1fdcb42f406760ccc9a4fe2e0519c36f46",
-                "serveUrl": "https://app.example.com/serve/xed20914d13ed416ec91eb4be7b640a49.doc?v=67f4",
-                "viewUrl": "https://app.example.com/l/n/view/32a79fb61103aa3ef230d524cbd93e4f?r=aHR0cHM6Ly9hcHAuZXhhbXBsZS5jb20vdmlldy9lZDIwOTE0ZDEzZWQ0MTZlYzkxZWI0YmU3YjY0MGE0OQ",
-                "clickUrl": "https://app.example.com/l/n/click/32a79fb61103aa3ef230d524cbd93e4f?r=aHR0cHM6Ly9hcHAuYWRhcm91bmQubmV0L3ZpZXcvZWM5MWViNGJlN2I2NDBhNDllZDIwOTQxNjE0ZDEzZWQ",
-                "rpm": 2.13
-            }
-        ]
+        {
+            "data": [
+                {
+                    "creativeId": "32a79fb61103aa3ef230d524cbd93e4f",
+                    "placementId": "2c81e9ed531b70c8ced43b19245aa3c3",
+                    "siteId": "ccc0c4b6109a4fe2ee2eb103a20c2d5d",
+                    "publisherId": "d64bf2a15c5de2e33b20c4b6100c2d5d",
+                    "demandServer": "0001-00000001-8B4E",
+                    "supplyServer": "0001-00000002-BB2D",
+                    "type": "image",
+                    "scope": "300x250",
+                    "hash": "56436e1fdcb42f406760ccc9a4fe2e0519c36f46",
+                    "serveUrl": "https://app.example.com/serve/xed20914d13ed416ec91eb4be7b640a49.doc?v=67f4",
+                    "viewUrl": "https://app.example.com/l/n/view/32a79fb61103aa3ef230d524cbd93e4f?r=aHR0cHM6Ly9hcHAuZXhhbXBsZS5jb20vdmlldy9lZDIwOTE0ZDEzZWQ0MTZlYzkxZWI0YmU3YjY0MGE0OQ",
+                    "clickUrl": "https://app.example.com/l/n/click/32a79fb61103aa3ef230d524cbd93e4f?r=aHR0cHM6Ly9hcHAuYWRhcm91bmQubmV0L3ZpZXcvZWM5MWViNGJlN2I2NDBhNDllZDIwOTQxNjE0ZDEzZWQ",
+                    "rpm": 2.13
+                }
+            ]
+        }
 
 Dynamic find creatives
---------------------
+----------------------
 
 .. http:post:: /supply/find
 
@@ -157,20 +149,7 @@ Dynamic find creatives
     :<json string, optional placements[].types: list of accepted types
     :<json string, optional placements[].mimeTypes: list of accepted MIME types
 
-    :>jsonarr string id: the request ID
-    :>jsonarr string creativeId: the creative ID
-    :>jsonarr string placementId: the placement ID
-    :>jsonarr string siteId: the site ID
-    :>jsonarr string publisherId: the publisher ID
-    :>jsonarr string demandServer: the demand server account address
-    :>jsonarr string supplyServer: the supply server account address
-    :>jsonarr string type: the creative type: ``image``, ``video``, ``html``, ``model``
-    :>jsonarr string scope: the creative scope (size)
-    :>jsonarr string hash: checksum of the creative content
-    :>jsonarr string serveUrl: URL to download the content of the creative
-    :>jsonarr string viewUrl: view event URL
-    :>jsonarr string clickUrl: click event URL
-    :>jsonarr float rpm: average campaign's RPM
+    :>json Creaative[] data: :ref:`creative list<creative-object>`
 
     **Example request**:
 
@@ -213,26 +192,27 @@ Dynamic find creatives
 
     **Example response**:
 
-    .. sourcecode:: http
+    See :ref:`find creatives response<find-creatives-response>`
 
-        HTTP/1.1 200 OK
-        Content-Type: application/json
 
-        [
-            {
-                "id": "1234",
-                "creativeId": "32a79fb61103aa3ef230d524cbd93e4f",
-                "placementId": "2c81e9ed531b70c8ced43b19245aa3c3",
-                "siteId": "ccc0c4b6109a4fe2ee2eb103a20c2d5d",
-                "publisherId": "d64bf2a15c5de2e33b20c4b6100c2d5d",
-                "demandServer": "0001-00000001-8B4E",
-                "supplyServer": "0001-00000002-BB2D",
-                "type": "image",
-                "scope": "300x250",
-                "hash": "56436e1fdcb42f406760ccc9a4fe2e0519c36f46",
-                "serveUrl": "https://app.example.com/serve/xed20914d13ed416ec91eb4be7b640a49.doc?v=67f4",
-                "viewUrl": "https://app.example.com/l/n/view/32a79fb61103aa3ef230d524cbd93e4f?r=aHR0cHM6Ly9hcHAuZXhhbXBsZS5jb20vdmlldy9lZDIwOTE0ZDEzZWQ0MTZlYzkxZWI0YmU3YjY0MGE0OQ",
-                "clickUrl": "https://app.example.com/l/n/click/32a79fb61103aa3ef230d524cbd93e4f?r=aHR0cHM6Ly9hcHAuYWRhcm91bmQubmV0L3ZpZXcvZWM5MWViNGJlN2I2NDBhNDllZDIwOTQxNjE0ZDEzZWQ",
-                "rpm": 2.13
-            }
-        ]
+Data structures
+---------------
+
+.. _creative-object:
+
+Creative object
+^^^^^^^^^^^^^^^
+
+- **id** (`string`) – the request ID
+- **creativeId** (`string`) – the creative ID
+- **placementId** (`string`) – the placement ID
+- **siteId** (`string`) – the site ID
+- **publisherId** (`string`) – the publisher ID
+- **demandServer** (`string`) – the demand server account address
+- **supplyServer** (`string`) – the supply server account address
+- **type** (`string`) – the creative type: e.g. ``image``, ``video``, ``html``, ``model``
+- **scope** (`string`) – the creative scope (size)
+- **hash** (`string`) – checksum of the creative content
+- **serveUrl** (`string`) – URL to download the content of the creative
+- **viewUrl** (`string`) – view event URLclick event URLconversion secret
+- **rpm** (`float`) – average campaign's RPM

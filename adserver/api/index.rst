@@ -12,5 +12,6 @@ Contents
 
     response
     authorization
-    campaigns
     impressions
+    campaigns
+    taxonomy
