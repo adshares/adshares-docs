@@ -3,7 +3,7 @@ Impressions
 
 This API implements :ref:`the impressions sections of the Adshares protocol <impressions>`.
 
-First, read about :ref:`authorization<api-authorization>` and :ref:`error handling<api-response-errors>`.
+First, read about :ref:`error handling<api-response-errors>`.
 
 Register
 --------
