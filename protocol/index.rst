@@ -61,6 +61,7 @@ Contents
     :maxdepth: 1
 
     authentication
+    taxonomy/index
     synchronization/index
     impressions/index
     payments/index

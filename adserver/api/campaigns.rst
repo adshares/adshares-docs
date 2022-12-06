@@ -19,7 +19,7 @@ Fetch campaign list
 
     :statuscode 200: no error
 
-    :>json Campaign[] data: :ref:`campaign list<campaign-object>`
+    :>json Campaign[] data: :ref:`campaign list<api-campaign-object>`
 
 Fetch campaign
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -35,7 +35,7 @@ Fetch campaign
     :statuscode 200: no error
     :statuscode 404: campaign not found
 
-    :>json Campaign data: :ref:`campaign<campaign-object>`
+    :>json Campaign data: :ref:`campaign<api-campaign-object>`
 
 Add campaign
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -49,7 +49,7 @@ Add campaign
     :statuscode 200: no error
     :statuscode 422: validation error
 
-    :<json string status: :ref:`status<campaign-status>`
+    :<json string status: :ref:`status<api-campaign-status>`
     :<json string name: name
     :<json string targetUrl: landing URL
     :<json integer, null maxCpc: maximal CPC in clicks
@@ -59,10 +59,10 @@ Add campaign
     :<json string, null vendor: vendor
     :<json string dateStart: date of start in ISO 8601 format
     :<json string, null dateEnd: date of end in ISO 8601 format, `null` for interminable campaign
-    :<json CampaignTargeting campaign.targeting: :ref:`targeting<campaign-targeting-object>` (required and forbidden features)
-    :<json CreativeInput[] campaign.creatives: :ref:`creatives<creative-input-object>`
+    :<json CampaignTargeting campaign.targeting: :ref:`targeting<api-campaign-api-targeting-object>` (required and forbidden features)
+    :<json CreativeInput[] campaign.creatives: :ref:`creatives<api-creative-input-object>`
 
-    :>json Campaign data: :ref:`campaign<campaign-object>`
+    :>json Campaign data: :ref:`campaign<api-campaign-object>`
 
 Edit campaign
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -78,7 +78,7 @@ Edit campaign
     :statuscode 200: no error
     :statuscode 422: validation error
 
-    :<json string status: (optional) :ref:`status<campaign-status>`
+    :<json string status: (optional) :ref:`status<api-campaign-status>`
     :<json string name: (optional) name
     :<json string targetUrl: (optional) landing URL
     :<json integer, null maxCpc: (optional) maximal CPC in clicks
@@ -86,7 +86,7 @@ Edit campaign
     :<json integer budget: (optional) budget in clicks
     :<json string dateStart: (optional) date of start in ISO 8601 format
     :<json string, null dateEnd: (optional) date of end in ISO 8601 format, `null` for interminable campaign
-    :<json CampaignTargeting campaign.targeting: (optional) :ref:`targeting<campaign-targeting-object>` (required and forbidden features)
+    :<json CampaignTargeting campaign.targeting: (optional) :ref:`targeting<api-campaign-api-targeting-object>` (required and forbidden features)
     :<json string bidStrategyUuid: (optional) bid strategy UUID
 
 Delete campaign
@@ -106,7 +106,7 @@ Delete campaign
 Creative
 --------------------------
 
-.. _upload-creative:
+.. _api-upload-creative:
 
 Upload creative
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -141,7 +141,7 @@ Fetch creative list
 
     :statuscode 200: no error
 
-    :>json Creative[] data: :ref:`creative list<campaign-creative-object>`
+    :>json Creative[] data: :ref:`creative list<api-campaign-creative-object>`
 
 Fetch creative
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -158,7 +158,7 @@ Fetch creative
     :statuscode 200: no error
     :statuscode 404: creative not found
 
-    :>json Creative data: :ref:`creative<campaign-creative-object>`
+    :>json Creative data: :ref:`creative<api-campaign-creative-object>`
 
 Add creative
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -174,9 +174,9 @@ Add creative
     :statuscode 200: no error
     :statuscode 422: validation error
 
-    :request json object: creative data (:ref:`CreativeInput<creative-input-object>`)
+    :request json object: creative data (:ref:`CreativeInput<api-creative-input-object>`)
 
-    :>json Creative data: :ref:`creative<campaign-creative-object>`
+    :>json Creative data: :ref:`creative<api-campaign-creative-object>`
 
 Edit creative
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -195,9 +195,9 @@ Edit creative
     :statuscode 422: validation error
 
     :<json string name: (optional) name
-    :<json integer status: (optional) :ref:`status<creative-status>`
+    :<json integer status: (optional) :ref:`status<api-creative-status>`
 
-    :>json Creative data: :ref:`creative<campaign-creative-object>`
+    :>json Creative data: :ref:`creative<api-campaign-creative-object>`
 
 Delete creative
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -217,7 +217,7 @@ Delete creative
 Data structures
 --------------------
 
-.. _campaign-status:
+.. _api-campaign-status:
 
 Campaign status
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -229,7 +229,7 @@ Campaign status is a string. Campaign can be in one of following states:
 - active - campaign is active
 - suspended - campaign suspended, e.g. in case of insufficient funds to run campaign
 
-.. _creative-status:
+.. _api-creative-status:
 
 Creative status
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -241,7 +241,7 @@ Creative status is a string. Creative can be in one of following states:
 - active - creative is active
 - rejected - creative is permanently disabled, e.g. does not comply with terms
 
-.. _campaign-object:
+.. _api-campaign-object:
 
 Campaign object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -256,7 +256,7 @@ Campaign object
 - **classifications[].classifier** (`string`) – classifier
 - **classifications[].status** (`string`) – classification status
 - **classifications[].keywords** (`string`) – classification result, conforms taxonomy
-- **status** (`string`) – :ref:`status<campaign-status>`
+- **status** (`string`) – :ref:`status<api-campaign-status>`
 - **name** (`string`) – name
 - **targetUrl** (`string`) – landing URL
 - **maxCpc** (`integer, null`) – maximal CPC in clicks
@@ -266,8 +266,8 @@ Campaign object
 - **vendor** (`string, null`) – vendor
 - **dateStart** (`string`) – date of start in ISO 8601 format
 - **dateEnd** (`string, null`) – date of end in ISO 8601 format, `null` for interminable campaign
-- **targeting** (:ref:`CampaignTargeting<campaign-targeting-object>`) – required and forbidden features, conforms taxonomy
-- **creatives** (:ref:`Creative[]<campaign-creative-object>`) – creative
+- **targeting** (:ref:`CampaignTargeting<api-campaign-api-targeting-object>`) – required and forbidden features, conforms taxonomy
+- **creatives** (:ref:`Creative[]<api-campaign-creative-object>`) – creative
 - **bidStrategyUuid** (`string`) – bid strategy UUID
 - **conversions[].uuid** (`string`) – conversion UUID
 - **conversions[].name** (`string`) – conversion name
@@ -281,24 +281,24 @@ Campaign object
 - **conversions[].isRepeatable** (`boolean`) – indicates that conversion can be repeated
 - **conversions[].link** (`string`) – conversion link
 
-.. _campaign-targeting-object:
+.. _api-campaign-api-targeting-object:
 
 CampaignTargeting object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **requires** (:ref:`Targeting<targeting-object>`) – required features
-- **excludes** (:ref:`Targeting<targeting-object>`) – forbidden features
+- **requires** (:ref:`Targeting<api-targeting-object>`) – required features
+- **excludes** (:ref:`Targeting<api-targeting-object>`) – forbidden features
 
-.. _targeting-object:
+.. _api-targeting-object:
 
 Targeting object
 ^^^^^^^^^^^^^^^^^
 
-- **user** (:ref:`TargetingFeatures<targeting-features-object>`) – (optional) user features
-- **site** (:ref:`TargetingFeatures<targeting-features-object>`) – (optional) site features
-- **device** (:ref:`TargetingFeatures<targeting-features-object>`) – (optional) device features
+- **user** (:ref:`TargetingFeatures<api-targeting-features-object>`) – (optional) user features
+- **site** (:ref:`TargetingFeatures<api-targeting-features-object>`) – (optional) site features
+- **device** (:ref:`TargetingFeatures<api-targeting-features-object>`) – (optional) device features
 
-.. _targeting-features-object:
+.. _api-targeting-features-object:
 
 TargetingFeatures object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -383,7 +383,7 @@ Custom input targeting object
         "label": "Domains"
     }
 
-.. _campaign-creative-object:
+.. _api-campaign-creative-object:
 
 Creative object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -397,11 +397,11 @@ Creative object
 - **hash** (`string`) – checksum of content
 - **scope** (`string`) – scope (size, occupied space)
 - **name** (`string`) – name
-- **status** (`integer`) – :ref:`status<creative-status>`
+- **status** (`integer`) – :ref:`status<api-creative-status>`
 - **cdnUrl** (`string, null`) – content URL on CDN, may be `null` if was not uploaded to CDN
 - **url** (`string`) – content URL
 
-.. _creative-input-object:
+.. _api-creative-input-object:
 
 CreativeInput object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -409,5 +409,5 @@ CreativeInput object
 - **name** (`string`) – name
 - **scope** (`string`) – scope (size, occupied space). It should be the same as **data.scope** returned during upload if was present
 - **type** (`string`) – type
-- **url** (`string`) – (optional) temporary URL returned in response to :ref:`upload creative request<upload-creative>`. It is required for creative which needs to be uploaded, e.g. image
+- **url** (`string`) – (optional) temporary URL returned in response to :ref:`upload creative request<api-upload-creative>`. It is required for creative which needs to be uploaded, e.g. image
 - **contents** (`string`) – (optional) content. It is suggested for creative which does not use upload, e.g. direct links. By default content is campaign landing URL

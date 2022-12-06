@@ -67,8 +67,8 @@ Find creatives
     :<json boolean, optional context.metamask: is the MetaMask enabled
     :<json array placements: a list of placements info
     :<json string placements[].placementId: the placement ID
-    :<json string[], optional placements[].types: a list of accepted types
-    :<json string[], optional placements[].mimeTypes: a list of accepted MIME types
+    :<json string[], optional placements[].types: a list of accepted :ref:`types<taxonomy-formats>`
+    :<json string[], optional placements[].mimes: a list of accepted :ref:`MIME types<taxonomy-formats>`.
 
     :>json Creative[] data: :ref:`creative list<creative-object>`
 
@@ -94,7 +94,7 @@ Find creatives
             ]
         }
 
-    .. _find-creatives-response:
+    .. _api-find-creatives-response:
 
     **Example response**:
 
@@ -139,8 +139,8 @@ Dynamic find creatives
     :<json string context.iid: the impression ID
     :<json string context.publisher: the publisher ID or account address (ADS or BSC)
     :<json string context.url: the site URL
-    :<json string context.medium: the medium name
-    :<json string, optional context.vendor: the vendor name
+    :<json string context.medium: the site :ref:`medium<taxonomy-media>`
+    :<json string, optional context.vendor: the site :ref:`vendor<taxonomy-media>`
     :<json string, optional context.uid: the user ID (eg. a wallet address)
     :<json boolean, optional context.metamask: is the MetaMask enabled
     :<json array placements: a list of placements info
@@ -150,10 +150,10 @@ Dynamic find creatives
     :<json string placements[].height: height of the placement
     :<json string, optional placements[].depth: depth of the placement
     :<json string, optional placements[].minDpi: the minimum DPI
-    :<json string[], optional placements[].types: a list of accepted types
-    :<json string[], optional placements[].mimeTypes: a list of accepted MIME types
+    :<json string[], optional placements[].types: a list of accepted :ref:`types<taxonomy-formats>`
+    :<json string[], optional placements[].mimes: a list of accepted :ref:`MIME types<taxonomy-formats>`.
 
-    :>json Creative[] data: :ref:`creative list<creative-object>`
+    :>json Creative[] data: :ref:`creative list<api-creative-object>`
 
     **Example request**:
 
@@ -186,7 +186,7 @@ Dynamic find creatives
                         "image",
                         "video"
                     ],
-                    "mimeTypes": [
+                    "mimes": [
                         "image/jpeg",
                         "image/png",
                         "video/mp4"
@@ -197,13 +197,13 @@ Dynamic find creatives
 
     **Example response**:
 
-    See :ref:`find creatives response<find-creatives-response>`
+    See :ref:`find creatives response<api-find-creatives-response>`
 
 
 Data structures
 ---------------
 
-.. _creative-object:
+.. _api-creative-object:
 
 Creative object
 ^^^^^^^^^^^^^^^
@@ -215,8 +215,9 @@ Creative object
 - **publisherId** (`string`) – the publisher ID
 - **demandServer** (`string`) – the demand server account address
 - **supplyServer** (`string`) – the supply server account address
-- **type** (`string`) – the creative type: e.g. ``image``, ``video``, ``html``, ``model``
-- **scope** (`string`) – the creative scope (size)
+- **type** (`string`) – the :ref:`creative type<taxonomy-formats>`.
+- **mime** (`string`) – the :ref:`creative MIME type<taxonomy-formats>`.
+- **scope** (`string`) – the :ref:`creative scope<taxonomy-scopes>` (size).
 - **hash** (`string`) – checksum of the creative content
 - **serveUrl** (`string`) – URL to download the content of the creative
 - **viewUrl** (`string`) – view event URL

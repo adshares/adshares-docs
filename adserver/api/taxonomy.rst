@@ -1,6 +1,8 @@
 Taxonomy
 ========
 
+This API is based on :ref:`the taxonomy sections of the Adshares protocol <taxonomy>`.
+
 First, read about :ref:`authorization<api-authorization>` and :ref:`error handling<api-response-errors>`.
 
 Media
@@ -45,23 +47,24 @@ Taxonomy by medium
 
     :statuscode 200: no error
 
-    :>json Taxonomy data: :ref:`taxonomy<taxonomy-object>`
+    :>json Taxonomy data: :ref:`taxonomy<api-taxonomy-object>`
 
 Data structures
 ---------------
 
-.. _taxonomy-object:
+
+.. _api-taxonomy-object:
 
 Taxonomy object
 ^^^^^^^^^^^^^^^
 
-- **name** (`string`) – medium ID
-- **label** (`string`) – medium name
-- **vendor** (`string`) – vendor ID
-- **vendorLabel** (`string`) – vendor name
-- **formats[].type** (`string`) – format type
-- **formats[].mimes** (`string[]`) – MIME types
-- **formats[].scopes** (`object`) – map of scopes. Key is scope. Value is description
+- **name** (`string`) – :ref:`medium<taxonomy-media>` name
+- **label** (`string`) – :ref:`medium<taxonomy-media>` label
+- **vendor** (`string`) – :ref:`vendor<taxonomy-media>` name
+- **vendorLabel** (`string`) – :ref:`vendor<taxonomy-media>` label
+- **formats[].type** (`string`) – :ref:`format type<taxonomy-formats>`
+- **formats[].mimes** (`string[]`) – :ref:`MIME types<taxonomy-formats>`
+- **formats[].scopes** (`object`) – map of :ref:`scopes<taxonomy-scopes>`. Key is the scope. Value is a label
 - **targeting.user** (`TargetingOption[]`) – (optional) user targeting options
 - **targeting.site** (`TargetingOption[]`) – (optional) site targeting options
 - **targeting.device** (`TargetingOption[]`) – (optional) device targeting options
