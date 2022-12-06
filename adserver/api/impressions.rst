@@ -68,7 +68,7 @@ Find creatives
     :<json array placements: a list of placements info
     :<json string placements[].placementId: the placement ID
     :<json string[], optional placements[].types: a list of accepted types
-    :<json string[], optional placements[].mimeTypes: a list of accepted MIME types
+    :<json string[], optional placements[].mimes: a list of accepted MIME types
 
     :>json Creative[] data: :ref:`creative list<creative-object>`
 
@@ -151,7 +151,7 @@ Dynamic find creatives
     :<json string, optional placements[].depth: depth of the placement
     :<json string, optional placements[].minDpi: the minimum DPI
     :<json string[], optional placements[].types: a list of accepted types
-    :<json string[], optional placements[].mimeTypes: a list of accepted MIME types
+    :<json string[], optional placements[].mimes: a list of accepted MIME types
 
     :>json Creative[] data: :ref:`creative list<creative-object>`
 
@@ -186,7 +186,7 @@ Dynamic find creatives
                         "image",
                         "video"
                     ],
-                    "mimeTypes": [
+                    "mimes": [
                         "image/jpeg",
                         "image/png",
                         "video/mp4"

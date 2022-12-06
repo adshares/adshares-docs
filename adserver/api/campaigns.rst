@@ -393,7 +393,7 @@ Creative object
 - **createdAt** (`string`) – date of creation in ISO 8601 format
 - **updatedAt** (`string`) – date of last update in ISO 8601 format
 - **type** (`string`) – type
-- **mimeType** (`string`) – MIME type
+- **mime** (`string`) – MIME type
 - **hash** (`string`) – checksum of content
 - **scope** (`string`) – scope (size, occupied space)
 - **name** (`string`) – name
