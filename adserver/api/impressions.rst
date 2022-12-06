@@ -60,14 +60,15 @@ Find creatives
     :reqheader User-Agent: the user agent originating the request
     :statuscode 200: no error
 
-    :<json object page: the page info
-    :<json string page.iid: the impression ID
-    :<json string page.url: the page URL
-    :<json boolean, optional page.metamask: is the MetaMask enabled
-    :<json array placements: list of placements info
+    :<json object context: the impression's context
+    :<json string context.iid: the impression ID
+    :<json string context.url: the site URL
+    :<json string, optional context.uid: the user ID (eg. a wallet address)
+    :<json boolean, optional context.metamask: is the MetaMask enabled
+    :<json array placements: a list of placements info
     :<json string placements[].placementId: the placement ID
-    :<json string[], optional placements[].types: list of accepted types
-    :<json string[], optional placements[].mimeTypes: list of accepted MIME types
+    :<json string[], optional placements[].types: a list of accepted types
+    :<json string[], optional placements[].mimeTypes: a list of accepted MIME types
 
     :>json Creative[] data: :ref:`creative list<creative-object>`
 
@@ -82,7 +83,7 @@ Find creatives
         User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36
 
         {
-            "page": {
+            "context": {
                 "iid": "8ac04a70-886c-4d25-a8f8-10f1c5ed22f7",
                 "url": "https://mysite.com"
             },
@@ -134,22 +135,23 @@ Dynamic find creatives
     :reqheader User-Agent: the user agent originating the request
     :statuscode 200: no error
 
-    :<json object page: the page info
-    :<json string page.iid: the impression ID
-    :<json string page.url: the page URL
-    :<json string page.publisher: the publisher ID or account address (ADS or BSC)
-    :<json string page.medium: the medium name
-    :<json string, optional page.vendor: the vendor name
-    :<json boolean, optional page.metamask: is the MetaMask enabled
-    :<json array placements: list of placements info
+    :<json object context: the impression's context
+    :<json string context.iid: the impression ID
+    :<json string context.publisher: the publisher ID or account address (ADS or BSC)
+    :<json string context.url: the site URL
+    :<json string context.medium: the medium name
+    :<json string, optional context.vendor: the vendor name
+    :<json string, optional context.uid: the user ID (eg. a wallet address)
+    :<json boolean, optional context.metamask: is the MetaMask enabled
+    :<json array placements: a list of placements info
     :<json string placements[].id: the request ID
     :<json string, optional placements[].name: name of the placement
     :<json string placements[].width: width of the placement
     :<json string placements[].height: height of the placement
     :<json string, optional placements[].depth: depth of the placement
     :<json string, optional placements[].minDpi: the minimum DPI
-    :<json string[], optional placements[].types: list of accepted types
-    :<json string[], optional placements[].mimeTypes: list of accepted MIME types
+    :<json string[], optional placements[].types: a list of accepted types
+    :<json string[], optional placements[].mimeTypes: a list of accepted MIME types
 
     :>json Creative[] data: :ref:`creative list<creative-object>`
 
@@ -164,12 +166,13 @@ Dynamic find creatives
         User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36
 
         {
-            "page": {
+            "context": {
                 "iid": "8ac04a70-886c-4d25-a8f8-10f1c5ed22f7",
                 "url": "https://mysite.com",
                 "publisher": "ads:0001-00000000-9B6F"
                 "medium": "metaverse",
                 "vendor": "my-metaverse",
+                "uid": "0x2dc37ed4780c5b826d8D71f629581791F9f36e7a",
                 "metamask": true
             },
             "placements": [
