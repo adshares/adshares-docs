@@ -69,7 +69,7 @@ Find creatives
     :<json string[], optional placements[].types: list of accepted types
     :<json string[], optional placements[].mimeTypes: list of accepted MIME types
 
-    :>json Creaative[] data: :ref:`creative list<creative-object>`
+    :>json Creative[] data: :ref:`creative list<creative-object>`
 
     **Example request**:
 
@@ -151,7 +151,7 @@ Dynamic find creatives
     :<json string[], optional placements[].types: list of accepted types
     :<json string[], optional placements[].mimeTypes: list of accepted MIME types
 
-    :>json Creaative[] data: :ref:`creative list<creative-object>`
+    :>json Creative[] data: :ref:`creative list<creative-object>`
 
     **Example request**:
 
@@ -216,5 +216,6 @@ Creative object
 - **scope** (`string`) – the creative scope (size)
 - **hash** (`string`) – checksum of the creative content
 - **serveUrl** (`string`) – URL to download the content of the creative
-- **viewUrl** (`string`) – view event URLclick event URLconversion secret
+- **viewUrl** (`string`) – view event URL
+- **clickUrl** (`string`) - click event URL
 - **rpm** (`float`) – average campaign's RPM

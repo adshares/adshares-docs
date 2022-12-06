@@ -11,7 +11,7 @@ Fetch campaign list
 
 .. http:get:: /api/v2/campaigns
 
-    Fetch campaigns. Response uses :ref:`Pagination<response-pagination>`.
+    Fetch campaigns. Response uses :ref:`Pagination<api-response-pagination>`.
 
     :query limit: (optional) maximal number of campaigns per page
 
@@ -126,14 +126,14 @@ Upload creative
 
     :>json string data.name: temporary name
     :>json string data.url: temporary URL
-    :>json string data.size: (optional) space occupied by creative, size is not present in case of resizable creatives, e.g. HTML
+    :>json string data.scope: (optional) scope (size, space occupied by creative). Scope is not present in case of resizable creatives, e.g. HTML
 
 Fetch creative list
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 .. http:get:: /api/v2/campaigns/(campaignId)/creatives
 
-    Fetch creatives. Response uses :ref:`Pagination<response-pagination>`.
+    Fetch creatives. Response uses :ref:`Pagination<api-response-pagination>`.
 
     :param campaignId: campaign ID
 
@@ -141,7 +141,7 @@ Fetch creative list
 
     :statuscode 200: no error
 
-    :>json Creative[] data: :ref:`creative list<creative-object>`
+    :>json Creative[] data: :ref:`creative list<campaign-creative-object>`
 
 Fetch creative
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -158,7 +158,7 @@ Fetch creative
     :statuscode 200: no error
     :statuscode 404: creative not found
 
-    :>json Creative data: :ref:`creative<creative-object>`
+    :>json Creative data: :ref:`creative<campaign-creative-object>`
 
 Add creative
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -176,7 +176,7 @@ Add creative
 
     :request json object: creative data (:ref:`CreativeInput<creative-input-object>`)
 
-    :>json Creative data: :ref:`creative<creative-object>`
+    :>json Creative data: :ref:`creative<campaign-creative-object>`
 
 Edit creative
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -197,7 +197,7 @@ Edit creative
     :<json string name: (optional) name
     :<json integer status: (optional) :ref:`status<creative-status>`
 
-    :>json Creative data: :ref:`creative<creative-object>`
+    :>json Creative data: :ref:`creative<campaign-creative-object>`
 
 Delete creative
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -267,7 +267,7 @@ Campaign object
 - **dateStart** (`string`) – date of start in ISO 8601 format
 - **dateEnd** (`string, null`) – date of end in ISO 8601 format, `null` for interminable campaign
 - **targeting** (:ref:`CampaignTargeting<campaign-targeting-object>`) – required and forbidden features, conforms taxonomy
-- **creatives** (:ref:`Creative[]<creative-object>`) – creative
+- **creatives** (:ref:`Creative[]<campaign-creative-object>`) – creative
 - **bidStrategyUuid** (`string`) – bid strategy UUID
 - **conversions[].uuid** (`string`) – conversion UUID
 - **conversions[].name** (`string`) – conversion name
@@ -383,23 +383,23 @@ Custom input targeting object
         "label": "Domains"
     }
 
-.. _creative-object:
+.. _campaign-creative-object:
 
 Creative object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **id** (`integer`) – creative ID
-- **uuid** (`string`) – creative UUID
-- **createdAt** (`string`) – date of creative creation
-- **updatedAt** (`string`) – date of last creative update
-- **creativeType** (`string`) – creative type
-- **creativeMime** (`string`) – creative MIME type
-- **creativeSha1** (`string`) – SHA-1 checksum of creative content
-- **creativeSize** (`string`) – space occupied by creative
-- **name** (`string`) – creative name
-- **status** (`integer`) – creative :ref:`status<creative-status>`
-- **cdnUrl** (`string, null`) – creative content URL on CDN, may be `null` if was not uploaded to CDN
-- **url** (`string`) – creative content URL
+- **id** (`integer`) – ID
+- **uuid** (`string`) – UUID
+- **createdAt** (`string`) – date of creation in ISO 8601 format
+- **updatedAt** (`string`) – date of last update in ISO 8601 format
+- **type** (`string`) – type
+- **mimeType** (`string`) – MIME type
+- **hash** (`string`) – checksum of content
+- **scope** (`string`) – scope (size, occupied space)
+- **name** (`string`) – name
+- **status** (`integer`) – :ref:`status<creative-status>`
+- **cdnUrl** (`string, null`) – content URL on CDN, may be `null` if was not uploaded to CDN
+- **url** (`string`) – content URL
 
 .. _creative-input-object:
 
@@ -407,7 +407,7 @@ CreativeInput object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - **name** (`string`) – name
-- **creativeSize** (`string`) – occupied space. It should be the same as size returned during upload if was present
-- **creativeType** (`string`) – type
+- **scope** (`string`) – scope (size, occupied space). It should be the same as **data.scope** returned during upload if was present
+- **type** (`string`) – type
 - **url** (`string`) – (optional) temporary URL returned in response to :ref:`upload creative request<upload-creative>`. It is required for creative which needs to be uploaded, e.g. image
-- **creativeContents** (`string`) – (optional) content. It is suggested for creative which does not use upload, e.g. direct links. By default content is campaign landing URL
+- **contents** (`string`) – (optional) content. It is suggested for creative which does not use upload, e.g. direct links. By default content is campaign landing URL
