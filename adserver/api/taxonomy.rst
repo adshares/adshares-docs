@@ -58,13 +58,13 @@ Data structures
 Taxonomy object
 ^^^^^^^^^^^^^^^
 
-- **name** (`string`) – :ref:`medium<taxonomy-media>` name
-- **label** (`string`) – :ref:`medium<taxonomy-media>` label
-- **vendor** (`string`) – :ref:`vendor<taxonomy-media>` name
-- **vendorLabel** (`string`) – :ref:`vendor<taxonomy-media>` label
-- **formats[].type** (`string`) – :ref:`format type<taxonomy-formats>`
-- **formats[].mimes** (`string[]`) – :ref:`MIME types<taxonomy-formats>`
-- **formats[].scopes** (`object`) – map of :ref:`scopes<taxonomy-scopes>`. Key is the scope. Value is a label
-- **targeting.user** (`TargetingOption[]`) – (optional) user targeting options
-- **targeting.site** (`TargetingOption[]`) – (optional) site targeting options
-- **targeting.device** (`TargetingOption[]`) – (optional) device targeting options
+- **name** (*string*) – :ref:`medium<taxonomy-media>` name
+- **label** (*string*) – :ref:`medium<taxonomy-media>` label
+- **vendor** (*string*) – :ref:`vendor<taxonomy-media>` name
+- **vendorLabel** (*string*) – :ref:`vendor<taxonomy-media>` label
+- **formats[].type** (*string*) – :ref:`format type<taxonomy-formats>`
+- **formats[].mimes** (*string[]*) – :ref:`MIME types<taxonomy-formats>`
+- **formats[].scopes** (*object*) – map of :ref:`scopes<taxonomy-scopes>`. Key is the scope. Value is a label
+- **targeting.user** (*TargetingOption[]*) – (optional) user targeting options
+- **targeting.site** (*TargetingOption[]*) – (optional) site targeting options
+- **targeting.device** (*TargetingOption[]*) – (optional) device targeting options
