@@ -3,7 +3,7 @@ Impressions
 
 This API implements :ref:`the impressions sections of the Adshares protocol <impressions>`.
 
-First, read about :ref:`authorization<api-authorization>` and :ref:`error handling<api-response-errors>`.
+First, read about :ref:`error handling<api-response-errors>`.
 
 Register
 --------
@@ -60,15 +60,8 @@ Find creatives
     :reqheader User-Agent: the user agent originating the request
     :statuscode 200: no error
 
-    :<json object context: the impression's context
-    :<json string context.iid: the impression ID
-    :<json string context.url: the site URL
-    :<json string, optional context.uid: the user ID (eg. a wallet address)
-    :<json boolean, optional context.metamask: is the MetaMask enabled
-    :<json array placements: a list of placements info
-    :<json string placements[].placementId: the placement ID
-    :<json string[], optional placements[].types: a list of accepted types
-    :<json string[], optional placements[].mimes: a list of accepted MIME types
+    :<json object context: the :ref:`impression's context<api-impression-context>`
+    :<json array placements: a list of :ref:`placement requests<api-placement-request>` with mandatory ``placementId`` attributes
 
     :>json Creative[] data: :ref:`creative list<creative-object>`
 
@@ -94,7 +87,7 @@ Find creatives
             ]
         }
 
-    .. _find-creatives-response:
+    .. _api-find-creatives-response:
 
     **Example response**:
 
@@ -113,6 +106,7 @@ Find creatives
                     "demandServer": "0001-00000001-8B4E",
                     "supplyServer": "0001-00000002-BB2D",
                     "type": "image",
+                    "mime": "image/png",
                     "scope": "300x250",
                     "hash": "56436e1fdcb42f406760ccc9a4fe2e0519c36f46",
                     "serveUrl": "https://app.example.com/serve/xed20914d13ed416ec91eb4be7b640a49.doc?v=67f4",
@@ -135,25 +129,9 @@ Dynamic find creatives
     :reqheader User-Agent: the user agent originating the request
     :statuscode 200: no error
 
-    :<json object context: the impression's context
-    :<json string context.iid: the impression ID
-    :<json string context.publisher: the publisher ID or account address (ADS or BSC)
-    :<json string context.url: the site URL
-    :<json string context.medium: the medium name
-    :<json string, optional context.vendor: the vendor name
-    :<json string, optional context.uid: the user ID (eg. a wallet address)
-    :<json boolean, optional context.metamask: is the MetaMask enabled
-    :<json array placements: a list of placements info
-    :<json string placements[].id: the request ID
-    :<json string, optional placements[].name: name of the placement
-    :<json string placements[].width: width of the placement
-    :<json string placements[].height: height of the placement
-    :<json string, optional placements[].depth: depth of the placement
-    :<json string, optional placements[].minDpi: the minimum DPI
-    :<json string[], optional placements[].types: a list of accepted types
-    :<json string[], optional placements[].mimes: a list of accepted MIME types
-
-    :>json Creative[] data: :ref:`creative list<creative-object>`
+    :<json object context: the :ref:`impression's context<api-impression-context>` with mandatory ``publisher``, ``medium`` and ``uid`` attributes
+    :<json array placements: a list of :ref:`placement requests<api-placement-request>` with mandatory ``width``, and ``height`` attributes
+    :>json Creative[] data: :ref:`creative list<api-creative-object>`
 
     **Example request**:
 
@@ -179,8 +157,8 @@ Dynamic find creatives
                 {
                     "id": "1234",
                     "name": "Main gallery",
-                    "width": 2.5,
-                    "height": 4.75,
+                    "width": 3,
+                    "height": 2.25,
                     "minDpi": 10,
                     "types": [
                         "image",
@@ -197,28 +175,82 @@ Dynamic find creatives
 
     **Example response**:
 
-    See :ref:`find creatives response<find-creatives-response>`
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
+
+        {
+            "data": [
+                {
+                    "id": "1234",
+                    "creativeId": "32a79fb61103aa3ef230d524cbd93e4f",
+                    "placementId": "2c81e9ed531b70c8ced43b19245aa3c3",
+                    "siteId": "ccc0c4b6109a4fe2ee2eb103a20c2d5d",
+                    "publisherId": "d64bf2a15c5de2e33b20c4b6100c2d5d",
+                    "demandServer": "0001-00000001-8B4E",
+                    "supplyServer": "0001-00000002-BB2D",
+                    "type": "image",
+                    "mime": "image/png",
+                    "scope": "300x250",
+                    "hash": "56436e1fdcb42f406760ccc9a4fe2e0519c36f46",
+                    "serveUrl": "https://app.example.com/serve/xed20914d13ed416ec91eb4be7b640a49.doc?v=67f4",
+                    "viewUrl": "https://app.example.com/l/n/view/32a79fb61103aa3ef230d524cbd93e4f?r=aHR0cHM6Ly9hcHAuZXhhbXBsZS5jb20vdmlldy9lZDIwOTE0ZDEzZWQ0MTZlYzkxZWI0YmU3YjY0MGE0OQ",
+                    "clickUrl": "https://app.example.com/l/n/click/32a79fb61103aa3ef230d524cbd93e4f?r=aHR0cHM6Ly9hcHAuYWRhcm91bmQubmV0L3ZpZXcvZWM5MWViNGJlN2I2NDBhNDllZDIwOTQxNjE0ZDEzZWQ",
+                    "rpm": 2.13
+                }
+            ]
+        }
 
 
 Data structures
 ---------------
 
-.. _creative-object:
+.. _api-impression-context:
+
+Impression context object
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- **iid** (*string*) - the impression ID
+- **publisher** (*string*) - (optional) the publisher ID or account address (ADS or BSC)
+- **url** (*string*) - the site URL
+- **medium** (*string*) - (optional) the site :ref:`medium<taxonomy-media>`
+- **vendor** (*string*) - (optional) the site :ref:`vendor<taxonomy-media>`
+- **uid** (*string*) - (optional) the user ID (eg. a wallet address)
+- **metamask** (*boolean*) - (optional) is the MetaMask enabled
+
+.. _api-placement-request:
+
+Placement request object
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+- **id** (*string*) - the request ID
+- **placementId** (*string*) - the placement ID (omit if ``width`` and ``height`` are provided)
+- **name** (*string*) - (optional) name of the placement
+- **width** (*string*) - width of the placement (omit if ``placementId`` is provided)
+- **height** (*float*) - height of the placement (omit if ``placementId`` is provided)
+- **depth** (*float*) - (optional) depth of the placement
+- **minDpi** (*float*) - (optional) the minimum DPI
+- **types** (*string[]*) - (optional) a list of accepted :ref:`types<taxonomy-formats>`
+- **mimes** (*string[]*) - (optional) a list of accepted :ref:`MIME types<taxonomy-formats>`.
+
+.. _api-creative-object:
 
 Creative object
 ^^^^^^^^^^^^^^^
 
-- **id** (`string`) – the request ID
-- **creativeId** (`string`) – the creative ID
-- **placementId** (`string`) – the placement ID
-- **siteId** (`string`) – the site ID
-- **publisherId** (`string`) – the publisher ID
-- **demandServer** (`string`) – the demand server account address
-- **supplyServer** (`string`) – the supply server account address
-- **type** (`string`) – the creative type: e.g. ``image``, ``video``, ``html``, ``model``
-- **scope** (`string`) – the creative scope (size)
-- **hash** (`string`) – checksum of the creative content
-- **serveUrl** (`string`) – URL to download the content of the creative
-- **viewUrl** (`string`) – view event URL
-- **clickUrl** (`string`) - click event URL
-- **rpm** (`float`) – average campaign's RPM
+- **id** (*string*) – the request ID
+- **creativeId** (*string*) – the creative ID
+- **placementId** (*string*) – the placement ID
+- **siteId** (*string*) – the site ID
+- **publisherId** (*string*) – the publisher ID
+- **demandServer** (*string*) – the demand server account address
+- **supplyServer** (*string*) – the supply server account address
+- **type** (*string*) – the :ref:`creative type<taxonomy-formats>`.
+- **mime** (*string*) – the :ref:`creative MIME type<taxonomy-formats>`.
+- **scope** (*string*) – the :ref:`creative scope<taxonomy-scopes>` (size).
+- **hash** (*string*) – checksum of the creative content
+- **serveUrl** (*string*) – URL to download the content of the creative
+- **viewUrl** (*string*) – view event URL
+- **clickUrl** (*string*) - click event URL
+- **rpm** (*float*) – average campaign's RPM
