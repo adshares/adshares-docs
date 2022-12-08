@@ -227,7 +227,7 @@ Placement request object
 - **id** (*string*) - the request ID
 - **placementId** (*string*) - the placement ID (omit if ``width`` and ``height`` are provided)
 - **name** (*string*) - (optional) name of the placement
-- **width** (*string*) - width of the placement (omit if ``placementId`` is provided)
+- **width** (*float*) - width of the placement (omit if ``placementId`` is provided)
 - **height** (*float*) - height of the placement (omit if ``placementId`` is provided)
 - **depth** (*float*) - (optional) depth of the placement
 - **minDpi** (*float*) - (optional) the minimum DPI
