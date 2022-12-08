@@ -1,7 +1,7 @@
 {
   "meta": {
     "name": "simple",
-    "version": "4.1.2"
+    "version": "4.2.0"
   },
   "parameters": {
     "@countries": {
@@ -882,7 +882,7 @@
     {
       "medium": "metaverse",
       "name": "cryptovoxels",
-      "label": "Cryptovoxels",
+      "label": "Voxels",
       "formats": [
         {
           "path": "$[?(@.type=image)].mimes",
@@ -903,6 +903,21 @@
               "cube": "Cube"
             }
           }
+        }
+      ],
+      "targeting": []
+    },
+    {
+      "medium": "metaverse",
+      "name": "polkacity",
+      "label": "Polka City",
+      "formats": [
+        {
+          "path": "$[?(@.type=image)].mimes",
+          "value": [
+            "image/jpeg",
+            "image/png"
+          ]
         }
       ],
       "targeting": []

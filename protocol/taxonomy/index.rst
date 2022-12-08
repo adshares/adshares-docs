@@ -25,6 +25,9 @@ Media & vendors
     *   - `Voxels <https://www.voxels.com/>`_
         - ``metaverse``
         - ``cryptovoxels``
+    *   - `Polka City <https://www.polkacity.io/>`_
+        - ``metaverse``
+        - ``polkacity``
 
 
 .. _taxonomy-formats:
