@@ -63,7 +63,7 @@ Find creatives
     :<json object context: the :ref:`impression's context<api-impression-context>`
     :<json array placements: a list of :ref:`placement requests<api-placement-request>` with mandatory ``placementId`` attributes
 
-    :>json Creative[] data: :ref:`creative list<creative-object>`
+    :>json Creative[] data: :ref:`creative list<api-creative-object>`. Creative and placement should be matched by the request ID
 
     **Example request**:
 
@@ -82,6 +82,7 @@ Find creatives
             },
             "placements": [
                 {
+                    "id": "1234",
                     "placementId": "2c81e9ed531b70c8ced43b19245aa3c3"
                 }
             ]
@@ -99,6 +100,7 @@ Find creatives
         {
             "data": [
                 {
+                    "id": "1234",
                     "creativeId": "32a79fb61103aa3ef230d524cbd93e4f",
                     "placementId": "2c81e9ed531b70c8ced43b19245aa3c3",
                     "siteId": "ccc0c4b6109a4fe2ee2eb103a20c2d5d",
@@ -122,7 +124,7 @@ Dynamic find creatives
 
 .. http:post:: /supply/find
 
-    Finds creatives that mach the query with automatic creation of users (if enabled) and placements.
+    Finds creatives that match the query with automatic creation of users (if enabled) and placements.
 
     :reqheader Accept: ``application/json``
     :resheader Content-Type: ``application/json``
@@ -131,7 +133,7 @@ Dynamic find creatives
 
     :<json object context: the :ref:`impression's context<api-impression-context>` with mandatory ``publisher``, ``medium`` and ``uid`` attributes
     :<json array placements: a list of :ref:`placement requests<api-placement-request>` with mandatory ``width``, and ``height`` attributes
-    :>json Creative[] data: :ref:`creative list<api-creative-object>`
+    :>json Creative[] data: :ref:`creative list<api-creative-object>`. Creative and placement should be matched by the request ID
 
     **Example request**:
 
