@@ -157,9 +157,8 @@ Dynamic find creatives
                 {
                     "id": "1234",
                     "name": "Main gallery",
-                    "width": 3,
-                    "height": 2.25,
-                    "minDpi": 10,
+                    "width": 300,
+                    "height": 225,
                     "types": [
                         "image",
                         "video"
@@ -227,10 +226,9 @@ Placement request object
 - **id** (*string*) - the request ID
 - **placementId** (*string*) - the placement ID (omit if ``width`` and ``height`` are provided)
 - **name** (*string*) - (optional) name of the placement
-- **width** (*float*) - width of the placement (omit if ``placementId`` is provided)
-- **height** (*float*) - height of the placement (omit if ``placementId`` is provided)
-- **depth** (*float*) - (optional) depth of the placement
-- **minDpi** (*float*) - (optional) the minimum DPI
+- **width** (*int*) - width of the placement (omit if ``placementId`` is provided)
+- **height** (*int*) - height of the placement (omit if ``placementId`` is provided)
+- **depth** (*int*) - (optional) depth of the placement
 - **types** (*string[]*) - (optional) a list of accepted :ref:`types<taxonomy-formats>`
 - **mimes** (*string[]*) - (optional) a list of accepted :ref:`MIME types<taxonomy-formats>`.
 
