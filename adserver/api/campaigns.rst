@@ -52,9 +52,9 @@ Add campaign
     :<json string status: :ref:`status<api-campaign-status>`
     :<json string name: name
     :<json string targetUrl: landing URL
-    :<json integer, null maxCpc: maximal CPC in clicks
-    :<json integer, null maxCpm: maximal CPM in clicks, ``null`` for automatic
-    :<json integer budget: budget in clicks
+    :<json float, null maxCpc: maximal CPC in USD
+    :<json float, null maxCpm: maximal CPM in USD, ``null`` for automatic
+    :<json float budget: budget in USD
     :<json string medium: medium
     :<json string, null vendor: vendor
     :<json string dateStart: date of start in ISO 8601 format
@@ -81,9 +81,9 @@ Edit campaign
     :<json string status: (optional) :ref:`status<api-campaign-status>`
     :<json string name: (optional) name
     :<json string targetUrl: (optional) landing URL
-    :<json integer, null maxCpc: (optional) maximal CPC in clicks
-    :<json integer, null maxCpm: (optional) maximal CPM in clicks, ``null`` for automatic
-    :<json integer budget: (optional) budget in clicks
+    :<json float, null maxCpc: (optional) maximal CPC in USD
+    :<json float, null maxCpm: (optional) maximal CPM in USD, ``null`` for automatic
+    :<json float budget: (optional) budget in USD
     :<json string dateStart: (optional) date of start in ISO 8601 format
     :<json string, null dateEnd: (optional) date of end in ISO 8601 format, `null` for interminable campaign
     :<json CampaignTargeting campaign.targeting: (optional) :ref:`targeting<api-campaign-api-targeting-object>` (required and forbidden features)
@@ -259,9 +259,9 @@ Campaign object
 - **status** (`string`) – :ref:`status<api-campaign-status>`
 - **name** (`string`) – name
 - **targetUrl** (`string`) – landing URL
-- **maxCpc** (`integer, null`) – maximal CPC in clicks
-- **maxCpm** (`integer, null`) – maximal CPM in clicks, ``null`` for automatic
-- **budget** (`integer`) – budget in clicks
+- **maxCpc** (`float, null`) – maximal CPC in USD
+- **maxCpm** (`float, null`) – maximal CPM in USD, ``null`` for automatic
+- **budget** (`float`) – budget in USD
 - **medium** (`string`) – medium
 - **vendor** (`string, null`) – vendor
 - **dateStart** (`string`) – date of start in ISO 8601 format
