@@ -163,11 +163,11 @@ Fetch creative
 Add creative
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-.. http:post:: /api/v2/campaigns/(id)/creatives
+.. http:post:: /api/v2/campaigns/(campaignId)/creatives
 
     Add creative.
 
-    :param id: campaign ID
+    :param campaignId: campaign ID
 
     :reqheader Content-Type: ``application/json``
 
@@ -246,8 +246,7 @@ Creative status is a string. Creative can be in one of following states:
 Campaign object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **id** (`integer`) – campaign ID
-- **uuid** (`string`) – campaign UUID
+- **id** (`string`) – campaign ID
 - **createdAt** (`string`) – date of creation
 - **updatedAt** (`string`) – date of last update
 - **secret** (`string`) – conversion secret
@@ -388,8 +387,7 @@ Custom input targeting object
 Creative object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **id** (`integer`) – ID
-- **uuid** (`string`) – UUID
+- **id** (`string`) – ID
 - **createdAt** (`string`) – date of creation in ISO 8601 format
 - **updatedAt** (`string`) – date of last update in ISO 8601 format
 - **type** (`string`) – type
