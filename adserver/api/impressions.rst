@@ -63,7 +63,7 @@ Find creatives
     :<json object context: the :ref:`impression's context<api-impression-context>`
     :<json array placements: a list of :ref:`placement requests<api-placement-request>` with mandatory ``placementId`` attributes
 
-    :>json Creative[] data: :ref:`creative list<api-creative-object>`. Creative and placement can be matched by the request ID
+    :>json Creative[] data: :ref:`creative list<api-creative-object>`. Creative and placement can be matched by the request ID. If response does not contain entry for request ID, Ad Server does not have suitable creative.
 
     **Example request**:
 
@@ -133,7 +133,7 @@ Dynamic find creatives
 
     :<json object context: the :ref:`impression's context<api-impression-context>` with mandatory ``publisher``, ``medium`` and ``uid`` attributes
     :<json array placements: a list of :ref:`placement requests<api-placement-request>` with mandatory ``width``, and ``height`` attributes
-    :>json Creative[] data: :ref:`creative list<api-creative-object>`. Creative and placement can be matched by the request ID
+    :>json Creative[] data: :ref:`creative list<api-creative-object>`. Creative and placement can be matched by the request ID. If response does not contain entry for request ID, Ad Server does not have suitable creative.
 
     **Example request**:
 
