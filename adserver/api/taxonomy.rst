@@ -12,7 +12,7 @@ Media
 
     Fetch supported media.
 
-    :reqheader Content-Type: ``application/json``
+    :reqheader Accept: ``application/json``
 
     :statuscode 200: no error
 
@@ -27,7 +27,7 @@ Vendors
 
     :param medium: medium ID
 
-    :reqheader Content-Type: ``application/json``
+    :reqheader Accept: ``application/json``
 
     :statuscode 200: no error
 
@@ -43,7 +43,7 @@ Taxonomy by medium
     :param medium: medium ID
     :query vendor: (optional) vendor ID. If omitted, default vendor will be returned
 
-    :reqheader Content-Type: ``application/json``
+    :reqheader Accept: ``application/json``
 
     :statuscode 200: no error
 

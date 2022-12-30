@@ -120,13 +120,14 @@ Upload creative
     :form binary file: file
     :form string medium: medium ID
     :form string vendor: (optional) vendor ID
+    :form string type: type
+    :form string scope: (optional) scope, required if cannot be determined automatically, e.g. HTML creatives
 
     :statuscode 200: no error
     :statuscode 422: validation error
 
-    :>json string data.name: temporary name
-    :>json string data.url: temporary URL
-    :>json string data.scope: (optional) scope (size, space occupied by creative). Scope is not present in case of resizable creatives, e.g. HTML
+    :>json string data.id: file ID
+    :>json string data.url: temporary URL. Can be used for preview
 
 Fetch creative list
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -404,8 +405,5 @@ Creative object
 CreativeInput object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+- **fileId** (`string`) – file ID taken from :ref:`upload response<api-upload-creative>`
 - **name** (`string`) – name
-- **scope** (`string`) – scope (size, occupied space). It should be the same as **data.scope** returned during upload if was present
-- **type** (`string`) – type
-- **url** (`string`) – (optional) temporary URL returned in response to :ref:`upload creative request<api-upload-creative>`. It is required for creative which needs to be uploaded, e.g. image
-- **contents** (`string`) – (optional) content. It is suggested for creative which does not use upload, e.g. direct links. By default content is campaign landing URL
