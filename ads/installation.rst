@@ -24,7 +24,7 @@ To compile the software you need boost and ssl libraries. Check the Makefile if 
 ::
 
     sudo apt update
-    sudo apt install openssl libboost-all-dev libssl-dev cmake -y
+    sudo apt install openssl libboost-all-dev libssl-dev cmake build-essential -y
 
 Start with cloning the git directory.
 
