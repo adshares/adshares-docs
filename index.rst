@@ -21,6 +21,7 @@ with the Adshares protocol, develop ad server modules or just use our open sourc
     dao/index
     ads/index
     protocol/index
+    protocol2/index
     adserver/index
 
 .. grid:: 1 2 2 2
@@ -47,6 +48,12 @@ with the Adshares protocol, develop ad server modules or just use our open sourc
 
     .. grid-item-card:: :octicon:`arrow-switch` Adshares Protocol
         :link: protocol/index
+        :link-type: doc
+
+        Enables the ad tech industry to adopt blockchain with minimum effort.
+
+    .. grid-item-card:: :octicon:`arrow-switch` Adshares Protocol2
+        :link: protocol2/index
         :link-type: doc
 
         Enables the ad tech industry to adopt blockchain with minimum effort.
