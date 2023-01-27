@@ -24,7 +24,7 @@ A series of :ref:`Creatives <protocol-definitions-creative>` aimed to achieve a 
 
 Site
 ^^^^
-A digital medium where a :ref:`Creative <protocol-definitions-creative>` can be placed. Currently the following two media types are supported:
+A digital medium owned by a :ref:`Publisher <protocol-definitions-publisher>` where a :ref:`Creative <protocol-definitions-creative>` can be placed. Currently the following two media types are supported:
 
 * web page,
 * metaverse land parcel.
@@ -40,6 +40,12 @@ A specific area within a :ref:`Site <protocol-definitions-site>` where a :ref:`C
 Device
 ^^^^^^
 The hardware the :ref:`User <protocol-definitions-user>` uses to access a :ref:`Site <protocol-definitions-site>`.
+
+.. _protocol-definitions-target:
+
+Target
+^^^^^^
+A website owned by an :ref:`Advertiser <protocol-definitions-advertiser>` which the :ref:`User <protocol-definitions-user>` is expected to visit as a result of interacting with a :ref:`Creative <protocol-definitions-creative>`. Also, :ref:`Target <protocol-definitions-target>` is the destination where the :ref:`User <protocol-definitions-user>` is redirected after clicking on a :ref:`Creative <protocol-definitions-creative>`.
 
 
 .. _protocol-definitions-actors:
@@ -92,7 +98,7 @@ AdSelect
 A module integrated with an instance of :ref:`SSP <protocol-definitions-ssp>`, or operating as an external service for :ref:`SSP <protocol-definitions-ssp>`, containing business logic whose role is to select :ref:`Creatives <protocol-definitions-creative>` according to the :ref:`Publisher <protocol-definitions-publisher>`'s policy, while maximizing the :ref:`Publisher <protocol-definitions-publisher>`'s income.
 
 .. note::
-    :ref:`SSP <protocol-definitions-ssp>`, :ref:`SSA <protocol-definitions-ssa>` and :ref:`AdSelect <protocol-definitions-adselect>` are free to communicate in any way they choose. This communication is *not* part of :ref:`Adshares Protocol<adshares-protocol2>`.
+    :ref:`SSP <protocol-definitions-ssp>` and :ref:`SSA <protocol-definitions-ssa>` are free to communicate in any way they choose, as this communication is *not* part of :ref:`Adshares Protocol<adshares-protocol2>`. Whereas the communication between :ref:`SSP <protocol-definitions-ssp>` and :ref:`AdSelect <protocol-definitions-adselect>` is included in :ref:`Adshares Protocol<adshares-protocol2>`.
 
 
 .. _protocol-definitions-dsi:
@@ -110,7 +116,7 @@ DSP
 
 DSA
 ^^^
-*Demand-Side Agent*, i.e. executable code embedded by an :ref:`Advertiser <protocol-definitions-advertiser>` in a website that the :ref:`User <protocol-definitions-user>` is expected to visit as a result of interacting with a :ref:`Creative <protocol-definitions-creative>`. Each implementation of :ref:`DSP <protocol-definitions-dsp>` has its own implementation of :ref:`DSA <protocol-definitions-dsa>`. Also, the above website is the target where the :ref:`User <protocol-definitions-user>` is redirected after clicking on a :ref:`Creative <protocol-definitions-creative>`. To be able to correctly redirect :ref:`User <protocol-definitions-user>`’s clicks, :ref:`DSP <protocol-definitions-dsp>` maintains a mapping between :ref:`Campaigns<protocol-definitions-campaign>` and their :ref:`DSAs <protocol-definitions-dsa>`.
+*Demand-Side Agent*, i.e. executable code embedded by an :ref:`Advertiser <protocol-definitions-advertiser>` in a :ref:`Target <protocol-definitions-target>`. Each implementation of :ref:`DSP <protocol-definitions-dsp>` has its own implementation of :ref:`DSA <protocol-definitions-dsa>`. To be able to correctly redirect :ref:`User <protocol-definitions-user>`’s clicks, :ref:`DSP <protocol-definitions-dsp>` maintains a mapping between :ref:`Campaigns<protocol-definitions-campaign>` and their :ref:`DSAs <protocol-definitions-dsa>`.
 
 .. _protocol-definitions-adpay:
 
@@ -119,7 +125,7 @@ AdPay
 A module integrated with an instance of :ref:`DSP <protocol-definitions-dsp>`, or operating as an external service for :ref:`DSP <protocol-definitions-dsp>`, containing business logic whose role is to manage the :ref:`Advertiser <protocol-definitions-advertiser>`'s finances, while minimizing the :ref:`Advertiser <protocol-definitions-advertiser>`'s cost.
 
 .. note::
-    :ref:`DSP <protocol-definitions-dsp>`, :ref:`DSA <protocol-definitions-dsa>` and :ref:`AdPay <protocol-definitions-adpay>` are free to communicate in any way they choose. This communication is *not* part of :ref:`Adshares Protocol<adshares-protocol2>`.
+    :ref:`DSP <protocol-definitions-dsp>` and :ref:`DSA <protocol-definitions-dsa>` are free to communicate in any way they choose, as this communication is *not* part of :ref:`Adshares Protocol<adshares-protocol2>`. Whereas the communication between :ref:`DSP <protocol-definitions-dsp>` and :ref:`AdPay <protocol-definitions-adpay>` is included in :ref:`Adshares Protocol<adshares-protocol2>`.
 
 
 .. _protocol-definitions-contextinfrastructure:
@@ -251,7 +257,7 @@ Emitted when a :ref:`User <protocol-definitions-user>` interacts with a :ref:`Cr
 
 Conversion Event
 ^^^^^^^^^^^^^^^^
-An event emitted by :ref:`DSA <protocol-definitions-dsa>` based on a :ref:`User <protocol-definitions-user>` performs an action while browsing an :ref:`Advertiser <protocol-definitions-advertiser>`'s website.
+An event emitted by :ref:`DSA <protocol-definitions-dsa>` based on a :ref:`User <protocol-definitions-user>` performs an action while browsing a :ref:`Target <protocol-definitions-target>`.
 
 
 .. _protocol-definitions-ecosystem:
