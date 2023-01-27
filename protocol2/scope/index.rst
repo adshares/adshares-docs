@@ -3,60 +3,59 @@ Scope
 
 .. _protocol-scope:
 
-Lorem Ipsum
------------
-
-Those are the four main areas handled by *Adshares Protocol*:
+The following four areas are handled by :ref:`Adshares Protocol <adshares-protocol2>`.
 
 Authentication
-^^^^^^^^^^^^^^
-How various entities participating in *Adshares Protocol* authenticate each other.
+--------------
+How various entities participating in :ref:`Adshares Protocol <adshares-protocol2>` authenticate each other.
 
 Synchronization
-^^^^^^^^^^^^^^^
-#. How :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` and :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` uses :ref:`Adshares Blockchain <protocol-definitions-blockchain>` to broadcast an URL indicating their current availability.
-    .. * exposed by: :ref:`bla bla <protocol-definitions-creative>`
-    .. * consumed by: :ref:`foo abr <protocol-definitions-campaign>`
+---------------
+#. How :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` and :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` announce their current availability:
+    * published by: :ref:`SSP <protocol-definitions-ssp>` and :ref:`DSP <protocol-definitions-dsp>`
+    * retrieved by: :ref:`SSP <protocol-definitions-ssp>` and :ref:`DSP <protocol-definitions-dsp>`
+    * medium: :ref:`Adshares Blockchain <protocol-definitions-blockchain>`
 
-#. How Demand-Side Infrastructure exposes inventory data:
-    * exposed by: *DSP*
-    * consumed by: *SSP*
-    * returns: *Demand-Side Inventory*
+#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` exposes inventory data:
+    * exposed by: :ref:`DSP <protocol-definitions-dsp>`
+    * consumed by: :ref:`SSP <protocol-definitions-ssp>`
+    * returns: :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>`
 
-#. How Supply-Side Infrastructure exposes inventory data:
-    - exposed by: *SSP*
-    - consumed by: *DSP*
-    - returns: *Supply-Side Inventory*
+#. How :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` exposes inventory data:
+    * exposed by: :ref:`SSP <protocol-definitions-ssp>`
+    * consumed by: :ref:`DSP <protocol-definitions-dsp>`
+    * returns: :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>`
 
 Impressions
-^^^^^^^^^^^
-1. How *Context Infrastructure* exposes context data:
-    - exposed by: *UCP*, *SCP*, *DCP*
-    - consumed by: *SSP* and *DSP*
-    - returns: *Context Data*
+-----------
+#. How :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>` exposes context data:
+    * exposed by: :ref:`UCP <protocol-definitions-ucp>`, :ref:`SCP <protocol-definitions-scp>`, :ref:`DCP <protocol-definitions-dcp>`
+    * consumed by: :ref:`SSP <protocol-definitions-ssp>` and :ref:`DSP <protocol-definitions-dsp>`
+    * returns: :ref:`Context Data<protocol-definitions-contextdata>`
 
-2. How *Demand-Side Infrastructure* exposes content data:
-    - exposed by: *DSP*
-    - consumed by: *SSA*
-    - returns: *Creative Content*
+#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` exposes content data:
+    * exposed by: :ref:`DSP <protocol-definitions-dsp>`
+    * consumed by: :ref:`SSA<protocol-definitions-ssa>`
+    * returns: :ref:`Creative Content<protocol-definitions-creativecontent>`
 
-3. How *Context Infrastructure* accepts notifications about *Register*-type impression events:
-    - exposed by: *UCP*, *SCP*, *DCP*
-    - consumed by: *SSA*
-    - returns: *Context Script*
+#. How :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>` accepts notifications about :ref:`Register Events <protocol-definitions-registerevent>`:
+    * exposed by: :ref:`UCP <protocol-definitions-ucp>`, :ref:`SCP <protocol-definitions-scp>`, :ref:`DCP <protocol-definitions-dcp>`
+    * consumed by: :ref:`SSA<protocol-definitions-ssa>`
+    * returns: :ref:`Context Script <protocol-definitions-contextscript>`
 
-4. How *Demand-Side Infrastructure* accepts notifications about *View*-type or *Click*-type impression events:
-    - exposed by: *DSP*
-    - consumed by: *SSA*
-    - returns: endpoints for *UCP*, *SCP*, *DCP*
+#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` accepts notifications about :ref:`View Events <protocol-definitions-viewevent>` or :ref:`Click Events <protocol-definitions-clickevent>`:
+    * exposed by: :ref:`DSP <protocol-definitions-dsp>`
+    * consumed by: :ref:`SSA<protocol-definitions-ssa>`
+    * returns: endpoints for :ref:`UCP <protocol-definitions-ucp>`, :ref:`SCP <protocol-definitions-scp>`, :ref:`DCP <protocol-definitions-dcp>`
 
 Payments
-^^^^^^^^
-1. How *Demand-Side Infrastructure* uses *Adshares Blockchain* to send payments to *Supply-Side Infrastructure*:
-    - payer: *DSP*
-    - payee: *SSP*
+--------
+#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` sends payments to :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>`:
+    * payer: :ref:`DSP <protocol-definitions-dsp>`
+    * payee: :ref:`SSP <protocol-definitions-ssp>`
+    * medium: :ref:`Adshares Blockchain <protocol-definitions-blockchain>`
 
-2. How *Demand-Side Infrastructure* exposes payment reports:
-    - exposed by: *DSP*
-    - consumed by: *SSP*
-    - returns: *Payment Report*
+#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` exposes payment reports:
+    * exposed by: :ref:`DSP <protocol-definitions-dsp>`
+    * consumed by: :ref:`SSP <protocol-definitions-ssp>`
+    * returns: :ref:`Payment Report <protocol-definitions-paymentreport>`
