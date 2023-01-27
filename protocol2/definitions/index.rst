@@ -257,7 +257,7 @@ Emitted when a :ref:`User <protocol-definitions-user>` interacts with a :ref:`Cr
 
 Conversion Event
 ^^^^^^^^^^^^^^^^
-An event emitted by :ref:`DSA <protocol-definitions-dsa>` based on a :ref:`User <protocol-definitions-user>` performs an action while browsing a :ref:`Target <protocol-definitions-target>`.
+An event emitted by :ref:`DSA <protocol-definitions-dsa>` when a :ref:`User <protocol-definitions-user>` performs an action while browsing a :ref:`Target <protocol-definitions-target>`.
 
 
 .. _protocol-definitions-ecosystem:
