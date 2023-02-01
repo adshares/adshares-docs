@@ -22,4 +22,5 @@ Contents
     
     definitions/index
     scope/index
+    synchronization/index
     foo/index
