@@ -23,4 +23,6 @@ Contents
     definitions/index
     scope/index
     synchronization/index
+    impressions/index
+    payments/index
     foo/index
