@@ -3,17 +3,17 @@
 
 Adshares Protocol2
 ==================
-*Adshares Protocol* describes interactions between the following entities within the Adshares ecosystem:
+:ref:`Adshares Protocol <adshares-protocol2>` describes interactions between the following entities within the :ref:`Adshares Ecosystem <protocol-definitions-ecosystem>`:
 
-- Supply-Side Infrastructure
-- Demand-Side Infrastructure
-- Context Infrastructure
-- Tagging Infrastructure
+* :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>`
+* :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>`
+* :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>`
+* :ref:`Tagging Infrastructure <protocol-definitions-tagginginfrastructure>`
 
-Check out the :doc:`Lorem Ipsum <foo/index>` section for further information, including how to
-:ref:`foo bar <protocol-definitions-viewevent>` the project.
+.. Check out the :doc:`Lorem Ipsum <definitions/index>` section for further information, 
+.. including how to :ref:`lorem ipsum <protocol-definitions-viewevent>` the project.
 
-.. image:: index.png
+.. .. image:: index.png
 
 Contents
 ^^^^^^^^
@@ -25,4 +25,3 @@ Contents
     synchronization/index
     impressions/index
     payments/index
-    foo/index

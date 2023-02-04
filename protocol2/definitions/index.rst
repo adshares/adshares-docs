@@ -58,14 +58,14 @@ Actors
 Publisher
 ^^^^^^^^^
 
-A business entity that owns a :ref:`Site <protocol-definitions-site>`. Publishers constitute the supply side of the market, as they generate supply of places where advertisers can display their :ref:`Creatives <protocol-definitions-creative>`.
+A business entity that owns a :ref:`Site <protocol-definitions-site>`. :ref:`Publishers <protocol-definitions-publisher>` constitute the supply side of the market, as they generate supply of places where :ref:`Advertisers <protocol-definitions-advertiser>` can display their :ref:`Creatives <protocol-definitions-creative>`.
 
 .. _protocol-definitions-advertiser:
 
 Advertiser
 ^^^^^^^^^^
 
-A business entity that runs a :ref:`Campaign <protocol-definitions-campaign>`. Advertisers constitute the demand side of the market, as they generate demand for places where they can display their :ref:`Creatives <protocol-definitions-creative>`.
+A business entity that runs a :ref:`Campaign <protocol-definitions-campaign>`. :ref:`Advertisers <protocol-definitions-advertiser>` constitute the demand side of the market, as they generate demand for places where they can display their :ref:`Creatives <protocol-definitions-creative>`.
 
 .. _protocol-definitions-user:
 
@@ -253,7 +253,7 @@ Emitted when a :ref:`Creative <protocol-definitions-creative>` is rendered on a 
 """""""""""""
 Emitted when a :ref:`User <protocol-definitions-user>` interacts with a :ref:`Creative <protocol-definitions-creative>` by clicking on it.
 
-.. _protocol-definitions-conversion:
+.. _protocol-definitions-conversionevent:
 
 Conversion Event
 ^^^^^^^^^^^^^^^^
@@ -262,8 +262,8 @@ An event emitted by :ref:`DSA <protocol-definitions-dsa>` when a :ref:`User <pro
 
 .. _protocol-definitions-ecosystem:
 
-Ecosystem
----------
+Adshares Ecosystem
+------------------
 
 .. _protocol-definitions-adserver:
 

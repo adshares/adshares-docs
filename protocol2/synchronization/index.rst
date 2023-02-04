@@ -14,18 +14,20 @@ The URL is published on :ref:`Adshares Blockchain <protocol-definitions-blockcha
 .. container:: protocol
 
     Every :ref:`AdServer <protocol-definitions-adserver>` is required to broadcast a URL pointing to its metadata every 24 hours. 
-    This means that if an :ref:`AdServer <protocol-definitions-adserver>` wants to collect information about other :ref:`AdServers <protocol-definitions-adserver>`, 
-    it needs to check every block created within the last 24 hours for the presence of a URL. 
-    Then, each URL needs to be verified if it actually points to valid metadata.
+
+This means that if an :ref:`AdServer <protocol-definitions-adserver>` wants to collect information about other :ref:`AdServers <protocol-definitions-adserver>`, 
+it needs to check every block created within the last 24 hours for the presence of a URL. 
+Then, each URL needs to be verified if it actually points to valid metadata.
 
 Within the metadata, the most important field is `inventoryUrl`, as it points to the current offering of an :ref:`AdServer <protocol-definitions-adserver>`: 
 depending on the role of an AdServer, it's either :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>`, 
-or :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>`, or both. 
-Also, as inventory data is likely to change over time, the `inventoryUrl` needs to be queried on a regular basis.
+or :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>`, or both.
+
+As inventory data is likely to change over time, the `inventoryUrl` needs to be queried on a regular basis.
+
+Using the endpoints contained in the `inventoryUrl` field:
 
 .. container:: protocol
-
-    Using the endpoints contained in the `inventoryUrl` field:
 
     * :ref:`SSP <protocol-definitions-ssp>` retrieves :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` from all available :ref:`DSPs <protocol-definitions-dsp>`
     * :ref:`DSP <protocol-definitions-dsp>` retrieves :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` from all available :ref:`SSPs <protocol-definitions-ssp>`

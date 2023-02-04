@@ -16,12 +16,12 @@ Synchronization
     * retrieved by: :ref:`SSP <protocol-definitions-ssp>` and :ref:`DSP <protocol-definitions-dsp>`
     * medium: :ref:`Adshares Blockchain <protocol-definitions-blockchain>`
 
-#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` exposes inventory data:
+#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` exposes its inventory data:
     * exposed by: :ref:`DSP <protocol-definitions-dsp>`
     * consumed by: :ref:`SSP <protocol-definitions-ssp>`
     * returns: :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>`
 
-#. How :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` exposes inventory data:
+#. How :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` exposes its inventory data:
     * exposed by: :ref:`SSP <protocol-definitions-ssp>`
     * consumed by: :ref:`DSP <protocol-definitions-dsp>`
     * returns: :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>`
