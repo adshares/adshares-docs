@@ -3,7 +3,7 @@ Synchronization
 
 .. _protocol-synchronization:
 
-To be able to interact with each other, :ref:`AdServers <protocol-definitions-adserver>` need to inform other :ref:`AdServers <protocol-definitions-adserver>` about their availablity and their offering. 
+To be able to interact with each other, an :ref:`AdServer <protocol-definitions-adserver>` needs to inform other :ref:`AdServers <protocol-definitions-adserver>` about its availablity and its current offering. 
 This information sharing is done by broadcasting via :ref:`Adshares Blockchain <protocol-definitions-blockchain>` a URL pointing to JSON-based metadata.
 
 The URL is published on :ref:`Adshares Blockchain <protocol-definitions-blockchain>` in the form of an uppercase hexadecimal string.

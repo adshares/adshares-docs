@@ -13,7 +13,7 @@ Adshares Protocol2
 .. Check out the :doc:`Lorem Ipsum <definitions/index>` section for further information, 
 .. including how to :ref:`lorem ipsum <protocol-definitions-viewevent>` the project.
 
-.. .. image:: index.png
+.. image:: index.png
 
 Contents
 ^^^^^^^^
@@ -23,5 +23,5 @@ Contents
     definitions/index
     scope/index
     synchronization/index
-    impressions/index
+    impressions/index2
     payments/index
