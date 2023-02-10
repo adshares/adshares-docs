@@ -1,0 +1,4 @@
+Authentication
+==============
+
+.. _protocol-authentication:
