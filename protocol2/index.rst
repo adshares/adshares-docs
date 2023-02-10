@@ -23,5 +23,5 @@ Contents
     definitions/index
     scope/index
     synchronization/index
-    impressions/index2
+    impressions/index
     payments/index
