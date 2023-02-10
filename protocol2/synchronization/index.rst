@@ -3,7 +3,11 @@ Synchronization
 
 .. _protocol-synchronization:
 
-To be able to interact with each other, an :ref:`AdServer <protocol-definitions-adserver>` needs to inform other :ref:`AdServers <protocol-definitions-adserver>` about its availablity and its current offering. 
+To be able to interact with each other:
+
+* every :ref:`Supply-Side Platform <protocol-definitions-ssp>` needs to inform other :ref:`Demand-Side Platforms <protocol-definitions-dsp>` about its availablity and its current :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>`
+* every :ref:`Demand-Side Platform <protocol-definitions-dsp>` needs to inform other :ref:`Supply-Side Platforms <protocol-definitions-ssp>` about its availablity and its current :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>`
+
 This information sharing is done by broadcasting via :ref:`Adshares Blockchain <protocol-definitions-blockchain>` a URL pointing to JSON-based metadata.
 
 The URL is published on :ref:`Adshares Blockchain <protocol-definitions-blockchain>` in the form of an uppercase hexadecimal string.
@@ -13,15 +17,17 @@ The URL is published on :ref:`Adshares Blockchain <protocol-definitions-blockcha
 
 .. container:: protocol
 
-    Every :ref:`AdServer <protocol-definitions-adserver>` is required to broadcast a URL pointing to its metadata every 24 hours. 
+    Every :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>` is required to broadcast a URL pointing to its metadata every 24 hours. 
 
-This means that if an :ref:`AdServer <protocol-definitions-adserver>` wants to collect information about other :ref:`AdServers <protocol-definitions-adserver>`, 
+This means that if a :ref:`Supply-Side Platform <protocol-definitions-ssp>` or a :ref:`Demand-Side Platform <protocol-definitions-dsp>` wants to collect information 
+about other :ref:`Supply-Side Platforms <protocol-definitions-ssp>` or :ref:`Demand-Side Platforms <protocol-definitions-dsp>`, 
 it needs to check every block created within the last 24 hours for the presence of a URL. 
 Then, each URL needs to be verified if it actually points to valid metadata.
 
-Within the metadata, the most important field is `inventoryUrl`, as it points to the current offering of an :ref:`AdServer <protocol-definitions-adserver>`: 
-depending on the role of an AdServer, it's either :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>`, 
-or :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>`, or both.
+Within the metadata, the most important field is `inventoryUrl`, as it points to:
+
+* the current :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` of a :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
+* the current :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` of a :ref:`Demand-Side Platform <protocol-definitions-dsp>` 
 
 As inventory data is likely to change over time, the `inventoryUrl` needs to be queried on a regular basis.
 
@@ -29,8 +35,8 @@ Using the endpoints contained in the `inventoryUrl` field:
 
 .. container:: protocol
 
-    * :ref:`SSP <protocol-definitions-ssp>` retrieves :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` from all available :ref:`DSPs <protocol-definitions-dsp>`
-    * :ref:`DSP <protocol-definitions-dsp>` retrieves :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` from all available :ref:`SSPs <protocol-definitions-ssp>`
+    * :ref:`Supply-Side Platform <protocol-definitions-ssp>` retrieves :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` from all available :ref:`DSPs <protocol-definitions-dsp>`
+    * :ref:`Demand-Side Platform <protocol-definitions-dsp>` retrieves :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` from all available :ref:`SSPs <protocol-definitions-ssp>`
 
 .. note::
     In most ecosystems, :ref:`Advertisers <protocol-definitions-advertiser>` receive information about :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` 

@@ -86,29 +86,29 @@ Supply-Side Infrastructure
 
 .. _protocol-definitions-ssp:
 
-SSP
-^^^
-*Supply-Side Platform*, i.e. an IT platform used by :ref:`Publishers <protocol-definitions-publisher>` to manage their :ref:`Sites <protocol-definitions-site>`. 
-The supply-side module of an :ref:`AdServer <protocol-definitions-adserver>` is an example implementation of :ref:`SSP <protocol-definitions-ssp>`.
+Supply-Side Platform
+^^^^^^^^^^^^^^^^^^^^
+An IT platform used by :ref:`Publishers <protocol-definitions-publisher>` to manage their :ref:`Sites <protocol-definitions-site>`. 
+The supply-side module of an :ref:`AdServer <protocol-definitions-adserver>` is an example implementation of :ref:`Supply-Side Platform <protocol-definitions-ssp>`.
 
 .. _protocol-definitions-ssa:
 
-SSA
-^^^
-*Supply-Side Agent*, i.e. executable code embedded by a :ref:`Publisher <protocol-definitions-publisher>` in a :ref:`Site <protocol-definitions-site>`. 
-Each implementation of :ref:`SSP <protocol-definitions-ssp>` has its own implementation of :ref:`SSA <protocol-definitions-ssa>`.
+Supply-Side Agent
+^^^^^^^^^^^^^^^^^
+Executable code embedded by a :ref:`Publisher <protocol-definitions-publisher>` in a :ref:`Site <protocol-definitions-site>`. 
+Each implementation of :ref:`Supply-Side Platform <protocol-definitions-ssp>` has its own implementation of :ref:`Supply-Side Agent <protocol-definitions-ssa>`.
 
 .. _protocol-definitions-asm:
 
-ASM
-^^^
-*Ad Select Module*, i.e. a module integrated with an instance of :ref:`SSP <protocol-definitions-ssp>`, or operating as an external service for :ref:`SSP <protocol-definitions-ssp>`, 
+Ad Select Module
+^^^^^^^^^^^^^^^^
+A module integrated with an instance of :ref:`Supply-Side Platform <protocol-definitions-ssp>`, or operating as an external service for :ref:`Supply-Side Platform <protocol-definitions-ssp>`, 
 containing business logic whose role is to select :ref:`Creatives <protocol-definitions-creative>` according to the :ref:`Publisher <protocol-definitions-publisher>`'s policy, while maximizing the :ref:`Publisher <protocol-definitions-publisher>`'s income.
 
 .. note::
-    :ref:`SSP <protocol-definitions-ssp>` and :ref:`SSA <protocol-definitions-ssa>` are free to communicate in any way they choose, 
+    :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Supply-Side Agent <protocol-definitions-ssa>` are free to communicate in any way they choose, 
     as this communication is *not* part of :ref:`Adshares Protocol<adshares-protocol2>`. 
-    Whereas the communication between :ref:`SSP <protocol-definitions-ssp>` and :ref:`ASM <protocol-definitions-asm>` is included in :ref:`Adshares Protocol<adshares-protocol2>`.
+    Whereas the communication between :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Ad Select Module <protocol-definitions-asm>` is included in :ref:`Adshares Protocol<adshares-protocol2>`.
 
 
 .. _protocol-definitions-dsi:
@@ -118,31 +118,31 @@ Demand-Side Infrastructure
 
 .. _protocol-definitions-dsp:
 
-DSP
-^^^
-*Demand-Side Platform*, i.e. an IT platform used by :ref:`Advertisers <protocol-definitions-advertiser>` to manage their :ref:`Campaigns <protocol-definitions-campaign>`. 
-The demand-side module of an :ref:`AdServer <protocol-definitions-adserver>` is an example implementation of :ref:`DSP <protocol-definitions-dsp>`.
+Demand-Side Platform
+^^^^^^^^^^^^^^^^^^^^
+An IT platform used by :ref:`Advertisers <protocol-definitions-advertiser>` to manage their :ref:`Campaigns <protocol-definitions-campaign>`. 
+The demand-side module of an :ref:`AdServer <protocol-definitions-adserver>` is an example implementation of :ref:`Demand-Side Platform <protocol-definitions-dsp>`.
 
 .. _protocol-definitions-dsa:
 
-DSA
-^^^
-*Demand-Side Agent*, i.e. executable code embedded by an :ref:`Advertiser <protocol-definitions-advertiser>` in a :ref:`Target <protocol-definitions-target>`. 
-Each implementation of :ref:`DSP <protocol-definitions-dsp>` has its own implementation of :ref:`DSA <protocol-definitions-dsa>`. 
-To be able to correctly redirect :ref:`User <protocol-definitions-user>`’s clicks, :ref:`DSP <protocol-definitions-dsp>` maintains a mapping 
+Demand-Side Agent
+^^^^^^^^^^^^^^^^^
+Executable code embedded by an :ref:`Advertiser <protocol-definitions-advertiser>` in a :ref:`Target <protocol-definitions-target>`. 
+Each implementation of :ref:`Demand-Side Platform <protocol-definitions-dsp>` has its own implementation of :ref:`Demand-Side Agent <protocol-definitions-dsa>`. 
+To be able to correctly redirect :ref:`User <protocol-definitions-user>`’s clicks, :ref:`Demand-Side Platform <protocol-definitions-dsp>` maintains a mapping 
 between :ref:`Campaigns<protocol-definitions-campaign>` and their :ref:`DSAs <protocol-definitions-dsa>`.
 
 .. _protocol-definitions-apm:
 
-APM
-^^^
-*Ad Pay Module*, i.e. a module integrated with an instance of :ref:`DSP <protocol-definitions-dsp>`, or operating as an external service for :ref:`DSP <protocol-definitions-dsp>`, 
+Ad Pay Module
+^^^^^^^^^^^^^
+A module integrated with an instance of :ref:`Demand-Side Platform <protocol-definitions-dsp>`, or operating as an external service for :ref:`Demand-Side Platform <protocol-definitions-dsp>`, 
 containing business logic whose role is to manage the :ref:`Advertiser <protocol-definitions-advertiser>`'s finances, while minimizing the :ref:`Advertiser <protocol-definitions-advertiser>`'s cost.
 
 .. note::
-    :ref:`DSP <protocol-definitions-dsp>` and :ref:`DSA <protocol-definitions-dsa>` are free to communicate in any way they choose, 
+    :ref:`Demand-Side Platform <protocol-definitions-dsp>` and :ref:`Demand-Side Agent <protocol-definitions-dsa>` are free to communicate in any way they choose, 
     as this communication is *not* part of :ref:`Adshares Protocol<adshares-protocol2>`. Whereas the communication 
-    between :ref:`DSP <protocol-definitions-dsp>` and :ref:`APM <protocol-definitions-apm>` is included in :ref:`Adshares Protocol<adshares-protocol2>`.
+    between :ref:`Demand-Side Platform <protocol-definitions-dsp>` and :ref:`Ad Pay Module <protocol-definitions-apm>` is included in :ref:`Adshares Protocol<adshares-protocol2>`.
 
 
 .. _protocol-definitions-contextinfrastructure:
@@ -152,40 +152,40 @@ Context Infrastructure
 
 .. _protocol-definitions-cp:
 
-CP
-^^
-*Context Platform*, i.e. an IT platform whose role is to collect & manage data about :ref:`Users <protocol-definitions-user>`, :ref:`Sites <protocol-definitions-site>` 
+Context Platform
+^^^^^^^^^^^^^^^^
+An IT platform whose role is to collect & manage data about :ref:`Users <protocol-definitions-user>`, :ref:`Sites <protocol-definitions-site>` 
 and :ref:`Devices <protocol-definitions-device>`, and respond with packages of :ref:`Context Data <protocol-definitions-contextdata>` to queries about the properties of 
 a specific :ref:`User <protocol-definitions-user>`, :ref:`Site <protocol-definitions-site>` or :ref:`Device <protocol-definitions-device>`.
 
-Internally, :ref:`CP <protocol-definitions-cp>` might consist of sub-modules, such as:
+Internally, :ref:`Context Platform <protocol-definitions-cp>` might consist of sub-modules, such as:
 
 .. _protocol-definitions-ucp:
 
-UCP
-"""
-*User Context Platform*, i.e. an IT platform whose role is to collect & manage data about :ref:`Users <protocol-definitions-user>` 
+User Context Platform
+"""""""""""""""""""""
+An IT platform whose role is to collect & manage data about :ref:`Users <protocol-definitions-user>` 
 and respond with packages of :ref:`Context Data <protocol-definitions-contextdata>` to queries about properties of a specific :ref:`User <protocol-definitions-user>`.
 
 .. _protocol-definitions-scp:
 
-SCP
-"""
-*Site Context Platform*, i.e. an IT platform whose role is to collect & manage data about :ref:`Sites <protocol-definitions-site>` 
+Site Context Platform
+"""""""""""""""""""""
+An IT platform whose role is to collect & manage data about :ref:`Sites <protocol-definitions-site>` 
 and respond with packages of :ref:`Context Data <protocol-definitions-contextdata>` to queries about properties of a specific :ref:`Site <protocol-definitions-site>`.
 
 .. _protocol-definitions-dcp:
 
-DCP
-"""
-*Device Context Platform*, i.e. an IT platform whose role is to collect & manage data about :ref:`Devices <protocol-definitions-device>` 
+Device Context Platform
+"""""""""""""""""""""""
+An IT platform whose role is to collect & manage data about :ref:`Devices <protocol-definitions-device>` 
 and respond with packages of :ref:`Context Data <protocol-definitions-contextdata>` to queries about properties of a specific :ref:`Device <protocol-definitions-device>`.
 
 .. note::
-    :ref:`SSP <protocol-definitions-ssp>` and :ref:`DSP <protocol-definitions-dsp>` need to decide 
-    which instances of :ref:`CP <protocol-definitions-cp>` they trust and independently query them. 
-    Even if :ref:`SSP <protocol-definitions-ssp>` and :ref:`DSP <protocol-definitions-dsp>` end up trusting 
-    the same instance of :ref:`CP <protocol-definitions-cp>`, they need to query it separately.
+    :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>` need to decide 
+    which instances of :ref:`Context Platform <protocol-definitions-cp>` they trust and independently query them. 
+    Even if :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>` end up trusting 
+    the same instance of :ref:`Context Platform <protocol-definitions-cp>`, they need to query it separately.
 
 
 .. _protocol-definitions-tagginginfrastructure:
@@ -195,29 +195,29 @@ Tagging Infrastructure
 
 .. _protocol-definitions-stp:
 
-STP
-^^^
-*Site Tagging Platform*, i.e. an IT platform whose role is to classify :ref:`Sites <protocol-definitions-site>` 
+Site Tagging Platform
+^^^^^^^^^^^^^^^^^^^^^
+An IT platform whose role is to classify :ref:`Sites <protocol-definitions-site>` 
 by assigning tags to them and respond to queries about tags for a specific :ref:`Site <protocol-definitions-site>`.
 
 .. _protocol-definitions-ctp:
 
-CTP
-^^^
-*Creative Tagging Platform*, i.e. an IT platform whose role is to classify :ref:`Creatives <protocol-definitions-creative>` 
+Creative Tagging Platform
+^^^^^^^^^^^^^^^^^^^^^^^^^
+An IT platform whose role is to classify :ref:`Creatives <protocol-definitions-creative>` 
 by assigning tags to them and respond to queries about tags for a specific :ref:`Creative <protocol-definitions-creative>`.
 
 .. note::
-    It's up to :ref:`SSP <protocol-definitions-ssp>` to choose the appropriate :ref:`STP <protocol-definitions-stp>` service, 
-    but this choice should be acceptable for :ref:`DSP <protocol-definitions-dsp>`. 
-    Similarly, it's up to :ref:`DSP <protocol-definitions-dsp>` to choose the appropriate :ref:`CTP<protocol-definitions-ctp>` service, 
-    but this choice should be acceptable for :ref:`SSP <protocol-definitions-ssp>`.
+    It's up to :ref:`Supply-Side Platform <protocol-definitions-ssp>` to choose the appropriate :ref:`Site Tagging Platform <protocol-definitions-stp>` service, 
+    but this choice should be acceptable for :ref:`Demand-Side Platform <protocol-definitions-dsp>`. 
+    Similarly, it's up to :ref:`Demand-Side Platform <protocol-definitions-dsp>` to choose the appropriate :ref:`Creative Tagging Platform<protocol-definitions-ctp>` service, 
+    but this choice should be acceptable for :ref:`Supply-Side Platform <protocol-definitions-ssp>`.
 
 .. note::
-    When queried, both :ref:`STP <protocol-definitions-stp>` and :ref:`CTP<protocol-definitions-ctp>` should sign their responses with private keys, 
+    When queried, both :ref:`Site Tagging Platform <protocol-definitions-stp>` and :ref:`Creative Tagging Platform<protocol-definitions-ctp>` should sign their responses with private keys, 
     so that the tags assigned to :ref:`Sites <protocol-definitions-site>` or :ref:`Creatives <protocol-definitions-creative>` remain cryptographically verifiable. 
-    This way there is no need to invoke the same query multiple times, as long as an :ref:`SSP <protocol-definitions-ssp>` trusts a :ref:`CTP<protocol-definitions-ctp>` service 
-    chosen by a :ref:`DSP <protocol-definitions-dsp>`, or a :ref:`DSP <protocol-definitions-dsp>` trusts an :ref:`STP <protocol-definitions-stp>` service chosen by an :ref:`SSP <protocol-definitions-ssp>`.
+    This way there is no need to invoke the same query multiple times, as long as an :ref:`Supply-Side Platform <protocol-definitions-ssp>` trusts a :ref:`Creative Tagging Platform<protocol-definitions-ctp>` service 
+    chosen by a :ref:`Demand-Side Platform <protocol-definitions-dsp>`, or a :ref:`Demand-Side Platform <protocol-definitions-dsp>` trusts an :ref:`Site Tagging Platform <protocol-definitions-stp>` service chosen by an :ref:`Supply-Side Platform <protocol-definitions-ssp>`.
 
 
 .. _protocol-definitions-datastructures:
@@ -256,14 +256,14 @@ A package of data describing a :ref:`User <protocol-definitions-user>`, a :ref:`
 Context Script
 ^^^^^^^^^^^^^^
 Executable code generated by :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>`, 
-and executed inside a sandbox created by :ref:`SSA <protocol-definitions-ssa>` within the context of a :ref:`Site <protocol-definitions-site>`.
+and executed inside a sandbox created by :ref:`Supply-Side Agent <protocol-definitions-ssa>` within the context of a :ref:`Site <protocol-definitions-site>`.
 
 .. _protocol-definitions-paymentreport:
 
 Payment Report
 ^^^^^^^^^^^^^^
-A standardized report generated by :ref:`DSP <protocol-definitions-dsp>` that presents the business context for the payments sent (within a given time interval) 
-from :ref:`DSP <protocol-definitions-dsp>` to :ref:`SSP <protocol-definitions-ssp>`.
+A standardized report generated by :ref:`Demand-Side Platform <protocol-definitions-dsp>` that presents the business context for the payments sent (within a given time interval) 
+from :ref:`Demand-Side Platform <protocol-definitions-dsp>` to :ref:`Supply-Side Platform <protocol-definitions-ssp>`.
 
 .. note::
     In most ecosystems the term *inventory* refers only to the supply side of the market, i.e. what :ref:`Publishers<protocol-definitions-publisher>` 
@@ -281,7 +281,7 @@ Events
 
 Impression Event
 ^^^^^^^^^^^^^^^^
-An event emitted by :ref:`SSA <protocol-definitions-ssa>` when a :ref:`User <protocol-definitions-user>` interacts with a :ref:`Site <protocol-definitions-site>`. 
+An event emitted by :ref:`Supply-Side Agent <protocol-definitions-ssa>` when a :ref:`User <protocol-definitions-user>` interacts with a :ref:`Site <protocol-definitions-site>`. 
 There are three types of :ref:`Impression Events <protocol-definitions-impression>`:
 
 .. _protocol-definitions-registerevent:
@@ -306,7 +306,7 @@ Emitted when a :ref:`User <protocol-definitions-user>` interacts with a :ref:`Cr
 
 Conversion Event
 ^^^^^^^^^^^^^^^^
-An event emitted by :ref:`DSA <protocol-definitions-dsa>` when a :ref:`User <protocol-definitions-user>` performs an action while browsing a :ref:`Target <protocol-definitions-target>`.
+An event emitted by :ref:`Demand-Side Agent <protocol-definitions-dsa>` when a :ref:`User <protocol-definitions-user>` performs an action while browsing a :ref:`Target <protocol-definitions-target>`.
 
 
 .. _protocol-definitions-ecosystem:
@@ -318,7 +318,12 @@ Adshares Ecosystem
 
 AdServer
 ^^^^^^^^
-A publicly accessible server acting as an instance of :ref:`SSP <protocol-definitions-ssp>` and/or an instance of :ref:`DSP <protocol-definitions-dsp>`.
+A publicly accessible server combining the following functionality:
+
+* :ref:`Supply-Side Platform <protocol-definitions-ssp>`, including :ref:`Ad Select Module <protocol-definitions-asm>`
+* :ref:`Demand-Side Platform <protocol-definitions-dsp>`, including :ref:`Ad Pay Module <protocol-definitions-apm>`
+* :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>`
+
 
 .. _protocol-definitions-blockchain:
 
