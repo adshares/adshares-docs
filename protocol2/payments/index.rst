@@ -4,19 +4,30 @@ Payments
 .. _protocol-payments:
 
 :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` needs to pay 
-:ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` for displayed or converted :ref:`Creatives <protocol-definitions-creative>`.
+:ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` for recorded :ref:`Impression Events <protocol-definitions-impression>`.
 
 Sending payments
 ^^^^^^^^^^^^^^^^
 
-Every hour :ref:`Demand-Side Platform <protocol-definitions-dsp>` generates a :ref:`Payment Report <protocol-definitions-paymentreport>`, 
-and, based on the results of this report, it calculates the payment amounts to be sent to the appropriate :ref:`SSPs <protocol-definitions-ssp>` for 
-utilizing their :ref:`Sites <protocol-definitions-site>` within the most recent one-hour timeframe. 
+Every hour :ref:`Demand-Side Platform <protocol-definitions-dsp>` generates a :ref:`Payment Report <protocol-definitions-paymentreport>`
+which allocates the appropriate amount of :ref:`ADS <protocol-definitions-ads>` that :ref:`Demand-Side Platform <protocol-definitions-dsp>` needs to pay 
+to a specific :ref:`Supply-Side Platform <protocol-definitions-ssp>` for utilizing its :ref:`Sites <protocol-definitions-site>` within the last one-hour timeframe.
+
+To generate a :ref:`Payment Report <protocol-definitions-paymentreport>` for a given :ref:`Supply-Side Platform <protocol-definitions-ssp>`, 
+:ref:`Demand-Side Platform <protocol-definitions-dsp>` uses the following data:
+
+* All :ref:`Impression Events <protocol-definitions-impression>` received from :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` associated with a given :ref:`Supply-Side Platform <protocol-definitions-ssp>` within the last one-hour timeframe
+* The corresponding :ref:`Context Data <protocol-definitions-contextdata>` retrieved from its :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>`
 
 .. container:: protocol
 
-  If :ref:`Demand-Side Platform <protocol-definitions-dsp>` finds out that it owes money to an instance of :ref:`Supply-Side Platform <protocol-definitions-ssp>`, it transfers to the :ref:`Supply-Side Platform <protocol-definitions-ssp>`'s 
-  blockchain address the appropriate amount of :ref:`ADS <protocol-definitions-ads>` using :ref:`Adshares Blockchain <protocol-definitions-blockchain>`.
+  Based on the data contained in the :ref:`Payment Report <protocol-definitions-paymentreport>`, :ref:`Demand-Side Platform <protocol-definitions-dsp>` uses 
+  :ref:`Adshares Blockchain <protocol-definitions-blockchain>` to send an :ref:`ADS <protocol-definitions-ads>` payment to a given :ref:`Supply-Side Platform <protocol-definitions-ssp>`,  
+  by tranferring the appropriate amount of :ref:`ADS <protocol-definitions-ads>` to the :ref:`Supply-Side Platform <protocol-definitions-ssp>`'s blockchain address.
+
+.. note::
+  :ref:`Demand-Side Platform <protocol-definitions-dsp>` knows the current blockchain address of a given :ref:`Supply-Side Platform <protocol-definitions-ssp>`, 
+  as it has already been retrieved during the :doc:`Synchronization <../synchronization/index>` stage.
 
 Receiving payments
 ^^^^^^^^^^^^^^^^^^
@@ -25,7 +36,10 @@ Receiving payments
 
 .. container:: protocol
   
-  If an incoming payment is detected, :ref:`Supply-Side Platform <protocol-definitions-ssp>` calls the appropriate :ref:`Demand-Side Platform <protocol-definitions-dsp>` to retrieve a :ref:`Payment Report <protocol-definitions-paymentreport>`.
+  If an incoming payment is detected, :ref:`Supply-Side Platform <protocol-definitions-ssp>` calls the appropriate :ref:`Demand-Side Platform <protocol-definitions-dsp>` 
+  to receive its :ref:`Payment Report <protocol-definitions-paymentreport>`.
 
-Te received :ref:`Payment Report <protocol-definitions-paymentreport>` allows :ref:`Supply-Side Platform <protocol-definitions-ssp>` to verify if the events (and corresponding payment amounts) 
-reported by :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` match the events (and corresponding payment amounts) observed by :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>`.
+The received :ref:`Payment Report <protocol-definitions-paymentreport>` allows :ref:`Supply-Side Platform <protocol-definitions-ssp>` to verify the consistency between the following datasets:
+
+* :ref:`Impression Events <protocol-definitions-impression>`, the corresponding :ref:`Context Data <protocol-definitions-contextdata>` and the resulting payment amounts observed by :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>`
+* :ref:`Impression Events <protocol-definitions-impression>`, the corresponding :ref:`Context Data <protocol-definitions-contextdata>` and the resulting payment amounts observed by :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>`

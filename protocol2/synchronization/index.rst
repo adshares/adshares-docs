@@ -35,8 +35,8 @@ Using the endpoints contained in the `inventoryUrl` field:
 
 .. container:: protocol
 
-    * :ref:`Supply-Side Platform <protocol-definitions-ssp>` retrieves :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` from all available :ref:`DSPs <protocol-definitions-dsp>`
-    * :ref:`Demand-Side Platform <protocol-definitions-dsp>` retrieves :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` from all available :ref:`SSPs <protocol-definitions-ssp>`
+    * :ref:`Supply-Side Platform <protocol-definitions-ssp>` retrieves :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` from all available :ref:`Demand-Side Platforms <protocol-definitions-dsp>`
+    * :ref:`Demand-Side Platform <protocol-definitions-dsp>` retrieves :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` from all available :ref:`Supply-Side Platforms <protocol-definitions-ssp>`
 
 .. note::
     In most ecosystems, :ref:`Advertisers <protocol-definitions-advertiser>` receive information about :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` 
@@ -45,7 +45,7 @@ Using the endpoints contained in the `inventoryUrl` field:
     collect information about :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` declared by :ref:`Advertisers <protocol-definitions-advertiser>`, 
     and based on this information they make a decision to whom they want to sell space on their :ref:`Sites <protocol-definitions-site>`.
 
-In summary, here is why :ref:`SSPs <protocol-definitions-ssp>` and :ref:`DSPs <protocol-definitions-dsp>` might want to query each other:
+In summary, here is why :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` might want to query each other:
 
 * :ref:`Publishers <protocol-definitions-publisher>` query :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` to be able to choose among :ref:`Advertisers <protocol-definitions-advertiser>` willing to buy space on their :ref:`Sites <protocol-definitions-site>`.
 * :ref:`Advertisers <protocol-definitions-advertiser>` query :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` to be able to specify what :ref:`Sites <protocol-definitions-site>` they want to include or exclude in their :ref:`Campaign<protocol-definitions-campaign>` definitions.
