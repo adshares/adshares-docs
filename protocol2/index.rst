@@ -44,21 +44,21 @@ Impressions
 #. How :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>` exposes context data:
     * exposed by: :ref:`Context Platform <protocol-definitions-cp>`
     * consumed by: :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>`
-    * returns: :ref:`Context Data<protocol-definitions-contextdata>`
+    * returns: :ref:`Context Data <protocol-definitions-contextdata>`
 
 #. How :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>` accepts notifications about :ref:`Register Events <protocol-definitions-registerevent>`:
     * exposed by: :ref:`Context Platform <protocol-definitions-cp>`
-    * consumed by: :ref:`Supply-Side Agent<protocol-definitions-ssa>`
+    * consumed by: :ref:`Supply-Side Agent <protocol-definitions-ssa>`
     * returns: :ref:`Context Script <protocol-definitions-contextscript>`
 
 #. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` exposes content data:
     * exposed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
-    * consumed by: :ref:`Supply-Side Agent<protocol-definitions-ssa>`
-    * returns: :ref:`Creative Content<protocol-definitions-creativecontent>`
+    * consumed by: :ref:`Supply-Side Agent <protocol-definitions-ssa>`
+    * returns: :ref:`Creative Content <protocol-definitions-creativecontent>`
 
 #. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` accepts notifications about :ref:`View Events <protocol-definitions-viewevent>`:
     * exposed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
-    * consumed by: :ref:`Supply-Side Agent<protocol-definitions-ssa>`
+    * consumed by: :ref:`Supply-Side Agent <protocol-definitions-ssa>`
     * returns: :ref:`Context Platform <protocol-definitions-cp>` endpoint
 
 Payments
