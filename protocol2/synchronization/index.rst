@@ -1,7 +1,7 @@
+.. _protocol-synchronization:
+
 Synchronization
 ===============
-
-.. _protocol-synchronization:
 
 To be able to interact with each other:
 

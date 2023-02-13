@@ -18,12 +18,12 @@ The following diagram illustrates the components making up the above infrastruct
 
 The following areas are handled by :ref:`Adshares Protocol <adshares-protocol2>`:
 
-Authentication
---------------
+:doc:`Authentication <authentication/index>`
+--------------------------------------------
 How various entities participating in :ref:`Adshares Protocol <adshares-protocol2>` authenticate each other.
 
-Synchronization
----------------
+:doc:`Synchronization <synchronization/index>`
+----------------------------------------------
 #. How :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` and :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` announce their current availability:
     * published by: :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * retrieved by: :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>`
@@ -39,8 +39,8 @@ Synchronization
     * consumed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * returns: :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>`
 
-Impressions
------------
+:doc:`Impressions <impressions/index>`
+--------------------------------------
 #. How :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>` exposes context data:
     * exposed by: :ref:`Context Platform <protocol-definitions-cp>`
     * consumed by: :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>`
@@ -59,10 +59,10 @@ Impressions
 #. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` accepts notifications about :ref:`View Events <protocol-definitions-viewevent>`:
     * exposed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * consumed by: :ref:`Supply-Side Agent <protocol-definitions-ssa>`
-    * returns: :ref:`Context Platform <protocol-definitions-cp>` endpoint
+    * returns: an endpoint for :ref:`Register Event <protocol-definitions-registerevent>` notifications
 
-Payments
---------
+:doc:`Payments <payments/index>`
+--------------------------------
 #. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` sends payments to :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>`:
     * payer: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * payee: :ref:`Supply-Side Platform <protocol-definitions-ssp>`

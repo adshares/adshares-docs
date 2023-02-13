@@ -302,7 +302,7 @@ Click Event
 """""""""""
 Emitted when a :ref:`User <protocol-definitions-user>` interacts with a :ref:`Creative <protocol-definitions-creative>` by clicking on it.
 
-.. _protocol-definitions-conversionevent:
+.. _protocol-definitions-conversion:
 
 Conversion Event
 ^^^^^^^^^^^^^^^^
