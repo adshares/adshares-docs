@@ -216,8 +216,8 @@ by assigning tags to them and respond to queries about tags for a specific :ref:
 .. note::
     When queried, both :ref:`Site Tagging Platform <protocol-definitions-stp>` and :ref:`Creative Tagging Platform<protocol-definitions-ctp>` should sign their responses with private keys, 
     so that the tags assigned to :ref:`Sites <protocol-definitions-site>` or :ref:`Creatives <protocol-definitions-creative>` remain cryptographically verifiable. 
-    This way there is no need to invoke the same query multiple times, as long as an :ref:`Supply-Side Platform <protocol-definitions-ssp>` trusts a :ref:`Creative Tagging Platform<protocol-definitions-ctp>` service 
-    chosen by a :ref:`Demand-Side Platform <protocol-definitions-dsp>`, or a :ref:`Demand-Side Platform <protocol-definitions-dsp>` trusts an :ref:`Site Tagging Platform <protocol-definitions-stp>` service chosen by an :ref:`Supply-Side Platform <protocol-definitions-ssp>`.
+    This way there is no need to invoke the same query multiple times, as long as :ref:`Supply-Side Platform <protocol-definitions-ssp>` trusts :ref:`Creative Tagging Platform<protocol-definitions-ctp>` service 
+    chosen by :ref:`Demand-Side Platform <protocol-definitions-dsp>`, or :ref:`Demand-Side Platform <protocol-definitions-dsp>` trusts :ref:`Site Tagging Platform <protocol-definitions-stp>` service chosen by :ref:`Supply-Side Platform <protocol-definitions-ssp>`.
 
 
 .. _protocol-definitions-datastructures:
