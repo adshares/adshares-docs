@@ -3,8 +3,8 @@
 Payments
 ========
 
-:ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` needs to pay 
-:ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` for recorded :ref:`Impression Events <protocol-definitions-impression>`.
+:ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` needs to pay :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` 
+for :ref:`Impression Events <protocol-definitions-impression>` and :ref:`Conversion Events <protocol-definitions-conversion>` that have taken place in a given time interval.
 
 Sending payments
 ^^^^^^^^^^^^^^^^
@@ -16,8 +16,8 @@ to a specific :ref:`Supply-Side Platform <protocol-definitions-ssp>` for utilizi
 To generate a :ref:`Payment Report <protocol-definitions-paymentreport>` for a given :ref:`Supply-Side Platform <protocol-definitions-ssp>`, 
 :ref:`Demand-Side Platform <protocol-definitions-dsp>` uses the following data:
 
-* All :ref:`Impression Events <protocol-definitions-impression>` received from :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` associated with a given :ref:`Supply-Side Platform <protocol-definitions-ssp>` within the last one-hour timeframe
-* The corresponding :ref:`Context Data <protocol-definitions-contextdata>` retrieved from its :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>`
+* All :ref:`Impression Events <protocol-definitions-impression>` notifications received from all :ref:`Supply-Side Agents <protocol-definitions-ssa>` associated with a given :ref:`Supply-Side Platform <protocol-definitions-ssp>` within the last one-hour timeframe
+* The corresponding :ref:`Context Data <protocol-definitions-contextdata>` retrieved from its :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>` in order to match those :ref:`Impression Events <protocol-definitions-impression>` with specific :ref:`Users <protocol-definitions-user>`, :ref:`Sites <protocol-definitions-site>` and :ref:`Devices <protocol-definitions-device>`
 
 .. container:: protocol
 
