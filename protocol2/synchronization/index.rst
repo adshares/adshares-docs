@@ -5,8 +5,8 @@ Synchronization
 
 To be able to interact with each other:
 
-* every :ref:`Supply-Side Platform <protocol-definitions-ssp>` needs to inform other :ref:`Demand-Side Platforms <protocol-definitions-dsp>` about its availablity and its current :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>`
-* every :ref:`Demand-Side Platform <protocol-definitions-dsp>` needs to inform other :ref:`Supply-Side Platforms <protocol-definitions-ssp>` about its availablity and its current :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>`
+* every :ref:`Supply-Side Platform <protocol-definitions-ssp>` needs to inform other :ref:`Demand-Side Platforms <protocol-definitions-dsp>` about its availability and its current :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>`
+* every :ref:`Demand-Side Platform <protocol-definitions-dsp>` needs to inform other :ref:`Supply-Side Platforms <protocol-definitions-ssp>` about its availability and its current :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>`
 
 This information sharing is done by broadcasting via :ref:`Adshares Blockchain <protocol-definitions-blockchain>` a URL pointing to JSON-based metadata.
 
