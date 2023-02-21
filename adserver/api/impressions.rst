@@ -1,7 +1,7 @@
 Impressions
 ===========
 
-This API implements :ref:`the impressions sections of the Adshares protocol <impressions>`.
+This API implements :ref:`the impressions sections of the Adshares protocol <protocol-impressions>`.
 
 First, read about :ref:`error handling<api-response-errors>`.
 

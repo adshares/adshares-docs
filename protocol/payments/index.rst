@@ -1,12 +1,13 @@
-
-.. _payments:
+.. _protocol-payments:
 
 Payments
 ========
 
+:ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` needs to pay :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` 
+for :ref:`Impression Events <protocol-definitions-impression>` and :ref:`Conversion Events <protocol-definitions-conversion>` that have taken place in a given time interval.
+
 Money flow
 ----------
-
 .. uml::
     :align: center
 
@@ -76,7 +77,6 @@ Money flow
 
 Workflow
 --------
-
 .. uml::
     :align: center
 
@@ -113,5 +113,5 @@ Contents
 .. toctree::
     :maxdepth: 1
 
-    payments_outgoing
-    payments_incoming
+    payments_outbound
+    payments_inbound

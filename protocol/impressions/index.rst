@@ -1,11 +1,7 @@
-
-.. _impressions:
+.. _protocol-impressions:
 
 Impressions
 ===========
-
-Workflow
---------
 
 .. uml::
     :align: center
@@ -53,3 +49,13 @@ Workflow
     supplyServer -> demandServer : Click event //redirected//
     demandServer -> advertiser : Click event //redirected//
     advertiser --> demandServer: Click confirmation //optional//
+
+
+Contents
+--------
+.. toctree::
+    :maxdepth: 1
+
+    user_navigates
+    user_browses
+    user_clicks

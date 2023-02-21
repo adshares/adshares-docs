@@ -1,6 +1,7 @@
 
-See others – fetch broadcasts
-======================================
+Receiving broadcasts
+====================
+
 Before connecting to other adservers it is crucial to find them in the network.
 Every adserver broadcasts it's metadata using ADS blockchain every 12 hours.
 This means that each block from last 12 hours must be checked for the presence of an URL.

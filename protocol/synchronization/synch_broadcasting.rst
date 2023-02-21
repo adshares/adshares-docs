@@ -1,6 +1,7 @@
 
-Be visible for others – send broadcast
-======================================
+Sending broadcasts
+==================
+
 To become a part of the network the adserver has to inform others that it is accessible.
 It should be done by broadcasting an URL to adserver meta data using ADS blockchain.
 

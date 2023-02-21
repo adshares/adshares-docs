@@ -1,6 +1,7 @@
 
-Update inventory
-================
+Updating inventory
+==================
+
 Each adserver (the demand part) should expose it's campaigns on ``inventoryUrl`` which can be read from metadata.
 
 **TODO** https://adshares.atlassian.net/browse/ACP-7

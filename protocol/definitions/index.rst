@@ -107,8 +107,8 @@ containing business logic whose role is to select :ref:`Creatives <protocol-defi
 
 .. note::
     :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Supply-Side Agent <protocol-definitions-ssa>` are free to communicate in any way they choose, 
-    as this communication is *not* part of :ref:`Adshares Protocol<adshares-protocol2>`. 
-    Whereas the communication between :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Ad Select Module <protocol-definitions-asm>` is included in :ref:`Adshares Protocol<adshares-protocol2>`.
+    as this communication is *not* part of :ref:`Adshares Protocol<adshares-protocol>`. 
+    Whereas the communication between :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Ad Select Module <protocol-definitions-asm>` is included in :ref:`Adshares Protocol<adshares-protocol>`.
 
 
 .. _protocol-definitions-dsi:
@@ -141,8 +141,8 @@ containing business logic whose role is to manage the :ref:`Advertiser <protocol
 
 .. note::
     :ref:`Demand-Side Platform <protocol-definitions-dsp>` and :ref:`Demand-Side Agent <protocol-definitions-dsa>` are free to communicate in any way they choose, 
-    as this communication is *not* part of :ref:`Adshares Protocol<adshares-protocol2>`. Whereas the communication 
-    between :ref:`Demand-Side Platform <protocol-definitions-dsp>` and :ref:`Ad Pay Module <protocol-definitions-apm>` is included in :ref:`Adshares Protocol<adshares-protocol2>`.
+    as this communication is *not* part of :ref:`Adshares Protocol<adshares-protocol>`. Whereas the communication 
+    between :ref:`Demand-Side Platform <protocol-definitions-dsp>` and :ref:`Ad Pay Module <protocol-definitions-apm>` is included in :ref:`Adshares Protocol<adshares-protocol>`.
 
 
 .. _protocol-definitions-contextinfrastructure:
@@ -268,7 +268,7 @@ from :ref:`Demand-Side Platform <protocol-definitions-dsp>` to :ref:`Supply-Side
 .. note::
     In most ecosystems the term *inventory* refers only to the supply side of the market, i.e. what :ref:`Publishers<protocol-definitions-publisher>` 
     offer for sale and the minimum price they are willing to accept from :ref:`Advertisers <protocol-definitions-advertiser>`. 
-    However, in :ref:`Adshares Protocol <adshares-protocol2>` this term has a more generic meaning, as it refers to assets that belong to either side of the market, 
+    However, in :ref:`Adshares Protocol <adshares-protocol>` this term has a more generic meaning, as it refers to assets that belong to either side of the market, 
     i.e. :ref:`Publishers<protocol-definitions-publisher>` or :ref:`Advertisers <protocol-definitions-advertiser>`.
 
 
@@ -327,7 +327,7 @@ A publicly accessible server combining the following functionality:
 
 Adshares Blockchain
 ^^^^^^^^^^^^^^^^^^^
-The underlying blockchain of :ref:`Adshares Protocol <adshares-protocol2>`.
+The underlying blockchain of :ref:`Adshares Protocol <adshares-protocol>`.
 
 .. _protocol-definitions-ads:
 

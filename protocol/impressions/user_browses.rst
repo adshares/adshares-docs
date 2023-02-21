@@ -1,21 +1,5 @@
-.. _protocol-impressions:
-
-Impressions
-===========
-
-User navigates to a website or parcel
--------------------------------------
-
-The following process takes place when :ref:`User <protocol-definitions-user>` initially navigates to a :ref:`Site <protocol-definitions-site>`:
-
-.. container:: protocol
-
-    * :ref:`Supply-Side Agent <protocol-definitions-ssa>` notifies :ref:`Supply-Side Platform <protocol-definitions-ssp>` about :ref:`Register Event <protocol-definitions-registerevent>`.
-    * :ref:`Supply-Side Platform <protocol-definitions-ssp>` redirects the :ref:`Register Event <protocol-definitions-registerevent>` notification call to its :ref:`Context Platform <protocol-definitions-cp>`.
-    * In response to the :ref:`Register Event <protocol-definitions-registerevent>` notification call, :ref:`Context Platform <protocol-definitions-cp>` returns its :ref:`Context Script <protocol-definitions-contextscript>`, and :ref:`Supply-Side Agent <protocol-definitions-ssa>` makes an attempt to execute this script within its sandbox.
-
 User browses through a website or parcel
-----------------------------------------
+========================================
 
 The following process takes place when :ref:`User <protocol-definitions-user>` browses through a :ref:`Site <protocol-definitions-site>`:
 
@@ -79,15 +63,3 @@ both :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` and :ref:`Dema
     * Using the endpoint received in the previous step, :ref:`Supply-Side Agent <protocol-definitions-ssa>` notifies :ref:`Demand-Side Platform <protocol-definitions-dsp>` about :ref:`Register Event <protocol-definitions-registerevent>`.
     * :ref:`Demand-Side Platform <protocol-definitions-dsp>` redirects the :ref:`Register Event <protocol-definitions-registerevent>` notification call to its :ref:`Context Platform <protocol-definitions-cp>`.
     * In response to the :ref:`Register Event <protocol-definitions-registerevent>` notification call, :ref:`Context Platform <protocol-definitions-cp>` returns its :ref:`Context Script <protocol-definitions-contextscript>`, and :ref:`Supply-Side Agent <protocol-definitions-ssa>` makes an attempt to execute this script within its sandbox.
-    
-User clicks on an ad
---------------------
-
-The following process takes place when :ref:`User <protocol-definitions-user>` clicks on any instance of the displayed :ref:`Creatives <protocol-definitions-creative>`, assuming it is clickable:
-
-.. container:: protocol
-
-    * :ref:`Supply-Side Agent <protocol-definitions-ssa>` notifies :ref:`Supply-Side Platform <protocol-definitions-ssp>` about :ref:`Click Event <protocol-definitions-clickevent>`.
-    * :ref:`Supply-Side Agent <protocol-definitions-ssa>` redirects the event notification call to :ref:`Demand-Side Platform <protocol-definitions-dsp>`.
-    * Using its internal mapping, :ref:`Demand-Side Platform <protocol-definitions-dsp>` redirects the :ref:`Click Event <protocol-definitions-clickevent>` to the :ref:`Target <protocol-definitions-target>`, so that in effect :ref:`User <protocol-definitions-user>` navigates from the :ref:`Site <protocol-definitions-site>` to the :ref:`Target <protocol-definitions-target>`.
-    * Optionally, :ref:`Demand-Side Agent <protocol-definitions-dsa>` responds to :ref:`Demand-Side Platform <protocol-definitions-dsp>` to notify it about :ref:`Conversion Event <protocol-definitions-conversion>`.
