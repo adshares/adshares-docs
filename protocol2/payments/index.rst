@@ -23,10 +23,10 @@ To generate a :ref:`Payment Report <protocol-definitions-paymentreport>` for a g
 
   Based on the data contained in the :ref:`Payment Report <protocol-definitions-paymentreport>`, :ref:`Demand-Side Platform <protocol-definitions-dsp>` uses 
   :ref:`Adshares Blockchain <protocol-definitions-blockchain>` to send an :ref:`ADS <protocol-definitions-ads>` payment to a given :ref:`Supply-Side Platform <protocol-definitions-ssp>`,  
-  by transferring the appropriate amount of :ref:`ADS <protocol-definitions-ads>` to the :ref:`Supply-Side Platform <protocol-definitions-ssp>`'s blockchain address.
+  by transferring the appropriate amount of :ref:`ADS <protocol-definitions-ads>` to the :ref:`Supply-Side Platform <protocol-definitions-ssp>`'s :ref:`ADS Account <protocol-definitions-account>` address.
 
 .. note::
-  :ref:`Demand-Side Platform <protocol-definitions-dsp>` knows the current blockchain address of a given :ref:`Supply-Side Platform <protocol-definitions-ssp>`, 
+  :ref:`Demand-Side Platform <protocol-definitions-dsp>` knows the :ref:`ADS Account <protocol-definitions-account>` address of a given :ref:`Supply-Side Platform <protocol-definitions-ssp>`, 
   as it has already been retrieved during the :doc:`Synchronization <../synchronization/index>` stage.
 
 Receiving payments

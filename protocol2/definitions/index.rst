@@ -334,3 +334,15 @@ The underlying blockchain of :ref:`Adshares Protocol <adshares-protocol2>`.
 ADS
 ^^^
 The native currency of :ref:`Adshares Blockchain <protocol-definitions-blockchain>`.
+
+.. _protocol-definitions-wallet:
+
+ADS Wallet
+^^^^^^^^^^
+A browser plugin acting as a cryptocurrency wallet integrated with :ref:`Adshares Blockchain <protocol-definitions-blockchain>`.
+
+.. _protocol-definitions-account:
+
+ADS Account
+^^^^^^^^^^^
+An account created on the :ref:`Adshares Blockchain <protocol-definitions-blockchain>`.
