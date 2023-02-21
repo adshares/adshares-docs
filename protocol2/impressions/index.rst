@@ -42,7 +42,7 @@ can be displayed next to each other within the same :ref:`Site <protocol-definit
 
 At this stage, metadata for all :ref:`Creatives <protocol-definitions-creative>` is already retrieved, but none of them is rendered, 
 as :ref:`Supply-Side Agent <protocol-definitions-ssa>` has not fetched :ref:`Creative Content <protocol-definitions-creativecontent>` yet. 
-The following sequence of events occurres for each :ref:`Creative <protocol-definitions-creative>` to fetch the corresponding :ref:`Creative Content <protocol-definitions-creativecontent>` 
+The following sequence of events occurs for each :ref:`Creative <protocol-definitions-creative>` to fetch the corresponding :ref:`Creative Content <protocol-definitions-creativecontent>` 
 and display it in the designated :ref:`Placement <protocol-definitions-placement>`:
 
 .. container:: protocol
@@ -56,7 +56,7 @@ This is done to ensure that the :ref:`Creative Content <protocol-definitions-cre
 
 Assuming the above hashes match, :ref:`Supply-Side Agent <protocol-definitions-ssa>` renders the :ref:`Creative <protocol-definitions-creative>` on the screen, so that the :ref:`User <protocol-definitions-user>` can see it.
 
-The following sequence of events occurres for each :ref:`Creative <protocol-definitions-creative>` to ensure that 
+The following sequence of events occurs for each :ref:`Creative <protocol-definitions-creative>` to ensure that 
 both :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` and :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` are kept in synch regarding :ref:`View Events <protocol-definitions-viewevent>`:
 
 .. container:: protocol
@@ -65,7 +65,7 @@ both :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` and :ref:`Dema
     * :ref:`Supply-Side Platform <protocol-definitions-ssp>` redirects the :ref:`View Event <protocol-definitions-viewevent>` notification call to :ref:`Demand-Side Platform <protocol-definitions-dsp>`.
     * In response to the :ref:`View Event <protocol-definitions-viewevent>` notification call, :ref:`Demand-Side Platform <protocol-definitions-dsp>` returns its endpoint for :ref:`Register Event <protocol-definitions-registerevent>` notifications.
 
-The following sequence of events occurres for each :ref:`Creative <protocol-definitions-creative>` to ensure that 
+The following sequence of events occurs for each :ref:`Creative <protocol-definitions-creative>` to ensure that 
 both :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` and :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` are kept in synch regarding :ref:`Register Events <protocol-definitions-registerevent>`:
 
 .. container:: protocol

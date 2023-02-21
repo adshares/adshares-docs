@@ -23,7 +23,7 @@ To generate a :ref:`Payment Report <protocol-definitions-paymentreport>` for a g
 
   Based on the data contained in the :ref:`Payment Report <protocol-definitions-paymentreport>`, :ref:`Demand-Side Platform <protocol-definitions-dsp>` uses 
   :ref:`Adshares Blockchain <protocol-definitions-blockchain>` to send an :ref:`ADS <protocol-definitions-ads>` payment to a given :ref:`Supply-Side Platform <protocol-definitions-ssp>`,  
-  by tranferring the appropriate amount of :ref:`ADS <protocol-definitions-ads>` to the :ref:`Supply-Side Platform <protocol-definitions-ssp>`'s blockchain address.
+  by transferring the appropriate amount of :ref:`ADS <protocol-definitions-ads>` to the :ref:`Supply-Side Platform <protocol-definitions-ssp>`'s blockchain address.
 
 .. note::
   :ref:`Demand-Side Platform <protocol-definitions-dsp>` knows the current blockchain address of a given :ref:`Supply-Side Platform <protocol-definitions-ssp>`, 
@@ -45,7 +45,7 @@ The received :ref:`Payment Report <protocol-definitions-paymentreport>` allows :
 * :ref:`Impression Events <protocol-definitions-impression>`, the corresponding :ref:`Context Data <protocol-definitions-contextdata>` and the resulting payment amounts expected by :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>`
 
 .. note::
-  The above reconcilation only refers to :ref:`Impression Events <protocol-definitions-impression>`, while :ref:`Conversion Events <protocol-definitions-conversion>` 
+  The above reconciliation only refers to :ref:`Impression Events <protocol-definitions-impression>`, while :ref:`Conversion Events <protocol-definitions-conversion>` 
   cannot be reconciled in this way, as they are not reported to :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>`. 
   Nevertheless, :ref:`Demand-Side Platform <protocol-definitions-dsp>` might want to include :ref:`Conversion Events <protocol-definitions-conversion>` 
   in the :ref:`Payment Report <protocol-definitions-paymentreport>`, as this builds trust and incentivizes :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
