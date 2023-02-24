@@ -1,22 +1,16 @@
-.. _protocol-synchronization-broadcasting:
+.. _protocol-synchronization-metadata:
 
-Sending broadcasts
-==================
+Metadata Format
+---------------
 
-To become a part of the network an :ref:`AdServer <protocol-definitions-adserver>` needs to inform others that it is accessible.
-It should be done by broadcasting a URL pointing to :ref:`AdServer <protocol-definitions-adserver>`'s' metadata 
-using :ref:`Adshares Blockchain <protocol-definitions-blockchain>`.
+The :ref:`Platform Metadata <protocol-definitions-metadata>` should be located under a publicly accessible URL.
 
-.. _adserver_metadata:
+The :ref:`Platform Metadata <protocol-definitions-metadata>` should be in the in JSON format.
 
-Adserver's metadata
--------------------
-Prepare the metadata.
-The metadata should be in JSON format.
-All fields are enlisted below.
-They have string values unless stated otherwise.
+All fields should be using string values, unless stated otherwise.
 
-Metadata fields:
+Metadata Fields
+"""""""""""""""
 
 +-------------------+-------------------------------+-------------------------------------------------------------------+
 | Field             | Type                          | Description                                                       |
@@ -72,7 +66,10 @@ Metadata fields:
 |                   |                               |                                                                   |
 +-------------------+-------------------------------+-------------------------------------------------------------------+
 
-Example::
+Metadata Example
+""""""""""""""""
+
+::
 
   {
     "module": "adserver",
@@ -95,40 +92,3 @@ Example::
       "sites": 223
     }
   }
-
-Broadcast
-----------
-The metadata must be located by publicly accessible URL.
-Encode this URL to uppercase hex string.
-Most programming languages have an utility to convert ASCII string to it's hexadecimal representation.
-Online converters can be used also.
-
-Example URL::
-
-  https://app.example.com/info.json
-
-Example URL after encoding::
-
-  68747470733A2F2F6170702E6578616D706C652E636F6D2F696E666F2E6A736F6E
-
-The encoded URL is the message to be broadcast.
-Broadcast should be done twice a day, i.e. every 12 hours.
-
-.. note::
-
-    Broadcast must be sent from the account set as ``adsAddress`` in metadata.
-
-**TODO** Do we want to show details of ads (install, set up, send message)?
-Instruction how to broadcast using *ads* client:
-:ref:`ADS API broadcast <broadcast>`
-
-We provide a PHP client for the ADS blockchain.
-Source code is available on GitHub: https://github.com/adshares/ads-php-client.
-Install package with Composer
-
-::
-
-    composer require adshares/ads-client
-
-We provide a JSON RPC client.
-Source code is available on GitHub: https://github.com/adshares/ads-json-rpc.

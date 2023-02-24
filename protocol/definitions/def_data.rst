@@ -3,6 +3,15 @@
 Data Structures
 ---------------
 
+.. _protocol-definitions-metadata:
+
+Platform Metadata
+^^^^^^^^^^^^^^^^^
+
+A manifest describing all the significant information about :ref:`Supply-Side Platform <protocol-definitions-ssp>` or :ref:`Demand-Side Platform <protocol-definitions-dsp>`.
+:ref:`Platform Metadata <protocol-definitions-metadata>` is broadcast regularly via :ref:`Adshares Blockchain <protocol-definitions-blockchain>`.
+
+
 .. _protocol-definitions-supplyinventory:
 
 Supply-Side Inventory
@@ -15,6 +24,8 @@ Demand-Side Inventory
 ^^^^^^^^^^^^^^^^^^^^^
 A manifest describing the parameters of a :ref:`Campaign <protocol-definitions-campaign>` currently run 
 by an :ref:`Advertiser <protocol-definitions-advertiser>`, e.g. time duration, target audience, pricing policy etc.
+
+From the technical perspective, :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` is an array of :ref:`Campaign Objects <protocol-campaign-object>`.
 
 .. _protocol-definitions-creativecontent:
 

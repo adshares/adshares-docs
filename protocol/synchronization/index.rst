@@ -41,31 +41,23 @@ Synchronization
         supplyServer -> supplyServer: Update AdServer's inventory
     end
 
-Workflow
---------
-
 To be able to interact with each other:
 
 * every :ref:`Supply-Side Platform <protocol-definitions-ssp>` needs to inform all potential :ref:`Demand-Side Platforms <protocol-definitions-dsp>` about its availability and its current :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>`
 * every :ref:`Demand-Side Platform <protocol-definitions-dsp>` needs to inform all potential :ref:`Supply-Side Platforms <protocol-definitions-ssp>` about its availability and its current :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>`
 
-This information sharing is done by broadcasting via :ref:`Adshares Blockchain <protocol-definitions-blockchain>` a URL pointing to JSON-based metadata.
-
-The URL is published on :ref:`Adshares Blockchain <protocol-definitions-blockchain>` in the form of an uppercase hexadecimal string.
-
-.. note::
-    Most programming languages have a utility to convert an ASCII string to its hex representation. Online converters can be used as well.
+This information sharing is done by broadcasting via :ref:`Adshares Blockchain <protocol-definitions-blockchain>` a URL pointing to :ref:`Platform Metadata <protocol-definitions-metadata>`.
 
 .. container:: protocol
 
-    Every 24 hours, all :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` are required to broadcast a URL pointing to their metadata. 
+    Every 24 hours, all :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` are required to broadcast a URL pointing to their :ref:`Platform Metadata <protocol-definitions-metadata>`. 
 
 This implies that if a :ref:`Supply-Side Platform <protocol-definitions-ssp>` or a :ref:`Demand-Side Platform <protocol-definitions-dsp>` wants to collect information 
 about other :ref:`Supply-Side Platforms <protocol-definitions-ssp>` or :ref:`Demand-Side Platforms <protocol-definitions-dsp>`, 
 it needs to check every block created within the last 24 hours for the presence of a URL. 
-Then, each URL needs to be verified if it actually points to valid metadata.
+Then, each URL needs to be verified if it actually points to valid :ref:`Platform Metadata <protocol-definitions-metadata>`.
 
-Within the metadata, the most important field is `inventoryUrl`, as it points to:
+Within the :ref:`Platform Metadata <protocol-definitions-metadata>`, the most important field is `inventoryUrl`, as it points to:
 
 * the current :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` of a :ref:`Supply-Side Platform <protocol-definitions-ssp>`
 * the current :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` of a :ref:`Demand-Side Platform <protocol-definitions-dsp>`
@@ -101,6 +93,7 @@ Contents
 .. toctree::
     :maxdepth: 1
 
-    synch_broadcasting
-    synch_discovering
-    synch_updating
+    synch_broadcast_sending
+    synch_broadcast_receiving
+    synch_inventory_demand
+    synch_inventory_supply

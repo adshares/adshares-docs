@@ -1,5 +1,5 @@
 
-.. _taxonomy:
+.. _protocol-taxonomy:
 
 Taxonomy
 ========

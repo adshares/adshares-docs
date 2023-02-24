@@ -1,36 +1,25 @@
-.. _protocol-synchronization-updating:
+.. _protocol-synchronization-demandinventory-format:
 
-Updating inventory
-==================
+Demand-Side Inventory Format
+----------------------------
 
-Each :ref:`AdServer <protocol-definitions-adserver>` (the demand part) should expose its :ref:`Campaigns <protocol-definitions-campaign>` 
-on ``inventoryUrl`` which can be read from metadata.
+:ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` response is in the JSON format:
 
-**TODO** https://adshares.atlassian.net/browse/ACP-7
-The URL should support ``limit`` and ``offset`` query parameters for pagination.
-
-Details of the inventory response format can be found :ref:`below <inventory_response_format>`.
-
-.. _inventory_response_format:
-
-Inventory response format
--------------------------
-Inventory response is in JSON format.
-All fields' values are string unless stated otherwise.
-Dates are in extended date and time ISO8601 format, e.g. ``2021-08-26T10:21:15+00:00``.
-Amounts are integers, denominated in clicks.
+* The values for all fields are expressed as strings, unless stated otherwise.
+* Dates are in extended date and time ISO8601 format, e.g. ``2021-08-26T10:21:15+00:00``.
+* Amounts are integers, denominated in clicks, as explained below:
 
 ::
 
     1 click === 1e-11 ADS
     1 ADS === 100,000,000,000 click
 
-Inventory is an array of :ref:`Campaign<inventory_campaign_format>` objects.
+:ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` is an array of :ref:`Campaign Objects <protocol-campaign-object>`.
 
-.. _inventory_campaign_format:
+.. _protocol-campaign-object:
 
-Campaign
-~~~~~~~~
+Campaign Object
+~~~~~~~~~~~~~~~
 +--------------------+----------------------------------------------+-------------------------------------------------------------------+
 | Field              | Type                                         | Description                                                       |
 +====================+==============================================+===================================================================+
@@ -54,64 +43,66 @@ Campaign
 | budget             | integer                                      | Maximal amount which can be payed for all events per hour         |
 +--------------------+----------------------------------------------+-------------------------------------------------------------------+
 | creatives          | array of                                     | Creatives                                                         |
-|                    | :ref:`Creative<inventory_creative_format>`   |                                                                   |
-|                    | objects                                      |                                                                   |
+|                    | :ref:`Creative Objects                       |                                                                   |
+|                    | <protocol-creative-object>`                  |                                                                   |
 +--------------------+----------------------------------------------+-------------------------------------------------------------------+
 | targeting_requires | array of                                     | Required targeting                                                |
-|                    | :ref:`Targeting<inventory_targeting_format>` |                                                                   |
-|                    | objects                                      |                                                                   |
+|                    | :ref:`Targeting Objects                      |                                                                   |
+|                    | <protocol-targeting-object>`                 |                                                                   |
 +--------------------+----------------------------------------------+-------------------------------------------------------------------+
 | targeting_excludes | array of                                     | Excluded targeting                                                |
-|                    | :ref:`Targeting<inventory_targeting_format>` |                                                                   |
-|                    | objects                                      |                                                                   |
+|                    | :ref:`Targeting Objects                      |                                                                   |
+|                    | <protocol-targeting-object>`                 |                                                                   |
 +--------------------+----------------------------------------------+-------------------------------------------------------------------+
 
-.. _inventory_creative_format:
+.. _protocol-creative-object:
 
-Creative
-~~~~~~~~
-+----------------+--------------------------------------------------------+---------------------------------------------------------------------------------+
-| Field          | Type                                                   | Description                                                                     |
-+================+========================================================+=================================================================================+
-| id             | string                                                 | UUID                                                                            |
-+----------------+--------------------------------------------------------+---------------------------------------------------------------------------------+
-| size           | string                                                 | Space occupied by creative content                                              |
-+----------------+--------------------------------------------------------+---------------------------------------------------------------------------------+
-| type           | string                                                 | Type: "image", "video", etc.                                                    |
-+----------------+--------------------------------------------------------+---------------------------------------------------------------------------------+
-| mime           | string                                                 | MIME type                                                                       |
-+----------------+--------------------------------------------------------+---------------------------------------------------------------------------------+
-| checksum       | string                                                 | SHA-1 checksum of content                                                       |
-+----------------+--------------------------------------------------------+---------------------------------------------------------------------------------+
-| serve_url      | string                                                 | The URL of creative content                                                     |
-+----------------+--------------------------------------------------------+---------------------------------------------------------------------------------+
-| click_url      | string                                                 | The URL of click callback                                                       |
-+----------------+--------------------------------------------------------+---------------------------------------------------------------------------------+
-| view_url       | string                                                 | The URL of view callback                                                        |
-+----------------+--------------------------------------------------------+---------------------------------------------------------------------------------+
-| classification | :ref:`Classification<inventory_classification_format>` | Classification                                                                  |
-|                | object                                                 |                                                                                 |
-+----------------+--------------------------------------------------------+---------------------------------------------------------------------------------+
+Creative Object
+~~~~~~~~~~~~~~~
++----------------+--------------------------------------------------------+--------------------------------------------------------------+
+| Field          | Type                                                   | Description                                                  |
++================+========================================================+==============================================================+
+| id             | string                                                 | UUID                                                         |
++----------------+--------------------------------------------------------+--------------------------------------------------------------+
+| size           | string                                                 | Space occupied by creative content                           |
++----------------+--------------------------------------------------------+--------------------------------------------------------------+
+| type           | string                                                 | Type: "image", "video", etc.                                 |
++----------------+--------------------------------------------------------+--------------------------------------------------------------+
+| mime           | string                                                 | MIME type                                                    |
++----------------+--------------------------------------------------------+--------------------------------------------------------------+
+| checksum       | string                                                 | SHA-1 checksum of content                                    |
++----------------+--------------------------------------------------------+--------------------------------------------------------------+
+| serve_url      | string                                                 | The URL of creative content                                  |
++----------------+--------------------------------------------------------+--------------------------------------------------------------+
+| click_url      | string                                                 | The URL of click callback                                    |
++----------------+--------------------------------------------------------+--------------------------------------------------------------+
+| view_url       | string                                                 | The URL of view callback                                     |
++----------------+--------------------------------------------------------+--------------------------------------------------------------+
+| classification | :ref:`Classification Object                            | Classification                                               |
+|                | <protocol-classification-object>`                      |                                                              |
++----------------+--------------------------------------------------------+--------------------------------------------------------------+
 
-.. _inventory_classification_format:
+.. _protocol-classification-object:
 
-Classification
-~~~~~~~~~~~~~~
-A key in classification object is the classifier's ID (usually corresponding to ADS account address).
-A value is an object with following keys:
+Classification Object
+~~~~~~~~~~~~~~~~~~~~~
 
-* keywords -- features compatible with classifier taxonomy
+:ref:`Classification Object <protocol-classification-object>`'s key is the classifier’s ID (usually corresponding to ADS account address). 
+
+:ref:`Classification Object <protocol-classification-object>`'s value is an object with following keys:
+
+* keywords -- features compatible with classifier :ref:`Taxonomy <protocol-taxonomy>`
 * signature -- signature of classification
 * signed_at -- date of signature
 
-.. _inventory_targeting_format:
+.. _protocol-targeting-object:
 
-Targeting
-~~~~~~~~~
+Targeting Object
+~~~~~~~~~~~~~~~~
+
 **TODO** https://adshares.atlassian.net/browse/ACP-6
 
-Targeting object matches targeting taxonomy.
-
+:ref:`Targeting Object <protocol-targeting-object>` matches the targeting :ref:`Taxonomy <protocol-taxonomy>`.
 
 Example::
 
@@ -168,4 +159,3 @@ Example::
         }
       }
     ]
-
