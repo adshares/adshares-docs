@@ -1,3 +1,4 @@
+.. _protocol-synchronization-broadcasting:
 
 Sending broadcasts
 ==================

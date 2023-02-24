@@ -1,3 +1,4 @@
+.. _protocol-synchronization-updating:
 
 Updating inventory
 ==================

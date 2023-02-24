@@ -17,7 +17,7 @@ Demand-Side Agent
 Executable code embedded by an :ref:`Advertiser <protocol-definitions-advertiser>` in a :ref:`Target <protocol-definitions-target>`. 
 Each implementation of :ref:`Demand-Side Platform <protocol-definitions-dsp>` has its own implementation of :ref:`Demand-Side Agent <protocol-definitions-dsa>`. 
 To be able to correctly redirect :ref:`User <protocol-definitions-user>`’s clicks, :ref:`Demand-Side Platform <protocol-definitions-dsp>` maintains a mapping 
-between :ref:`Campaigns<protocol-definitions-campaign>` and their :ref:`DSAs <protocol-definitions-dsa>`.
+between :ref:`Campaigns <protocol-definitions-campaign>` and their :ref:`Demand-Side Agents <protocol-definitions-dsa>`.
 
 .. _protocol-definitions-apm:
 

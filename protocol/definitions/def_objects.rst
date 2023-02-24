@@ -18,9 +18,6 @@ A series of :ref:`Creatives <protocol-definitions-creative>` aimed to achieve a 
 Each :ref:`Campaign <protocol-definitions-campaign>` has a defined date range during which it is active and the maximum amount it can pay up to.
 Each :ref:`Campaign <protocol-definitions-campaign>` consists of one or more :ref:`Creatives <protocol-definitions-creative>` of different type and size.
 
-Adserver can use classification of known classifier if it is valid.
-Details of inventory response format can be found :ref:`below<inventory_response_format>`.
-
 .. _protocol-definitions-site:
 
 Site
@@ -43,12 +40,13 @@ A specific area within a :ref:`Site <protocol-definitions-site>` where a :ref:`C
 
 Device
 ^^^^^^
-The means the :ref:`User <protocol-definitions-user>` uses to access a :ref:`Site <protocol-definitions-site>`, i.e. information like desktop web browser, mobile phone, operating system etc.
+The means the :ref:`User <protocol-definitions-user>` uses to access a :ref:`Site <protocol-definitions-site>`, 
+including both software and hardware, e.g. desktop web browser, mobile web browser, mobile app etc.
 
 .. _protocol-definitions-target:
 
 Target
 ^^^^^^
-A website owned by an :ref:`Advertiser <protocol-definitions-advertiser>` which the :ref:`User <protocol-definitions-user>` is expected to visit 
+A website owned by an :ref:`Advertiser <protocol-definitions-advertiser>` which :ref:`User <protocol-definitions-user>` is expected to visit 
 as a result of interacting with a :ref:`Creative <protocol-definitions-creative>`. Also, :ref:`Target <protocol-definitions-target>` is the destination where 
 the :ref:`User <protocol-definitions-user>` is redirected after clicking on a :ref:`Creative <protocol-definitions-creative>`.

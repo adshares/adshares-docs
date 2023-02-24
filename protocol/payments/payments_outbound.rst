@@ -1,4 +1,3 @@
-
 Sending payments
 ================
 
