@@ -3,7 +3,7 @@
 Payments
 ========
 
-:ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` needs to pay :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` 
+:ref:`Demand-Side Platform <protocol-definitions-dsp>` needs to pay :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
 for :ref:`Impression Events <protocol-definitions-impression>` and :ref:`Conversion Events <protocol-definitions-conversion>` that have taken place in a given time interval.
 
 Money flow

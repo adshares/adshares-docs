@@ -7,7 +7,7 @@ Objects
 
 Creative
 ^^^^^^^^
-A digital advertisement.
+A digital advertisement. Each :ref:`Creative <protocol-definitions-creative>` is expected to be classified by one or more :ref:`Creative Tagging Platforms <protocol-definitions-ctp>`.
 
 .. _protocol-definitions-campaign:
 
@@ -15,12 +15,20 @@ Campaign
 ^^^^^^^^
 A series of :ref:`Creatives <protocol-definitions-creative>` aimed to achieve a specific marketing goal.
 
+Each :ref:`Campaign <protocol-definitions-campaign>` has a defined date range during which it is active and the maximum amount it can pay up to.
+Each :ref:`Campaign <protocol-definitions-campaign>` consists of one or more :ref:`Creatives <protocol-definitions-creative>` of different type and size.
+
+Adserver can use classification of known classifier if it is valid.
+Details of inventory response format can be found :ref:`below<inventory_response_format>`.
+
 .. _protocol-definitions-site:
 
 Site
 ^^^^
 A digital medium owned by a :ref:`Publisher <protocol-definitions-publisher>` where a :ref:`Creative <protocol-definitions-creative>` can be placed. 
-Currently the following two media types are supported:
+Each :ref:`Site <protocol-definitions-site>` is expected to be classified by one or more :ref:`Site Tagging Platforms <protocol-definitions-stp>`.
+
+Currently, :ref:`Sites <protocol-definitions-site>` featuring the following two media types are supported:
 
 * web page,
 * metaverse land parcel.

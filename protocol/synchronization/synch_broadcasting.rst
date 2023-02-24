@@ -2,8 +2,9 @@
 Sending broadcasts
 ==================
 
-To become a part of the network the adserver has to inform others that it is accessible.
-It should be done by broadcasting an URL to adserver meta data using ADS blockchain.
+To become a part of the network an :ref:`AdServer <protocol-definitions-adserver>` needs to inform others that it is accessible.
+It should be done by broadcasting a URL pointing to :ref:`AdServer <protocol-definitions-adserver>`'s' metadata 
+using :ref:`Adshares Blockchain <protocol-definitions-blockchain>`.
 
 .. _adserver_metadata:
 

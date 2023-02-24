@@ -2,20 +2,13 @@
 Updating inventory
 ==================
 
-Each adserver (the demand part) should expose it's campaigns on ``inventoryUrl`` which can be read from metadata.
+Each :ref:`AdServer <protocol-definitions-adserver>` (the demand part) should expose its :ref:`Campaigns <protocol-definitions-campaign>` 
+on ``inventoryUrl`` which can be read from metadata.
 
 **TODO** https://adshares.atlassian.net/browse/ACP-7
 The URL should support ``limit`` and ``offset`` query parameters for pagination.
 
-Inventory is list of campaigns.
-Each campaign has defined date range in which it is active and amount which it can pay up to.
-Campaign has one or more creatives (advertisements) of different type and size.
-Each creative can be classified by one or more external classifiers.
-Adserver can use classification of known classifier if it is valid.
-Details of inventory response format can be found :ref:`below<inventory_response_format>`.
-
-Adserver is responsible for selecting advertisement.
-After display
+Details of the inventory response format can be found :ref:`below <inventory_response_format>`.
 
 .. _inventory_response_format:
 
