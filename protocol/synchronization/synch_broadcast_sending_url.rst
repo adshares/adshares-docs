@@ -1,7 +1,7 @@
 .. _protocol-synchronization-url:
 
-Broadcast URL
-=============
+URL Format
+==========
 
 The URL is published on :ref:`Adshares Blockchain <protocol-definitions-blockchain>` in the form of an uppercase hexadecimal string.
 

@@ -4,14 +4,21 @@ Sending broadcasts
 ==================
 
 To become a part of the network :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` 
-need to inform other entities that they are accessible.
+need to inform other :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` that they are accessible.
 
-This is done by broadcasting on :ref:`Adshares Blockchain <protocol-definitions-blockchain>`
+This is done on :ref:`Adshares Blockchain <protocol-definitions-blockchain>` by broadcasting 
 a URL pointing to :ref:`Platform Metadata <protocol-definitions-metadata>`.
+
+.. container:: protocol
+
+    Every 24 hours, all :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` 
+    are required to broadcast a URL pointing to their :ref:`Platform Metadata <protocol-definitions-metadata>`. 
 
 .. note::
 
     Broadcast must be sent from the account set as ``adsAddress`` in the :ref:`Metadata Fromat <protocol-synchronization-metadata>`.
+
+Both the URL and the :ref:`Platform Metadata <protocol-definitions-metadata>` behind it need to adhere to specific formats:
 
 .. toctree::
     :maxdepth: 1

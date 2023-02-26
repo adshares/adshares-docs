@@ -4,11 +4,11 @@ Demand-Side Inventory
 =====================
 
 Each :ref:`Demand-Side Platform <protocol-definitions-dsp>` is expected to expose its :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>`
-under the URL defined in the ``inventoryUrl`` field of the :ref:`Metadata Format <protocol-synchronization-metadata>`.
+under the URL contained in the ``inventoryUrl`` field, as defined in the :ref:`Metadata Format <protocol-synchronization-metadata>`.
 
-The URL should support ``limit`` and ``offset`` query parameters for pagination.
+The URL published under the ``inventoryUrl`` field should support the ``limit`` and ``offset`` query parameters for pagination.
 
-:ref:`Demand-Side Inventory Format <protocol-synchronization-demandinventory-format>`
+The data returned by the above URL should implement the :ref:`Demand-Side Inventory Format <protocol-synchronization-demandinventory-format>`.
 
 .. toctree::
     :hidden:

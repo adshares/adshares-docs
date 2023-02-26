@@ -3,7 +3,7 @@
 Demand-Side Inventory Format
 ----------------------------
 
-:ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` response is in the JSON format:
+The data describing :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` implements the following JSON format:
 
 * The values for all fields are expressed as strings, unless stated otherwise.
 * Dates are in extended date and time ISO8601 format, e.g. ``2021-08-26T10:21:15+00:00``.
