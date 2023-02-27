@@ -21,4 +21,4 @@ In the :ref:`Metadata Format <protocol-synchronization-metadata>`, the most impo
 * the current :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` of a :ref:`Supply-Side Platform <protocol-definitions-ssp>`
 * the current :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` of a :ref:`Demand-Side Platform <protocol-definitions-dsp>`
 
-Another important field is ``adsAddress``, as it defines the :ref:`ADS Account <protocol-definitions-account>` address.
+Another important field is ``adsAddress``, as it defines the :ref:`ADS Account <protocol-definitions-account>` address of a given :ref:`Supply-Side Platform <protocol-definitions-ssp>` or :ref:`Demand-Side Platform <protocol-definitions-dsp>`.

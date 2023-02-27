@@ -11,11 +11,11 @@ The :ref:`Adshares Blockchain <protocol-definitions-blockchain>` is the backbone
 Thus, the first step is to set up an :ref:`ADS Account <protocol-definitions-account>` on the :ref:`Adshares Blockchain <protocol-definitions-blockchain>`.
 This account will be used for handling incoming and outgoing :ref:`Payments <protocol-payments>`, and sending :ref:`Broadcasts <protocol-synchronization-sendbroadcast>`.
 
-The account can be created by the node operator, but more convenient way is :ref:`ADS Wallet <protocol-definitions-wallet>` browser plugin.
+The account can be created by the node operator, but a more convenient way is to use the :ref:`ADS Wallet <protocol-definitions-wallet>` browser plugin.
 Detailed instruction can be found on `Setup guide <https://adshares.net/wallet#wallet-installation-steps>`_ or
 :ref:`How to use ADS Wallet page <how-to-use-ads-wallet>`.
 
-After creating an account you will receive an **account address**, a **public key** and a **secret key**.
+After creating an account, you will receive an **account address**, a **public key** and a **secret key**.
 
 ADS authentication
 ------------------

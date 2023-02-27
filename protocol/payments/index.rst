@@ -3,9 +3,6 @@
 Payments
 ========
 
-:ref:`Demand-Side Platform <protocol-definitions-dsp>` needs to pay :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
-for :ref:`Impression Events <protocol-definitions-impression>` and :ref:`Conversion Events <protocol-definitions-conversion>` that have taken place in a given time interval.
-
 Money flow
 ----------
 .. uml::
@@ -108,10 +105,13 @@ Workflow
         supplyServer -> publisher: Post profit
     end
 
+:ref:`Demand-Side Platforms <protocol-definitions-dsp>` need to pay :ref:`Supply-Side Platforms <protocol-definitions-ssp>` they cooperate with
+for :ref:`Impression Events <protocol-definitions-impression>` and :ref:`Conversion Events <protocol-definitions-conversion>` that have taken place in a given time interval.
+
 Contents
 --------
 .. toctree::
     :maxdepth: 1
 
-    payments_outbound
-    payments_inbound
+    payments_sending
+    payments_receiving

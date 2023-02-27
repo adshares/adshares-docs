@@ -16,9 +16,9 @@ a URL pointing to :ref:`Platform Metadata <protocol-definitions-metadata>`.
 
 .. note::
 
-    Broadcast must be sent from the account set as ``adsAddress`` in the :ref:`Metadata Fromat <protocol-synchronization-metadata>`.
+    Broadcast must be sent from the account declared in the ``adsAddress`` field, as defined in the :ref:`Metadata Fromat <protocol-synchronization-metadata>`.
 
-Both the URL and the :ref:`Platform Metadata <protocol-definitions-metadata>` behind it need to adhere to specific formats:
+The URL itself, as well as the :ref:`Platform Metadata <protocol-definitions-metadata>` behind it, need to adhere to specific formats:
 
 .. toctree::
     :maxdepth: 1
