@@ -3,7 +3,7 @@
 URL Format
 ==========
 
-The URL is published on :ref:`Adshares Blockchain <protocol-definitions-blockchain>` in the form of an uppercase hexadecimal string.
+The URL is published on :ref:`ADS Blockchain <protocol-definitions-blockchain>` in the form of an uppercase hexadecimal string.
 
 .. note::
     Most programming languages have a utility to convert an ASCII string to its hex representation. Online converters can be used as well.

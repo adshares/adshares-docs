@@ -26,7 +26,7 @@ However, to complete this task :ref:`Ad Pay Module <protocol-definitions-apm>` n
 .. container:: protocol
 
   Based on the data contained in the :ref:`Payment Report <protocol-definitions-paymentreport>`, :ref:`Demand-Side Platform <protocol-definitions-dsp>` uses 
-  :ref:`Adshares Blockchain <protocol-definitions-blockchain>` to send an :ref:`ADS <protocol-definitions-ads>` payment to a given :ref:`Supply-Side Platform <protocol-definitions-ssp>`,  
+  :ref:`ADS Blockchain <protocol-definitions-blockchain>` to send an :ref:`ADS <protocol-definitions-ads>` payment to a given :ref:`Supply-Side Platform <protocol-definitions-ssp>`,  
   by transferring the appropriate amount of :ref:`ADS <protocol-definitions-ads>` to the :ref:`Supply-Side Platform <protocol-definitions-ssp>`'s :ref:`ADS Account <protocol-definitions-account>` address.
 
 .. note::

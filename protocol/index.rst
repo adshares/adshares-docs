@@ -16,6 +16,54 @@ The following diagram illustrates the components making up the above infrastruct
 
 .. Check out the :doc:`Definitions <definitions/index>` section.
 
+The following diagram illustrates an overview of all the different workflows occuring within the infrastructure:
+
+.. uml::
+    :align: center
+
+    skinparam monochrome true
+
+    participant "Supply-Side Agent"     as SSA
+    participant "Supply-Side Platf"     as SSP
+    participant "ADS Blockchain"        as blockchain
+    participant "Demand-Side Platf"     as DSP
+    participant "Demand-Side Agent"     as DSA
+    
+    ==Synchronization==
+
+    DSP -> blockchain: Broadcast
+    SSP -> blockchain: Fetch broadcasts
+    blockchain --> SSP: List of broadcasts
+    SSP -> DSP : Fetch Inventory
+    DSP --> SSP: Inventory
+    SSP -> SSP: Update Inventory
+
+    ==Impressions==
+
+    SSA -> SSP : Register Event
+
+    SSA -> SSP : Find Creatives
+    SSP --> SSA : Return Creatives
+
+    SSA -> DSP : Get Creative Content
+    DSP --> SSA : Return Creative Content
+
+    SSA -> SSP: View Event
+    SSP -> DSP: View Event //redirected//
+    SSA -> DSP : Register Event
+
+    SSA -> SSP : Click Event
+    SSP -> DSP : Click Event //redirected//
+    DSP -> DSA : Click Event //redirected//
+
+    ==Payments==
+
+    DSP -> blockchain: Send multi transaction
+    SSP -> blockchain: Fetch transactions
+    blockchain --> SSP: List of transactions
+    SSP -> DSP: Fetch report
+    DSP --> SSP: Return report
+
 The following areas are handled by :ref:`Adshares Protocol <adshares-protocol>`:
 
 :doc:`Authentication <authentication/index>`
@@ -27,7 +75,7 @@ How various entities participating in :ref:`Adshares Protocol <adshares-protocol
 #. How :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` and :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` announce their current availability:
     * published by: :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * retrieved by: :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>`
-    * medium: :ref:`Adshares Blockchain <protocol-definitions-blockchain>`
+    * medium: :ref:`ADS Blockchain <protocol-definitions-blockchain>`
 
 #. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` exposes its inventory data:
     * exposed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
@@ -66,7 +114,7 @@ How various entities participating in :ref:`Adshares Protocol <adshares-protocol
 #. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` sends payments to :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>`:
     * payer: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * payee: :ref:`Supply-Side Platform <protocol-definitions-ssp>`
-    * medium: :ref:`Adshares Blockchain <protocol-definitions-blockchain>`
+    * medium: :ref:`ADS Blockchain <protocol-definitions-blockchain>`
 
 #. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` exposes payment reports:
     * exposed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`

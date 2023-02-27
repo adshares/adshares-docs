@@ -8,47 +8,44 @@ Impressions
 
     skinparam monochrome true
 
-    actor       "User"              as user
-    participant "Supply AdServer"   as supplyServer
-    participant "Supply AdUser"     as supplyUser
-    participant "Demand AdServer"   as demandServer
-    participant "Demand AdUser"     as demandUser
-    actor       "Advertiser"        as advertiser
+    participant "Supply Ctxt"      as SCP
+    participant "Supply Agent"     as SSA
+    participant "Supply Platf"     as SSP
+    participant "Demand Platf"     as DSP
+    participant "Demand Agent"     as DSA
+    participant "Demand Ctxt"      as DCP    
 
     ==Initialization==
 
-    user -> supplyServer : Register event
-    supplyServer -> supplyUser : Register event //redirected//
-    supplyUser --> user: Return context scripts
-    user -> supplyUser: Send user's context //optional//
+    SSA -> SSP : Register Evt
+    SSP -> SCP : Register Evt //redirected//
+    SCP --> SSA: Ctxt Scripts
+    SSA -> SCP: Ctxt result //opt//
 
     ==Displaying ads==
 
-    loop periodically
-        user -> supplyServer : Find creatives
-        supplyServer -> supplyUser : Get user's context
-        supplyUser --> supplyServer : Return user's context
-        supplyServer --> user : Return creatives
+    SSA -> SSP : Find Creatives
+    SSP -> SCP : Get Ctxt
+    SCP --> SSP : User/Site/Device Ctxt
+    SSP --> SSA : Creatives
 
-        loop for each creative
-            user -> demandServer : Get creative content
-            demandServer --> user : Return creative content
-
-            user -> supplyServer : View event
-            supplyServer -> demandServer: View event //redirected//
-            demandServer --> user: Return register URL
-            user -> demandUser : Register event
-            demandUser --> user: Return context scripts
-            user -> demandUser: Send user's context //optional//
-        end
+    loop for each Creative
+        SSA -> DSP : Get Creative Cnt
+        DSP --> SSA : Creative Cnt
+        SSA -> SSP : View Evt
+        SSP -> DSP: View Evt //redirected//
+        DSP --> SSA: Register URL
+        SSA -> DCP : Register Evt
+        DCP --> SSA: Ctxt Scripts
+        SSA -> DCP: Ctxt result //opt//
     end
-
+    
     ==Clicking==
 
-    user -> supplyServer : Click event
-    supplyServer -> demandServer : Click event //redirected//
-    demandServer -> advertiser : Click event //redirected//
-    advertiser --> demandServer: Click confirmation //optional//
+    SSA -> SSP : Click Evt
+    SSP -> DSP : Click Evt //redirected//
+    DSP -> DSA : Click Evt //redirected//
+    DSA --> DSP: Cnv Evt //opt//
 
 
 Contents

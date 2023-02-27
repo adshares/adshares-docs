@@ -6,7 +6,7 @@ Sending broadcasts
 To become a part of the network :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` 
 need to inform other :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` that they are accessible.
 
-This is done on :ref:`Adshares Blockchain <protocol-definitions-blockchain>` by broadcasting 
+This is done on :ref:`ADS Blockchain <protocol-definitions-blockchain>` by broadcasting 
 a URL pointing to :ref:`Platform Metadata <protocol-definitions-metadata>`.
 
 .. container:: protocol

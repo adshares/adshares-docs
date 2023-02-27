@@ -6,9 +6,9 @@ Authentication
 Set up a blockchain account
 ---------------------------
 
-The :ref:`Adshares Blockchain <protocol-definitions-blockchain>` is the backbone of the whole ecosystem.
+The :ref:`ADS Blockchain <protocol-definitions-blockchain>` is the backbone of the whole ecosystem.
 
-Thus, the first step is to set up an :ref:`ADS Account <protocol-definitions-account>` on the :ref:`Adshares Blockchain <protocol-definitions-blockchain>`.
+Thus, the first step is to set up an :ref:`ADS Account <protocol-definitions-account>` on the :ref:`ADS Blockchain <protocol-definitions-blockchain>`.
 This account will be used for handling incoming and outgoing :ref:`Payments <protocol-payments>`, and sending :ref:`Broadcasts <protocol-synchronization-sendbroadcast>`.
 
 The account can be created by the node operator, but a more convenient way is to use the :ref:`ADS Wallet <protocol-definitions-wallet>` browser plugin.

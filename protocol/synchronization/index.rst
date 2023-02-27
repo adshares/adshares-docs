@@ -8,37 +8,37 @@ Synchronization
 
     skinparam monochrome true
 
-    participant "Supply AdServer"   as supplyServer
-    participant "ADS Blockchain"    as blockchain
-    collections "Demand AdServers"  as demandServer
+    participant "Supply-Side Platform"      as SSP
+    participant "ADS Blockchain"            as blockchain
+    collections "Demand-Side Platforms"     as DSP
 
-    ==Broadcasting==
+    ==Sending Broadcast==
 
     loop at least once every 24 hours
-        supplyServer -> blockchain: Broadcast
+        SSP -> blockchain: Broadcast
     end
 
     loop at least once every 24 hours
-        demandServer -> blockchain: Broadcast
+        DSP -> blockchain: Broadcast
     end
 
-    ==Discovering==
+    ==Receiving Broadcast==
 
     loop at least once every 24 hours
-        supplyServer -> blockchain: Fetch broadcasts
-        blockchain --> supplyServer: List of broadcasts
-        supplyServer -> supplyServer: Analyze broadcast
-        supplyServer -> demandServer: Fetch info
-        demandServer --> supplyServer: Info
-        supplyServer -> supplyServer: Update AdServer's info
+        SSP -> blockchain: Fetch broadcasts
+        blockchain --> SSP: List of broadcasts
+        SSP -> SSP: Analyze broadcast
+        SSP -> DSP: Fetch Metadata
+        DSP --> SSP: Metadata
+        SSP -> SSP: Update Metadata
     end
 
-    ==Updating==
+    ==Updating Inventory==
 
     loop periodically
-        supplyServer -> demandServer : Fetch inventory
-        demandServer --> supplyServer: Inventory
-        supplyServer -> supplyServer: Update AdServer's inventory
+        SSP -> DSP : Fetch Inventory
+        DSP --> SSP: Inventory
+        SSP -> SSP: Update Inventory
     end
 
 To be able to interact with each other:
@@ -59,7 +59,7 @@ Here is why :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`De
     and based on this information they make a decision to whom they want to sell space on their :ref:`Sites <protocol-definitions-site>`.
 
 This information sharing is done by :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` 
-broadcasting via :ref:`Adshares Blockchain <protocol-definitions-blockchain>` a URL pointing to :ref:`Platform Metadata <protocol-definitions-metadata>`.
+broadcasting via :ref:`ADS Blockchain <protocol-definitions-blockchain>` a URL pointing to :ref:`Platform Metadata <protocol-definitions-metadata>`.
 
 Once the :ref:`Platform Metadata <protocol-definitions-metadata>` is retrieved, the next step is to retrieve
 :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` or  :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>`.

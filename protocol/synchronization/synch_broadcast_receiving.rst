@@ -6,7 +6,7 @@ Receiving broadcasts
 Before connecting to other :ref:`Supply-Side Platforms <protocol-definitions-ssp>` or :ref:`Demand-Side Platforms <protocol-definitions-dsp>` it is crucial to find them in the network.
 
 At least every 24 hours, all :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` 
-are expected to broadcast their :ref:`Platform Metadata <protocol-definitions-metadata>` using :ref:`Adshares Blockchain <protocol-definitions-blockchain>`.
+are expected to broadcast their :ref:`Platform Metadata <protocol-definitions-metadata>` using :ref:`ADS Blockchain <protocol-definitions-blockchain>`.
 
 This implies that if a :ref:`Supply-Side Platform <protocol-definitions-ssp>` or a :ref:`Demand-Side Platform <protocol-definitions-dsp>` wants to collect information 
 about other :ref:`Supply-Side Platforms <protocol-definitions-ssp>` or :ref:`Demand-Side Platforms <protocol-definitions-dsp>`, 

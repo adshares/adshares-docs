@@ -3,7 +3,7 @@
 Receiving payments
 ==================
 
-:ref:`Supply-Side Platform <protocol-definitions-ssp>` is expected to scan :ref:`Adshares Blockchain <protocol-definitions-blockchain>` 
+:ref:`Supply-Side Platform <protocol-definitions-ssp>` is expected to scan :ref:`ADS Blockchain <protocol-definitions-blockchain>` 
 for incoming :ref:`ADS <protocol-definitions-ads>` transfers.
 
 .. container:: protocol

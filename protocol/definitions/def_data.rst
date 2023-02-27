@@ -9,7 +9,7 @@ Platform Metadata
 ^^^^^^^^^^^^^^^^^
 
 A manifest describing all the significant information about :ref:`Supply-Side Platform <protocol-definitions-ssp>` or :ref:`Demand-Side Platform <protocol-definitions-dsp>`.
-:ref:`Platform Metadata <protocol-definitions-metadata>` is broadcast regularly via :ref:`Adshares Blockchain <protocol-definitions-blockchain>`.
+:ref:`Platform Metadata <protocol-definitions-metadata>` is broadcast regularly via :ref:`ADS Blockchain <protocol-definitions-blockchain>`.
 
 
 .. _protocol-definitions-supplyinventory:
