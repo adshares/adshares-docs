@@ -1,5 +1,5 @@
-User browses through a website or parcel
-========================================
+User browses through a Site
+===========================
 
 The following process takes place when :ref:`User <protocol-definitions-user>` browses through a :ref:`Site <protocol-definitions-site>`:
 

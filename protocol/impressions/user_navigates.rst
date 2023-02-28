@@ -1,5 +1,5 @@
-User navigates to a website or parcel
-=====================================
+User navigates to a Site
+========================
 
 The following process takes place when :ref:`User <protocol-definitions-user>` initially navigates to a :ref:`Site <protocol-definitions-site>`:
 

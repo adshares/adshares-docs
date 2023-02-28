@@ -79,30 +79,30 @@ Workflow
 
     skinparam monochrome true
 
-    actor       "Publisher"         as publisher
-    collections "Supply AdServers"  as supplyServer
-    participant "ADS Blockchain"    as blockchain
-    participant "Demand AdServer"   as demandServer
+    actor       "Publisher"             as publisher
+    collections "Supply-Side Platforms" as SSP
+    participant "ADS Blockchain"        as blockchain
+    participant "Demand-Side Platform"  as DSP
 
     ==Outgoing payments==
 
     loop every 1 hour
-        demandServer -> demandServer: Generate report
-        demandServer -> demandServer: Calculate payments
-        demandServer -> blockchain: Send multi transaction
+        DSP -> DSP: Generate report
+        DSP -> DSP: Calculate payments
+        DSP -> blockchain: Send multi transaction
     end
 
     ==Incoming payments==
 
     loop periodically
-        supplyServer -> blockchain: Fetch transactions
-        blockchain --> supplyServer: List of transactions
-        supplyServer -> supplyServer: Analyze transactions
+        SSP -> blockchain: Fetch transactions
+        blockchain --> SSP: List of transactions
+        SSP -> SSP: Analyze transactions
 
-        supplyServer -> demandServer: Fetch report
-        demandServer --> supplyServer: Return report
-        supplyServer -> supplyServer: Analyze report
-        supplyServer -> publisher: Post profit
+        SSP -> DSP: Fetch report
+        DSP --> SSP: Return report
+        SSP -> SSP: Analyze report
+        SSP -> publisher: Post profit
     end
 
 :ref:`Demand-Side Platforms <protocol-definitions-dsp>` need to pay :ref:`Supply-Side Platforms <protocol-definitions-ssp>` they cooperate with

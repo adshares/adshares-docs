@@ -13,39 +13,40 @@ Impressions
     participant "Supply Platf"     as SSP
     participant "Demand Platf"     as DSP
     participant "Demand Agent"     as DSA
-    participant "Demand Ctxt"      as DCP    
+    participant "Demand Ctxt"      as DCP
 
-    ==Initialization==
+    ==User navigates to a Site==
 
-    SSA -> SSP : Register Evt
-    SSP -> SCP : Register Evt //redirected//
-    SCP --> SSA: Ctxt Scripts
-    SSA -> SCP: Ctxt result //opt//
+    SSA -> SSP : Register Event
+    SSP -> SCP : Register Event //redirected//
+    SCP --> SSA: Context Scripts
+    SSA -> SCP: Result of Context Scripts //optional//
 
-    ==Displaying ads==
+    ==User browses through a Site==
 
     SSA -> SSP : Find Creatives
-    SSP -> SCP : Get Ctxt
-    SCP --> SSP : User/Site/Device Ctxt
+    SSP -> SCP : Get Context
+    SCP --> SSP : User/Site/Device Context
     SSP --> SSA : Creatives
 
     loop for each Creative
-        SSA -> DSP : Get Creative Cnt
-        DSP --> SSA : Creative Cnt
-        SSA -> SSP : View Evt
-        SSP -> DSP: View Evt //redirected//
-        DSP --> SSA: Register URL
-        SSA -> DCP : Register Evt
-        DCP --> SSA: Ctxt Scripts
-        SSA -> DCP: Ctxt result //opt//
+        SSA -> DSP : Get Creative Content
+        DSP --> SSA : Creative Content
+        SSA -> SSP : View Event
+        SSP -> DSP: View Event //redirected//
+        DSP --> SSA: Endpoint for Register Event
+        SSA -> DSP : Register Event
+        DSP -> DCP: Register Event //redirected//
+        DCP --> SSA: Context Scripts
+        SSA -> DCP: Result of Context Scripts //optional//
     end
     
-    ==Clicking==
+    ==User clicks on an ad==
 
-    SSA -> SSP : Click Evt
-    SSP -> DSP : Click Evt //redirected//
-    DSP -> DSA : Click Evt //redirected//
-    DSA --> DSP: Cnv Evt //opt//
+    SSA -> SSP : Click Event
+    SSP -> DSP : Click Event //redirected//
+    DSP -> DSA : Click Event //redirected//
+    DSA --> DSP: Click confirmation //optional//
 
 
 Contents
