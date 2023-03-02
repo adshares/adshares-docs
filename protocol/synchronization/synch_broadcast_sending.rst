@@ -9,10 +9,8 @@ need to inform other :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and
 This is done on :ref:`ADS Blockchain <protocol-definitions-blockchain>` by broadcasting 
 a URL pointing to :ref:`Platform Metadata <protocol-definitions-metadata>`.
 
-.. container:: protocol
-
-    Every 24 hours, all :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` 
-    are required to broadcast a URL pointing to their :ref:`Platform Metadata <protocol-definitions-metadata>`. 
+Every 24 hours, all :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` 
+are required to broadcast a URL pointing to their :ref:`Platform Metadata <protocol-definitions-metadata>`. 
 
 .. note::
 

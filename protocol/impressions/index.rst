@@ -8,19 +8,19 @@ Impressions
 
     skinparam monochrome true
 
-    participant "Supply Ctxt"      as SCP
-    participant "Supply Agent"     as SSA
-    participant "Supply Platf"     as SSP
-    participant "Demand Platf"     as DSP
-    participant "Demand Agent"     as DSA
-    participant "Demand Ctxt"      as DCP
+    participant "Supply\nContext"      as SCP
+    participant "Supply\nAgent"        as SSA
+    participant "Supply\nPlatform"     as SSP
+    participant "Demand\nPlatform"     as DSP
+    participant "Demand\nAgent"        as DSA
+    participant "Demand\nContext"      as DCP
 
     ==User navigates to a Site==
 
     SSA -> SSP : Register Event
-    SSP -> SCP : Register Event //redirected//
+    SSP -> SCP : Register Event\n//redirected//
     SCP --> SSA: Context Scripts
-    SSA -> SCP: Result of Context Scripts //optional//
+    SSA -> SCP: Result of\nContext Scripts\n//optional//
 
     ==User browses through a Site==
 
@@ -33,20 +33,20 @@ Impressions
         SSA -> DSP : Get Creative Content
         DSP --> SSA : Creative Content
         SSA -> SSP : View Event
-        SSP -> DSP: View Event //redirected//
-        DSP --> SSA: Endpoint for Register Event
+        SSP -> DSP: View Event\n//redirected//
+        DSP --> SSA: Endpoint for\nRegister Event
         SSA -> DSP : Register Event
-        DSP -> DCP: Register Event //redirected//
+        DSP -> DCP: Register Event\n//redirected//
         DCP --> SSA: Context Scripts
-        SSA -> DCP: Result of Context Scripts //optional//
+        SSA -> DCP: Result of\nContext Scripts\n//optional//
     end
     
     ==User clicks on an ad==
 
     SSA -> SSP : Click Event
-    SSP -> DSP : Click Event //redirected//
-    DSP -> DSA : Click Event //redirected//
-    DSA --> DSP: Click confirmation //optional//
+    SSP -> DSP : Click Event\n//redirected//
+    DSP -> DSA : Click Event\n//redirected//
+    DSA --> DSP: Click confirmation\n//optional//
 
 
 Contents

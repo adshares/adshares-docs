@@ -6,10 +6,8 @@ Receiving payments
 :ref:`Supply-Side Platform <protocol-definitions-ssp>` is expected to scan :ref:`ADS Blockchain <protocol-definitions-blockchain>` 
 for incoming :ref:`ADS <protocol-definitions-ads>` transfers.
 
-.. container:: protocol
-  
-  If an incoming payment is detected, :ref:`Supply-Side Platform <protocol-definitions-ssp>` calls the appropriate :ref:`Demand-Side Platform <protocol-definitions-dsp>` 
-  to receive the corresponding :ref:`Payment Report <protocol-definitions-paymentreport>`.
+If an incoming payment is detected, :ref:`Supply-Side Platform <protocol-definitions-ssp>` calls the appropriate :ref:`Demand-Side Platform <protocol-definitions-dsp>` 
+to receive the corresponding :ref:`Payment Report <protocol-definitions-paymentreport>`.
 
 The received :ref:`Payment Report <protocol-definitions-paymentreport>` allows :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
 to verify the consistency between the following datasets:

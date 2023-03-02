@@ -12,7 +12,7 @@ Adshares Protocol
 
 The following diagram illustrates the components making up the above infrastructure and the relationships between them:
 
-.. image:: index.png
+.. image:: overview.png
 
 .. Check out the :doc:`Definitions <definitions/index>` section.
 
@@ -23,11 +23,11 @@ The following diagram illustrates an overview of all the different workflows occ
 
     skinparam monochrome true
 
-    participant "Supply-Side Agent"     as SSA
-    participant "Supply-Side Platf"     as SSP
-    participant "ADS Blockchain"        as blockchain
-    participant "Demand-Side Platf"     as DSP
-    participant "Demand-Side Agent"     as DSA
+    participant "Supply-Side\nAgent"        as SSA
+    participant "Supply-Side\nPlatform"     as SSP
+    participant "ADS Blockchain"            as blockchain
+    participant "Demand-Side\nPlatform"     as DSP
+    participant "Demand-Side\nAgent"        as DSA
     
     ==Synchronization==
 
@@ -49,20 +49,20 @@ The following diagram illustrates an overview of all the different workflows occ
     DSP --> SSA : Return Creative Content
 
     SSA -> SSP: View Event
-    SSP -> DSP: View Event //redirected//
+    SSP -> DSP: View Event\n//redirected//
     SSA -> DSP : Register Event
 
     SSA -> SSP : Click Event
-    SSP -> DSP : Click Event //redirected//
-    DSP -> DSA : Click Event //redirected//
+    SSP -> DSP : Click Event\n//redirected//
+    DSP -> DSA : Click Event\n//redirected//
 
     ==Payments==
 
-    DSP -> blockchain: Send multi transaction
+    DSP -> blockchain: Send\nmulti-transaction
     SSP -> blockchain: Fetch transactions
     blockchain --> SSP: List of transactions
-    SSP -> DSP: Fetch report
-    DSP --> SSP: Return report
+    SSP -> DSP: Fetch\nPayment Report
+    DSP --> SSP: Return\nPayment Report
 
 The following areas are handled by :ref:`Adshares Protocol <adshares-protocol>`:
 

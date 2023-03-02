@@ -66,10 +66,8 @@ Once the :ref:`Platform Metadata <protocol-definitions-metadata>` is retrieved, 
 
 This is done by using the endpoints contained in the :ref:`Platform Metadata <protocol-definitions-metadata>` ``inventoryUrl`` field:
 
-.. container:: protocol
-
-    * :ref:`Supply-Side Platform <protocol-definitions-ssp>` retrieves :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` from all available :ref:`Demand-Side Platforms <protocol-definitions-dsp>`.
-    * :ref:`Demand-Side Platform <protocol-definitions-dsp>` retrieves :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` from all available :ref:`Supply-Side Platforms <protocol-definitions-ssp>`.
+* :ref:`Supply-Side Platform <protocol-definitions-ssp>` retrieves :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` from all available :ref:`Demand-Side Platforms <protocol-definitions-dsp>`.
+* :ref:`Demand-Side Platform <protocol-definitions-dsp>` retrieves :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` from all available :ref:`Supply-Side Platforms <protocol-definitions-ssp>`.
 
 To be useful, the inventory data needs to be tagged. In order to apply tagging for its inventory data:
 
