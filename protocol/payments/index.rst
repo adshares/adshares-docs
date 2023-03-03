@@ -30,9 +30,9 @@ Workflow
         blockchain --> SSP: List of transactions
         SSP -> SSP: Analyze transactions
 
-        SSP -> DSP: Fetch report
-        DSP --> SSP: Return report
-        SSP -> SSP: Analyze report
+        SSP -> DSP: Fetch Payment Report
+        DSP --> SSP: Return Payment Report
+        SSP -> SSP: Analyze Payment Report
         SSP -> publisher: Post profit
     end
 

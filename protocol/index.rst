@@ -12,7 +12,7 @@ Adshares Protocol
 
 The following diagram illustrates the components making up the above infrastructure and the relationships between them:
 
-.. image:: index.png
+.. image:: index.svg
 
 .. Check out the :doc:`Definitions <definitions/index>` section.
 

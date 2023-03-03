@@ -3,7 +3,7 @@
 Demand-Side Infrastructure
 --------------------------
 
-.. image:: def_dsi.png
+.. image:: def_dsi.svg
 
 .. _protocol-definitions-dsp:
 

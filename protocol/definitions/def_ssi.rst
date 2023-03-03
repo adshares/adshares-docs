@@ -3,7 +3,7 @@
 Supply-Side Infrastructure
 --------------------------
 
-.. image:: def_ssi.png
+.. image:: def_ssi.svg
 
 .. _protocol-definitions-ssp:
 
