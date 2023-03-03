@@ -1,5 +1,20 @@
-User navigates to a Site
+User Navigates to a Site
 ========================
+
+.. uml::
+    :align: center
+
+    skinparam monochrome true
+
+    participant "Supply-Side\nAgent"                  as SSA
+    participant "Supply-Side\nPlatform"               as SSP
+    participant "Supply-Side\nContext Platform"       as SSCP
+
+    SSA -> SSP : Register Event
+    SSP -> SSCP : Register Event\n//redirected//
+    SSCP --> SSA: Context Scripts
+    SSA -> SSA: Execute\nContext Scripts
+    SSA -> SSCP: Result of Context Scripts\n//optional//
 
 The following process takes place when :ref:`User <protocol-definitions-user>` initially navigates to a :ref:`Site <protocol-definitions-site>`:
 

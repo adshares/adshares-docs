@@ -3,30 +3,35 @@
 Impressions
 ===========
 
+The following diagram presents an overview of the interactions between 
+:ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` and :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>`
+regarding :ref:`Impression Events <protocol-definitions-impression>` and :ref:`Conversion Events <protocol-definitions-conversion>`:
+
 .. uml::
     :align: center
 
     skinparam monochrome true
 
-    participant "Supply\nContext"      as SCP
-    participant "Supply\nAgent"        as SSA
-    participant "Supply\nPlatform"     as SSP
-    participant "Demand\nPlatform"     as DSP
-    participant "Demand\nAgent"        as DSA
-    participant "Demand\nContext"      as DCP
+    participant "Supply-Side\nContext Platf"    as SSCP
+    participant "Supply-Side\nAgent"            as SSA
+    participant "Supply-Side\nPlatform"         as SSP
+    participant "Demand-Side\nPlatform"         as DSP
+    participant "Demand-Side\nAgent"            as DSA
+    participant "Demand-Side\nContext Platf"    as DSCP
 
-    ==User navigates to a Site==
+    ==User Navigates to a Site==
 
     SSA -> SSP : Register Event
-    SSP -> SCP : Register Event\n//redirected//
-    SCP --> SSA: Context Scripts
-    SSA -> SCP: Result of\nContext Scripts\n//optional//
+    SSP -> SSCP : Register Event\n//redirected//
+    SSCP --> SSA: Context Scripts
+    SSA -> SSA: Execute\nContext Scripts
+    SSA -> SSCP: Result of\nContext Scripts\n//optional//
 
-    ==User browses through a Site==
+    ==User Browses Through a Site==
 
     SSA -> SSP : Find Creatives
-    SSP -> SCP : Get Context
-    SCP --> SSP : User/Site/Device Context
+    SSP -> SSCP : Get Context
+    SSCP --> SSP : User/Site/Device Context
     SSP --> SSA : Creatives
 
     loop for each Creative
@@ -34,14 +39,15 @@ Impressions
         DSP --> SSA : Creative Content
         SSA -> SSP : View Event
         SSP -> DSP: View Event\n//redirected//
-        DSP --> SSA: Endpoint for\nRegister Event
+        DSP --> SSA: Demand-Side endpoint\nfor Register Event
         SSA -> DSP : Register Event
-        DSP -> DCP: Register Event\n//redirected//
-        DCP --> SSA: Context Scripts
-        SSA -> DCP: Result of\nContext Scripts\n//optional//
+        DSP -> DSCP: Register Event\n//redirected//
+        DSCP --> SSA: Context Scripts
+        SSA -> SSA: Execute\nContext Scripts
+        SSA -> DSCP: Result of\nContext Scripts\n//optional//
     end
     
-    ==User clicks on an ad==
+    ==User Clicks on an Ad==
 
     SSA -> SSP : Click Event
     SSP -> DSP : Click Event\n//redirected//

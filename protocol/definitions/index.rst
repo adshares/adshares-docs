@@ -4,7 +4,7 @@ Definitions
 ===========
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 3
 
     def_objects
     def_actors

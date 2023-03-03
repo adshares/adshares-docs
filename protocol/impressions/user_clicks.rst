@@ -1,5 +1,20 @@
-User clicks on an ad
+User Clicks on an Ad
 ====================
+
+.. uml::
+    :align: center
+
+    skinparam monochrome true
+
+    participant "Supply-Side\nAgent"            as SSA
+    participant "Supply-Side\nPlatform"         as SSP
+    participant "Demand-Side\nPlatform"         as DSP
+    participant "Demand-Side\nAgent"            as DSA
+
+    SSA -> SSP : Click Event
+    SSP -> DSP : Click Event\n//redirected//
+    DSP -> DSA : Click Event\n//redirected//
+    DSA --> DSP: Click confirmation\n//optional//
 
 The following process takes place when :ref:`User <protocol-definitions-user>` clicks on any instance of the displayed :ref:`Creatives <protocol-definitions-creative>`, assuming it is clickable:
 

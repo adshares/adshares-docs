@@ -1,5 +1,35 @@
-User browses through a Site
+User Browses Through a Site
 ===========================
+
+.. uml::
+    :align: center
+
+    skinparam monochrome true
+
+    participant "Supply-Side\nContext Platf"    as SSCP
+    participant "Supply-Side\nAgent"            as SSA
+    participant "Supply-Side\nPlatform"         as SSP
+    participant "Demand-Side\nPlatform"         as DSP
+    participant "Demand-Side\nAgent"            as DSA
+    participant "Demand-Side\nContext Platf"    as DSCP
+
+    SSA -> SSP : Find Creatives
+    SSP -> SSCP : Get Context
+    SSCP --> SSP : User/Site/Device Context
+    SSP --> SSA : Creatives
+
+    loop for each Creative
+        SSA -> DSP : Get Creative Content
+        DSP --> SSA : Creative Content
+        SSA -> SSP : View Event
+        SSP -> DSP: View Event\n//redirected//
+        DSP --> SSA: Demand-Side endpoint\nfor Register Event
+        SSA -> DSP : Register Event
+        DSP -> DSCP: Register Event\n//redirected//
+        DSCP --> SSA: Context Scripts
+        SSA -> SSA: Execute\nContext Scripts
+        SSA -> DSCP: Result of\nContext Scripts\n//optional//
+    end
 
 The following process takes place when :ref:`User <protocol-definitions-user>` browses through a :ref:`Site <protocol-definitions-site>`:
 
