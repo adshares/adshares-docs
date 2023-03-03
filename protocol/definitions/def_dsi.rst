@@ -3,6 +3,8 @@
 Demand-Side Infrastructure
 --------------------------
 
+.. image:: def_dsi.png
+
 .. _protocol-definitions-dsp:
 
 Demand-Side Platform

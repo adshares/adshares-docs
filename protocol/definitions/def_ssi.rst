@@ -3,6 +3,8 @@
 Supply-Side Infrastructure
 --------------------------
 
+.. image:: def_ssi.png
+
 .. _protocol-definitions-ssp:
 
 Supply-Side Platform
