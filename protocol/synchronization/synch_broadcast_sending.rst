@@ -16,28 +16,37 @@ are required to broadcast a URL pointing to their :ref:`Platform Metadata <proto
 
     Broadcast must be sent from the account declared in the ``adsAddress`` field, as defined in the :ref:`Metadata Fromat <protocol-synchronization-metadata>`.
 
-The URL itself, as well as the :ref:`Platform Metadata <protocol-definitions-metadata>` behind it, need to adhere to specific formats:
+The URL itself, as well as :
 
-.. toctree::
-    :maxdepth: 1
+URL Format
+^^^^^^^^^^
 
-    synch_broadcast_sending_url
-    synch_broadcast_sending_metadata
+The URL is published on :ref:`ADS Blockchain <protocol-definitions-blockchain>` in the form of an uppercase hexadecimal string.
+
+.. note::
+    Most programming languages have a utility to convert an ASCII string to its hex representation. Online converters can be used as well.
+
+The encoded URL is the message to be broadcast.
+
+Example URL::
+
+  https://app.example.com/info.json
+
+Example URL after encoding::
+
+  68747470733A2F2F6170702E6578616D706C652E636F6D2F696E666F2E6A736F6E
+
+Metadata Format
+^^^^^^^^^^^^^^^
+
+:ref:`Platform Metadata <protocol-definitions-metadata>` needs to be published in :ref:`Metadata Format <protocol-synchronization-metadata>`.
 
 
-::
+How to broadcast
+^^^^^^^^^^^^^^^^
+Broadcasting is done via :ref:`ADS CLI Client <ads-api>` by running the :ref:`broadcast <broadcast>` command. 
 
-    Instruction how to broadcast using *ads* client:
-    :ref:`ADS API broadcast <broadcast>`
+You can also run the above command by using the following alternative methods:
 
-    We provide a PHP client for the ADS blockchain.
-
-    The source code is available on GitHub: https://github.com/adshares/ads-php-client.
-
-    Install the package with Composer::
-
-    composer require adshares/ads-client
-
-    We provide a JSON RPC client.
-
-    The source code is available on GitHub: https://github.com/adshares/ads-json-rpc.
+* Use :ref:`ADS PHP Client <ads-php-client>`
+* Use :ref:`ADS JSON RPC <ads-json-rpc>`

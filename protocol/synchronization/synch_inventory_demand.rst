@@ -14,7 +14,3 @@ The data returned by the above URL should implement the :ref:`Demand-Side Invent
     :hidden:
 
     synch_inventory_demand_format
-
-::
-
-    **TODO** https://adshares.atlassian.net/browse/ACP-7

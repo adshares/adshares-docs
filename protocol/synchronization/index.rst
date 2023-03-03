@@ -36,7 +36,7 @@ The following diagram presents an overview of the :ref:`Synchronization <protoco
 
     skinparam monochrome true
 
-    participant "Supply-Side Platform"      as SSP
+    collections "Supply-Side Platform"      as SSP
     participant "ADS Blockchain"            as blockchain
     collections "Demand-Side Platforms"     as DSP
 
@@ -58,7 +58,16 @@ The following diagram presents an overview of the :ref:`Synchronization <protoco
         SSP -> SSP: Analyze\nbroadcast
         SSP -> DSP: Fetch Platform Metadata
         DSP --> SSP: Return Platform Metadata
-        SSP -> SSP: Update Platform Metadata
+        SSP -> SSP: Update\nPlatform\nMetadata
+    end
+
+    loop at least once every 24 hours
+        DSP -> blockchain: Fetch broadcasts
+        blockchain --> DSP: List of broadcasts
+        DSP -> DSP: Analyze\nbroadcast
+        DSP -> SSP: Fetch Platform Metadata
+        SSP --> DSP: Return Platform Metadata
+        DSP -> DSP: Update\nPlatform\nMetadata
     end
 
     ==Updating Inventory==
@@ -100,5 +109,6 @@ Contents
 
     synch_broadcast_sending
     synch_broadcast_receiving
+    synch_broadcast_metadata
     synch_inventory_demand
     synch_inventory_supply
