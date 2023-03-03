@@ -1,6 +1,8 @@
 User Clicks on an Ad
 ====================
 
+The following diagram presents the details of the workflow:
+
 .. uml::
     :align: center
 

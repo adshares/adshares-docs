@@ -1,21 +1,23 @@
 User Browses Through a Site
 ===========================
 
+The following diagram presents the details of the workflow:
+
 .. uml::
     :align: center
 
     skinparam monochrome true
 
-    participant "Supply-Side\nContext Platf"    as SSCP
-    participant "Supply-Side\nAgent"            as SSA
-    participant "Supply-Side\nPlatform"         as SSP
-    participant "Demand-Side\nPlatform"         as DSP
-    participant "Demand-Side\nAgent"            as DSA
-    participant "Demand-Side\nContext Platf"    as DSCP
+    participant "Supply-Side\nAgent"       as SSA
+    participant "SS Context\nPlatform"     as SSCP
+    participant "Supply-Side\nPlatform"    as SSP
+    participant "Demand-Side\nPlatform"    as DSP
+    participant "DS Context\nPlatform"     as DSCP
+    participant "Demand-Side\nAgent"       as DSA
 
     SSA -> SSP : Find Creatives
-    SSP -> SSCP : Get Context
-    SSCP --> SSP : User/Site/Device Context
+    SSP -> SSCP : Get\nUser/Site/Device\nContext
+    SSCP --> SSP : User/Site/Device\nContext
     SSP --> SSA : Creatives
 
     loop for each Creative
@@ -23,7 +25,7 @@ User Browses Through a Site
         DSP --> SSA : Creative Content
         SSA -> SSP : View Event
         SSP -> DSP: View Event\n//redirected//
-        DSP --> SSA: Demand-Side endpoint\nfor Register Event
+        DSP --> SSA: Demand-Side URL for Register Event
         SSA -> DSP : Register Event
         DSP -> DSCP: Register Event\n//redirected//
         DSCP --> SSA: Context Scripts

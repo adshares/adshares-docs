@@ -1,14 +1,16 @@
 User Navigates to a Site
 ========================
 
+The following diagram presents the details of the workflow:
+
 .. uml::
     :align: center
 
     skinparam monochrome true
 
-    participant "Supply-Side\nAgent"                  as SSA
-    participant "Supply-Side\nPlatform"               as SSP
-    participant "Supply-Side\nContext Platform"       as SSCP
+    participant "Supply-Side\nAgent"       as SSA
+    participant "SS Context\nPlatform"     as SSCP
+    participant "Supply-Side\nPlatform"    as SSP
 
     SSA -> SSP : Register Event
     SSP -> SSCP : Register Event\n//redirected//
