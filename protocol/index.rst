@@ -16,7 +16,7 @@ The following diagram illustrates the components making up the above infrastruct
 
 .. Check out the :doc:`Definitions <definitions/index>` section.
 
-The following diagram illustrates an overview of all the different workflows occuring within the infrastructure:
+The following diagram illustrates an overview of all the different workflows occurring within the infrastructure:
 
 .. uml::
     :align: center

@@ -14,7 +14,7 @@ are required to broadcast a URL pointing to their :ref:`Platform Metadata <proto
 
 .. note::
 
-    Broadcast must be sent from the account declared in the ``adsAddress`` field, as defined in the :ref:`Metadata Fromat <protocol-synchronization-metadata>`.
+    Broadcast must be sent from the account declared in the ``adsAddress`` field, as defined in the :ref:`Metadata Format <protocol-synchronization-metadata>`.
 
 The URL itself, as well as :
 

@@ -6,7 +6,7 @@ Synchronization
 Why is synchronization needed?
 ------------------------------
 
-For comparsion, here how :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` interact with each other in centralized systems:
+For comparison, here how :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` interact with each other in centralized systems:
 
 * In the very moment a :ref:`User <protocol-definitions-user>` navigates to their :ref:`Site <protocol-definitions-site>`, :ref:`Publishers <protocol-definitions-publisher>` broadcast information regarding their :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>`.
 * :ref:`Advertisers <protocol-definitions-advertiser>` use the information contained in :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` (as well as :ref:`Context Data <protocol-definitions-contextdata>`) to offer their bids to buy advertising space.

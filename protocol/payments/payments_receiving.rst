@@ -16,9 +16,9 @@ to verify the consistency between the following datasets:
 * :ref:`Impression Events <protocol-definitions-impression>`, the corresponding :ref:`Context Data <protocol-definitions-contextdata>` and the resulting payment amounts expected by :ref:`Supply-Side Platform <protocol-definitions-ssp>`
 
 The above reconciliation only refers to :ref:`Impression Events <protocol-definitions-impression>`, while :ref:`Conversion Events <protocol-definitions-conversion>` 
-are not reconciled in this way, as they are only reported within :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>`, thus without :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` being inolved. 
+are not reconciled in this way, as they are only reported within :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>`, thus without :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` being involved. 
 
-Nevertheless, the :ref:`Ad Pay Module <protocol-definitions-apm>` operating within :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` is incetivised to include :ref:`Conversion Events <protocol-definitions-conversion>` 
+Nevertheless, the :ref:`Ad Pay Module <protocol-definitions-apm>` operating within :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` is incentivised to include :ref:`Conversion Events <protocol-definitions-conversion>` 
 in its :ref:`Payment Report <protocol-definitions-paymentreport>`, as this builds trust and incentivizes the :ref:`Ad Select Module <protocol-definitions-asm>` of a given :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
 to continue choosing the same :ref:`Demand-Side Platform <protocol-definitions-dsp>` in the future.
 
