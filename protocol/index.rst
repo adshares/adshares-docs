@@ -2,7 +2,7 @@
 .. _adshares-protocol:
 
 Adshares Protocol
-==================
+=================
 :ref:`Adshares Protocol <adshares-protocol>` describes interactions between the following pieces of infrastructure within the :ref:`Adshares Ecosystem <protocol-definitions-ecosystem>`:
 
 * :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>`
@@ -64,14 +64,15 @@ The following diagram illustrates an overview of all the different workflows occ
     SSP -> DSP: Fetch\nPayment Report
     DSP --> SSP: Return\nPayment Report
 
-The following areas are handled by :ref:`Adshares Protocol <adshares-protocol>`:
+Scope
+^^^^^
 
 :doc:`Authentication <authentication/index>`
---------------------------------------------
+""""""""""""""""""""""""""""""""""""""""""""
 How various entities participating in :ref:`Adshares Protocol <adshares-protocol>` authenticate each other.
 
 :doc:`Synchronization <synchronization/index>`
-----------------------------------------------
+""""""""""""""""""""""""""""""""""""""""""""""
 #. How :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` and :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` announce their current availability:
     * published by: :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * retrieved by: :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>`
@@ -88,7 +89,7 @@ How various entities participating in :ref:`Adshares Protocol <adshares-protocol
     * returns: :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>`
 
 :doc:`Impressions <impressions/index>`
---------------------------------------
+""""""""""""""""""""""""""""""""""""""
 #. How :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>` exposes context data:
     * exposed by: :ref:`Context Platform <protocol-definitions-cp>`
     * consumed by: :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>`
@@ -110,7 +111,7 @@ How various entities participating in :ref:`Adshares Protocol <adshares-protocol
     * returns: an endpoint for :ref:`Register Event <protocol-definitions-registerevent>` notifications
 
 :doc:`Payments <payments/index>`
---------------------------------
+""""""""""""""""""""""""""""""""
 #. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` sends payments to :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>`:
     * payer: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * payee: :ref:`Supply-Side Platform <protocol-definitions-ssp>`

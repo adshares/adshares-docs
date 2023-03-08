@@ -3,15 +3,15 @@
 Authentication
 ==============
 
-Prerequisite: set up a blockchain account
------------------------------------------
+Prerequisites
+-------------
 
-The :ref:`ADS Blockchain <protocol-definitions-blockchain>` is the backbone of the whole ecosystem.
+:ref:`ADS Blockchain <protocol-definitions-blockchain>` is the backbone of the whole ecosystem.
 
 Thus, the first step is to set up an :ref:`ADS Account <protocol-definitions-account>` on :ref:`ADS Blockchain <protocol-definitions-blockchain>`.
 This account will be used for handling incoming and outgoing :ref:`Payments <protocol-payments>`, and sending :ref:`Broadcasts <protocol-synchronization-sendbroadcast>`.
 
-The account can be created by the node operator, but a more convenient way is to use :ref:`ADS Wallet <protocol-definitions-wallet>`.
+The account can be created by the node operator, but a more convenient way is to use :ref:`ADS Browser Wallet <ads-browser-wallet>`.
 Detailed instruction can be found on `Setup guide <https://adshares.net/wallet#wallet-installation-steps>`_ or
 :ref:`How to use ADS Wallet page <how-to-use-ads-wallet>`.
 

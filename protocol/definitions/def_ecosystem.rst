@@ -15,12 +15,6 @@ ADS Currency
 ^^^^^^^^^^^^
 The native currency of :ref:`ADS Blockchain <protocol-definitions-blockchain>`.
 
-.. _protocol-definitions-wallet:
-
-ADS Wallet
-^^^^^^^^^^
-A browser plugin acting as a cryptocurrency wallet integrated with :ref:`ADS Blockchain <protocol-definitions-blockchain>`.
-
 .. _protocol-definitions-account:
 
 ADS Account
