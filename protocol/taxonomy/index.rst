@@ -4,6 +4,8 @@
 Taxonomy
 ========
 
+The purpose of taxonomy is to standardize the naming conventions applied in :ref:`Adshares Protocol <adshares-protocol>`.
+
 Contents
 --------
 .. toctree::

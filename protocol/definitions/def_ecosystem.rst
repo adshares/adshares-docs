@@ -21,6 +21,12 @@ ADS Account
 ^^^^^^^^^^^
 An account created on :ref:`ADS Blockchain <protocol-definitions-blockchain>`.
 
+.. _protocol-definitions-softwareprovider:
+
+Software Provider
+^^^^^^^^^^^^^^^^^
+A company providing IT infrastructure implementing one or many components of :ref:`Adshares Protocol <adshares-protocol>`.
+
 .. _protocol-definitions-adserver:
 
 AdServer

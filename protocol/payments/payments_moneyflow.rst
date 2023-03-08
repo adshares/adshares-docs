@@ -3,6 +3,8 @@
 Money flow
 ==========
 
+The following diagram presents an overview of how the money flows between various participants of :ref:`Adshares Protocol <adshares-protocol>`:
+
 .. uml::
     :align: center
 
@@ -11,45 +13,40 @@ Money flow
 
     actor   "Advertiser"        as advertiser
     actor   "Publisher"         as publisher
-    agent   "Software provider" as provider
+    agent   "Software Provider" as provider
     agent   "Community"         as community
 
-    node "Demand-Side \nPlatform" as DSP {
-        circle  " " as demandIn #black
+    node "Demand-Side\nPlatform" as DSP {
+        circle " " as demandIn #black
         card demandLicenseFee [
-            License fee
-            -----------
-            <i>license dependent
+            <u>License fee
+            <i>license-dependent
             <i>CE free of charge
         ]
         card demandOperatorFee [
-            Operator fee
-            ------------
+            <u>Operator fee
             <i>set by the operator
         ]
         card demandCommunityFee [
-            Community fee
-            -------------
+            <u>Community fee
             <i>1% fees
             <i>set by the DAO
         ]
-        circle  " " as demandOut #white
+        circle " " as demandOut #white
     }
 
-    node "Supply-Side \nPlatform" as SSP {
-        circle  " " as supplyIn #black
+    node "Supply-Side\nPlatform" as SSP {
+        circle " " as supplyIn #black
         card supplyLicenseFee [
-            License fee
-            -----------
-            <i>license dependent
+            <u>License fee
+            <i>license-dependent
             <i>CE free of charge
         ]
         card supplyOperatorFee [
-            Operator fee
-            ------------
+            <u>Operator fee
             <i>set by the operator
         ]
-        circle  " " as supplyOut #white
+        circle " " as supplyOut #white
     }
 
     advertiser -ri-> DSP
@@ -69,4 +66,29 @@ Money flow
     supplyOperatorFee -[dashed]do-> supplyOut
 
     SSP -ri-> publisher
+
+Workflow
+--------
+
+Funds deposited
+~~~~~~~~~~~~~~~
+
+:ref:`Advertiser <protocol-definitions-advertiser>` deposits funds with a :ref:`Demand-Side Platform <protocol-definitions-dsp>`.
+Those funds are meant to be utilized as payments for displayed/converted :ref:`Creatives <protocol-definitions-creative>`.
     
+Funds transferred
+~~~~~~~~~~~~~~~~~
+
+The funds sent from :ref:`Demand-Side Platform <protocol-definitions-dsp>` to :ref:`Supply-Side Platform <protocol-definitions-ssp>` are reduced by the following amounts:
+
+* License fee: an amount paid to a :ref:`Software Provider <protocol-definitions-softwareprovider>`. This fee depends on the license type. Software released as Community Edition (CE) is free of charge.
+* Operator fee: an amount paid to the operators of the software constituting :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>`.
+* Community fee: an amount set to 1% of the cashflow, as decided by :ref:`Adshares DAO <dao>`.
+
+Funds released
+~~~~~~~~~~~~~~
+
+The funds released by :ref:`Supply-Side Platform <protocol-definitions-ssp>` to :ref:`Publisher <protocol-definitions-publisher>` are reduced by the following amounts:
+
+* License fee: an amount paid to a :ref:`Software Provider <protocol-definitions-softwareprovider>`. This fee depends on the license type. Software released as Community Edition (CE) is free of charge.
+* Operator fee: an amount paid to the operators of the software constituting :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>`.
