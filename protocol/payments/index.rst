@@ -39,10 +39,10 @@ The following diagram presents an overview of the payment process:
         SSP -> SSP: Analyze transactions
 
         SSP -> DSP: Fetch Payment Report
-        DSP --> SSP: Return Payment Report
+        DSP --> SSP: Payment Report
         SSP -> SSP: Analyze Payment Report
-        SSP -> publisher: Collect funds
     end
+    SSP -> publisher: Collect funds
 
 Contents
 --------

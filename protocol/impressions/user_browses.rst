@@ -1,36 +1,28 @@
 User Browses Through a Site
 ===========================
 
-The following diagram presents the details of the workflow:
+Fetching Creatives
+------------------
+
+The following diagram presents the details of the workflow aimed at fetching a list of :ref:`Creatives <protocol-definitions-creative>` to be displayed
+when :ref:`User <protocol-definitions-user>` browses through a :ref:`Site <protocol-definitions-site>`:
 
 .. uml::
     :align: center
 
     skinparam monochrome true
 
-    participant "Supply-Side\nAgent"       as SSA
-    participant "Supply-Side\nPlatform"    as SSP
-    participant "SS Context\nPlatform"     as SSCP
-    participant "Demand-Side\nPlatform"    as DSP
-    participant "DS Context\nPlatform"     as DSCP
+    participant "Supply-Side\nAgent"                as SSA
+    participant "Supply-Side\nPlatform"             as SSP
+    participant "Supply-Side\nContext Platform"     as SSCP
+    participant "Ad Select\nModule"                 as ASM
 
     SSA -> SSP : Find Creatives
     SSP -> SSCP : Get\nUser/Site/Device\nContext
     SSCP --> SSP : User/Site/Device\nContext
+    SSP -> ASM: Get Creatives
+    ASM --> SSP: Creatives
     SSP --> SSA : Creatives
-
-    loop for each Creative
-        SSA -> DSP : Get Creative Content
-        DSP --> SSA : Creative Content
-        SSA -> SSP : View Event
-        SSP -> DSP: View Event\n//redirected//
-        DSP --> SSA: Demand-Side URL for Register Event
-        SSA -> DSP : Register Event
-        DSP -> DSCP: Register Event\n//redirected//
-        DSCP --> SSA: Context Scripts
-        SSA -> SSA: Execute\nContext Scripts
-        SSA -> DSCP: Result of\nContext Scripts\n//optional//
-    end
 
 The following process takes place when :ref:`User <protocol-definitions-user>` browses through a :ref:`Site <protocol-definitions-site>`:
 
@@ -57,8 +49,38 @@ can be displayed next to each other within the same :ref:`Site <protocol-definit
     The above process can be repeated periodically in a loop that ensures that :ref:`Creatives <protocol-definitions-creative>` are swapped periodically within the same :ref:`Placement <protocol-definitions-placement>`. 
     Such a loop aims to maximize utilization of :ref:`Placements <protocol-definitions-placement>` by displaying multiple :ref:`Creatives <protocol-definitions-creative>` sequentially within a single :ref:`Placements <protocol-definitions-placement>`.
 
+Fetching Content for Creatives
+------------------------------
+
 At this stage, metadata for all :ref:`Creatives <protocol-definitions-creative>` is already retrieved, but none of them is rendered, 
-as :ref:`Supply-Side Agent <protocol-definitions-ssa>` has not fetched :ref:`Creative Content <protocol-definitions-creativecontent>` yet. 
+as :ref:`Supply-Side Agent <protocol-definitions-ssa>` has not fetched :ref:`Creative Content <protocol-definitions-creativecontent>` yet.
+
+The following diagram presents the details of the workflow aimed at fetching :ref:`Creative Content <protocol-definitions-creativecontent>` for each :ref:`Creative <protocol-definitions-creative>`:
+
+.. uml::
+    :align: center
+
+    skinparam monochrome true
+
+    participant "Supply-Side\nAgent"                as SSA
+    participant "Supply-Side\nPlatform"             as SSP
+    participant "Demand-Side\nPlatform"             as DSP
+    participant "Demand-Side\nContext Platform"     as DSCP
+
+    loop for each Creative
+        SSA -> DSP : Get Creative Content
+        DSP --> SSA : Creative Content
+        SSA -> SSP : View Event
+        SSP -> DSP: View Event\n//redirected//
+        DSP --> SSA: Demand-Side URL for Register Event
+        SSA -> DSP : Register Event
+        DSP -> DSCP: Register Event\n//redirected//
+        DSCP --> SSA: Context Scripts
+        SSA -> SSA: Execute\nContext Scripts
+        SSA -> DSCP: Result of\nContext Scripts\n//optional//
+    end
+
+
 The following sequence of events occurs for each :ref:`Creative <protocol-definitions-creative>` to fetch the corresponding :ref:`Creative Content <protocol-definitions-creativecontent>` 
 and display it in the designated :ref:`Placement <protocol-definitions-placement>`:
 

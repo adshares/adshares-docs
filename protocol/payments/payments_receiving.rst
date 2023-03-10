@@ -9,9 +9,10 @@ Receiving payments
     skinparam monochrome true
 
     actor       "Publisher"                 as publisher
-    participant "Supply-Side\nPlatform"    as SSP
+    participant "Ad Select\nModule"         as ASM
+    participant "Supply-Side\nPlatform"     as SSP
     participant "ADS Blockchain"            as blockchain
-    collections "Demand-Side\nPlatforms"     as DSP
+    collections "Demand-Side\nPlatforms"    as DSP
 
     loop periodically
         SSP -> blockchain: Fetch transactions
@@ -19,10 +20,10 @@ Receiving payments
         SSP -> SSP: Analyze transactions
 
         SSP -> DSP: Fetch Payment Report
-        DSP --> SSP: Return Payment Report
-        SSP -> SSP: Analyze Payment Report
-        SSP -> publisher: Collect funds
+        DSP --> SSP: Payment Report
+        SSP -> ASM: Analyze\nPayment Report
     end
+    SSP -> publisher: Collect funds
 
 :ref:`Supply-Side Platform <protocol-definitions-ssp>` is expected to scan :ref:`ADS Blockchain <protocol-definitions-blockchain>` 
 for incoming :ref:`ADS <protocol-definitions-ads>` transfers.
@@ -44,6 +45,9 @@ as they are only reported within :ref:`Demand-Side Infrastructure <protocol-defi
 Nevertheless, the :ref:`Ad Pay Module <protocol-definitions-apm>` operating within :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` is incentivised to include :ref:`Conversion Events <protocol-definitions-conversion>` 
 in its :ref:`Payment Report <protocol-definitions-paymentreport>`, as this builds trust and incentivizes the :ref:`Ad Select Module <protocol-definitions-asm>` of a given :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
 to continue choosing the same :ref:`Demand-Side Platform <protocol-definitions-dsp>` in the future.
+
+Also, it's important to note that :ref:`Ad Select Module <protocol-definitions-asm>` needs to be kept updated about the received payments,
+as this information is likely to affect its future decisions on choosing :ref:`Creatives <protocol-definitions-creative>` from particular :ref:`Demand-Side Platforms <protocol-definitions-dsp>`.
 
 .. _protocol-payments-receiving-scan:
 

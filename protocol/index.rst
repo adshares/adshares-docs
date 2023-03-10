@@ -95,20 +95,20 @@ How various entities participating in :ref:`Adshares Protocol <adshares-protocol
     * consumed by: :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * returns: :ref:`Context Data <protocol-definitions-contextdata>`
 
-#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` exposes the content of a :ref:`Creative <protocol-definitions-creative>`:
-    * exposed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
-    * consumed by: :ref:`Supply-Side Agent <protocol-definitions-ssa>`
-    * returns: :ref:`Creative Content <protocol-definitions-creativecontent>`
-
 #. How :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>` accepts notifications about :ref:`Impression Events <protocol-definitions-impression>`:
     * exposed by: :ref:`Context Platform <protocol-definitions-cp>`
     * consumed by: :ref:`Supply-Side Agent <protocol-definitions-ssa>`
     * returns: :ref:`Context Script <protocol-definitions-contextscript>`
 
-#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` redirects notifications about :ref:`Impression Events <protocol-definitions-impression>`:
+#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` exposes the content of a :ref:`Creative <protocol-definitions-creative>`:
     * exposed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * consumed by: :ref:`Supply-Side Agent <protocol-definitions-ssa>`
-    * returns: :ref:`Context Script <protocol-definitions-contextscript>`
+    * returns: :ref:`Creative Content <protocol-definitions-creativecontent>`
+
+#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` accepts notifications about :ref:`Impression Events <protocol-definitions-impression>`:
+    * exposed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
+    * consumed by: :ref:`Supply-Side Agent <protocol-definitions-ssa>`
+    * redirects to: :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>`
 
 :doc:`Payments <payments/index>`
 """"""""""""""""""""""""""""""""
@@ -117,7 +117,7 @@ How various entities participating in :ref:`Adshares Protocol <adshares-protocol
     * payee: :ref:`Supply-Side Platform <protocol-definitions-ssp>`
     * medium: :ref:`ADS Blockchain <protocol-definitions-blockchain>`
 
-#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` exposes payment reports:
+#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` exposes information about executed payments:
     * exposed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * consumed by: :ref:`Supply-Side Platform <protocol-definitions-ssp>`
     * returns: :ref:`Payment Report <protocol-definitions-paymentreport>`
