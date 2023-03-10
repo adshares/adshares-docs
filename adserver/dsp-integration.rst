@@ -9,29 +9,42 @@ DSP integration (experimental)
    Documentation can change at any time without notice.
 
 AdServer (the supply part) can integrate with an external DSP (Demand Side Platform).
-An external DSP should be understood as DSP outside the Adshares ecosystem.
+The term "external DSP" should be understood as DSP outside of the Adshares ecosystem.
 
 This article describes interface which is required to assure communication between AdServer and external DSP.
 Later in article an external DSP will be referred as Bridge, because typical solution is to prepare a bridge between AdServer and existing DSP.
 
+.. _adserver-dsp-integration-assumptions:
+
 General assumptions
 ----------------------------
 
-- Payments are credited by AdServer's operator. Bridge can be trusted and credited payments will be paid by bridge. *This can be changed to "Payments are credited by Bridge" when Bridge will support payments on ADS blockchain*
-- Bridge is a service accessible by HTTP protocol on localhost. It does not expose any public endpoint
+- :ref:`Payments<adserver-dsp-integration-payments>` are credited by AdServer's operator. Bridge can be trusted and credited payments will be paid by bridge. *This can be changed to "Payments are credited by Bridge" when Bridge will support payments on ADS blockchain*
+- Bridge is a microservice accessible by HTTP protocol on localhost. It does not expose any public endpoint
+- Bridge does not need to know all inventory (creatives' content) like the demand part of AdServer, but should have :ref:`minimal<adserver-dsp-integration-inventory>` knowledge about it
 
-AdServer configuration requirements
+.. _adserver-dsp-integration-adserver-configuration:
+
+AdServer configuration
 ------------------------------------
 
 AdServer configuration requires:
+
 - Bridge's URL address
 - Bridge's Adshares account address
+
+.. _adserver-dsp-integration-inventory:
 
 Bridge inventory
 -------------------
 
 Bridge should expose its inventory on ``/inventory`` endpoint.
-The inventory format must comply with :ref:`standard format<inventory_response_format>`.
+The inventory format must comply with :ref:`the standard format<inventory_response_format>` and match :ref:`taxonomy<taxonomy>`.
+
+Bridge does not have to store all DSP's inventory.
+But it should at least know which creatives' types, mimes, and scopes are supported by DSP.
+
+.. _adserver-dsp-integration-events:
 
 Bridge events
 --------------------
@@ -91,7 +104,11 @@ Bridge events
     EDSP ->  DSA  : Click Event\n//redirected//
 
 
+.. _adserver-dsp-integration-payments:
+
 Bridge payments
 -------------------
+
+Instead of ADS transfers Bridge should provide payments data.
 
 Bridge should expose payments' details on ``/payments-details`` endpoint.
