@@ -9,11 +9,10 @@ The following diagram presents the details of the workflow:
     skinparam monochrome true
 
     participant "Supply-Side\nAgent"       as SSA
-    participant "SS Context\nPlatform"     as SSCP
     participant "Supply-Side\nPlatform"    as SSP
+    participant "SS Context\nPlatform"     as SSCP
     participant "Demand-Side\nPlatform"    as DSP
     participant "DS Context\nPlatform"     as DSCP
-    participant "Demand-Side\nAgent"       as DSA
 
     SSA -> SSP : Find Creatives
     SSP -> SSCP : Get\nUser/Site/Device\nContext

@@ -13,8 +13,8 @@ regarding :ref:`Impression Events <protocol-definitions-impression>` and :ref:`C
     skinparam monochrome true
 
     participant "Supply-Side\nAgent"       as SSA
-    participant "SS Context\nPlatform"     as SSCP
     participant "Supply-Side\nPlatform"    as SSP
+    participant "SS Context\nPlatform"     as SSCP
     participant "Demand-Side\nPlatform"    as DSP
     participant "DS Context\nPlatform"     as DSCP
     participant "Demand-Side\nAgent"       as DSA

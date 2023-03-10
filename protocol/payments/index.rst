@@ -16,15 +16,17 @@ The following diagram presents an overview of the payment process:
 
     skinparam monochrome true
 
-    actor       "Publisher"             as publisher
-    collections "Supply-Side Platforms" as SSP
-    participant "ADS Blockchain"        as blockchain
-    participant "Demand-Side Platform"  as DSP
+    actor       "Publisher"                 as publisher
+    collections "Supply-Side\nPlatforms"    as SSP
+    participant "ADS Blockchain"            as blockchain
+    collections "Demand-Side\nPlatforms"    as DSP
+    actor       "Advertiser"                as advertiser
 
     ==Outgoing payments==
 
+    advertiser -> DSP: Deposit funds
     loop every 1 hour
-        DSP -> DSP: Generate report
+        DSP -> DSP: Payment Report
         DSP -> DSP: Calculate payments
         DSP -> blockchain: Send multi transaction
     end
@@ -39,7 +41,7 @@ The following diagram presents an overview of the payment process:
         SSP -> DSP: Fetch Payment Report
         DSP --> SSP: Return Payment Report
         SSP -> SSP: Analyze Payment Report
-        SSP -> publisher: Post profit
+        SSP -> publisher: Collect funds
     end
 
 Contents

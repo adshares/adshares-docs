@@ -9,8 +9,8 @@ The following diagram presents the details of the workflow:
     skinparam monochrome true
 
     participant "Supply-Side\nAgent"       as SSA
-    participant "SS Context\nPlatform"     as SSCP
     participant "Supply-Side\nPlatform"    as SSP
+    participant "SS Context\nPlatform"     as SSCP
 
     SSA -> SSP : Register Event
     SSP -> SSCP : Register Event\n//redirected//

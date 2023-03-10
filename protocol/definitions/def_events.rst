@@ -32,4 +32,5 @@ Emitted when a :ref:`User <protocol-definitions-user>` interacts with a :ref:`Cr
 
 Conversion Event
 ^^^^^^^^^^^^^^^^
-An event emitted by :ref:`Demand-Side Agent <protocol-definitions-dsa>` when a :ref:`User <protocol-definitions-user>` performs an action while browsing a :ref:`Target <protocol-definitions-target>`.
+An event emitted by :ref:`Demand-Side Agent <protocol-definitions-dsa>` when a :ref:`User <protocol-definitions-user>` performs
+an action (e.g. purchase) while browsing a :ref:`Target <protocol-definitions-target>`.

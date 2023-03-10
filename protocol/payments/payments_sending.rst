@@ -3,6 +3,27 @@
 Sending payments
 ================
 
+.. uml::
+    :align: center
+
+    skinparam monochrome true
+
+    participant "ADS Blockchain"                    as blockchain
+    participant "Demand-Side\nPlatform"             as DSP
+    participant "Demand-Side\nContext Platform"     as DSCP
+    participant "Ad Pay\nModule"                    as APM
+    actor       "Advertiser"                        as advertiser
+
+    advertiser -> DSP: Deposit funds
+    loop every 1 hour
+        DSP -> DSCP: Get\nUser/Site/Device\nContext
+        DSCP --> DSP : User/Site/Device\nContext
+        DSP -> APM: Generate Payment Report
+        APM --> DSP: Payment Report
+        DSP -> DSP: Calculate payments
+        DSP -> blockchain: Send multi transaction
+    end
+
 :ref:`Demand-Side Platform <protocol-definitions-dsp>` is expected to pay for displayed/converted :ref:`Creatives <protocol-definitions-creative>`
 by sending :ref:`ADS <protocol-definitions-ads>` payments to all :ref:`Supply-Side Platforms <protocol-definitions-ssp>` that have been involved
 in handling those :ref:`Creatives <protocol-definitions-creative>`.

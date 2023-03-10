@@ -3,6 +3,27 @@
 Receiving payments
 ==================
 
+.. uml::
+    :align: center
+
+    skinparam monochrome true
+
+    actor       "Publisher"                 as publisher
+    participant "Supply-Side\nPlatform"    as SSP
+    participant "ADS Blockchain"            as blockchain
+    collections "Demand-Side\nPlatforms"     as DSP
+
+    loop periodically
+        SSP -> blockchain: Fetch transactions
+        blockchain --> SSP: List of transactions
+        SSP -> SSP: Analyze transactions
+
+        SSP -> DSP: Fetch Payment Report
+        DSP --> SSP: Return Payment Report
+        SSP -> SSP: Analyze Payment Report
+        SSP -> publisher: Collect funds
+    end
+
 :ref:`Supply-Side Platform <protocol-definitions-ssp>` is expected to scan :ref:`ADS Blockchain <protocol-definitions-blockchain>` 
 for incoming :ref:`ADS <protocol-definitions-ads>` transfers.
 
@@ -15,8 +36,10 @@ to verify the consistency between the following datasets:
 * :ref:`Impression Events <protocol-definitions-impression>`, the corresponding :ref:`Context Data <protocol-definitions-contextdata>` and the resulting payment amounts reported by :ref:`Demand-Side Platform <protocol-definitions-dsp>`
 * :ref:`Impression Events <protocol-definitions-impression>`, the corresponding :ref:`Context Data <protocol-definitions-contextdata>` and the resulting payment amounts expected by :ref:`Supply-Side Platform <protocol-definitions-ssp>`
 
-The above reconciliation only refers to :ref:`Impression Events <protocol-definitions-impression>`, while :ref:`Conversion Events <protocol-definitions-conversion>` 
-are not reconciled in this way, as they are only reported within :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>`, thus without :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` being involved. 
+The above reconciliation only refers to :ref:`Impression Events <protocol-definitions-impression>`,
+(i.e. :ref:`Register Events <protocol-definitions-registerevent>`, :ref:`View Events <protocol-definitions-viewevent>` and :ref:`Click Events <protocol-definitions-clickevent>`)
+while :ref:`Conversion Events <protocol-definitions-conversion>` are not reconciled in this way,
+as they are only reported within :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>`, thus without :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` being involved. 
 
 Nevertheless, the :ref:`Ad Pay Module <protocol-definitions-apm>` operating within :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` is incentivised to include :ref:`Conversion Events <protocol-definitions-conversion>` 
 in its :ref:`Payment Report <protocol-definitions-paymentreport>`, as this builds trust and incentivizes the :ref:`Ad Select Module <protocol-definitions-asm>` of a given :ref:`Supply-Side Platform <protocol-definitions-ssp>` 

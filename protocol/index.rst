@@ -90,25 +90,25 @@ How various entities participating in :ref:`Adshares Protocol <adshares-protocol
 
 :doc:`Impressions <impressions/index>`
 """"""""""""""""""""""""""""""""""""""
-#. How :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>` exposes context data:
+#. How :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>` exposes information about :ref:`Users <protocol-definitions-user>`, :ref:`Sites <protocol-definitions-site>` and :ref:`Devices <protocol-definitions-device>`:
     * exposed by: :ref:`Context Platform <protocol-definitions-cp>`
     * consumed by: :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * returns: :ref:`Context Data <protocol-definitions-contextdata>`
 
-#. How :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>` accepts notifications about :ref:`Register Events <protocol-definitions-registerevent>`:
-    * exposed by: :ref:`Context Platform <protocol-definitions-cp>`
-    * consumed by: :ref:`Supply-Side Agent <protocol-definitions-ssa>`
-    * returns: :ref:`Context Script <protocol-definitions-contextscript>`
-
-#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` exposes content data:
+#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` exposes the content of a :ref:`Creative <protocol-definitions-creative>`:
     * exposed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * consumed by: :ref:`Supply-Side Agent <protocol-definitions-ssa>`
     * returns: :ref:`Creative Content <protocol-definitions-creativecontent>`
 
-#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` accepts notifications about :ref:`View Events <protocol-definitions-viewevent>`:
+#. How :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>` accepts notifications about :ref:`Impression Events <protocol-definitions-impression>`:
+    * exposed by: :ref:`Context Platform <protocol-definitions-cp>`
+    * consumed by: :ref:`Supply-Side Agent <protocol-definitions-ssa>`
+    * returns: :ref:`Context Script <protocol-definitions-contextscript>`
+
+#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` redirects notifications about :ref:`Impression Events <protocol-definitions-impression>`:
     * exposed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * consumed by: :ref:`Supply-Side Agent <protocol-definitions-ssa>`
-    * returns: an endpoint for :ref:`Register Event <protocol-definitions-registerevent>` notifications
+    * returns: :ref:`Context Script <protocol-definitions-contextscript>`
 
 :doc:`Payments <payments/index>`
 """"""""""""""""""""""""""""""""
