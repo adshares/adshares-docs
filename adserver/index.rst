@@ -24,4 +24,5 @@ Contents
     list-of-available-adzone-options
     serve-ad-zone-js-code-locally-to-circumvent-adblocks
     cryptovoxels-code-for-web3ads
+    dsp-integration
     adselect/index
