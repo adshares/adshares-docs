@@ -35,7 +35,7 @@ In order to generate the requested list, :ref:`Supply-Side Platform <protocol-de
 
 * :ref:`Supply-Side Platform <protocol-definitions-ssp>` calls :ref:`Ad Select Module <protocol-definitions-asm>` 
   to retrieve the list of :ref:`Creatives <protocol-definitions-creative>`.
-* :ref:`Supply-Side Platform <protocol-definitions-ssp>` calls :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>` 
+* :ref:`Supply-Side Platform <protocol-definitions-ssp>` calls :ref:`Context Platform <protocol-definitions-cp>` 
   to retrieve :ref:`Context Data <protocol-definitions-contextdata>` regarding the current :ref:`User <protocol-definitions-user>`, 
   :ref:`Site <protocol-definitions-site>` and :ref:`Device <protocol-definitions-device>`.
 

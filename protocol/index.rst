@@ -3,7 +3,7 @@
 
 Adshares Protocol
 =================
-:ref:`Adshares Protocol <adshares-protocol>` describes interactions between the following pieces of infrastructure within the :ref:`Adshares Ecosystem <protocol-definitions-ecosystem>`:
+:ref:`Adshares Protocol <adshares-protocol>` describes interactions between the following entities within the :ref:`Adshares Ecosystem <protocol-definitions-ecosystem>`:
 
 * :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>`
 * :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>`
