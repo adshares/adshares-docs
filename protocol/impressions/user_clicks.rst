@@ -14,10 +14,10 @@ clicks on a :ref:`Creative <protocol-definitions-creative>`, assuming it is clic
     participant "Demand-Side\nPlatform"         as DSP
     participant "Demand-Side\nAgent"            as DSA
 
-    SSA -> SSP : Click Event
-    SSP -> DSP : Click Event\n//redirected//
-    DSP -> DSA : Click Event\n//redirected//
-    DSA --> DSP: Click confirmation\n//optional//
+    SSA ->      SSP     : Send Click Event
+    SSP ->      DSP     : Send Click Event\n//redirected//
+    DSP ->      DSA     : Send Click Event\n//redirected//
+    DSA -->     DSP     : Confirm Click Event\n//optional//
 
 The following process takes place when a :ref:`User <protocol-definitions-user>` clicks on a
 :ref:`Creative <protocol-definitions-creative>`, assuming it is clickable:

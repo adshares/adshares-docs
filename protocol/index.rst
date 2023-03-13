@@ -3,20 +3,14 @@
 
 Adshares Protocol
 =================
-:ref:`Adshares Protocol <adshares-protocol>` describes interactions between the following entities within the :ref:`Adshares Ecosystem <protocol-definitions-ecosystem>`:
+:ref:`Adshares Protocol <adshares-protocol>` describes interactions between the following components:
 
-* :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>`
-* :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>`
-* :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>`
-* :ref:`Tagging Infrastructure <protocol-definitions-tagginginfrastructure>`
+* :ref:`Supply-Side Infrastructure <protocol-ssi>`
+* :ref:`Demand-Side Infrastructure <protocol-dsi>`
+* :ref:`Context Infrastructure <protocol-contextinfrastructure>`
+* :ref:`Tagging Infrastructure <protocol-tagginginfrastructure>`
 
-The following diagram illustrates the components making up the above infrastructure and the relationships between them:
-
-.. image:: index.svg
-
-.. Check out the :doc:`Definitions <definitions/index>` section.
-
-The following diagram illustrates an overview of all the different workflows occurring within the infrastructure:
+The following diagram presents an overview of interactions defined by :ref:`Adshares Protocol <adshares-protocol>`:
 
 .. uml::
     :align: center
@@ -31,38 +25,32 @@ The following diagram illustrates an overview of all the different workflows occ
     
     ==Synchronization==
 
+    SSP -> blockchain: Broadcast
     DSP -> blockchain: Broadcast
     SSP -> blockchain: Fetch broadcasts
-    blockchain --> SSP: List of broadcasts
-    SSP -> DSP : Fetch Inventory
-    DSP --> SSP: Inventory
-    SSP -> SSP: Update Inventory
+    DSP -> blockchain: Fetch broadcasts
+    SSP -> DSP: Fetch Inventory
+    DSP -> SSP: Fetch Inventory
 
     ==Impressions==
 
-    SSA -> SSP : Register Event
+    SSA -> SSP: Send Register Event
+    SSA -> SSP: Find Creatives
+    SSA -> DSP: Get Creative Content
 
-    SSA -> SSP : Find Creatives
-    SSP --> SSA : Return Creatives
+    SSA -> SSP: Send View Event
+    SSP -> DSP: Send View Event\n//redirected//
+    SSA -> DSP: Send Register Event
 
-    SSA -> DSP : Get Creative Content
-    DSP --> SSA : Return Creative Content
-
-    SSA -> SSP: View Event
-    SSP -> DSP: View Event\n//redirected//
-    SSA -> DSP : Register Event
-
-    SSA -> SSP : Click Event
-    SSP -> DSP : Click Event\n//redirected//
-    DSP -> DSA : Click Event\n//redirected//
+    SSA -> SSP: Send Click Event
+    SSP -> DSP: Send Click Event\n//redirected//
+    DSP -> DSA: Send Click Event\n//redirected//
 
     ==Payments==
 
-    DSP -> blockchain: Send\nmulti-transaction
+    DSP -> blockchain: Send payment
     SSP -> blockchain: Fetch transactions
-    blockchain --> SSP: List of transactions
-    SSP -> DSP: Fetch\nPayment Report
-    DSP --> SSP: Return\nPayment Report
+    SSP -> DSP: Fetch Payment Report
 
 Scope
 ^^^^^
@@ -73,51 +61,51 @@ How various entities participating in :ref:`Adshares Protocol <adshares-protocol
 
 :doc:`Synchronization <synchronization/index>`
 """"""""""""""""""""""""""""""""""""""""""""""
-#. How :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` and :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` announce their current availability:
+#. How :ref:`Supply-Side Infrastructure <protocol-ssi>` and :ref:`Demand-Side Infrastructure <protocol-dsi>` announce their current availability:
     * published by: :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * retrieved by: :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * medium: :ref:`ADS Blockchain <protocol-definitions-blockchain>`
 
-#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` exposes its inventory data:
+#. How :ref:`Demand-Side Infrastructure <protocol-dsi>` exposes its inventory data:
     * exposed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * consumed by: :ref:`Supply-Side Platform <protocol-definitions-ssp>`
     * returns: :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>`
 
-#. How :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` exposes its inventory data:
+#. How :ref:`Supply-Side Infrastructure <protocol-ssi>` exposes its inventory data:
     * exposed by: :ref:`Supply-Side Platform <protocol-definitions-ssp>`
     * consumed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * returns: :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>`
 
 :doc:`Impressions <impressions/index>`
 """"""""""""""""""""""""""""""""""""""
-#. How :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>` exposes information about :ref:`Users <protocol-definitions-user>`, :ref:`Sites <protocol-definitions-site>` and :ref:`Devices <protocol-definitions-device>`:
+#. How :ref:`Context Infrastructure <protocol-contextinfrastructure>` exposes information about :ref:`Users <protocol-definitions-user>`, :ref:`Sites <protocol-definitions-site>` and :ref:`Devices <protocol-definitions-device>`:
     * exposed by: :ref:`Context Platform <protocol-definitions-cp>`
     * consumed by: :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * returns: :ref:`Context Data <protocol-definitions-contextdata>`
 
-#. How :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>` accepts notifications about :ref:`Impression Events <protocol-definitions-impression>`:
+#. How :ref:`Context Infrastructure <protocol-contextinfrastructure>` accepts notifications about :ref:`Impression Events <protocol-definitions-impression>`:
     * exposed by: :ref:`Context Platform <protocol-definitions-cp>`
     * consumed by: :ref:`Supply-Side Agent <protocol-definitions-ssa>`
     * returns: :ref:`Context Script <protocol-definitions-contextscript>`
 
-#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` exposes the content of a :ref:`Creative <protocol-definitions-creative>`:
+#. How :ref:`Demand-Side Infrastructure <protocol-dsi>` exposes the content of a :ref:`Creative <protocol-definitions-creative>`:
     * exposed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * consumed by: :ref:`Supply-Side Agent <protocol-definitions-ssa>`
     * returns: :ref:`Creative Content <protocol-definitions-creativecontent>`
 
-#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` accepts notifications about :ref:`Impression Events <protocol-definitions-impression>`:
+#. How :ref:`Demand-Side Infrastructure <protocol-dsi>` accepts notifications about :ref:`Impression Events <protocol-definitions-impression>`:
     * exposed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * consumed by: :ref:`Supply-Side Agent <protocol-definitions-ssa>`
-    * redirects to: :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>`
+    * redirects to: :ref:`Context Infrastructure <protocol-contextinfrastructure>`
 
 :doc:`Payments <payments/index>`
 """"""""""""""""""""""""""""""""
-#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` sends payments to :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>`:
+#. How :ref:`Demand-Side Infrastructure <protocol-dsi>` sends payments to :ref:`Supply-Side Infrastructure <protocol-ssi>`:
     * payer: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * payee: :ref:`Supply-Side Platform <protocol-definitions-ssp>`
     * medium: :ref:`ADS Blockchain <protocol-definitions-blockchain>`
 
-#. How :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` exposes information about executed payments:
+#. How :ref:`Demand-Side Infrastructure <protocol-dsi>` exposes information about executed payments:
     * exposed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * consumed by: :ref:`Supply-Side Platform <protocol-definitions-ssp>`
     * returns: :ref:`Payment Report <protocol-definitions-paymentreport>`
@@ -128,8 +116,9 @@ Contents
     :maxdepth: 1
     
     definitions/index
-    taxonomy/index
+    infrastructure/index
     authentication/index
     synchronization/index
     impressions/index
     payments/index
+    taxonomy/index

@@ -13,11 +13,11 @@ initially navigates to a :ref:`Site <protocol-definitions-site>`:
     participant "Supply-Side\nPlatform"             as SSP
     participant "Supply-Side\nContext Platform"     as SSCP
 
-    SSA -> SSP : Register Event
-    SSP -> SSCP : Register Event\n//redirected//
-    SSCP --> SSA: Context Scripts
-    SSA -> SSA: Execute\nContext Scripts
-    SSA -> SSCP: Result of Context Scripts\n//optional//
+    SSA ->      SSP     : Send Register Event
+    SSP ->      SSCP    : Send Register Event\n//redirected//
+    SSCP -->    SSA     : Context Scripts
+    SSA ->      SSA     : Execute\nContext Scripts
+    SSA ->      SSCP    : Result of Context Scripts\n//optional//
 
 The following process takes place when a :ref:`User <protocol-definitions-user>` initially navigates to a :ref:`Site <protocol-definitions-site>`:
 

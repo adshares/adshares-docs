@@ -83,7 +83,7 @@ The funds sent from :ref:`Demand-Side Platform <protocol-definitions-dsp>` to :r
 
 * License fee: an amount paid to a :ref:`Software Provider <protocol-definitions-softwareprovider>`. This fee depends on the license type.
   Software released as Community Edition (CE) is free of charge.
-* Operator fee: an amount paid to the operators of the software constituting :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>`.
+* Operator fee: an amount paid to the operators of the software constituting :ref:`Demand-Side Infrastructure <protocol-dsi>`.
 * Community fee: an amount set to 1% of the cashflow, as decided by :ref:`Adshares DAO <dao>`.
 
 Funds released
@@ -93,4 +93,4 @@ The funds released by :ref:`Supply-Side Platform <protocol-definitions-ssp>` to 
 
 * License fee: an amount paid to a :ref:`Software Provider <protocol-definitions-softwareprovider>`. This fee depends on the license type.
   Software released as Community Edition (CE) is free of charge.
-* Operator fee: an amount paid to the operators of the software constituting :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>`.
+* Operator fee: an amount paid to the operators of the software constituting :ref:`Supply-Side Infrastructure <protocol-ssi>`.

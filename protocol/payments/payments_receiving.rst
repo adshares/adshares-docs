@@ -42,9 +42,9 @@ to verify the consistency between the following datasets:
 The above reconciliation only refers to :ref:`Impression Events <protocol-definitions-impression>`,
 (i.e. :ref:`Register Events <protocol-definitions-registerevent>`, :ref:`View Events <protocol-definitions-viewevent>` and :ref:`Click Events <protocol-definitions-clickevent>`)
 while :ref:`Conversion Events <protocol-definitions-conversion>` are not reconciled in this way, as they are only reported within 
-:ref:`Demand-Side Infrastructure <protocol-definitions-dsi>`, thus without :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` being involved. 
+:ref:`Demand-Side Infrastructure <protocol-dsi>`, thus without :ref:`Supply-Side Infrastructure <protocol-ssi>` being involved. 
 
-Nevertheless, the :ref:`Ad Pay Module <protocol-definitions-apm>` operating within :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` 
+Nevertheless, the :ref:`Ad Pay Module <protocol-definitions-apm>` operating within :ref:`Demand-Side Infrastructure <protocol-dsi>` 
 is incentivised to include :ref:`Conversion Events <protocol-definitions-conversion>` in its :ref:`Payment Report <protocol-definitions-paymentreport>`,
 as this builds trust and incentivizes the :ref:`Ad Select Module <protocol-definitions-asm>` of a given :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
 to continue choosing the same :ref:`Demand-Side Platform <protocol-definitions-dsp>` in the future.

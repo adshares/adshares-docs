@@ -28,7 +28,7 @@ Sending payments
 by sending :ref:`ADS <protocol-definitions-ads>` payments to all :ref:`Supply-Side Platforms <protocol-definitions-ssp>` that have been involved
 in handling those :ref:`Creatives <protocol-definitions-creative>`.
 
-Every hour :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` generates a :ref:`Payment Report <protocol-definitions-paymentreport>`
+Every hour :ref:`Demand-Side Infrastructure <protocol-dsi>` generates a :ref:`Payment Report <protocol-definitions-paymentreport>`
 which allocates the appropriate amount of :ref:`ADS <protocol-definitions-ads>` that :ref:`Demand-Side Platform <protocol-definitions-dsp>` needs to pay 
 to all :ref:`Supply-Side Platforms <protocol-definitions-ssp>` for utilizing their :ref:`Sites <protocol-definitions-site>` within the last one-hour timeframe.
 
