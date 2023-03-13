@@ -98,12 +98,12 @@ The following diagram presents an overview of the :ref:`Synchronization <protoco
     end
 
 :ref:`Synchronization <protocol-synchronization>` is done by :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` 
-broadcasting via :ref:`ADS Blockchain <protocol-definitions-blockchain>` a URL pointing to :ref:`Platform Metadata <protocol-definitions-metadata>`.
+broadcasting via :ref:`ADS Blockchain <protocol-definitions-blockchain>` a URL pointing to :ref:`Platform Metadata <protocol-definitions-platformmetadata>`.
 
-Once the :ref:`Platform Metadata <protocol-definitions-metadata>` is retrieved, the next step is to retrieve
+Once the :ref:`Platform Metadata <protocol-definitions-platformmetadata>` is retrieved, the next step is to retrieve
 :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` or  :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>`.
 
-This is done by using the endpoints contained in the :ref:`Platform Metadata <protocol-definitions-metadata>` ``inventoryUrl`` field:
+This is done by using the endpoints contained in the :ref:`Platform Metadata <protocol-definitions-platformmetadata>` ``inventoryUrl`` field:
 
 * :ref:`Supply-Side Platform <protocol-definitions-ssp>` retrieves :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` 
   from all available :ref:`Demand-Side Platforms <protocol-definitions-dsp>`.

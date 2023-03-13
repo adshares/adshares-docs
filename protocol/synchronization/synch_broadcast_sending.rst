@@ -7,10 +7,10 @@ To become a part of the network :ref:`Supply-Side Platforms <protocol-definition
 need to inform other :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` that they are accessible.
 
 This is done on :ref:`ADS Blockchain <protocol-definitions-blockchain>` by broadcasting 
-a URL pointing to :ref:`Platform Metadata <protocol-definitions-metadata>`.
+a URL pointing to :ref:`Platform Metadata <protocol-definitions-platformmetadata>`.
 
 Every 24 hours, all :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` 
-are required to broadcast a URL pointing to their :ref:`Platform Metadata <protocol-definitions-metadata>`. 
+are required to broadcast a URL pointing to their :ref:`Platform Metadata <protocol-definitions-platformmetadata>`. 
 
 .. note::
 
@@ -39,7 +39,7 @@ Example URL after encoding::
 Metadata Format
 ^^^^^^^^^^^^^^^
 
-:ref:`Platform Metadata <protocol-definitions-metadata>` needs to be published in :ref:`Metadata Format <protocol-synchronization-metadata>`.
+:ref:`Platform Metadata <protocol-definitions-platformmetadata>` needs to be published in :ref:`Metadata Format <protocol-synchronization-metadata>`.
 
 
 How to broadcast

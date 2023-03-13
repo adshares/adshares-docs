@@ -29,12 +29,12 @@ The following process takes place when a :ref:`User <protocol-definitions-user>`
 * :ref:`Supply-Side Agent <protocol-definitions-ssa>` calls :ref:`Supply-Side Platform <protocol-definitions-ssp>` to get a list 
   of :ref:`Creatives <protocol-definitions-creative>` to be displayed in all available :ref:`Placements <protocol-definitions-placement>`.
 * :ref:`Supply-Side Platform <protocol-definitions-ssp>` replies to :ref:`Supply-Side Agent <protocol-definitions-ssa>` with a list 
-  of metadata for :ref:`Creatives <protocol-definitions-creative>`.
+  of :ref:`Creative Metadata <protocol-definitions-creativemetadata>`.
 
 In order to generate the requested list, :ref:`Supply-Side Platform <protocol-definitions-ssp>` first needs to make the following calls:
 
 * :ref:`Supply-Side Platform <protocol-definitions-ssp>` calls :ref:`Ad Select Module <protocol-definitions-asm>` 
-  to retrieve the list of :ref:`Creatives <protocol-definitions-creative>`
+  to retrieve the list of :ref:`Creatives <protocol-definitions-creative>`.
 * :ref:`Supply-Side Platform <protocol-definitions-ssp>` calls :ref:`Context Infrastructure <protocol-definitions-contextinfrastructure>` 
   to retrieve :ref:`Context Data <protocol-definitions-contextdata>` regarding the current :ref:`User <protocol-definitions-user>`, 
   :ref:`Site <protocol-definitions-site>` and :ref:`Device <protocol-definitions-device>`.
@@ -45,7 +45,7 @@ In order to generate the requested list, :ref:`Supply-Side Platform <protocol-de
     This is possible due to the fact that :ref:`Supply-Side Platform <protocol-definitions-ssp>` has already retrieved all the relevant 
     :ref:`Demand-Side Inventories <protocol-definitions-demandinventory>` during the :doc:`Synchronization <../synchronization/index>` stage.
 
-The metadata for each :ref:`Creative <protocol-definitions-creative>` contains a :ref:`Demand-Side Platform <protocol-definitions-dsp>` endpoint 
+:ref:`Creative Metadata <protocol-definitions-creativemetadata>` contains a :ref:`Demand-Side Platform <protocol-definitions-dsp>` endpoint 
 for retrieving :ref:`Creative Content <protocol-definitions-creativecontent>`.
 This implies that each :ref:`Creative <protocol-definitions-creative>` in the list can be associated with its own :ref:`Demand-Side Platform <protocol-definitions-dsp>`. 
 As a result, :ref:`Creatives <protocol-definitions-creative>` managed by various :ref:`Demand-Side Platforms <protocol-definitions-dsp>` 
@@ -54,13 +54,14 @@ can be displayed next to each other within the same :ref:`Site <protocol-definit
 .. note::
     The above process can be repeated periodically in a loop that ensures that :ref:`Creatives <protocol-definitions-creative>` are swapped periodically 
     within the same :ref:`Placement <protocol-definitions-placement>`. Such a loop aims to maximize utilization of :ref:`Placements <protocol-definitions-placement>` 
-    by displaying multiple :ref:`Creatives <protocol-definitions-creative>` sequentially within a single :ref:`Placements <protocol-definitions-placement>`.
+    by displaying multiple :ref:`Creatives <protocol-definitions-creative>` sequentially to the same :ref:`User <protocol-definitions-user>` 
+    within a single :ref:`Placement <protocol-definitions-placement>`.
 
 Fetching Content for Creatives
 ------------------------------
 
-At this stage, metadata for all :ref:`Creatives <protocol-definitions-creative>` is already retrieved, but none of them is rendered, 
-as :ref:`Supply-Side Agent <protocol-definitions-ssa>` has not fetched :ref:`Creative Content <protocol-definitions-creativecontent>` yet.
+At this stage, :ref:`Creative Metadata <protocol-definitions-creativemetadata>` is already retrieved, but none of the :ref:`Creatives <protocol-definitions-creative>` 
+is actually rendered, as :ref:`Supply-Side Agent <protocol-definitions-ssa>` has not fetched :ref:`Creative Content <protocol-definitions-creativecontent>` yet.
 
 The following diagram presents the details of the workflow aimed at fetching :ref:`Creative Content <protocol-definitions-creativecontent>` 
 for each :ref:`Creative <protocol-definitions-creative>`:
@@ -88,18 +89,17 @@ for each :ref:`Creative <protocol-definitions-creative>`:
         SSA -> DSCP: Result of\nContext Scripts\n//optional//
     end
 
-
 The following sequence of events occurs for each :ref:`Creative <protocol-definitions-creative>` to fetch the corresponding 
 :ref:`Creative Content <protocol-definitions-creativecontent>` and display it in its designated :ref:`Placement <protocol-definitions-placement>`:
 
-* Using the endpoint contained in the metadata, :ref:`Supply-Side Agent <protocol-definitions-ssa>` calls :ref:`Demand-Side Platform <protocol-definitions-dsp>` 
-  to retrieve :ref:`Creative Content <protocol-definitions-creativecontent>`.
+* Using the endpoint contained in :ref:`Creative Metadata <protocol-definitions-creativemetadata>`, :ref:`Supply-Side Agent <protocol-definitions-ssa>` 
+  calls :ref:`Demand-Side Platform <protocol-definitions-dsp>` to retrieve :ref:`Creative Content <protocol-definitions-creativecontent>`.
 * :ref:`Supply-Side Agent <protocol-definitions-ssa>` receives the requested :ref:`Creative Content <protocol-definitions-creativecontent>`.
     
 Before a :ref:`Creative <protocol-definitions-creative>` is actually rendered, :ref:`Supply-Side Agent <protocol-definitions-ssa>` 
-compares the hash of the received :ref:`Creative Content <protocol-definitions-creativecontent>` with the hash contained in the metadata. 
-This is done to ensure that the :ref:`Creative Content <protocol-definitions-creativecontent>` matches what was initially approved 
-when the :ref:`Campaign <protocol-definitions-campaign>` was launched.
+compares the hash of the received :ref:`Creative Content <protocol-definitions-creativecontent>` with the hash contained in
+:ref:`Creative Metadata <protocol-definitions-creativemetadata>`. This is done to ensure that the :ref:`Creative Content <protocol-definitions-creativecontent>` 
+matches what was initially approved when the :ref:`Campaign <protocol-definitions-campaign>` was launched.
 
 Assuming the above hashes match, :ref:`Supply-Side Agent <protocol-definitions-ssa>` renders the :ref:`Creative <protocol-definitions-creative>` on the screen, 
 so that the :ref:`User <protocol-definitions-user>` can see it.

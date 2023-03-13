@@ -7,15 +7,15 @@ Before connecting to other :ref:`Supply-Side Platforms <protocol-definitions-ssp
 it is crucial to find them in the network.
 
 At least every 24 hours, all :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` 
-are expected to broadcast their :ref:`Platform Metadata <protocol-definitions-metadata>` using :ref:`ADS Blockchain <protocol-definitions-blockchain>`.
+are expected to broadcast their :ref:`Platform Metadata <protocol-definitions-platformmetadata>` using :ref:`ADS Blockchain <protocol-definitions-blockchain>`.
 
 This implies that if a :ref:`Supply-Side Platform <protocol-definitions-ssp>` or a :ref:`Demand-Side Platform <protocol-definitions-dsp>` 
 wants to collect information about other :ref:`Supply-Side Platforms <protocol-definitions-ssp>` or :ref:`Demand-Side Platforms <protocol-definitions-dsp>`, 
 it needs to check every block created within the last 24 hours for the presence of a URL.
 
-Then, each URL needs to be verified if it actually points to valid :ref:`Platform Metadata <protocol-definitions-metadata>`.
+Then, each URL needs to be verified if it actually points to valid :ref:`Platform Metadata <protocol-definitions-platformmetadata>`.
 
-:ref:`Platform Metadata <protocol-definitions-metadata>` is structured according to :ref:`Metadata Format <protocol-synchronization-metadata>`.
+:ref:`Platform Metadata <protocol-definitions-platformmetadata>` is structured according to :ref:`Metadata Format <protocol-synchronization-metadata>`.
 
 In the :ref:`Metadata Format <protocol-synchronization-metadata>`, the most important field is ``inventoryUrl``, as it points to:
 

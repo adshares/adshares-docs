@@ -3,13 +3,14 @@
 Data Structures
 ---------------
 
-.. _protocol-definitions-metadata:
+.. _protocol-definitions-platformmetadata:
 
 Platform Metadata
 ^^^^^^^^^^^^^^^^^
 
 A manifest describing all the significant information about :ref:`Supply-Side Platform <protocol-definitions-ssp>` or :ref:`Demand-Side Platform <protocol-definitions-dsp>`.
-:ref:`Platform Metadata <protocol-definitions-metadata>` is broadcast regularly via :ref:`ADS Blockchain <protocol-definitions-blockchain>`.
+:ref:`Platform Metadata <protocol-definitions-platformmetadata>` is broadcast regularly via :ref:`ADS Blockchain <protocol-definitions-blockchain>`,
+as part of the :ref:`Synchronization <protocol-synchronization>` process.
 
 
 .. _protocol-definitions-supplyinventory:
@@ -27,6 +28,13 @@ A manifest describing the parameters of a :ref:`Campaign <protocol-definitions-c
 by an :ref:`Advertiser <protocol-definitions-advertiser>`, e.g. time duration, target audience, pricing policy etc.
 
 From the technical perspective, :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` is an array of :ref:`Campaign Objects <protocol-campaign-object>`.
+
+.. _protocol-definitions-creativemetadata:
+
+Creative Metadata
+^^^^^^^^^^^^^^^^^
+A manifest describing a :ref:`Creative <protocol-definitions-creative>`. It includes the hash of :ref:`Creative Content <protocol-definitions-creativecontent>`
+and a :ref:`Demand-Side Platform <protocol-definitions-dsp>` endpoint for retrieving it.
 
 .. _protocol-definitions-creativecontent:
 

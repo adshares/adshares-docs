@@ -3,9 +3,9 @@
 Metadata Format
 ---------------
 
-The :ref:`Platform Metadata <protocol-definitions-metadata>` should be located under a publicly accessible URL.
+The :ref:`Platform Metadata <protocol-definitions-platformmetadata>` should be located under a publicly accessible URL.
 
-The :ref:`Platform Metadata <protocol-definitions-metadata>` should be in the in JSON format.
+The :ref:`Platform Metadata <protocol-definitions-platformmetadata>` should be in the in JSON format.
 
 All fields should be using string values, unless stated otherwise.
 
