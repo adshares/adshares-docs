@@ -12,6 +12,13 @@ use :ref:`Context Platform <protocol-definitions-cp>` to retrieve data about :re
 
 :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>` need to independently decide 
 which instances of :ref:`Context Platform <protocol-definitions-cp>` they trust and then independently query them. 
-
-Even if :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>` end up trusting 
+Even in case :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>` choose to trust
 the same instance of :ref:`Context Platform <protocol-definitions-cp>`, they need to query it separately.
+
+:ref:`Context Platform <protocol-definitions-cp>` needs to track :ref:`Impression Events <protocol-definitions-impression>`. Thus,
+:ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` need to share with 
+:ref:`Context Platform <protocol-definitions-cp>` all the :ref:`Impression Events <protocol-definitions-impression>` that they receive.
+
+In response to an :ref:`Impression Event <protocol-definitions-impression>` notification, :ref:`Context Platform <protocol-definitions-cp>` 
+returns a :ref:`Context Script <protocol-definitions-contextscript>`, and then receives the results of this script being executed 
+by a :ref:`Supply-Side Agent <protocol-definitions-ssa>` within its sandbox.

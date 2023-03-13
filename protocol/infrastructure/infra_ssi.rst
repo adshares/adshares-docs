@@ -4,38 +4,36 @@ Supply-Side Infrastructure
 --------------------------
 
 :ref:`Supply-Side Infrastructure <protocol-ssi>` delivers services for :ref:`Publishers <protocol-definitions-publisher>`, or acts on their behalf.
-The central part of :ref:`Supply-Side Infrastructure <protocol-ssi>` consists of :ref:`Supply-Side Platform <protocol-definitions-ssp>`.
+
+:ref:`Supply-Side Infrastructure <protocol-ssi>` consists of :ref:`Supply-Side Platform <protocol-definitions-ssp>`, its :ref:`Supply-Side Agent <protocol-definitions-ssa>`
+(which is embedded in the :ref:`Site <protocol-definitions-site>`), and optionally an :ref:`Ad Select Module <protocol-definitions-asm>`.
 
 .. image:: infra_ssi.svg
     :align: center
 
-:ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Supply-Side Agent <protocol-definitions-ssa>` are free to communicate in any way they choose, 
-as this communication is *not* part of :ref:`Adshares Protocol <adshares-protocol>`.
-
-Whereas the communication between :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Ad Select Module <protocol-definitions-asm>` 
-might be part of :ref:`Adshares Protocol <adshares-protocol>` in case :ref:`Ad Select Module <protocol-definitions-asm>` is delivered by a third-party vendor.
-
-:ref:`Adshares Protocol <adshares-protocol>` defines the following interactions between :ref:`Supply-Side Platform <protocol-definitions-ssp>`  
+:ref:`Adshares Protocol <adshares-protocol>` defines the following interactions between :ref:`Supply-Side Infrastructure <protocol-ssi>`  
 and other entities within the :ref:`Adshares Ecosystem <protocol-definitions-ecosystem>`:
 
-* :ref:`Supply-Side Platform <protocol-definitions-ssp>` calls :ref:`Site Tagging Platform <protocol-definitions-stp>` to tag the :ref:`Sites <protocol-definitions-site>` 
+* :ref:`Supply-Side Infrastructure <protocol-ssi>` calls :ref:`Site Tagging Platform <protocol-definitions-stp>` to tag the :ref:`Sites <protocol-definitions-site>` 
   that remain under its control.
-* :ref:`Supply-Side Platform <protocol-definitions-ssp>` calls :ref:`Creative Tagging Platform <protocol-definitions-ctp>` to verify tags assigned 
-  to :ref:`Creatives <protocol-definitions-creative>` by :ref:`Demand-Side Platform <protocol-definitions-dsp>`.
-* :ref:`Supply-Side Platform <protocol-definitions-ssp>` calls :ref:`Context Platform <protocol-definitions-cp>` to retrieve 
+* :ref:`Supply-Side Infrastructure <protocol-ssi>` calls :ref:`Creative Tagging Platform <protocol-definitions-ctp>` to verify tags assigned 
+  to :ref:`Creatives <protocol-definitions-creative>` by :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>`.
+* :ref:`Supply-Side Infrastructure <protocol-ssi>` calls :ref:`Context Platform <protocol-definitions-cp>` to retrieve 
   :ref:`Context Data <protocol-definitions-contextdata>` regarding :ref:`Users <protocol-definitions-user>`, :ref:`Sites <protocol-definitions-site>`
   and :ref:`Devices <protocol-definitions-device>`.
-* :ref:`Supply-Side Platform <protocol-definitions-ssp>` redirects :ref:`Impression Events <protocol-definitions-impression>` 
-  to :ref:`Demand-Side Platforms <protocol-definitions-dsp>`.
-* :ref:`Supply-Side Platform <protocol-definitions-ssp>` calls :ref:`Demand-Side Platform <protocol-definitions-dsp>` 
-  to retrieve :ref:`Payment Reports <protocol-definitions-paymentreport>`.
+* :ref:`Supply-Side Infrastructure <protocol-ssi>` shares the received :ref:`Impression Events <protocol-definitions-impression>` 
+  with the :ref:`Demand-Side Platform <protocol-definitions-dsp>` which corresponds to a given :ref:`Creative <protocol-definitions-creative>`.
+* :ref:`Supply-Side Infrastructure <protocol-ssi>` shares the received :ref:`Impression Events <protocol-definitions-impression>` 
+  with its :ref:`Context Platform <protocol-definitions-cp>`.
+* :ref:`Supply-Side Infrastructure <protocol-ssi>` calls :ref:`Demand-Side Platform <protocol-definitions-dsp>` 
+  to receive a :ref:`Payment Report <protocol-definitions-paymentreport>`.
 
-The following interactions are optionally included in :ref:`Adshares Protocol <adshares-protocol>`:
+:ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Supply-Side Agent <protocol-definitions-ssa>` are free to communicate in any way they choose, 
+as this communication is *not* part of :ref:`Adshares Protocol <adshares-protocol>`. Thus, any interactions between :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
+and its :ref:`Supply-Side Agent <protocol-definitions-ssa>` (e.g. notifications about :ref:`Impression Events <protocol-definitions-impression>`) 
+are not covered by :ref:`Adshares Protocol <adshares-protocol>`.
 
-* :ref:`Supply-Side Platform <protocol-definitions-ssp>` interacts with its :ref:`Ad Select Module <protocol-definitions-asm>` to generate a list 
-  of :ref:`Creatives <protocol-definitions-creative>` requested by its :ref:`Supply-Side Agent <protocol-definitions-ssa>`.
-
-The following interactions are outside of :ref:`Adshares Protocol <adshares-protocol>`:
-
-* :ref:`Supply-Side Platform <protocol-definitions-ssp>` interacts with its :ref:`Supply-Side Agent <protocol-definitions-ssa>` to receive notifications
-  about :ref:`Impression Events <protocol-definitions-impression>`.
+Whereas the communication between :ref:`Supply-Side Platform <protocol-definitions-ssp>` and its :ref:`Ad Select Module <protocol-definitions-asm>` 
+might be part of :ref:`Adshares Protocol <adshares-protocol>` in case :ref:`Ad Select Module <protocol-definitions-asm>` is delivered 
+by a third-party :ref:`Software Provider <protocol-definitions-softwareprovider>`. If this is the case, :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
+calls its :ref:`Ad Select Module <protocol-definitions-asm>` to outsource to it the process of generating a list of :ref:`Creatives <protocol-definitions-creative>`.
