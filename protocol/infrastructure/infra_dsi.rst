@@ -10,8 +10,10 @@ The central part of :ref:`Demand-Side Infrastructure <protocol-dsi>` consists of
     :align: center
 
 :ref:`Demand-Side Platform <protocol-definitions-dsp>` and :ref:`Demand-Side Agent <protocol-definitions-dsa>` are free to communicate in any way they choose, 
-as this communication is *not* part of :ref:`Adshares Protocol<adshares-protocol>`. Whereas the communication between :ref:`Demand-Side Platform <protocol-definitions-dsp>` 
-and :ref:`Ad Pay Module <protocol-definitions-apm>` is included in :ref:`Adshares Protocol<adshares-protocol>`.
+as this communication is *not* part of :ref:`Adshares Protocol <adshares-protocol>`.
+
+Whereas the communication between :ref:`Demand-Side Platform <protocol-definitions-dsp>` and :ref:`Ad Pay Module <protocol-definitions-apm>`
+might be part of :ref:`Adshares Protocol <adshares-protocol>` in case :ref:`Ad Pay Module <protocol-definitions-apm>` is delivered by a third-party vendor.
 
 :ref:`Adshares Protocol <adshares-protocol>` defines the following interactions between :ref:`Demand-Side Platform <protocol-definitions-dsp>`  
 and other entities within the :ref:`Adshares Ecosystem <protocol-definitions-ecosystem>`:
@@ -28,9 +30,12 @@ and other entities within the :ref:`Adshares Ecosystem <protocol-definitions-eco
 * :ref:`Demand-Side Platform <protocol-definitions-dsp>` responds to requests from :ref:`Supply-Side Platforms <protocol-definitions-ssp>` 
   regarding :ref:`Payment Reports <protocol-definitions-paymentreport>`.
 
-The following interactions remain outside of :ref:`Adshares Protocol <adshares-protocol>`:
+The following interactions are optionally included in :ref:`Adshares Protocol <adshares-protocol>`:
 
-* :ref:`Demand-Side Platform <protocol-definitions-dsp>` interacts with its :ref:`Ad Pay Module <protocol-definitions-apm>` to generate its
+* :ref:`Demand-Side Platform <protocol-definitions-dsp>` interacts with its :ref:`Ad Pay Module <protocol-definitions-apm>` to generate
   :ref:`Payment Reports <protocol-definitions-paymentreport>`.
+
+The following interactions are outside of :ref:`Adshares Protocol <adshares-protocol>`:
+
 * :ref:`Demand-Side Platform <protocol-definitions-dsp>` interacts with its :ref:`Demand-Side Agent <protocol-definitions-dsa>` to receive notifications
   about :ref:`Conversion Events <protocol-definitions-conversion>`.

@@ -10,8 +10,10 @@ The central part of :ref:`Supply-Side Infrastructure <protocol-ssi>` consists of
     :align: center
 
 :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Supply-Side Agent <protocol-definitions-ssa>` are free to communicate in any way they choose, 
-as this communication is *not* part of :ref:`Adshares Protocol<adshares-protocol>`. Whereas the communication between :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
-and :ref:`Ad Select Module <protocol-definitions-asm>` is included in :ref:`Adshares Protocol<adshares-protocol>`.
+as this communication is *not* part of :ref:`Adshares Protocol <adshares-protocol>`.
+
+Whereas the communication between :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Ad Select Module <protocol-definitions-asm>` 
+might be part of :ref:`Adshares Protocol <adshares-protocol>` in case :ref:`Ad Select Module <protocol-definitions-asm>` is delivered by a third-party vendor.
 
 :ref:`Adshares Protocol <adshares-protocol>` defines the following interactions between :ref:`Supply-Side Platform <protocol-definitions-ssp>`  
 and other entities within the :ref:`Adshares Ecosystem <protocol-definitions-ecosystem>`:
@@ -28,9 +30,12 @@ and other entities within the :ref:`Adshares Ecosystem <protocol-definitions-eco
 * :ref:`Supply-Side Platform <protocol-definitions-ssp>` calls :ref:`Demand-Side Platform <protocol-definitions-dsp>` 
   to retrieve :ref:`Payment Reports <protocol-definitions-paymentreport>`.
 
-The following interactions remain outside of :ref:`Adshares Protocol <adshares-protocol>`:
+The following interactions are optionally included in :ref:`Adshares Protocol <adshares-protocol>`:
 
 * :ref:`Supply-Side Platform <protocol-definitions-ssp>` interacts with its :ref:`Ad Select Module <protocol-definitions-asm>` to generate a list 
   of :ref:`Creatives <protocol-definitions-creative>` requested by its :ref:`Supply-Side Agent <protocol-definitions-ssa>`.
+
+The following interactions are outside of :ref:`Adshares Protocol <adshares-protocol>`:
+
 * :ref:`Supply-Side Platform <protocol-definitions-ssp>` interacts with its :ref:`Supply-Side Agent <protocol-definitions-ssa>` to receive notifications
   about :ref:`Impression Events <protocol-definitions-impression>`.
