@@ -25,10 +25,11 @@ between :ref:`Campaigns <protocol-definitions-campaign>` and their :ref:`Demand-
 
 Ad Pay Module
 ^^^^^^^^^^^^^
-A module integrated with an instance of :ref:`Demand-Side Platform <protocol-definitions-dsp>`, or operating as an external service for :ref:`Demand-Side Platform <protocol-definitions-dsp>`, 
-containing business logic whose role is to manage the :ref:`Advertiser <protocol-definitions-advertiser>`'s finances, while optimizing the :ref:`Advertiser <protocol-definitions-advertiser>`'s cost.
+A module integrated with an instance of :ref:`Demand-Side Platform <protocol-definitions-dsp>`, or operating as an external service for
+:ref:`Demand-Side Platform <protocol-definitions-dsp>`, containing business logic whose role is to manage the :ref:`Advertiser <protocol-definitions-advertiser>`'s 
+finances, while optimizing the :ref:`Advertiser <protocol-definitions-advertiser>`'s cost.
 
 .. note::
     :ref:`Demand-Side Platform <protocol-definitions-dsp>` and :ref:`Demand-Side Agent <protocol-definitions-dsa>` are free to communicate in any way they choose, 
-    as this communication is *not* part of :ref:`Adshares Protocol<adshares-protocol>`. Whereas the communication 
-    between :ref:`Demand-Side Platform <protocol-definitions-dsp>` and :ref:`Ad Pay Module <protocol-definitions-apm>` is included in :ref:`Adshares Protocol<adshares-protocol>`.
+    as this communication is *not* part of :ref:`Adshares Protocol<adshares-protocol>`. Whereas the communication between 
+    :ref:`Demand-Side Platform <protocol-definitions-dsp>` and :ref:`Ad Pay Module <protocol-definitions-apm>` is included in :ref:`Adshares Protocol<adshares-protocol>`.

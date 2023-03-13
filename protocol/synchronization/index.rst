@@ -6,25 +6,38 @@ Synchronization
 Why is synchronization needed?
 ------------------------------
 
-For comparison, here how :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` interact with each other in centralized systems:
+For comparison, here how :ref:`Supply-Side Platforms <protocol-definitions-ssp>` 
+and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` interact with each other in centralized systems:
 
-* In the very moment a :ref:`User <protocol-definitions-user>` navigates to their :ref:`Site <protocol-definitions-site>`, :ref:`Publishers <protocol-definitions-publisher>` broadcast information regarding their :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>`.
-* :ref:`Advertisers <protocol-definitions-advertiser>` use the information contained in :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` (as well as :ref:`Context Data <protocol-definitions-contextdata>`) to offer their bids to buy advertising space.
+* In the very moment a :ref:`User <protocol-definitions-user>` navigates to their :ref:`Site <protocol-definitions-site>`, :ref:`Supply-Side Platforms <protocol-definitions-ssp>` 
+  broadcast information regarding their :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>`.
+* :ref:`Demand-Side Platforms <protocol-definitions-dsp>` use the information contained in :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>`
+  (plus :ref:`Context Data <protocol-definitions-contextdata>`) to offer their bids for buying advertising space.
 
 However, in :ref:`Adshares Protocol <adshares-protocol>` a different workflow is applied:
 
-* Prior to any :ref:`User <protocol-definitions-user>` interaction, :ref:`Publishers <protocol-definitions-publisher>` collect information about :ref:`Demand-Side Inventories <protocol-definitions-demandinventory>`, as declared by :ref:`Advertisers <protocol-definitions-advertiser>`, and :ref:`Advertisers <protocol-definitions-advertiser>` collect information about :ref:`Supply-Side Inventories <protocol-definitions-supplyinventory>`, as declared by :ref:`Publishers <protocol-definitions-publisher>`. This process is called :ref:`Synchronization <protocol-synchronization>`.
-* In the very moment a :ref:`User <protocol-definitions-user>` navigates to their :ref:`Site <protocol-definitions-site>`, :ref:`Publishers <protocol-definitions-publisher>` use the information collected during :ref:`Synchronization <protocol-synchronization>` (as well as :ref:`Context Data <protocol-definitions-contextdata>`) to make a determination to whom it makes the most sense to sell space on their :ref:`Sites <protocol-definitions-site>`.
+* Prior to any :ref:`User <protocol-definitions-user>` interaction, :ref:`Supply-Side Platforms <protocol-definitions-ssp>` collect information 
+  about :ref:`Demand-Side Inventories <protocol-definitions-demandinventory>`, as declared by :ref:`Demand-Side Platforms <protocol-definitions-dsp>`, 
+  and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` collect information about :ref:`Supply-Side Inventories <protocol-definitions-supplyinventory>`,
+  as declared by :ref:`Supply-Side Platforms <protocol-definitions-ssp>`. This process is called :ref:`Synchronization <protocol-synchronization>`.
+* In the very moment a :ref:`User <protocol-definitions-user>` navigates to a :ref:`Site <protocol-definitions-site>`, :ref:`Supply-Side Platforms <protocol-definitions-ssp>` 
+  use the information collected during :ref:`Synchronization <protocol-synchronization>` (plus :ref:`Context Data <protocol-definitions-contextdata>`) 
+  to choose the :ref:`Demand-Side Platform <protocol-definitions-dsp>` whose :ref:`Creative <protocol-definitions-creative>` it makes the most sense to display in a given situation.
 
 Thus, in :ref:`Adshares Ecosystem <protocol-definitions-ecosystem>`:
 
-* Every :ref:`Supply-Side Platform <protocol-definitions-ssp>` needs to inform all available :ref:`Demand-Side Platforms <protocol-definitions-dsp>` about its availability and its current :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>`.
-* Every :ref:`Demand-Side Platform <protocol-definitions-dsp>` needs to inform all available :ref:`Supply-Side Platforms <protocol-definitions-ssp>` about its availability and its current :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>`.
+* Every :ref:`Supply-Side Platform <protocol-definitions-ssp>` needs to inform all available :ref:`Demand-Side Platforms <protocol-definitions-dsp>` 
+  about its availability and the current content of its :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>`.
+* Every :ref:`Demand-Side Platform <protocol-definitions-dsp>` needs to inform all available :ref:`Supply-Side Platforms <protocol-definitions-ssp>` 
+  about its availability and the current content of its :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>`.
 
-And here is why :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` want to stay in sync by querying each other inventories:
+And here is why :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` 
+want to stay in sync by querying each other inventories:
 
-* :ref:`Publishers <protocol-definitions-publisher>` query :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` to be able to choose among :ref:`Advertisers <protocol-definitions-advertiser>` willing to buy space on their :ref:`Sites <protocol-definitions-site>`.
-* :ref:`Advertisers <protocol-definitions-advertiser>` query :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` to be able to specify what :ref:`Sites <protocol-definitions-site>` they want to include or exclude in their :ref:`Campaign<protocol-definitions-campaign>` definitions.
+* :ref:`Supply-Side Platforms <protocol-definitions-ssp>` query :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` 
+  to be able to choose among :ref:`Demand-Side Platforms <protocol-definitions-dsp>` willing to buy space on their :ref:`Sites <protocol-definitions-site>`.
+* :ref:`Demand-Side Platforms <protocol-definitions-dsp>` query :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>`
+  to be able to specify what :ref:`Sites <protocol-definitions-site>` they want to include or exclude in their :ref:`Campaign<protocol-definitions-campaign>` definitions.
 
 Synchronization workflow
 ------------------------
@@ -92,8 +105,10 @@ Once the :ref:`Platform Metadata <protocol-definitions-metadata>` is retrieved, 
 
 This is done by using the endpoints contained in the :ref:`Platform Metadata <protocol-definitions-metadata>` ``inventoryUrl`` field:
 
-* :ref:`Supply-Side Platform <protocol-definitions-ssp>` retrieves :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` from all available :ref:`Demand-Side Platforms <protocol-definitions-dsp>`.
-* :ref:`Demand-Side Platform <protocol-definitions-dsp>` retrieves :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` from all available :ref:`Supply-Side Platforms <protocol-definitions-ssp>`.
+* :ref:`Supply-Side Platform <protocol-definitions-ssp>` retrieves :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` 
+  from all available :ref:`Demand-Side Platforms <protocol-definitions-dsp>`.
+* :ref:`Demand-Side Platform <protocol-definitions-dsp>` retrieves :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` 
+  from all available :ref:`Supply-Side Platforms <protocol-definitions-ssp>`.
 
 To be useful, the inventory data needs to be tagged. In order to apply tagging for its inventory data:
 

@@ -23,10 +23,11 @@ Each implementation of :ref:`Supply-Side Platform <protocol-definitions-ssp>` ha
 
 Ad Select Module
 ^^^^^^^^^^^^^^^^
-A module integrated with an instance of :ref:`Supply-Side Platform <protocol-definitions-ssp>`, or operating as an external service for :ref:`Supply-Side Platform <protocol-definitions-ssp>`, 
-containing business logic whose role is to select :ref:`Creatives <protocol-definitions-creative>` according to the :ref:`Publisher <protocol-definitions-publisher>`'s policy, while optimizing the :ref:`Publisher <protocol-definitions-publisher>`'s income.
+A module integrated with an instance of :ref:`Supply-Side Platform <protocol-definitions-ssp>`, or operating as an external service for 
+:ref:`Supply-Side Platform <protocol-definitions-ssp>`, containing business logic whose role is to select :ref:`Creatives <protocol-definitions-creative>` 
+according to the :ref:`Publisher <protocol-definitions-publisher>`'s policy, while optimizing the :ref:`Publisher <protocol-definitions-publisher>`'s income.
 
 .. note::
     :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Supply-Side Agent <protocol-definitions-ssa>` are free to communicate in any way they choose, 
-    as this communication is *not* part of :ref:`Adshares Protocol<adshares-protocol>`. 
-    Whereas the communication between :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Ad Select Module <protocol-definitions-asm>` is included in :ref:`Adshares Protocol<adshares-protocol>`.
+    as this communication is *not* part of :ref:`Adshares Protocol<adshares-protocol>`. Whereas the communication between 
+    :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Ad Select Module <protocol-definitions-asm>` is included in :ref:`Adshares Protocol<adshares-protocol>`.

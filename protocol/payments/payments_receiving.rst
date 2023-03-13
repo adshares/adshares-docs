@@ -34,20 +34,24 @@ to receive the corresponding :ref:`Payment Report <protocol-definitions-paymentr
 The received :ref:`Payment Report <protocol-definitions-paymentreport>` allows :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
 to verify the consistency between the following datasets:
 
-* :ref:`Impression Events <protocol-definitions-impression>`, the corresponding :ref:`Context Data <protocol-definitions-contextdata>` and the resulting payment amounts reported by :ref:`Demand-Side Platform <protocol-definitions-dsp>`
-* :ref:`Impression Events <protocol-definitions-impression>`, the corresponding :ref:`Context Data <protocol-definitions-contextdata>` and the resulting payment amounts expected by :ref:`Supply-Side Platform <protocol-definitions-ssp>`
+* :ref:`Impression Events <protocol-definitions-impression>`, the corresponding :ref:`Context Data <protocol-definitions-contextdata>` 
+  and the resulting payment amounts reported by :ref:`Demand-Side Platform <protocol-definitions-dsp>`
+* :ref:`Impression Events <protocol-definitions-impression>`, the corresponding :ref:`Context Data <protocol-definitions-contextdata>`
+  and the resulting payment amounts expected by :ref:`Supply-Side Platform <protocol-definitions-ssp>`
 
 The above reconciliation only refers to :ref:`Impression Events <protocol-definitions-impression>`,
 (i.e. :ref:`Register Events <protocol-definitions-registerevent>`, :ref:`View Events <protocol-definitions-viewevent>` and :ref:`Click Events <protocol-definitions-clickevent>`)
-while :ref:`Conversion Events <protocol-definitions-conversion>` are not reconciled in this way,
-as they are only reported within :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>`, thus without :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` being involved. 
+while :ref:`Conversion Events <protocol-definitions-conversion>` are not reconciled in this way, as they are only reported within 
+:ref:`Demand-Side Infrastructure <protocol-definitions-dsi>`, thus without :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>` being involved. 
 
-Nevertheless, the :ref:`Ad Pay Module <protocol-definitions-apm>` operating within :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` is incentivised to include :ref:`Conversion Events <protocol-definitions-conversion>` 
-in its :ref:`Payment Report <protocol-definitions-paymentreport>`, as this builds trust and incentivizes the :ref:`Ad Select Module <protocol-definitions-asm>` of a given :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
+Nevertheless, the :ref:`Ad Pay Module <protocol-definitions-apm>` operating within :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>` 
+is incentivised to include :ref:`Conversion Events <protocol-definitions-conversion>` in its :ref:`Payment Report <protocol-definitions-paymentreport>`,
+as this builds trust and incentivizes the :ref:`Ad Select Module <protocol-definitions-asm>` of a given :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
 to continue choosing the same :ref:`Demand-Side Platform <protocol-definitions-dsp>` in the future.
 
 Also, it's important to note that :ref:`Ad Select Module <protocol-definitions-asm>` needs to be kept updated about the received payments,
-as this information is likely to affect its future decisions on choosing :ref:`Creatives <protocol-definitions-creative>` from particular :ref:`Demand-Side Platforms <protocol-definitions-dsp>`.
+as this information is likely to affect its future decisions on choosing :ref:`Creatives <protocol-definitions-creative>` 
+from particular :ref:`Demand-Side Platforms <protocol-definitions-dsp>`.
 
 .. _protocol-payments-receiving-scan:
 
