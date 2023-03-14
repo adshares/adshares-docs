@@ -56,45 +56,45 @@ The following diagram presents an overview of the :ref:`Synchronization <protoco
     ==Sending Broadcast==
 
     loop at least once every 24 hours
-        SSP -> blockchain: Broadcast
+        SSP ->          blockchain:   Send Broadcast
     end
 
     loop at least once every 24 hours
-        DSP -> blockchain: Broadcast
+        DSP ->          blockchain:   Send Broadcast
     end
 
     ==Receiving Broadcast==
 
     loop at least once every 24 hours
-        SSP -> blockchain: Fetch broadcasts
-        blockchain --> SSP: List of broadcasts
-        SSP -> SSP: Analyze\nbroadcast
-        SSP -> DSP: Fetch Platform Metadata
-        DSP --> SSP: Return Platform Metadata
-        SSP -> SSP: Update\nPlatform\nMetadata
+        SSP ->          blockchain:   Fetch Broadcasts
+        blockchain -->  SSP:          List of Broadcasts
+        SSP ->          SSP:          Analyze\nBroadcast
+        SSP ->          DSP:          Fetch Platform Metadata
+        DSP -->         SSP:          Platform Metadata
+        SSP ->          SSP:          Update\nPlatform\nMetadata
     end
 
     loop at least once every 24 hours
-        DSP -> blockchain: Fetch broadcasts
-        blockchain --> DSP: List of broadcasts
-        DSP -> DSP: Analyze\nbroadcast
-        DSP -> SSP: Fetch Platform Metadata
-        SSP --> DSP: Return Platform Metadata
-        DSP -> DSP: Update\nPlatform\nMetadata
+        DSP ->          blockchain:   Fetch Broadcasts
+        blockchain -->  DSP:          List of Broadcasts
+        DSP ->          DSP:          Analyze\nBroadcast
+        DSP ->          SSP:          Fetch Platform Metadata
+        SSP -->         DSP:          Platform Metadata
+        DSP ->          DSP:          Update\nPlatform\nMetadata
     end
 
     ==Updating Inventory==
 
     loop periodically
-        SSP -> DSP : Fetch Demand-Side Inventory
-        DSP --> SSP: Return Demand-Side Inventory
-        SSP -> SSP: Update\nDemand-Side\nInventory
+        SSP ->          DSP:          Fetch Demand-Side Inventory
+        DSP -->         SSP:          Demand-Side Inventory
+        SSP ->          SSP:          Update\nDemand-Side\nInventory
     end
 
     loop periodically
-        DSP -> SSP : Fetch Supply-Side Inventory
-        SSP --> DSP: Return Supply-Side Inventory
-        DSP -> DSP: Update\nSupply-Side\nInventory
+        DSP ->          SSP:          Fetch Supply-Side Inventory
+        SSP -->         DSP:          Supply-Side Inventory
+        DSP ->          DSP:          Update\nSupply-Side\nInventory
     end
 
 :ref:`Synchronization <protocol-synchronization>` is done by :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` 

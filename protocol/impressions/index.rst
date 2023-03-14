@@ -17,37 +17,32 @@ regarding :ref:`Impression Events <protocol-definitions-impression>` and :ref:`C
     participant "SS Context\nPlatform"     as SSCP
     participant "Demand-Side\nPlatform"    as DSP
     participant "DS Context\nPlatform"     as DSCP
-    participant "Demand-Side\nAgent"       as DSA
 
     ==User Navigates to a Site==
 
-    SSA ->      SSP     : Send Register Event
-    SSP ->      SSCP    : Register Event\n//redirected//
-    SSCP -->    SSA     : Context Scripts
+    SSA ->      SSP     : Post Register Event
+    SSP ->      SSCP    : Post Register Event\n//redirected//
 
     ==User Browses Through a Site==
 
-    SSA ->      SSP     : Find Creatives
-    SSP ->      SSCP    : Get\nUser/Site/Device\nContext
-    SSCP -->    SSP     : User/Site/Device\nContext
-    SSP -->     SSA     : Creatives
+    SSA ->      SSP     : Get Creatives
 
     loop for each Creative
         SSA ->      DSP     : Get Creative Content
-        DSP -->     SSA     : Creative Content
-        SSA ->      SSP     : Send View Event
-        SSP ->      DSP     : Send View Event\n//redirected//
-        SSA ->      DSP     : Send Register Event
-        DSP ->      DSCP    : Send Register Event\n//redirected//
-        DSCP -->    SSA     : Context Scripts
+        SSA ->      SSP     : Post View Event
+        SSP ->      SSCP    : Post View Event\n//redirected//
+        SSA ->      DSP     : Post View Event
+        DSP ->      DSCP    : Post View Event\n//redirected//
+        SSA ->      DSP     : Post Register Event
+        DSP ->      DSCP    : Post Register Event\n//redirected//
     end
     
     ==User Clicks on an Ad==
 
-    SSA ->      SSP     : Send Click Event
-    SSP ->      DSP     : Send Click Event\n//redirected//
-    DSP ->      DSA     : Send Click Event\n//redirected//
-
+    SSA ->      SSP     : Post Click Event
+    SSP ->      SSCP    : Post Click Event\n//redirected//
+    SSA ->      DSP     : Post Click Event
+    DSP ->      DSCP    : Post Click Event\n//redirected//
 
 Contents
 --------

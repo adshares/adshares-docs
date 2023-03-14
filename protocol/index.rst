@@ -21,30 +21,28 @@ The following diagram presents an overview of interactions defined by :ref:`Adsh
     participant "Supply-Side\nPlatform"     as SSP
     participant "ADS Blockchain"            as blockchain
     participant "Demand-Side\nPlatform"     as DSP
-    participant "Demand-Side\nAgent"        as DSA
     
     ==Synchronization==
 
-    SSP -> blockchain: Broadcast
-    DSP -> blockchain: Broadcast
-    SSP -> blockchain: Fetch broadcasts
-    DSP -> blockchain: Fetch broadcasts
+    SSP -> blockchain: Send Broadcast
+    DSP -> blockchain: Send Broadcast
+    SSP -> blockchain: Fetch Broadcast
+    DSP -> blockchain: Fetch Broadcast
     SSP -> DSP: Fetch Inventory
     DSP -> SSP: Fetch Inventory
 
     ==Impressions==
 
-    SSA -> SSP: Send Register Event
-    SSA -> SSP: Find Creatives
+    SSA -> SSP: Post Register Event
+    SSA -> SSP: Get Creatives
     SSA -> DSP: Get Creative Content
 
-    SSA -> SSP: Send View Event
-    SSP -> DSP: Send View Event\n//redirected//
-    SSA -> DSP: Send Register Event
+    SSA -> SSP: Post View Event
+    SSA -> DSP: Post View Event
+    SSA -> DSP: Post Register Event
 
-    SSA -> SSP: Send Click Event
-    SSP -> DSP: Send Click Event\n//redirected//
-    DSP -> DSA: Send Click Event\n//redirected//
+    SSA -> SSP: Post Click Event
+    SSA -> DSP: Post Click Event
 
     ==Payments==
 

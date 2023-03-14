@@ -13,8 +13,8 @@ initially navigates to a :ref:`Site <protocol-definitions-site>`:
     participant "Supply-Side\nPlatform"             as SSP
     participant "Supply-Side\nContext Platform"     as SSCP
 
-    SSA ->      SSP     : Send Register Event
-    SSP ->      SSCP    : Send Register Event\n//redirected//
+    SSA ->      SSP     : Post Register Event
+    SSP ->      SSCP    : Post Register Event\n//redirected//
     SSCP -->    SSA     : Context Scripts
     SSA ->      SSA     : Execute\nContext Scripts
     SSA ->      SSCP    : Result of Context Scripts\n//optional//

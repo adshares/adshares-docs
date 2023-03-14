@@ -57,8 +57,8 @@ can be displayed next to each other within the same :ref:`Site <protocol-definit
     by displaying multiple :ref:`Creatives <protocol-definitions-creative>` sequentially to the same :ref:`User <protocol-definitions-user>` 
     within a single :ref:`Placement <protocol-definitions-placement>`.
 
-Fetching Content for Creatives
-------------------------------
+Fetching Content for Each Creative
+----------------------------------
 
 At this stage, :ref:`Creative Metadata <protocol-definitions-creativemetadata>` is already retrieved, but none of the :ref:`Creatives <protocol-definitions-creative>` 
 is actually rendered, as :ref:`Supply-Side Agent <protocol-definitions-ssa>` has not fetched :ref:`Creative Content <protocol-definitions-creativecontent>` yet.
@@ -72,21 +72,11 @@ for each :ref:`Creative <protocol-definitions-creative>`:
     skinparam monochrome true
 
     participant "Supply-Side\nAgent"                as SSA
-    participant "Supply-Side\nPlatform"             as SSP
     participant "Demand-Side\nPlatform"             as DSP
-    participant "Demand-Side\nContext Platform"     as DSCP
 
     loop for each Creative
         SSA ->      DSP     : Get Creative Content
         DSP -->     SSA     : Creative Content
-        SSA ->      SSP     : Send View Event
-        SSP ->      DSP     : Send View Event\n//redirected//
-        DSP -->     SSA     : Demand-Side URL for Register Event
-        SSA ->      DSP     : Send Register Event
-        DSP ->      DSCP    : Send Register Event\n//redirected//
-        DSCP -->    SSA     : Context Scripts
-        SSA ->      SSA     : Execute\nContext Scripts
-        SSA ->      DSCP    : Result of\nContext Scripts\n//optional//
     end
 
 The following sequence of events occurs for each :ref:`Creative <protocol-definitions-creative>` to fetch the corresponding 
@@ -104,23 +94,75 @@ matches what was initially approved when the :ref:`Campaign <protocol-definition
 Assuming the above hashes match, :ref:`Supply-Side Agent <protocol-definitions-ssa>` renders the :ref:`Creative <protocol-definitions-creative>` on the screen, 
 so that the :ref:`User <protocol-definitions-user>` can see it.
 
+Synchronizing Events for Each Creative
+--------------------------------------
+
+:ref:`Supply-Side Infrastructure <protocol-ssi>` and :ref:`Demand-Side Infrastructure <protocol-dsi>` need to be kept 
+in synch regarding :ref:`Impression Events <protocol-definitions-impression>` for each :ref:`Creative <protocol-definitions-creative>`:
+
+.. uml::
+    :align: center
+
+    skinparam monochrome true
+
+    participant "Supply-Side\nAgent"                as SSA
+    participant "Supply-Side\nPlatform"             as SSP
+    participant "Supply-Side\nContext Platform"     as SSCP
+    participant "Demand-Side\nPlatform"             as DSP
+    participant "Demand-Side\nContext Platform"     as DSCP
+
+    loop for each Creative
+        ==View Event==
+        SSA ->      SSP     : Post View Event
+        SSP ->      SSCP    : Post View Event\n//redirected//
+        SSCP -->    SSA     : Context Scripts
+        SSA ->      SSA     : Execute\nContext Scripts
+        SSA ->      SSCP    : Result of\nContext Scripts\n//optional//
+
+        ==View Event==
+        SSA ->      DSP     : Post View Event
+        DSP ->      DSCP    : Post View Event\n//redirected//
+        DSCP -->    SSA     : Context Scripts
+        SSA ->      SSA     : Execute\nContext Scripts
+        SSA ->      DSCP    : Result of\nContext Scripts\n//optional//
+
+        ==Register Event==
+        SSA ->      DSP     : Post Register Event
+        DSP ->      DSCP    : Post Register Event\n//redirected//
+        DSCP -->    SSA     : Context Scripts
+        SSA ->      SSA     : Execute\nContext Scripts
+        SSA ->      DSCP    : Result of\nContext Scripts\n//optional//
+    end
+
 The following sequence of events occurs for each :ref:`Creative <protocol-definitions-creative>` to ensure that 
 both :ref:`Supply-Side Infrastructure <protocol-ssi>` and :ref:`Demand-Side Infrastructure <protocol-dsi>` are kept 
 in synch regarding :ref:`View Events <protocol-definitions-viewevent>`:
 
-* :ref:`Supply-Side Agent <protocol-definitions-ssa>` notifies :ref:`Supply-Side Platform <protocol-definitions-ssp>` about :ref:`View Event <protocol-definitions-viewevent>`.
-* :ref:`Supply-Side Platform <protocol-definitions-ssp>` redirects the :ref:`View Event <protocol-definitions-viewevent>` notification 
-  call to :ref:`Demand-Side Platform <protocol-definitions-dsp>`.
-* In response to the :ref:`View Event <protocol-definitions-viewevent>` notification call, :ref:`Demand-Side Platform <protocol-definitions-dsp>` 
-  returns an endpoint for :ref:`Register Event <protocol-definitions-registerevent>` notifications.
+* :ref:`Supply-Side Agent <protocol-definitions-ssa>` notifies :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
+  about :ref:`View Event <protocol-definitions-viewevent>`.
+* :ref:`Supply-Side Platform <protocol-definitions-ssp>` redirects the :ref:`View Event <protocol-definitions-viewevent>` 
+  notification call to its :ref:`Context Platform <protocol-definitions-cp>`.
+* In response to the :ref:`View Event <protocol-definitions-viewevent>` notification call, :ref:`Context Platform <protocol-definitions-cp>` 
+  returns its :ref:`Context Script <protocol-definitions-contextscript>`, and :ref:`Supply-Side Agent <protocol-definitions-ssa>` 
+  makes an attempt to execute this script within its sandbox.
+* Using the endpoint contained in :ref:`Creative Metadata <protocol-definitions-creativemetadata>`, 
+  :ref:`Supply-Side Agent <protocol-definitions-ssa>` notifies :ref:`Demand-Side Platform <protocol-definitions-dsp>`
+  about :ref:`View Event <protocol-definitions-viewevent>`.
+* :ref:`Demand-Side Platform <protocol-definitions-dsp>` redirects the :ref:`View Event <protocol-definitions-viewevent>` 
+  notification call to its :ref:`Context Platform <protocol-definitions-cp>`.
+* In response to the :ref:`View Event <protocol-definitions-viewevent>` notification call, :ref:`Context Platform <protocol-definitions-cp>` 
+  returns its :ref:`Context Script <protocol-definitions-contextscript>`, and :ref:`Supply-Side Agent <protocol-definitions-ssa>` 
+  makes an attempt to execute this script within its sandbox.
 
-The following sequence of events occurs for each :ref:`Creative <protocol-definitions-creative>` to ensure that both :ref:`Supply-Side Infrastructure <protocol-ssi>` 
-and :ref:`Demand-Side Infrastructure <protocol-dsi>` are kept in synch regarding :ref:`Register Events <protocol-definitions-registerevent>`:
+The following sequence of events occurs for each :ref:`Creative <protocol-definitions-creative>` to ensure that both
+:ref:`Supply-Side Infrastructure <protocol-ssi>` and :ref:`Demand-Side Infrastructure <protocol-dsi>` are kept in synch 
+regarding :ref:`Register Events <protocol-definitions-registerevent>`:
 
-* Using the endpoint received in the previous step, :ref:`Supply-Side Agent <protocol-definitions-ssa>` notifies :ref:`Demand-Side Platform <protocol-definitions-dsp>` 
-  about :ref:`Register Event <protocol-definitions-registerevent>`.
+* Using an endpoint received in the response to the :ref:`View Event <protocol-definitions-viewevent>` notification call, 
+  :ref:`Supply-Side Agent <protocol-definitions-ssa>` notifies :ref:`Demand-Side Platform <protocol-definitions-dsp>` about 
+  :ref:`Register Event <protocol-definitions-registerevent>`.
 * :ref:`Demand-Side Platform <protocol-definitions-dsp>` redirects the :ref:`Register Event <protocol-definitions-registerevent>` notification call 
   to its :ref:`Context Platform <protocol-definitions-cp>`.
 * In response to the :ref:`Register Event <protocol-definitions-registerevent>` notification call, :ref:`Context Platform <protocol-definitions-cp>` 
-  returns its :ref:`Context Script <protocol-definitions-contextscript>`, and :ref:`Supply-Side Agent <protocol-definitions-ssa>` makes an attempt 
-  to execute this script within its sandbox.
+  returns its :ref:`Context Script <protocol-definitions-contextscript>`, and :ref:`Supply-Side Agent <protocol-definitions-ssa>` 
+  makes an attempt to execute this script within its sandbox.
