@@ -33,7 +33,7 @@ which allocates the appropriate amount of :ref:`ADS <protocol-definitions-ads>` 
 to all :ref:`Supply-Side Platforms <protocol-definitions-ssp>` for utilizing their :ref:`Sites <protocol-definitions-site>` within the last one-hour timeframe.
 
 It's important for :ref:`Demand-Side Platform <protocol-definitions-dsp>` to store the generated :ref:`Payment Reports <protocol-definitions-paymentreport>` 
-because :ref:`Supply-Side Platforms <protocol-definitions-ssp>` are expected to request those report upon receiving their payments.
+because :ref:`Supply-Side Platforms <protocol-definitions-ssp>` are expected to request those reports upon receiving their payments.
 
 The actual task of generating the :ref:`Payment Report <protocol-definitions-paymentreport>` is delegated 
 by :ref:`Demand-Side Platform <protocol-definitions-dsp>` to its :ref:`Ad Pay Module <protocol-definitions-apm>`.
