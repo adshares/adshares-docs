@@ -28,3 +28,7 @@ The following process takes place when a :ref:`User <protocol-definitions-user>`
 * In response to the :ref:`Register Event <protocol-definitions-registerevent>` notification call, :ref:`Context Platform <protocol-definitions-cp>` 
   returns its :ref:`Context Script <protocol-definitions-contextscript>`, and :ref:`Supply-Side Agent <protocol-definitions-ssa>` 
   makes an attempt to execute this script within its sandbox.
+
+At this stage :ref:`Register Event <protocol-definitions-registerevent>` is only reported within :ref:`Supply-Side Infrastructure <protocol-ssi>`.
+To keep both sides in synch, :ref:`Register Event <protocol-definitions-registerevent>` will be distributed to
+:ref:`Demand-Side Infrastructure <protocol-dsi>` in the next step.

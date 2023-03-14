@@ -44,6 +44,20 @@ regarding :ref:`Impression Events <protocol-definitions-impression>` and :ref:`C
     SSA ->      DSP     : Post Click Event
     DSP ->      DSCP    : Post Click Event\n//redirected//
 
+General rules
+-------------
+
+* All :ref:`Impression Events <protocol-definitions-impression>` originate from :ref:`Supply-Side Agent <protocol-definitions-ssa>`,
+  as this is the only entity able to observe the :ref:`User <protocol-definitions-user>` interactacting with :ref:`Creatives <protocol-definitions-creative>`.
+* Each :ref:`Impression Event <protocol-definitions-impression>` must be reported to both :ref:`Supply-Side Infrastructure <protocol-ssi>` 
+  and :ref:`Demand-Side Infrastructure <protocol-dsi>`, so that they can stay in synch.
+* Additionally, each :ref:`Impression Event <protocol-definitions-impression>` must be reported to both to 
+  the :ref:`Context Platform <protocol-definitions-cp>` associated with :ref:`Supply-Side Infrastructure <protocol-ssi>` and
+  the :ref:`Context Platform <protocol-definitions-cp>` associated with :ref:`Demand-Side Infrastructure <protocol-dsi>`.
+* In case of :ref:`Register Event <protocol-definitions-registerevent>` and :ref:`View Event <protocol-definitions-viewevent>`,
+  :ref:`Context Platform <protocol-definitions-cp>` returns a :ref:`Context Script <protocol-definitions-contextscript>`,
+  and :ref:`Supply-Side Agent <protocol-definitions-ssa>` is expected to make an attempt to execute this script within its sandbox.
+
 Contents
 --------
 .. toctree::

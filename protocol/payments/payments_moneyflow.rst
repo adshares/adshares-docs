@@ -67,17 +67,21 @@ The following diagram presents an overview of how the money flows between variou
 
     SSP -ri-> publisher
 
-Workflow
---------
+Types of deductions
+-------------------
 
-Funds deposited
-~~~~~~~~~~~~~~~
+Generally, money flows from :ref:`Advertisers <protocol-definitions-advertiser>` to :ref:`Publishers <protocol-definitions-publisher>`.
+But before funds reach a :ref:`Publisher <protocol-definitions-publisher>` some deductions are being made to compensate all entitites
+participating in the process.
+
+Funds get deposited
+~~~~~~~~~~~~~~~~~~~
 
 :ref:`Advertiser <protocol-definitions-advertiser>` deposits funds with a :ref:`Demand-Side Platform <protocol-definitions-dsp>`.
 Those funds are meant to be utilized as payments for displayed/converted :ref:`Creatives <protocol-definitions-creative>`.
     
-Funds transferred
-~~~~~~~~~~~~~~~~~
+Funds get transferred
+~~~~~~~~~~~~~~~~~~~~~
 
 The funds sent from :ref:`Demand-Side Platform <protocol-definitions-dsp>` to :ref:`Supply-Side Platform <protocol-definitions-ssp>` are reduced by the following amounts:
 
@@ -86,8 +90,8 @@ The funds sent from :ref:`Demand-Side Platform <protocol-definitions-dsp>` to :r
 * Operator fee: an amount paid to the operators of the software constituting :ref:`Demand-Side Infrastructure <protocol-dsi>`.
 * Community fee: an amount set to 1% of the cashflow, as decided by :ref:`Adshares DAO <dao>`.
 
-Funds released
-~~~~~~~~~~~~~~
+Funds get released
+~~~~~~~~~~~~~~~~~~
 
 The funds released by :ref:`Supply-Side Platform <protocol-definitions-ssp>` to :ref:`Publisher <protocol-definitions-publisher>` are reduced by the following amounts:
 
