@@ -32,7 +32,7 @@ The following process takes place when a :ref:`User <protocol-definitions-user>`
   about :ref:`Click Event <protocol-definitions-clickevent>`.
 * :ref:`Supply-Side Platform <protocol-definitions-ssp>` redirects the :ref:`Click Event <protocol-definitions-clickevent>` 
   notification call to its :ref:`Context Platform <protocol-definitions-cp>`.
-* Using the endpoint contained in :ref:`Creative Metadata <protocol-definitions-creativemetadata>`, 
+* Using the endpoint contained in :ref:`Creative Object <protocol-definitions-creativeobject>`, 
   :ref:`Supply-Side Agent <protocol-definitions-ssa>` notifies :ref:`Demand-Side Platform <protocol-definitions-dsp>`
   about :ref:`Click Event <protocol-definitions-clickevent>`.
 * :ref:`Demand-Side Platform <protocol-definitions-dsp>` redirects the :ref:`Click Event <protocol-definitions-clickevent>` 

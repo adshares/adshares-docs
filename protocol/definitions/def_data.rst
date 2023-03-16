@@ -29,12 +29,19 @@ by an :ref:`Advertiser <protocol-definitions-advertiser>`, e.g. time duration, t
 
 From the technical perspective, :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` is an array of :ref:`Campaign Objects <protocol-campaign-object>`.
 
-.. _protocol-definitions-creativemetadata:
+.. _protocol-definitions-creativeobject:
 
-Creative Metadata
+Creative Object
 ^^^^^^^^^^^^^^^^^
-A manifest describing a :ref:`Creative <protocol-definitions-creative>`. It includes the hash of :ref:`Creative Content <protocol-definitions-creativecontent>`
-and a :ref:`Demand-Side Platform <protocol-definitions-dsp>` endpoint for retrieving it.
+A data payload describing a :ref:`Creative <protocol-definitions-creative>`. Among other things, it includes the hash (or checksum) of 
+:ref:`Creative Content <protocol-definitions-creativecontent>` and the following URLs exposed by :ref:`Demand-Side Platform <protocol-definitions-dsp>`:
+
+* an endpoint for retrieving :ref:`Creative Content <protocol-definitions-creativecontent>`
+* an endpoint for reporting :ref:`View Events <protocol-definitions-viewevent>`
+* an endpoint for reporting :ref:`Click Events <protocol-definitions-clickevent>`
+
+For full details of the payload schema, refer to :ref:`Creative Object <protocol-creative-object>` section of 
+:ref:`Demand-Side Inventory Format <protocol-synchronization-demandinventory-format>`.
 
 .. _protocol-definitions-creativecontent:
 

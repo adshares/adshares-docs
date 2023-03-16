@@ -47,6 +47,8 @@ regarding :ref:`Impression Events <protocol-definitions-impression>` and :ref:`C
 General rules
 -------------
 
+Here are the general rules guiding the workflow around :ref:`Impression Events <protocol-definitions-impression>`:
+
 * All :ref:`Impression Events <protocol-definitions-impression>` originate from :ref:`Supply-Side Agent <protocol-definitions-ssa>`,
   as this is the only entity able to observe the :ref:`User <protocol-definitions-user>` interactacting with :ref:`Creatives <protocol-definitions-creative>`.
 * Each :ref:`Impression Event <protocol-definitions-impression>` must be reported to both :ref:`Supply-Side Infrastructure <protocol-ssi>` 
@@ -57,6 +59,25 @@ General rules
 * In case of :ref:`Register Event <protocol-definitions-registerevent>` and :ref:`View Event <protocol-definitions-viewevent>`,
   :ref:`Context Platform <protocol-definitions-cp>` returns a :ref:`Context Script <protocol-definitions-contextscript>`,
   and :ref:`Supply-Side Agent <protocol-definitions-ssa>` is expected to make an attempt to execute this script within its sandbox.
+
+:ref:`Supply-Side Agent <protocol-definitions-ssa>` is free to report :ref:`Impression Events <protocol-definitions-impression>` to its 
+:ref:`Supply-Side Platform <protocol-definitions-ssp>` in any way it wants, as this communication is not part of :ref:`Adshares Protocol <adshares-protocol>`.
+However, regarding :ref:`Supply-Side Agent <protocol-definitions-ssa>` reporting :ref:`Impression Events <protocol-definitions-impression>` 
+to :ref:`Demand-Side Platform <protocol-definitions-dsp>` the following rules apply:
+
+* In case of :ref:`View Events <protocol-definitions-viewevent>` and :ref:`Click Events <protocol-definitions-clickevent>`, the endpoint for a notification call
+  is contained in the :ref:`Creative Object <protocol-definitions-creativeobject>` payload.
+* Whereas for :ref:`Register Events <protocol-definitions-registerevent>`, the endpoint for a notification call is contained in the response to the
+  :ref:`View Event <protocol-definitions-viewevent>` notification call.
+
+Regarding :ref:`Context Platform <protocol-definitions-cp>` returning :ref:`Context Scripts <protocol-definitions-contextscript>` to be executed by
+:ref:`Supply-Side Agent <protocol-definitions-ssa>` within its sandbox the following rules apply:
+
+* :ref:`Register Event <protocol-definitions-registerevent>` and :ref:`View Event <protocol-definitions-viewevent>` require 
+  :ref:`Context Scripts <protocol-definitions-contextscript>` to be executed, thus :ref:`Context Platform <protocol-definitions-cp>` is expected to 
+  return such a script in response to an event notification call.
+* Whereas :ref:`Click Events <protocol-definitions-clickevent>` do not require :ref:`Context Scripts <protocol-definitions-contextscript>`, thus no script is 
+  expected to be returned by :ref:`Context Platform <protocol-definitions-cp>` in response to a :ref:`Click Events <protocol-definitions-clickevent>` notification call.
 
 Contents
 --------
