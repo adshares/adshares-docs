@@ -10,10 +10,14 @@ to tag the :ref:`Creatives <protocol-definitions-creative>` that remain under it
 .. image:: infra_tagging.svg
     :align: center
 
-It's up to :ref:`Supply-Side Platform <protocol-definitions-ssp>` to choose the appropriate :ref:`Site Tagging Platform <protocol-definitions-stp>` service, 
-but this choice should be acceptable for :ref:`Demand-Side Platform <protocol-definitions-dsp>`. Similarly, it's up to 
-:ref:`Demand-Side Platform <protocol-definitions-dsp>` to choose the appropriate :ref:`Creative Tagging Platform <protocol-definitions-ctp>` service, 
-but this choice should be acceptable for :ref:`Supply-Side Platform <protocol-definitions-ssp>`.
+Here is the business justification for tagging:
+
+* Tagging is needed by :ref:`Supply-Side Platform <protocol-definitions-ssp>` to be able to properly define its :ref:`Supply-Side Inventory <protocol-synchronization-supplyinventory>`.
+  It's up to :ref:`Supply-Side Platform <protocol-definitions-ssp>` to choose the appropriate :ref:`Site Tagging Platform <protocol-definitions-stp>` service, 
+  but this choice should be acceptable for all :ref:`Demand-Side Platforms <protocol-definitions-dsp>` a given :ref:`Supply-Side Platform <protocol-definitions-ssp>` intends to cooperate with.
+* Similarly, tagging is needed by :ref:`Demand-Side Platform <protocol-definitions-dsp>` to be able to properly define its :ref:`Demand-Side Inventory <protocol-synchronization-demandinventory>`.
+  It's up to :ref:`Demand-Side Platform <protocol-definitions-dsp>` to choose the appropriate :ref:`Creative Tagging Platform <protocol-definitions-ctp>` service, 
+  but this choice should be acceptable for all :ref:`Supply-Side Platforms <protocol-definitions-ssp>` a given :ref:`Demand-Side Platform <protocol-definitions-dsp>` intends to cooperate with.
 
 When queried, both :ref:`Site Tagging Platform <protocol-definitions-stp>` and :ref:`Creative Tagging Platform <protocol-definitions-ctp>` 
 should sign their responses with private keys, so that the tags assigned to :ref:`Sites <protocol-definitions-site>` 

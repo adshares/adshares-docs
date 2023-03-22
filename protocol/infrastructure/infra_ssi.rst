@@ -15,7 +15,8 @@ Supply-Side Infrastructure
 and other entities within the :ref:`Adshares Ecosystem <protocol-definitions-ecosystem>`:
 
 * :ref:`Supply-Side Infrastructure <protocol-ssi>` calls :ref:`Site Tagging Platform <protocol-definitions-stp>` to tag the :ref:`Sites <protocol-definitions-site>` 
-  that remain under its control.
+  that remain under its control. This is needed for :ref:`Supply-Side Platform <protocol-definitions-ssp>` to be able to properly define its 
+  :ref:`Supply-Side Inventory <protocol-synchronization-supplyinventory>`.
 * :ref:`Supply-Side Infrastructure <protocol-ssi>` calls :ref:`Creative Tagging Platform <protocol-definitions-ctp>` to verify tags assigned 
   to :ref:`Creatives <protocol-definitions-creative>` by :ref:`Demand-Side Infrastructure <protocol-definitions-dsi>`.
 * :ref:`Supply-Side Infrastructure <protocol-ssi>` calls :ref:`Context Platform <protocol-definitions-cp>` to retrieve 
@@ -34,6 +35,6 @@ and its :ref:`Supply-Side Agent <protocol-definitions-ssa>` (e.g. notifications 
 are not covered by :ref:`Adshares Protocol <adshares-protocol>`.
 
 Whereas the communication between :ref:`Supply-Side Platform <protocol-definitions-ssp>` and its :ref:`Ad Select Module <protocol-definitions-asm>` 
-might be part of :ref:`Adshares Protocol <adshares-protocol>` in case :ref:`Ad Select Module <protocol-definitions-asm>` is delivered 
+might be part of :ref:`Adshares Protocol <adshares-protocol>` in case :ref:`Ad Select Module <protocol-definitions-asm>` is externalized and delivered 
 by a third-party :ref:`Software Provider <protocol-definitions-softwareprovider>`. If this is the case, :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
 calls its :ref:`Ad Select Module <protocol-definitions-asm>` to outsource to it the process of generating a list of :ref:`Creatives <protocol-definitions-creative>`.

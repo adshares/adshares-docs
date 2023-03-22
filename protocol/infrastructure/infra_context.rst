@@ -19,6 +19,7 @@ the same instance of :ref:`Context Platform <protocol-definitions-cp>`, they nee
 :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` need to share with 
 :ref:`Context Platform <protocol-definitions-cp>` all the :ref:`Impression Events <protocol-definitions-impression>` that they receive.
 
-In response to an :ref:`Impression Event <protocol-definitions-impression>` notification, :ref:`Context Platform <protocol-definitions-cp>` 
+For :ref:`Register Events <protocol-definitions-registerevent>` and :ref:`View Events <protocol-definitions-viewevent>`, in response to 
+an :ref:`Impression Event <protocol-definitions-impression>` notification, :ref:`Context Platform <protocol-definitions-cp>` 
 returns a :ref:`Context Script <protocol-definitions-contextscript>`, and then receives the results of this script being executed 
 by a :ref:`Supply-Side Agent <protocol-definitions-ssa>` within its sandbox.

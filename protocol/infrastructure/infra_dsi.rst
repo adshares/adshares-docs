@@ -15,7 +15,8 @@ Demand-Side Infrastructure
 and other entities within the :ref:`Adshares Ecosystem <protocol-definitions-ecosystem>`:
 
 * :ref:`Demand-Side Infrastructure <protocol-dsi>` calls :ref:`Creative Tagging Platform <protocol-definitions-ctp>` to tag the :ref:`Creatives <protocol-definitions-creative>`
-  that remain under its control.
+  that remain under its control. This is needed for :ref:`Demand-Side Platform <protocol-definitions-dsp>` to be able to properly define its 
+  :ref:`Demand-Side Inventory <protocol-synchronization-demandinventory>`.
 * :ref:`Demand-Side Infrastructure <protocol-dsi>` calls :ref:`Site Tagging Platform <protocol-definitions-stp>` to verify tags assigned 
   to :ref:`Sites <protocol-definitions-site>` by :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>`.
 * :ref:`Demand-Side Infrastructure <protocol-dsi>` calls :ref:`Context Platform <protocol-definitions-cp>` to retrieve 
@@ -33,6 +34,6 @@ and its :ref:`Demand-Side Agent <protocol-definitions-dsa>` (e.g. notifications 
 are not covered by :ref:`Adshares Protocol <adshares-protocol>`.
 
 Whereas the communication between :ref:`Demand-Side Platform <protocol-definitions-dsp>` and its :ref:`Ad Pay Module <protocol-definitions-apm>`
-might be part of :ref:`Adshares Protocol <adshares-protocol>` in case :ref:`Ad Pay Module <protocol-definitions-apm>` is delivered 
+might be part of :ref:`Adshares Protocol <adshares-protocol>` in case :ref:`Ad Pay Module <protocol-definitions-apm>` is externalized and delivered 
 by a third-party :ref:`Software Provider <protocol-definitions-softwareprovider>`. If this is the case, :ref:`Demand-Side Platform <protocol-definitions-dsp>` 
-calls its :ref:`Ad Pay Module <protocol-definitions-apm>` to outsource to it the process of generating a :ref:`Payment Report <protocol-definitions-paymentreport>`.
+calls its :ref:`Ad Pay Module <protocol-definitions-apm>` to outsource to it the process of generating :ref:`Payment Reports <protocol-definitions-paymentreport>`.
