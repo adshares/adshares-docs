@@ -1,6 +1,6 @@
 .. _protocol-payments-receiving:
 
-Receiving payments
+Receiving Payments
 ==================
 
 .. uml::
@@ -46,7 +46,7 @@ while :ref:`Conversion Events <protocol-definitions-conversion>` are not reconci
 
 Nevertheless, the :ref:`Ad Pay Module <protocol-definitions-apm>` operating within :ref:`Demand-Side Infrastructure <protocol-dsi>` 
 is incentivised to include :ref:`Conversion Events <protocol-definitions-conversion>` in its :ref:`Payment Report <protocol-definitions-paymentreport>`,
-as this builds trust and incentivizes the :ref:`Ad Select Module <protocol-definitions-asm>` of a given :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
+as this builds trust and incentivizes a given :ref:`Supply-Side Platform <protocol-definitions-ssp>` (or its :ref:`Ad Select Module <protocol-definitions-asm>`) 
 to continue choosing the same :ref:`Demand-Side Platform <protocol-definitions-dsp>` in the future.
 
 Also, it's important to note that :ref:`Ad Select Module <protocol-definitions-asm>` needs to be kept updated about the received payments,

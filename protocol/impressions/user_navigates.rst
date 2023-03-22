@@ -19,7 +19,7 @@ initially navigates to a :ref:`Site <protocol-definitions-site>`:
     SSA ->      SSA     : Execute\nContext Scripts
     SSA ->      SSCP    : Result of Context Scripts\n//optional//
 
-The following process takes place when a :ref:`User <protocol-definitions-user>` initially navigates to a :ref:`Site <protocol-definitions-site>`:
+Here are the main steps of the above workflow:
 
 * :ref:`Supply-Side Agent <protocol-definitions-ssa>` notifies :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
   about :ref:`Register Event <protocol-definitions-registerevent>`.

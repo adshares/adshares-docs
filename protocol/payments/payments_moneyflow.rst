@@ -1,6 +1,6 @@
 .. _protocol-payments-moneyflow:
 
-Money flow
+Money Flow
 ==========
 
 The following diagram presents an overview of how the money flows between various participants of :ref:`Adshares Protocol <adshares-protocol>`:

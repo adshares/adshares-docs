@@ -96,8 +96,14 @@ How various entities participating in :ref:`Adshares Protocol <adshares-protocol
     * consumed by: :ref:`Supply-Side Agent <protocol-definitions-ssa>`
     * redirects to: :ref:`Context Infrastructure <protocol-contextinfrastructure>`
 
+#. (Optional) How :ref:`Supply-Side Infrastructure <protocol-ssi>` outsources the process of selecting :ref:`Creatives <protocol-definitions-creative>`:
+    * exposed by: :ref:`Ad Select Module <protocol-definitions-asm>`
+    * consumed by: :ref:`Supply-Side Platform <protocol-definitions-ssp>`
+    * returns: list of :ref:`Creative Object <protocol-definitions-creativeobject>`
+
 :doc:`Payments <payments/index>`
 """"""""""""""""""""""""""""""""
+
 #. How :ref:`Demand-Side Infrastructure <protocol-dsi>` sends payments to :ref:`Supply-Side Infrastructure <protocol-ssi>`:
     * payer: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * payee: :ref:`Supply-Side Platform <protocol-definitions-ssp>`
@@ -106,6 +112,11 @@ How various entities participating in :ref:`Adshares Protocol <adshares-protocol
 #. How :ref:`Demand-Side Infrastructure <protocol-dsi>` exposes information about executed payments:
     * exposed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * consumed by: :ref:`Supply-Side Platform <protocol-definitions-ssp>`
+    * returns: :ref:`Payment Report <protocol-definitions-paymentreport>`
+
+#. (Optional) How :ref:`Demand-Side Infrastructure <protocol-dsi>` outsources the process of generating :ref:`Payment Reports <protocol-definitions-paymentreport>`:
+    * exposed by: :ref:`Ad Pay Module <protocol-definitions-apm>`
+    * consumed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * returns: :ref:`Payment Report <protocol-definitions-paymentreport>`
 
 Contents

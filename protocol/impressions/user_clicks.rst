@@ -25,8 +25,7 @@ clicks on a :ref:`Creative <protocol-definitions-creative>`, assuming it is clic
     DSP ->      DSCP    : Post Click Event\n//redirected//
     DSA -->     DSP     : Post Conversion Event\n//optional//
 
-The following process takes place when a :ref:`User <protocol-definitions-user>` clicks on a
-:ref:`Creative <protocol-definitions-creative>`, assuming it is clickable:
+Here are the main steps of the above workflow:
 
 * :ref:`Supply-Side Agent <protocol-definitions-ssa>` notifies :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
   about :ref:`Click Event <protocol-definitions-clickevent>`.

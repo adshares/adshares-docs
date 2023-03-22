@@ -3,11 +3,17 @@
 Payments
 ========
 
-:ref:`Demand-Side Platforms <protocol-definitions-dsp>` need to pay :ref:`Supply-Side Platforms <protocol-definitions-ssp>` 
-whose :ref:`Sites <protocol-definitions-site>` choose to display their :ref:`Creatives <protocol-definitions-creative>`.
+:ref:`Demand-Side Platform <protocol-definitions-dsp>` needs to pay :ref:`Supply-Side Platform <protocol-definitions-ssp>` each time
+its :ref:`Creative <protocol-definitions-creative>` is chosen to be displayed on a :ref:`Site <protocol-definitions-site>`.
 
 The amount of this payment depends on the number of  :ref:`Impression Events <protocol-definitions-impression>` 
 and :ref:`Conversion Events <protocol-definitions-conversion>` that have taken place in a given time interval.
+
+From the technical perspective, the payment takes place between :ref:`Demand-Side Platform <protocol-definitions-dsp>` and :ref:`Supply-Side Platform <protocol-definitions-ssp>`,
+but the actual payer is :ref:`Advertiser <protocol-definitions-advertiser>`, whereas the actual payee is :ref:`Publisher <protocol-definitions-publisher>`.
+
+Also, the cost for an :ref:`Advertiser <protocol-definitions-advertiser>` is a bit higher than the income of a :ref:`Publisher <protocol-definitions-publisher>` due to the fact that
+some deductions take place, as described in the :doc:`Money Flow <payments_moneyflow>` section.
 
 The following diagram presents an overview of the payment process:
 

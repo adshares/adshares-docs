@@ -66,16 +66,16 @@ However, regarding :ref:`Supply-Side Agent <protocol-definitions-ssa>` reporting
 to :ref:`Demand-Side Platform <protocol-definitions-dsp>` the following rules apply:
 
 * In case of :ref:`View Events <protocol-definitions-viewevent>` and :ref:`Click Events <protocol-definitions-clickevent>`, the endpoint for a notification call
-  is contained in the :ref:`Creative Object <protocol-definitions-creativeobject>` payload.
-* Whereas for :ref:`Register Events <protocol-definitions-registerevent>`, the endpoint for a notification call is contained in the response to the
-  :ref:`View Event <protocol-definitions-viewevent>` notification call.
+  exposed by :ref:`Demand-Side Platform <protocol-definitions-dsp>` is contained in the :ref:`Creative Object <protocol-definitions-creativeobject>` payload.
+* Whereas for :ref:`Register Events <protocol-definitions-registerevent>`, the endpoint for a notification call exposed by :ref:`Demand-Side Platform <protocol-definitions-dsp>`
+  is contained in the response to the :ref:`View Event <protocol-definitions-viewevent>` notification call.
 
 Regarding :ref:`Context Platform <protocol-definitions-cp>` returning :ref:`Context Scripts <protocol-definitions-contextscript>` to be executed by
-:ref:`Supply-Side Agent <protocol-definitions-ssa>` within its sandbox the following rules apply:
+:ref:`Supply-Side Agent <protocol-definitions-ssa>` within its sandbox, the following rules apply:
 
 * :ref:`Register Event <protocol-definitions-registerevent>` and :ref:`View Event <protocol-definitions-viewevent>` require 
   :ref:`Context Scripts <protocol-definitions-contextscript>` to be executed, thus :ref:`Context Platform <protocol-definitions-cp>` is expected to 
-  return such a script in response to an event notification call.
+  return such a script in response to a :ref:`Register Event <protocol-definitions-registerevent>` or :ref:`View Event <protocol-definitions-viewevent>` notification call.
 * Whereas :ref:`Click Events <protocol-definitions-clickevent>` do not require :ref:`Context Scripts <protocol-definitions-contextscript>`, thus no script is 
   expected to be returned by :ref:`Context Platform <protocol-definitions-cp>` in response to a :ref:`Click Events <protocol-definitions-clickevent>` notification call.
 
