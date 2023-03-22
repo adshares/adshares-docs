@@ -50,7 +50,7 @@ General rules
 Here are the general rules guiding the workflow around :ref:`Impression Events <protocol-definitions-impression>`:
 
 * All :ref:`Impression Events <protocol-definitions-impression>` originate from :ref:`Supply-Side Agent <protocol-definitions-ssa>`,
-  as this is the only entity able to observe the :ref:`User <protocol-definitions-user>` interactacting with :ref:`Creatives <protocol-definitions-creative>`.
+  as this is the only entity able to observe the :ref:`User <protocol-definitions-user>` interacting with :ref:`Creatives <protocol-definitions-creative>`.
 * Each :ref:`Impression Event <protocol-definitions-impression>` must be reported to both :ref:`Supply-Side Infrastructure <protocol-ssi>` 
   and :ref:`Demand-Side Infrastructure <protocol-dsi>`, so that they can stay in synch.
 * Additionally, each :ref:`Impression Event <protocol-definitions-impression>` must be reported to both to 
