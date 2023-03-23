@@ -51,12 +51,6 @@ with the Adshares protocol, develop ad server modules or just use our open sourc
 
         Enables the ad tech industry to adopt blockchain with minimum effort.
 
-    .. grid-item-card:: :octicon:`arrow-switch` Adshares Protocol
-        :link: protocol/index
-        :link-type: doc
-
-        Enables the ad tech industry to adopt blockchain with minimum effort.
-
     .. grid-item-card:: :octicon:`server` AdServer
         :link: adserver/index
         :link-type: doc
