@@ -103,7 +103,7 @@ broadcasting via :ref:`ADS Blockchain <protocol-definitions-blockchain>` a URL p
 Once the :ref:`Platform Metadata <protocol-definitions-platformmetadata>` is retrieved, the next step is to retrieve
 :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` or  :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>`.
 
-This is done by using the endpoints contained in the :ref:`Platform Metadata <protocol-definitions-platformmetadata>` ``inventoryUrl`` field:
+This is done by using the endpoints contained in the :ref:`Platform Metadata <protocol-definitions-platformmetadata>` ``supplyInventoryUrl`` and ``demandInventoryUrl`` fields:
 
 * :ref:`Supply-Side Platform <protocol-definitions-ssp>` retrieves :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` 
   from all available :ref:`Demand-Side Platforms <protocol-definitions-dsp>`.
@@ -115,7 +115,7 @@ To be useful, the inventory data needs to be tagged. In order to apply tagging f
 * :ref:`Supply-Side Platform <protocol-definitions-ssp>` makes a request to its :ref:`Site Tagging Platform <protocol-definitions-stp>`.
 * :ref:`Demand-Side Platform <protocol-definitions-dsp>` makes a request to its :ref:`Creative Tagging Platform <protocol-definitions-ctp>`.
 
-As inventory data is likely to change over time, the ``inventoryUrl`` needs to be queried on a regular basis.
+As inventory data is likely to change over time, the endpoints defined in ``supplyInventoryUrl`` and ``demandInventoryUrl`` fields need to be queried on a regular basis.
 
 Contents
 --------

@@ -38,7 +38,9 @@ Metadata Fields
 +-------------------+-------------------------------+-------------------------------------------------------------------+
 | termsUrl          | string                        | The URL of the terms of use                                       |
 +-------------------+-------------------------------+-------------------------------------------------------------------+
-| inventoryUrl      | string                        | The URL which leads to adserver inventory (active campaigns)      |
+| supplyInventoryUrl| string                        | The URL which leads to Supply-Side Inventory (active Campaigns)   |
++-------------------+-------------------------------+-------------------------------------------------------------------+
+| demandinventoryUrl| string                        | The URL which leads to Demand-Side Inventory (active Sites)       |
 +-------------------+-------------------------------+-------------------------------------------------------------------+
 | adsAddress        | string                        | The address of adserver's ADS blockchain account                  |
 +-------------------+-------------------------------+-------------------------------------------------------------------+
@@ -80,7 +82,8 @@ Metadata Example
     "panelUrl": "https:\/\/example.net",
     "privacyUrl": "https:\/\/app.example.net\/policies\/privacy.html",
     "termsUrl": "https:\/\/app.example.net\/policies\/terms.html",
-    "inventoryUrl": "https:\/\/app.example.net\/adshares\/inventory\/list",
+    "supplyInventoryUrl": "https:\/\/app.example.net\/adshares\/supplyinventory\/list",
+    "demandInventoryUrl": "https:\/\/app.example.net\/adshares\/demandinventory\/list",
     "adsAddress": "0001-00000000-9B6F",
     "registrationMode": "public",
     "supportEmail": "support@example.net",

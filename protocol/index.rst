@@ -10,6 +10,11 @@ Adshares Protocol
 * :ref:`Context Infrastructure <protocol-contextinfrastructure>`
 * :ref:`Tagging Infrastructure <protocol-tagginginfrastructure>`
 
+The following diagram presents the main components taking part in :ref:`Adshares Protocol <adshares-protocol>` and the relationships between them:
+
+.. image:: index.svg
+    :align: center
+
 The following diagram presents an overview of interactions defined by :ref:`Adshares Protocol <adshares-protocol>`:
 
 .. uml::
@@ -17,38 +22,33 @@ The following diagram presents an overview of interactions defined by :ref:`Adsh
 
     skinparam monochrome true
 
-    participant "Supply-Side\nAgent"        as SSA
-    participant "Supply-Side\nPlatform"     as SSP
-    participant "ADS Blockchain"            as blockchain
-    participant "Demand-Side\nPlatform"     as DSP
+    participant "SS Context\nInfrastructure"      as SSCI
+    participant "Supply-Side\nInfrastructure"     as SSI
+    participant "ADS\nBlockchain"                 as blockchain
+    participant "Demand-Side\nInfrastructure"     as DSI
+    participant "DS Context\nInfrastructure"      as DSCI
     
     ==Synchronization==
 
-    SSP -> blockchain: Send Broadcast
-    DSP -> blockchain: Send Broadcast
-    SSP -> blockchain: Fetch Broadcast
-    DSP -> blockchain: Fetch Broadcast
-    SSP -> DSP: Fetch Inventory
-    DSP -> SSP: Fetch Inventory
+    SSI -> blockchain: Send Broadcast
+    DSI -> blockchain: Send Broadcast
+    SSI -> blockchain: Fetch Broadcast
+    DSI -> blockchain: Fetch Broadcast
+    SSI -> DSI: Fetch Demand-Side Inventory
+    DSI -> SSI: Fetch Supply-Side Inventory
 
     ==Impressions==
 
-    SSA -> SSP: Post Register Event
-    SSA -> SSP: Get Creatives
-    SSA -> DSP: Get Creative Content
-
-    SSA -> SSP: Post View Event
-    SSA -> DSP: Post View Event
-    SSA -> DSP: Post Register Event
-
-    SSA -> SSP: Post Click Event
-    SSA -> DSP: Post Click Event
+    SSI -> DSI: Get Creative Content
+    SSI -> DSI: Post Impression Events
+    SSI -> SSCI: Post Impression Events
+    SSI -> DSCI: Post Impression Events
 
     ==Payments==
 
-    DSP -> blockchain: Send payment
-    SSP -> blockchain: Fetch transactions
-    SSP -> DSP: Fetch Payment Report
+    DSI -> blockchain: Send payment
+    SSI -> blockchain: Fetch transactions
+    SSI -> DSI: Fetch Payment Report
 
 Scope
 ^^^^^

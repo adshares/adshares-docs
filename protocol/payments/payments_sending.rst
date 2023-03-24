@@ -51,7 +51,9 @@ from :ref:`Demand-Side Platform <protocol-definitions-dsp>` the following inform
   with specific :ref:`Users <protocol-definitions-user>`, :ref:`Sites <protocol-definitions-site>` and :ref:`Devices <protocol-definitions-device>`.
 
 :ref:`Ad Pay Module <protocol-definitions-apm>` verifies the received :ref:`Impression Events <protocol-definitions-impression>`, and the outcome
-of this verification is contained in the :ref:`Payment Report <protocol-definitions-paymentreport>`.
+of this verification is contained in the :ref:`Payment Report <protocol-definitions-paymentreport>`, i.e. :ref:`Ad Pay Module <protocol-definitions-apm>`
+includes a payment for an event in the :ref:`Payment Report <protocol-definitions-paymentreport>` only if it's able to verify that the event has actually
+occured.
 
 The generated :ref:`Payment Report <protocol-definitions-paymentreport>` becomes the basis for 
 :ref:`Demand-Side Platform <protocol-definitions-dsp>` to proceed with executing payments.

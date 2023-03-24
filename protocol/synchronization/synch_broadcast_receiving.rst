@@ -17,10 +17,10 @@ Then, each URL needs to be verified if it actually points to valid :ref:`Platfor
 
 :ref:`Platform Metadata <protocol-definitions-platformmetadata>` is structured according to :ref:`Metadata Format <protocol-synchronization-metadata>`.
 
-In the :ref:`Metadata Format <protocol-synchronization-metadata>`, the most important field is ``inventoryUrl``, as it points to:
+In the :ref:`Metadata Format <protocol-synchronization-metadata>`, the most important fields include:
 
-* the current :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` of a :ref:`Supply-Side Platform <protocol-definitions-ssp>`
-* the current :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` of a :ref:`Demand-Side Platform <protocol-definitions-dsp>`
+* ``supplyInventoryUrl`` - pointing to the current :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>` of a :ref:`Supply-Side Platform <protocol-definitions-ssp>`
+* ``demandInventoryUrl`` - pointing to the current :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` of a :ref:`Demand-Side Platform <protocol-definitions-dsp>`
 
 Another important field is ``adsAddress``, as it defines the :ref:`ADS Account <protocol-definitions-account>` address of a given 
 :ref:`Supply-Side Platform <protocol-definitions-ssp>` or :ref:`Demand-Side Platform <protocol-definitions-dsp>`.
