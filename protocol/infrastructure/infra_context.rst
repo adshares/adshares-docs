@@ -11,7 +11,7 @@ use :ref:`Context Platform <protocol-definitions-cp>` to retrieve data about :re
     :align: center
 
 :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>` need to independently decide 
-which instances of :ref:`Context Platform <protocol-definitions-cp>` they trust and then independently query them. 
+which instances of :ref:`Context Platform <protocol-definitions-cp>` they trust, and then independently query them. 
 Even in case :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>` choose to trust
 the same instance of :ref:`Context Platform <protocol-definitions-cp>`, they need to query it separately.
 

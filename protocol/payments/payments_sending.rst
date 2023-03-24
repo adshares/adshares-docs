@@ -17,7 +17,9 @@ Sending Payments
     advertiser -> DSP: Deposit funds
     loop every 1 hour
         DSP -> DSCP: Get\nUser/Site/Device\nContext
-        DSCP --> DSP : User/Site/Device\nContext
+        DSCP --> DSP: User/Site/Device\nContext
+        DSP -> APM: Post User/Site/Device\nContext
+        DSP -> APM: Post Impression Events
         DSP -> APM: Generate Payment Report
         APM --> DSP: Payment Report
         DSP -> DSP: Calculate payments
@@ -38,7 +40,7 @@ because :ref:`Supply-Side Platforms <protocol-definitions-ssp>` are expected to 
 The actual task of generating the :ref:`Payment Report <protocol-definitions-paymentreport>` can be done by :ref:`Demand-Side Platform <protocol-definitions-dsp>`
 itself, or it might be outsourced by :ref:`Demand-Side Platform <protocol-definitions-dsp>` to an external :ref:`Ad Pay Module <protocol-definitions-apm>`.
 
-However, to complete this task :ref:`Ad Pay Module <protocol-definitions-apm>` needs to receive 
+In case :ref:`Ad Pay Module <protocol-definitions-apm>` is utilized, :ref:`Ad Pay Module <protocol-definitions-apm>` needs to receive 
 from :ref:`Demand-Side Platform <protocol-definitions-dsp>` the following information:
 
 * All :ref:`Impression Events <protocol-definitions-impression>` received by :ref:`Demand-Side Platform <protocol-definitions-dsp>` 
@@ -47,6 +49,9 @@ from :ref:`Demand-Side Platform <protocol-definitions-dsp>` the following inform
 * The corresponding :ref:`Context Data <protocol-definitions-contextdata>` retrieved by :ref:`Demand-Side Platform <protocol-definitions-dsp>` 
   from its :ref:`Context Platform <protocol-definitions-cp>` in order to match those :ref:`Impression Events <protocol-definitions-impression>`
   with specific :ref:`Users <protocol-definitions-user>`, :ref:`Sites <protocol-definitions-site>` and :ref:`Devices <protocol-definitions-device>`.
+
+:ref:`Ad Pay Module <protocol-definitions-apm>` verifies the received :ref:`Impression Events <protocol-definitions-impression>`, and the outcome
+of this verification is contained in the :ref:`Payment Report <protocol-definitions-paymentreport>`.
 
 The generated :ref:`Payment Report <protocol-definitions-paymentreport>` becomes the basis for 
 :ref:`Demand-Side Platform <protocol-definitions-dsp>` to proceed with executing payments.

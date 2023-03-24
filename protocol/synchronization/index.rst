@@ -6,7 +6,7 @@ Synchronization
 Why is synchronization needed?
 ------------------------------
 
-For comparison, here how :ref:`Supply-Side Platforms <protocol-definitions-ssp>` 
+For comparison, here is how :ref:`Supply-Side Platforms <protocol-definitions-ssp>` 
 and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` interact with each other in centralized systems:
 
 * In the very moment a :ref:`User <protocol-definitions-user>` navigates to their :ref:`Site <protocol-definitions-site>`, :ref:`Supply-Side Platforms <protocol-definitions-ssp>` 
@@ -22,7 +22,7 @@ However, in :ref:`Adshares Protocol <adshares-protocol>` a different workflow is
   as declared by :ref:`Supply-Side Platforms <protocol-definitions-ssp>`. This process is called :ref:`Synchronization <protocol-synchronization>`.
 * In the very moment a :ref:`User <protocol-definitions-user>` navigates to a :ref:`Site <protocol-definitions-site>`, :ref:`Supply-Side Platforms <protocol-definitions-ssp>` 
   use the information collected during :ref:`Synchronization <protocol-synchronization>` (plus :ref:`Context Data <protocol-definitions-contextdata>`) 
-  to choose the :ref:`Demand-Side Platform <protocol-definitions-dsp>` whose :ref:`Creative <protocol-definitions-creative>` it makes the most sense to display in a given situation.
+  to select the most appropriate :ref:`Creatives <protocol-definitions-creative>` to display in a given situation.
 
 Thus, in :ref:`Adshares Ecosystem <protocol-definitions-ecosystem>`:
 

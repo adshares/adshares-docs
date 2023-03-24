@@ -17,8 +17,8 @@ and other entities within the :ref:`Adshares Ecosystem <protocol-definitions-eco
 * :ref:`Demand-Side Infrastructure <protocol-dsi>` calls :ref:`Creative Tagging Platform <protocol-definitions-ctp>` to tag the :ref:`Creatives <protocol-definitions-creative>`
   that remain under its control. This is needed for :ref:`Demand-Side Platform <protocol-definitions-dsp>` to be able to properly define its 
   :ref:`Demand-Side Inventory <protocol-synchronization-demandinventory>`.
-* :ref:`Demand-Side Infrastructure <protocol-dsi>` calls :ref:`Site Tagging Platform <protocol-definitions-stp>` to verify tags assigned 
-  to :ref:`Sites <protocol-definitions-site>` by :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>`.
+* :ref:`Demand-Side Infrastructure <protocol-dsi>` verifies tags assigned to :ref:`Sites <protocol-definitions-site>` by checking 
+  :ref:`Site Tagging Platform <protocol-definitions-stp>`'s signature.
 * :ref:`Demand-Side Infrastructure <protocol-dsi>` calls :ref:`Context Platform <protocol-definitions-cp>` to retrieve 
   :ref:`Context Data <protocol-definitions-contextdata>` regarding :ref:`Users <protocol-definitions-user>`, :ref:`Sites <protocol-definitions-site>`
   and :ref:`Devices <protocol-definitions-device>`.
