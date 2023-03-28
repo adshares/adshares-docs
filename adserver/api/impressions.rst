@@ -232,7 +232,8 @@ Placement request object
 - **height** (*int*) - height of the placement (omit if ``placementId`` is provided)
 - **depth** (*int*) - (optional) depth of the placement
 - **types** (*string[]*) - (optional) a list of accepted :ref:`types<taxonomy-formats>`
-- **mimes** (*string[]*) - (optional) a list of accepted :ref:`MIME types<taxonomy-formats>`.
+- **mimes** (*string[]*) - (optional) a list of accepted :ref:`MIME types<taxonomy-formats>`
+- **topframe** (*boolean*) - (optional) indicates if placement is in the top frame (`true`) as opposed to an iframe (false)
 
 .. _api-creative-object:
 
