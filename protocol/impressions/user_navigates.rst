@@ -11,7 +11,7 @@ initially navigates to a :ref:`Site <protocol-definitions-site>`:
 
     participant "Supply-Side\nAgent"                as SSA
     participant "Supply-Side\nPlatform"             as SSP
-    participant "Supply-Side\nContext Platform"     as SSCP
+    participant "Supply-Side\nContext Provider"     as SSCP
 
     SSA ->      SSP     : Post Register Event
     SSP ->      SSCP    : Post Register Event\n//redirected//
@@ -24,11 +24,11 @@ Here are the main steps of the above workflow:
 * :ref:`Supply-Side Agent <protocol-definitions-ssa>` notifies :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
   about :ref:`Register Event <protocol-definitions-registerevent>`.
 * :ref:`Supply-Side Platform <protocol-definitions-ssp>` redirects the :ref:`Register Event <protocol-definitions-registerevent>` 
-  notification call to its :ref:`Context Platform <protocol-definitions-cp>`.
-* In response to the :ref:`Register Event <protocol-definitions-registerevent>` notification call, :ref:`Context Platform <protocol-definitions-cp>` 
+  notification call to its :ref:`Context Provider <protocol-definitions-cp>`.
+* In response to the :ref:`Register Event <protocol-definitions-registerevent>` notification call, :ref:`Context Provider <protocol-definitions-cp>` 
   returns its :ref:`Context Script <protocol-definitions-contextscript>`, and :ref:`Supply-Side Agent <protocol-definitions-ssa>` 
   makes an attempt to execute this script within its sandbox.
 
-At this stage :ref:`Register Event <protocol-definitions-registerevent>` is only reported within :ref:`Supply-Side Infrastructure <protocol-ssi>`.
+At this stage :ref:`Register Event <protocol-definitions-registerevent>` is only reported within :ref:`Supply-Side Platform <protocol-definitions-ssp>`.
 To keep both sides in synch, :ref:`Register Event <protocol-definitions-registerevent>` will be distributed to
-:ref:`Demand-Side Infrastructure <protocol-dsi>` in the next step.
+:ref:`Demand-Side Platform <protocol-definitions-dsp>` in the next step.

@@ -11,9 +11,9 @@ clicks on a :ref:`Creative <protocol-definitions-creative>`, assuming it is clic
 
     participant "Supply-Side\nAgent"                as SSA
     participant "Supply-Side\nPlatform"             as SSP
-    participant "Supply-Side\nContext Platform"     as SSCP
+    participant "Supply-Side\nContext Provider"     as SSCP
     participant "Demand-Side\nPlatform"             as DSP
-    participant "Demand-Side\nContext Platform"     as DSCP
+    participant "Demand-Side\nContext Provider"     as DSCP
     participant "Demand-Side\nAgent"                as DSA
 
     ==Click Event==
@@ -30,12 +30,12 @@ Here are the main steps of the above workflow:
 * :ref:`Supply-Side Agent <protocol-definitions-ssa>` notifies :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
   about :ref:`Click Event <protocol-definitions-clickevent>`.
 * :ref:`Supply-Side Platform <protocol-definitions-ssp>` redirects the :ref:`Click Event <protocol-definitions-clickevent>` 
-  notification call to its :ref:`Context Platform <protocol-definitions-cp>`.
+  notification call to its :ref:`Context Provider <protocol-definitions-cp>`.
 * Using the endpoint contained in :ref:`Creative Object <protocol-definitions-creativeobject>`, 
   :ref:`Supply-Side Agent <protocol-definitions-ssa>` notifies :ref:`Demand-Side Platform <protocol-definitions-dsp>`
   about :ref:`Click Event <protocol-definitions-clickevent>`.
 * :ref:`Demand-Side Platform <protocol-definitions-dsp>` redirects the :ref:`Click Event <protocol-definitions-clickevent>` 
-  notification call to its :ref:`Context Platform <protocol-definitions-cp>`.
+  notification call to its :ref:`Context Provider <protocol-definitions-cp>`.
 * Using its internal mapping, :ref:`Demand-Side Platform <protocol-definitions-dsp>` redirects the :ref:`User <protocol-definitions-user>` 
   from the :ref:`Site <protocol-definitions-site>` to the :ref:`Target <protocol-definitions-target>`.
 * Optionally, :ref:`Demand-Side Agent <protocol-definitions-dsa>` notifies :ref:`Demand-Side Platform <protocol-definitions-dsp>` 

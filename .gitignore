@@ -4,3 +4,4 @@
 /var/
 .env.local
 .vscode
+*.drawio.bkp

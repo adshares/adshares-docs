@@ -4,7 +4,7 @@ Impressions
 ===========
 
 The following diagram presents a simplified overview of the interactions between 
-:ref:`Supply-Side Infrastructure <protocol-ssi>` and :ref:`Demand-Side Infrastructure <protocol-dsi>`
+:ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>`
 regarding :ref:`Impression Events <protocol-definitions-impression>` and :ref:`Conversion Events <protocol-definitions-conversion>`:
 
 .. uml::
@@ -51,13 +51,13 @@ Here are the general rules guiding the workflow around :ref:`Impression Events <
 
 * All :ref:`Impression Events <protocol-definitions-impression>` originate from :ref:`Supply-Side Agent <protocol-definitions-ssa>`,
   as this is the only entity able to observe the :ref:`User <protocol-definitions-user>` interacting with :ref:`Creatives <protocol-definitions-creative>`.
-* Each :ref:`Impression Event <protocol-definitions-impression>` must be reported to both :ref:`Supply-Side Infrastructure <protocol-ssi>` 
-  and :ref:`Demand-Side Infrastructure <protocol-dsi>`, so that they can stay in synch.
+* Each :ref:`Impression Event <protocol-definitions-impression>` must be reported to both :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
+  and :ref:`Demand-Side Platform <protocol-definitions-dsp>`, so that they can stay in synch.
 * Additionally, each :ref:`Impression Event <protocol-definitions-impression>` must be reported to both to 
-  the :ref:`Context Platform <protocol-definitions-cp>` associated with :ref:`Supply-Side Infrastructure <protocol-ssi>` and
-  the :ref:`Context Platform <protocol-definitions-cp>` associated with :ref:`Demand-Side Infrastructure <protocol-dsi>`.
+  the :ref:`Context Provider <protocol-definitions-cp>` associated with :ref:`Supply-Side Platform <protocol-definitions-ssp>` and
+  the :ref:`Context Provider <protocol-definitions-cp>` associated with :ref:`Demand-Side Platform <protocol-definitions-dsp>`.
 * In case of :ref:`Register Event <protocol-definitions-registerevent>` and :ref:`View Event <protocol-definitions-viewevent>`,
-  :ref:`Context Platform <protocol-definitions-cp>` returns a :ref:`Context Script <protocol-definitions-contextscript>`,
+  :ref:`Context Provider <protocol-definitions-cp>` returns a :ref:`Context Script <protocol-definitions-contextscript>`,
   and :ref:`Supply-Side Agent <protocol-definitions-ssa>` is expected to make an attempt to execute this script within its sandbox.
 
 :ref:`Supply-Side Agent <protocol-definitions-ssa>` is free to report :ref:`Impression Events <protocol-definitions-impression>` to its 
@@ -70,14 +70,14 @@ to :ref:`Demand-Side Platform <protocol-definitions-dsp>` the following rules ap
 * Whereas for :ref:`Register Events <protocol-definitions-registerevent>`, the endpoint for a notification call exposed by :ref:`Demand-Side Platform <protocol-definitions-dsp>`
   is contained in the response to the :ref:`View Event <protocol-definitions-viewevent>` notification call.
 
-Regarding :ref:`Context Platform <protocol-definitions-cp>` returning :ref:`Context Scripts <protocol-definitions-contextscript>` to be executed by
+Regarding :ref:`Context Provider <protocol-definitions-cp>` returning :ref:`Context Scripts <protocol-definitions-contextscript>` to be executed by
 :ref:`Supply-Side Agent <protocol-definitions-ssa>` within its sandbox, the following rules apply:
 
 * :ref:`Register Event <protocol-definitions-registerevent>` and :ref:`View Event <protocol-definitions-viewevent>` require 
-  :ref:`Context Scripts <protocol-definitions-contextscript>` to be executed, thus :ref:`Context Platform <protocol-definitions-cp>` is expected to 
+  :ref:`Context Scripts <protocol-definitions-contextscript>` to be executed, thus :ref:`Context Provider <protocol-definitions-cp>` is expected to 
   return such a script in response to a :ref:`Register Event <protocol-definitions-registerevent>` or :ref:`View Event <protocol-definitions-viewevent>` notification call.
 * Whereas :ref:`Click Events <protocol-definitions-clickevent>` do not require :ref:`Context Scripts <protocol-definitions-contextscript>`, thus no script is 
-  expected to be returned by :ref:`Context Platform <protocol-definitions-cp>` in response to a :ref:`Click Events <protocol-definitions-clickevent>` notification call.
+  expected to be returned by :ref:`Context Provider <protocol-definitions-cp>` in response to a :ref:`Click Events <protocol-definitions-clickevent>` notification call.
 
 Contents
 --------

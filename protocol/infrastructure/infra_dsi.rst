@@ -3,30 +3,30 @@
 Demand-Side Infrastructure
 --------------------------
 
-:ref:`Demand-Side Infrastructure <protocol-dsi>` delivers services for :ref:`Advertisers <protocol-definitions-advertiser>`, or acts on their behalf.
+:ref:`Demand-Side Platform <protocol-definitions-dsp>` delivers services for :ref:`Advertisers <protocol-definitions-advertiser>`, or acts on their behalf.
 
-:ref:`Demand-Side Infrastructure <protocol-dsi>` consists of :ref:`Demand-Side Platform <protocol-definitions-dsp>`, its :ref:`Demand-Side Agent <protocol-definitions-dsa>`
+:ref:`Demand-Side Platform <protocol-definitions-dsp>` consists of :ref:`Demand-Side Platform <protocol-definitions-dsp>`, its :ref:`Demand-Side Agent <protocol-definitions-dsa>`
 (which is embedded in the :ref:`Target <protocol-definitions-target>`), and optionally an :ref:`Ad Pay Module <protocol-definitions-apm>`.
 
 .. image:: infra_dsi.svg
     :align: center
 
-:ref:`Adshares Protocol <adshares-protocol>` defines the following interactions between :ref:`Demand-Side Infrastructure <protocol-dsi>`
+:ref:`Adshares Protocol <adshares-protocol>` defines the following interactions between :ref:`Demand-Side Platform <protocol-definitions-dsp>`
 and other entities within the :ref:`Adshares Ecosystem <protocol-definitions-ecosystem>`:
 
-* :ref:`Demand-Side Infrastructure <protocol-dsi>` calls :ref:`Creative Tagging Platform <protocol-definitions-ctp>` to tag the :ref:`Creatives <protocol-definitions-creative>`
+* :ref:`Demand-Side Platform <protocol-definitions-dsp>` calls :ref:`Creative Tagging Provider <protocol-definitions-ctp>` to tag the :ref:`Creatives <protocol-definitions-creative>`
   that remain under its control. This is needed for :ref:`Demand-Side Platform <protocol-definitions-dsp>` to be able to properly define its 
   :ref:`Demand-Side Inventory <protocol-synchronization-demandinventory>`.
-* :ref:`Demand-Side Infrastructure <protocol-dsi>` verifies tags assigned to :ref:`Sites <protocol-definitions-site>` by checking 
-  :ref:`Site Tagging Platform <protocol-definitions-stp>`'s signature.
-* :ref:`Demand-Side Infrastructure <protocol-dsi>` calls :ref:`Context Platform <protocol-definitions-cp>` to retrieve 
+* :ref:`Demand-Side Platform <protocol-definitions-dsp>` verifies tags assigned to :ref:`Sites <protocol-definitions-site>` by checking 
+  :ref:`Site Tagging Provider <protocol-definitions-stp>`'s signature.
+* :ref:`Demand-Side Platform <protocol-definitions-dsp>` calls :ref:`Context Provider <protocol-definitions-cp>` to retrieve 
   :ref:`Context Data <protocol-definitions-contextdata>` regarding :ref:`Users <protocol-definitions-user>`, :ref:`Sites <protocol-definitions-site>`
   and :ref:`Devices <protocol-definitions-device>`.
-* :ref:`Demand-Side Infrastructure <protocol-dsi>` receives :ref:`Impression Events <protocol-definitions-impression>` shared with it 
-  by :ref:`Supply-Side Infrastructure <protocol-definitions-ssi>`.
-* :ref:`Demand-Side Infrastructure <protocol-dsi>` shares the received :ref:`Impression Events <protocol-definitions-impression>` 
-  with its :ref:`Context Platform <protocol-definitions-cp>`.
-* :ref:`Demand-Side Infrastructure <protocol-dsi>` returns :ref:`Payment Reports <protocol-definitions-paymentreport>` requested by :ref:`Supply-Side Platforms <protocol-definitions-ssp>`.
+* :ref:`Demand-Side Platform <protocol-definitions-dsp>` receives :ref:`Impression Events <protocol-definitions-impression>` shared with it 
+  by :ref:`Supply-Side Platform <protocol-definitions-ssp>`.
+* :ref:`Demand-Side Platform <protocol-definitions-dsp>` shares the received :ref:`Impression Events <protocol-definitions-impression>` 
+  with its :ref:`Context Provider <protocol-definitions-cp>`.
+* :ref:`Demand-Side Platform <protocol-definitions-dsp>` returns :ref:`Payment Reports <protocol-definitions-paymentreport>` requested by :ref:`Supply-Side Platforms <protocol-definitions-ssp>`.
 
 :ref:`Demand-Side Platform <protocol-definitions-dsp>` and :ref:`Demand-Side Agent <protocol-definitions-dsa>` are free to communicate in any way they choose, 
 as this communication is *not* part of :ref:`Adshares Protocol <adshares-protocol>`. Thus, any interactions between :ref:`Demand-Side Platform <protocol-definitions-dsp>`

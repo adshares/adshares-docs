@@ -5,12 +5,12 @@ Adshares Protocol
 =================
 :ref:`Adshares Protocol <adshares-protocol>` describes interactions between the following components:
 
-* :ref:`Supply-Side Infrastructure <protocol-ssi>`
-* :ref:`Demand-Side Infrastructure <protocol-dsi>`
-* :ref:`Context Infrastructure <protocol-contextinfrastructure>`
-* :ref:`Tagging Infrastructure <protocol-tagginginfrastructure>`
+* :ref:`Supply-Side Platforms <protocol-definitions-ssp>`
+* :ref:`Demand-Side Platforms <protocol-definitions-dsp>`
+* :ref:`Context Providers <protocol-definitions-cp>`
+* :ref:`Tagging Providers <protocol-definitions-tp>`
 
-The following diagram presents the main components taking part in :ref:`Adshares Protocol <adshares-protocol>` and the relationships between them:
+The following diagram presents the main components participating in :ref:`Adshares Protocol <adshares-protocol>` and the relationships between them:
 
 .. image:: index.svg
     :align: center
@@ -22,33 +22,33 @@ The following diagram presents an overview of interactions defined by :ref:`Adsh
 
     skinparam monochrome true
 
-    participant "SS Context\nInfrastructure"      as SSCI
-    participant "Supply-Side\nInfrastructure"     as SSI
+    participant "Supply-Side\nContext Provider"   as SSCP
+    participant "Supply-Side\nPlatform"           as SSP
     participant "ADS\nBlockchain"                 as blockchain
-    participant "Demand-Side\nInfrastructure"     as DSI
-    participant "DS Context\nInfrastructure"      as DSCI
+    participant "Demand-Side\nPlatform"           as DSP
+    participant "Demand-Side\nContext Provider"   as DSCP
     
     ==Synchronization==
 
-    SSI -> blockchain: Send Broadcast
-    DSI -> blockchain: Send Broadcast
-    SSI -> blockchain: Fetch Broadcast
-    DSI -> blockchain: Fetch Broadcast
-    SSI -> DSI: Fetch Demand-Side Inventory
-    DSI -> SSI: Fetch Supply-Side Inventory
+    SSP -> blockchain: Send Broadcast
+    DSP -> blockchain: Send Broadcast
+    SSP -> blockchain: Fetch Broadcast
+    DSP -> blockchain: Fetch Broadcast
+    SSP -> DSP: Fetch Demand-Side Inventory
+    DSP -> SSP: Fetch Supply-Side Inventory
 
     ==Impressions==
 
-    SSI -> DSI: Get Creative Content
-    SSI -> DSI: Post Impression Events
-    SSI -> SSCI: Post Impression Events
-    SSI -> DSCI: Post Impression Events
+    SSP -> DSP: Get Creative Content
+    SSP -> DSP: Post Impression Events
+    SSP -> SSCP: Post Impression Events
+    SSP -> DSCP: Post Impression Events
 
     ==Payments==
 
-    DSI -> blockchain: Send payment
-    SSI -> blockchain: Fetch transactions
-    SSI -> DSI: Fetch Payment Report
+    DSP -> blockchain: Send payment
+    SSP -> blockchain: Fetch transactions
+    SSP -> DSP: Fetch Payment Report
 
 Scope
 ^^^^^
@@ -59,44 +59,44 @@ How various entities participating in :ref:`Adshares Protocol <adshares-protocol
 
 :doc:`Synchronization <synchronization/index>`
 """"""""""""""""""""""""""""""""""""""""""""""
-#. How :ref:`Supply-Side Infrastructure <protocol-ssi>` and :ref:`Demand-Side Infrastructure <protocol-dsi>` announce their current availability:
+#. How :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` announce their current availability:
     * published by: :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * retrieved by: :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * medium: :ref:`ADS Blockchain <protocol-definitions-blockchain>`
 
-#. How :ref:`Demand-Side Infrastructure <protocol-dsi>` exposes its inventory data:
+#. How :ref:`Demand-Side Platforms <protocol-definitions-dsp>` expose their inventory data:
     * exposed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * consumed by: :ref:`Supply-Side Platform <protocol-definitions-ssp>`
     * returns: :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>`
 
-#. How :ref:`Supply-Side Infrastructure <protocol-ssi>` exposes its inventory data:
+#. How :ref:`Supply-Side Platforms <protocol-definitions-ssp>` expose their inventory data:
     * exposed by: :ref:`Supply-Side Platform <protocol-definitions-ssp>`
     * consumed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * returns: :ref:`Supply-Side Inventory <protocol-definitions-supplyinventory>`
 
 :doc:`Impressions <impressions/index>`
 """"""""""""""""""""""""""""""""""""""
-#. How :ref:`Context Infrastructure <protocol-contextinfrastructure>` exposes information about :ref:`Users <protocol-definitions-user>`, :ref:`Sites <protocol-definitions-site>` and :ref:`Devices <protocol-definitions-device>`:
-    * exposed by: :ref:`Context Platform <protocol-definitions-cp>`
+#. How :ref:`Context Providers <protocol-definitions-cp>` expose information about :ref:`Users <protocol-definitions-user>`, :ref:`Sites <protocol-definitions-site>` and :ref:`Devices <protocol-definitions-device>`:
+    * exposed by: :ref:`Context Provider <protocol-definitions-cp>`
     * consumed by: :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * returns: :ref:`Context Data <protocol-definitions-contextdata>`
 
-#. How :ref:`Context Infrastructure <protocol-contextinfrastructure>` accepts notifications about :ref:`Impression Events <protocol-definitions-impression>`:
-    * exposed by: :ref:`Context Platform <protocol-definitions-cp>`
+#. How :ref:`Context Providers <protocol-definitions-cp>` accept notifications about :ref:`Impression Events <protocol-definitions-impression>`:
+    * exposed by: :ref:`Context Provider <protocol-definitions-cp>`
     * consumed by: :ref:`Supply-Side Agent <protocol-definitions-ssa>`
     * returns: :ref:`Context Script <protocol-definitions-contextscript>`
 
-#. How :ref:`Demand-Side Infrastructure <protocol-dsi>` exposes the content of a :ref:`Creative <protocol-definitions-creative>`:
+#. How :ref:`Demand-Side Platforms <protocol-definitions-dsp>` expose content of :ref:`Creatives <protocol-definitions-creative>`:
     * exposed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * consumed by: :ref:`Supply-Side Agent <protocol-definitions-ssa>`
     * returns: :ref:`Creative Content <protocol-definitions-creativecontent>`
 
-#. How :ref:`Demand-Side Infrastructure <protocol-dsi>` accepts notifications about :ref:`Impression Events <protocol-definitions-impression>`:
+#. How :ref:`Demand-Side Platforms <protocol-definitions-dsp>` accept notifications about :ref:`Impression Events <protocol-definitions-impression>`:
     * exposed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * consumed by: :ref:`Supply-Side Agent <protocol-definitions-ssa>`
-    * redirects to: :ref:`Context Infrastructure <protocol-contextinfrastructure>`
+    * redirects to: :ref:`Context Provider <protocol-definitions-cp>`
 
-#. (Optional) How :ref:`Supply-Side Platform <protocol-definitions-ssp>` outsources the process of selecting :ref:`Creatives <protocol-definitions-creative>`:
+#. (Optional) How :ref:`Supply-Side Platforms <protocol-definitions-ssp>` outsource the process of selecting :ref:`Creatives <protocol-definitions-creative>`:
     * exposed by: :ref:`Ad Select Module <protocol-definitions-asm>`
     * consumed by: :ref:`Supply-Side Platform <protocol-definitions-ssp>`
     * returns: list of :ref:`Creative Objects <protocol-definitions-creativeobject>`
@@ -104,17 +104,17 @@ How various entities participating in :ref:`Adshares Protocol <adshares-protocol
 :doc:`Payments <payments/index>`
 """"""""""""""""""""""""""""""""
 
-#. How :ref:`Demand-Side Infrastructure <protocol-dsi>` sends payments to :ref:`Supply-Side Infrastructure <protocol-ssi>`:
+#. How :ref:`Demand-Side Platforms <protocol-definitions-dsp>` send payments to :ref:`Supply-Side Platforms <protocol-definitions-ssp>`:
     * payer: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * payee: :ref:`Supply-Side Platform <protocol-definitions-ssp>`
     * medium: :ref:`ADS Blockchain <protocol-definitions-blockchain>`
 
-#. How :ref:`Demand-Side Infrastructure <protocol-dsi>` exposes information about executed payments:
+#. How :ref:`Demand-Side Platforms <protocol-definitions-dsp>` expose information about executed payments:
     * exposed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * consumed by: :ref:`Supply-Side Platform <protocol-definitions-ssp>`
     * returns: :ref:`Payment Report <protocol-definitions-paymentreport>`
 
-#. (Optional) How :ref:`Demand-Side Platform <protocol-definitions-dsp>` outsources the process of generating :ref:`Payment Reports <protocol-definitions-paymentreport>`:
+#. (Optional) How :ref:`Demand-Side Platforms <protocol-definitions-dsp>` outsource the process of generating :ref:`Payment Reports <protocol-definitions-paymentreport>`:
     * exposed by: :ref:`Ad Pay Module <protocol-definitions-apm>`
     * consumed by: :ref:`Demand-Side Platform <protocol-definitions-dsp>`
     * returns: :ref:`Payment Report <protocol-definitions-paymentreport>`

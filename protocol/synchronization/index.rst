@@ -112,8 +112,8 @@ This is done by using the endpoints contained in the :ref:`Platform Metadata <pr
 
 To be useful, the inventory data needs to be tagged. In order to apply tagging for its inventory data:
 
-* :ref:`Supply-Side Platform <protocol-definitions-ssp>` makes a request to its :ref:`Site Tagging Platform <protocol-definitions-stp>`.
-* :ref:`Demand-Side Platform <protocol-definitions-dsp>` makes a request to its :ref:`Creative Tagging Platform <protocol-definitions-ctp>`.
+* :ref:`Supply-Side Platform <protocol-definitions-ssp>` makes a request to its :ref:`Site Tagging Provider <protocol-definitions-stp>`.
+* :ref:`Demand-Side Platform <protocol-definitions-dsp>` makes a request to its :ref:`Creative Tagging Provider <protocol-definitions-ctp>`.
 
 As inventory data is likely to change over time, the endpoints defined in ``supplyInventoryUrl`` and ``demandInventoryUrl`` fields need to be queried on a regular basis.
 

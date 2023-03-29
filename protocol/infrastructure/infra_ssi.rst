@@ -3,30 +3,30 @@
 Supply-Side Infrastructure
 --------------------------
 
-:ref:`Supply-Side Infrastructure <protocol-ssi>` delivers services for :ref:`Publishers <protocol-definitions-publisher>`, or acts on their behalf.
+:ref:`Supply-Side Platform <protocol-definitions-ssp>` delivers services for :ref:`Publishers <protocol-definitions-publisher>`, or acts on their behalf.
 
-:ref:`Supply-Side Infrastructure <protocol-ssi>` consists of :ref:`Supply-Side Platform <protocol-definitions-ssp>`, its :ref:`Supply-Side Agent <protocol-definitions-ssa>`
+:ref:`Supply-Side Platform <protocol-definitions-ssp>` consists of :ref:`Supply-Side Platform <protocol-definitions-ssp>`, its :ref:`Supply-Side Agent <protocol-definitions-ssa>`
 (which is embedded in the :ref:`Site <protocol-definitions-site>`), and optionally an :ref:`Ad Select Module <protocol-definitions-asm>`.
 
 .. image:: infra_ssi.svg
     :align: center
 
-:ref:`Adshares Protocol <adshares-protocol>` defines the following interactions between :ref:`Supply-Side Infrastructure <protocol-ssi>`  
+:ref:`Adshares Protocol <adshares-protocol>` defines the following interactions between :ref:`Supply-Side Platform <protocol-definitions-ssp>`  
 and other entities within the :ref:`Adshares Ecosystem <protocol-definitions-ecosystem>`:
 
-* :ref:`Supply-Side Infrastructure <protocol-ssi>` calls :ref:`Site Tagging Platform <protocol-definitions-stp>` to tag the :ref:`Sites <protocol-definitions-site>` 
+* :ref:`Supply-Side Platform <protocol-definitions-ssp>` calls :ref:`Site Tagging Provider <protocol-definitions-stp>` to tag the :ref:`Sites <protocol-definitions-site>` 
   that remain under its control. This is needed for :ref:`Supply-Side Platform <protocol-definitions-ssp>` to be able to properly define its 
   :ref:`Supply-Side Inventory <protocol-synchronization-supplyinventory>`.
-* :ref:`Supply-Side Infrastructure <protocol-ssi>` verifies tags assigned to :ref:`Creatives <protocol-definitions-creative>` by checking 
-  :ref:`Creative Tagging Platform <protocol-definitions-ctp>`'s signature.
-* :ref:`Supply-Side Infrastructure <protocol-ssi>` calls :ref:`Context Platform <protocol-definitions-cp>` to retrieve 
+* :ref:`Supply-Side Platform <protocol-definitions-ssp>` verifies tags assigned to :ref:`Creatives <protocol-definitions-creative>` by checking 
+  :ref:`Creative Tagging Provider <protocol-definitions-ctp>`'s signature.
+* :ref:`Supply-Side Platform <protocol-definitions-ssp>` calls :ref:`Context Provider <protocol-definitions-cp>` to retrieve 
   :ref:`Context Data <protocol-definitions-contextdata>` regarding :ref:`Users <protocol-definitions-user>`, :ref:`Sites <protocol-definitions-site>`
   and :ref:`Devices <protocol-definitions-device>`.
-* :ref:`Supply-Side Infrastructure <protocol-ssi>` shares the received :ref:`Impression Events <protocol-definitions-impression>` 
+* :ref:`Supply-Side Platform <protocol-definitions-ssp>` shares the received :ref:`Impression Events <protocol-definitions-impression>` 
   with :ref:`Demand-Side Platform <protocol-definitions-dsp>` which a given :ref:`Creative <protocol-definitions-creative>` belongs to.
-* :ref:`Supply-Side Infrastructure <protocol-ssi>` shares the received :ref:`Impression Events <protocol-definitions-impression>` 
-  with its :ref:`Context Platform <protocol-definitions-cp>`.
-* :ref:`Supply-Side Infrastructure <protocol-ssi>` calls :ref:`Demand-Side Platform <protocol-definitions-dsp>` 
+* :ref:`Supply-Side Platform <protocol-definitions-ssp>` shares the received :ref:`Impression Events <protocol-definitions-impression>` 
+  with its :ref:`Context Provider <protocol-definitions-cp>`.
+* :ref:`Supply-Side Platform <protocol-definitions-ssp>` calls :ref:`Demand-Side Platform <protocol-definitions-dsp>` 
   to receive a :ref:`Payment Report <protocol-definitions-paymentreport>`.
 
 :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Supply-Side Agent <protocol-definitions-ssa>` are free to communicate in any way they choose, 

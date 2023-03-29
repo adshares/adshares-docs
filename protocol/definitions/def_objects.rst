@@ -7,7 +7,7 @@ Objects
 
 Creative
 ^^^^^^^^
-A digital advertisement. Each :ref:`Creative <protocol-definitions-creative>` is expected to be classified by one or more :ref:`Creative Tagging Platforms <protocol-definitions-ctp>`.
+A digital advertisement. Each :ref:`Creative <protocol-definitions-creative>` is expected to be classified by one or more :ref:`Creative Tagging Providers <protocol-definitions-ctp>`.
 
 .. _protocol-definitions-campaign:
 
@@ -23,7 +23,7 @@ Each :ref:`Campaign <protocol-definitions-campaign>` consists of one or more :re
 Site
 ^^^^
 A digital medium owned by a :ref:`Publisher <protocol-definitions-publisher>` where a :ref:`Creative <protocol-definitions-creative>` can be placed. 
-Each :ref:`Site <protocol-definitions-site>` is expected to be classified by one or more :ref:`Site Tagging Platforms <protocol-definitions-stp>`.
+Each :ref:`Site <protocol-definitions-site>` is expected to be classified by one or more :ref:`Site Tagging Providers <protocol-definitions-stp>`.
 
 Currently, :ref:`Sites <protocol-definitions-site>` featuring the following two media types are supported:
 

@@ -10,7 +10,7 @@ Sending Payments
 
     participant "ADS Blockchain"                    as blockchain
     participant "Demand-Side\nPlatform"             as DSP
-    participant "Demand-Side\nContext Platform"     as DSCP
+    participant "Demand-Side\nContext Provider"     as DSCP
     participant "Ad Pay\nModule"                    as APM
     actor       "Advertiser"                        as advertiser
 
@@ -30,7 +30,7 @@ Sending Payments
 by sending :ref:`ADS <protocol-definitions-ads>` payments to all :ref:`Supply-Side Platforms <protocol-definitions-ssp>` that have been involved
 in handling those :ref:`Creatives <protocol-definitions-creative>`.
 
-Every hour :ref:`Demand-Side Infrastructure <protocol-dsi>` generates a :ref:`Payment Report <protocol-definitions-paymentreport>`
+Every hour :ref:`Demand-Side Platform <protocol-definitions-dsp>` generates a :ref:`Payment Report <protocol-definitions-paymentreport>`
 which allocates the appropriate amount of :ref:`ADS <protocol-definitions-ads>` that :ref:`Demand-Side Platform <protocol-definitions-dsp>` needs to pay 
 to all :ref:`Supply-Side Platforms <protocol-definitions-ssp>` for utilizing their :ref:`Sites <protocol-definitions-site>` within the last one-hour timeframe.
 
@@ -47,7 +47,7 @@ from :ref:`Demand-Side Platform <protocol-definitions-dsp>` the following inform
   from all :ref:`Supply-Side Agents <protocol-definitions-ssa>` associated with a given :ref:`Supply-Side Platform <protocol-definitions-ssp>`
   within the last one-hour timeframe.
 * The corresponding :ref:`Context Data <protocol-definitions-contextdata>` retrieved by :ref:`Demand-Side Platform <protocol-definitions-dsp>` 
-  from its :ref:`Context Platform <protocol-definitions-cp>` in order to match those :ref:`Impression Events <protocol-definitions-impression>`
+  from its :ref:`Context Provider <protocol-definitions-cp>` in order to match those :ref:`Impression Events <protocol-definitions-impression>`
   with specific :ref:`Users <protocol-definitions-user>`, :ref:`Sites <protocol-definitions-site>` and :ref:`Devices <protocol-definitions-device>`.
 
 :ref:`Ad Pay Module <protocol-definitions-apm>` verifies the received :ref:`Impression Events <protocol-definitions-impression>`, and the outcome
