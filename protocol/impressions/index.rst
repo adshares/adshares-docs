@@ -12,16 +12,17 @@ regarding :ref:`Impression Events <protocol-definitions-impression>` and :ref:`C
 
     skinparam monochrome true
 
-    participant "Supply-Side\nAgent"       as SSA
-    participant "Supply-Side\nPlatform"    as SSP
-    participant "SS Context\nPlatform"     as SSCP
-    participant "Demand-Side\nPlatform"    as DSP
-    participant "DS Context\nPlatform"     as DSCP
+    participant "Supply-Side\nAgent"                as SSA
+    participant "Supply-Side\nPlatform"             as SSP
+    participant "Supply-Side\nContext Provider"     as SSCP
+    participant "Demand-Side\nPlatform"             as DSP
+    participant "Demand-Side\nContext Provider"     as DSCP
+    participant "Demand-Side\nAgent"                as DSA
 
     ==User Navigates to a Site==
 
     SSA ->      SSP     : Post Register Event
-    SSP ->      SSCP    : Post Register Event\n//redirected//
+    SSA ->      SSCP    : Post Register Event
 
     ==User Browses Through a Site==
 
@@ -29,55 +30,43 @@ regarding :ref:`Impression Events <protocol-definitions-impression>` and :ref:`C
 
     loop for each Creative
         SSA ->      DSP     : Get Creative Content
-        SSA ->      SSP     : Post View Event
-        SSP ->      SSCP    : Post View Event\n//redirected//
         SSA ->      DSP     : Post View Event
-        DSP ->      DSCP    : Post View Event\n//redirected//
-        SSA ->      DSP     : Post Register Event
-        DSP ->      DSCP    : Post Register Event\n//redirected//
+        SSA ->      DSCP    : Post Register Event
     end
     
     ==User Clicks on an Ad==
 
     SSA ->      SSP     : Post Click Event
-    SSP ->      SSCP    : Post Click Event\n//redirected//
-    SSA ->      DSP     : Post Click Event
-    DSP ->      DSCP    : Post Click Event\n//redirected//
+    SSP ->      DSP     : Post Click Event\n//redirected//
+    DSP ->      DSA     : Post Click Event\n//redirected//
 
 General rules
 -------------
 
-Here are the general rules guiding the workflow around :ref:`Impression Events <protocol-definitions-impression>`:
+Here are general rules guiding the workflow around :ref:`Impression Events <protocol-definitions-impression>`:
 
 * All :ref:`Impression Events <protocol-definitions-impression>` originate from :ref:`Supply-Side Agent <protocol-definitions-ssa>`,
-  as this is the only entity able to observe the :ref:`User <protocol-definitions-user>` interacting with :ref:`Creatives <protocol-definitions-creative>`.
+  as this is the only entity able to observe the :ref:`User <protocol-definitions-user>` interacting with :ref:`Creatives <protocol-definitions-creative>` 
+  within the :ref:`Site <protocol-definitions-site>`.
+* All :ref:`Conversion Events <protocol-definitions-conversion>` originate from :ref:`Demand-Side Agent <protocol-definitions-dsa>`,
+  as this is the only entity able to observe the :ref:`User <protocol-definitions-user>` performing actions within the :ref:`Target <protocol-definitions-target>`.
 * Each :ref:`Impression Event <protocol-definitions-impression>` must be reported to both :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
   and :ref:`Demand-Side Platform <protocol-definitions-dsp>`, so that they can stay in synch.
-* Additionally, each :ref:`Impression Event <protocol-definitions-impression>` must be reported to both to 
+* Additionally, each :ref:`Register Event <protocol-definitions-registerevent>` must be reported to both to 
   the :ref:`Context Provider <protocol-definitions-cp>` associated with :ref:`Supply-Side Platform <protocol-definitions-ssp>` and
   the :ref:`Context Provider <protocol-definitions-cp>` associated with :ref:`Demand-Side Platform <protocol-definitions-dsp>`.
-* In case of :ref:`Register Event <protocol-definitions-registerevent>` and :ref:`View Event <protocol-definitions-viewevent>`,
-  :ref:`Context Provider <protocol-definitions-cp>` returns a :ref:`Context Script <protocol-definitions-contextscript>`,
-  and :ref:`Supply-Side Agent <protocol-definitions-ssa>` is expected to make an attempt to execute this script within its sandbox.
+* In case of :ref:`Register Events <protocol-definitions-registerevent>`, :ref:`Context Provider <protocol-definitions-cp>` returns
+  a :ref:`Context Script <protocol-definitions-contextscript>`, and :ref:`Supply-Side Agent <protocol-definitions-ssa>` is expected 
+  to make an attempt to execute this script within its sandbox.
 
 :ref:`Supply-Side Agent <protocol-definitions-ssa>` is free to report :ref:`Impression Events <protocol-definitions-impression>` to its 
 :ref:`Supply-Side Platform <protocol-definitions-ssp>` in any way it wants, as this communication is not part of :ref:`Adshares Protocol <adshares-protocol>`.
-However, regarding :ref:`Supply-Side Agent <protocol-definitions-ssa>` reporting :ref:`Impression Events <protocol-definitions-impression>` 
-to :ref:`Demand-Side Platform <protocol-definitions-dsp>` the following rules apply:
+However, reporting :ref:`Impression Events <protocol-definitions-impression>` to :ref:`Demand-Side Platform <protocol-definitions-dsp>` is based on the following rules:
 
-* In case of :ref:`View Events <protocol-definitions-viewevent>` and :ref:`Click Events <protocol-definitions-clickevent>`, the endpoint for a notification call
-  exposed by :ref:`Demand-Side Platform <protocol-definitions-dsp>` is contained in the :ref:`Creative Object <protocol-definitions-creativeobject>` payload.
-* Whereas for :ref:`Register Events <protocol-definitions-registerevent>`, the endpoint for a notification call exposed by :ref:`Demand-Side Platform <protocol-definitions-dsp>`
-  is contained in the response to the :ref:`View Event <protocol-definitions-viewevent>` notification call.
-
-Regarding :ref:`Context Provider <protocol-definitions-cp>` returning :ref:`Context Scripts <protocol-definitions-contextscript>` to be executed by
-:ref:`Supply-Side Agent <protocol-definitions-ssa>` within its sandbox, the following rules apply:
-
-* :ref:`Register Event <protocol-definitions-registerevent>` and :ref:`View Event <protocol-definitions-viewevent>` require 
-  :ref:`Context Scripts <protocol-definitions-contextscript>` to be executed, thus :ref:`Context Provider <protocol-definitions-cp>` is expected to 
-  return such a script in response to a :ref:`Register Event <protocol-definitions-registerevent>` or :ref:`View Event <protocol-definitions-viewevent>` notification call.
-* Whereas :ref:`Click Events <protocol-definitions-clickevent>` do not require :ref:`Context Scripts <protocol-definitions-contextscript>`, thus no script is 
-  expected to be returned by :ref:`Context Provider <protocol-definitions-cp>` in response to a :ref:`Click Events <protocol-definitions-clickevent>` notification call.
+* In case of :ref:`View Events <protocol-definitions-viewevent>` and :ref:`Click Events <protocol-definitions-clickevent>`, the endpoint for notification calls
+  is contained in the :ref:`Creative Object <protocol-definitions-creativeobject>` payload.
+* Whereas for :ref:`Register Events <protocol-definitions-registerevent>`, the endpoint for notification calls is contained in the 
+  :ref:`Context Scripts <protocol-definitions-contextscript>` returned in response to the :ref:`View Event <protocol-definitions-viewevent>` notification call.
 
 Contents
 --------

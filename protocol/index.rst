@@ -15,13 +15,14 @@ The following diagram presents the main components participating in :ref:`Adshar
 .. image:: index.svg
     :align: center
 
-The following diagram presents an overview of interactions defined by :ref:`Adshares Protocol <adshares-protocol>`:
+The following diagram presents a simplified overview of the main interactions defined by :ref:`Adshares Protocol <adshares-protocol>`:
 
 .. uml::
     :align: center
 
     skinparam monochrome true
 
+    participant "Supply-Side\nAgent"              as SSA
     participant "Supply-Side\nContext Provider"   as SSCP
     participant "Supply-Side\nPlatform"           as SSP
     participant "ADS\nBlockchain"                 as blockchain
@@ -39,10 +40,12 @@ The following diagram presents an overview of interactions defined by :ref:`Adsh
 
     ==Impressions==
 
-    SSP -> DSP: Get Creative Content
-    SSP -> DSP: Post Impression Events
-    SSP -> SSCP: Post Impression Events
-    SSP -> DSCP: Post Impression Events
+    SSA -> SSCP: Register Event
+    SSA -> DSP: Get Creative Content
+    SSA -> DSP: View Event
+    SSA -> DSCP: Register Event
+    SSA -> SSP: Click Event
+    SSP -> DSP: Click Event
 
     ==Payments==
 

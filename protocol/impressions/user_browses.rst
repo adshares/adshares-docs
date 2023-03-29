@@ -1,6 +1,47 @@
 User Browses Through a Site
 ===========================
 
+The following diagram presents an overview of all interactions taking place when a :ref:`User <protocol-definitions-user>`
+browses through a :ref:`Site <protocol-definitions-site>`:
+
+.. uml::
+    :align: center
+
+    skinparam monochrome true
+
+    participant "Supply-Side\nAgent"                as SSA
+    participant "Supply-Side\nContext Provider"     as SSCP
+    participant "Supply-Side\nPlatform"             as SSP
+    participant "Demand-Side\nPlatform"             as DSP
+    participant "Demand-Side\nContext Provider"     as DSCP
+
+    ==Fetching Creatives==
+    SSA -> SSP: Find Creatives
+    SSP -> SSCP: Get\nUser/Site/Device\nContext
+    SSCP --> SSP: User/Site/Device\nContext
+    SSP --> SSA: Creatives
+
+    ==Fetching Content for Each Creative==
+    loop for each Creative
+        SSA ->      DSP     : Get Creative Content
+        DSP -->     SSA     : Creative Content
+    end
+
+    ==Synchronizing View Events for Each Creative==
+    loop for each Creative
+        SSA ->      DSP     : Post View Event
+        DSP -->     SSA     : Context Scripts
+        SSA ->      SSA     : Execute\nContext Scripts
+    end
+
+    ==Synchronizing Register Events for Each Creative==
+    loop for each Creative
+        SSA ->      DSCP    : Post Register Event
+        DSCP -->    SSA     : Context Scripts
+        SSA ->      SSA     : Execute\nContext Scripts
+        SSA ->      DSCP    : Result of\nContext Scripts\n//optional//
+    end
+
 Fetching Creatives
 ------------------
 
@@ -13,8 +54,8 @@ when a :ref:`User <protocol-definitions-user>` browses through a :ref:`Site <pro
     skinparam monochrome true
 
     participant "Supply-Side\nAgent"                as SSA
-    participant "Supply-Side\nPlatform"             as SSP
     participant "Supply-Side\nContext Provider"     as SSCP
+    participant "Supply-Side\nPlatform"             as SSP
     participant "Ad Select\nModule"                 as ASM
 
     SSA -> SSP: Find Creatives
@@ -95,11 +136,11 @@ matches what was initially approved in the :ref:`Campaign <protocol-definitions-
 Assuming the above hashes (checksums) match, :ref:`Supply-Side Agent <protocol-definitions-ssa>` renders the :ref:`Creative <protocol-definitions-creative>` on the screen, 
 so that the :ref:`User <protocol-definitions-user>` can see it.
 
-Synchronizing Events for Each Creative
---------------------------------------
+Synchronizing View Events for Each Creative
+-------------------------------------------
 
-:ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>` need to be kept 
-in synch regarding :ref:`Impression Events <protocol-definitions-impression>` for each :ref:`Creative <protocol-definitions-creative>`:
+The following diagram presents the details of the workflow aimed at synchronizing :ref:`View Events <protocol-definitions-viewevent>` 
+for each :ref:`Creative <protocol-definitions-creative>`:
 
 .. uml::
     :align: center
@@ -107,63 +148,53 @@ in synch regarding :ref:`Impression Events <protocol-definitions-impression>` fo
     skinparam monochrome true
 
     participant "Supply-Side\nAgent"                as SSA
-    participant "Supply-Side\nPlatform"             as SSP
-    participant "Supply-Side\nContext Provider"     as SSCP
     participant "Demand-Side\nPlatform"             as DSP
-    participant "Demand-Side\nContext Provider"     as DSCP
 
     loop for each Creative
-        ==View Event==
-        SSA ->      SSP     : Post View Event
-        SSP ->      SSCP    : Post View Event\n//redirected//
-        SSCP -->    SSA     : Context Scripts
-        SSA ->      SSA     : Execute\nContext Scripts
-        SSA ->      SSCP    : Result of\nContext Scripts\n//optional//
-
-        ==View Event==
         SSA ->      DSP     : Post View Event
-        DSP ->      DSCP    : Post View Event\n//redirected//
-        DSCP -->    SSA     : Context Scripts
+        DSP -->     SSA     : Context Scripts
         SSA ->      SSA     : Execute\nContext Scripts
-        SSA ->      DSCP    : Result of\nContext Scripts\n//optional//
-
-        ==Register Event==
-        SSA ->      DSP     : Post Register Event
-        DSP ->      DSCP    : Post Register Event\n//redirected//
-        DSCP -->    SSA     : Context Scripts
-        SSA ->      SSA     : Execute\nContext Scripts
-        SSA ->      DSCP    : Result of\nContext Scripts\n//optional//
     end
 
 The following sequence of events occurs for each :ref:`Creative <protocol-definitions-creative>` to ensure that 
 both :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>` are kept 
 in synch regarding :ref:`View Events <protocol-definitions-viewevent>`:
 
-* :ref:`Supply-Side Agent <protocol-definitions-ssa>` notifies :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
-  about :ref:`View Event <protocol-definitions-viewevent>`.
-* :ref:`Supply-Side Platform <protocol-definitions-ssp>` redirects the :ref:`View Event <protocol-definitions-viewevent>` 
-  notification call to its :ref:`Context Provider <protocol-definitions-cp>`.
-* In response to the :ref:`View Event <protocol-definitions-viewevent>` notification call, :ref:`Context Provider <protocol-definitions-cp>` 
-  returns its :ref:`Context Script <protocol-definitions-contextscript>`, and :ref:`Supply-Side Agent <protocol-definitions-ssa>` 
-  makes an attempt to execute this script within its sandbox.
 * Using the endpoint contained in :ref:`Creative Object <protocol-definitions-creativeobject>`, 
   :ref:`Supply-Side Agent <protocol-definitions-ssa>` notifies :ref:`Demand-Side Platform <protocol-definitions-dsp>`
   about :ref:`View Event <protocol-definitions-viewevent>`.
-* :ref:`Demand-Side Platform <protocol-definitions-dsp>` redirects the :ref:`View Event <protocol-definitions-viewevent>` 
-  notification call to its :ref:`Context Provider <protocol-definitions-cp>`.
-* In response to the :ref:`View Event <protocol-definitions-viewevent>` notification call, :ref:`Context Provider <protocol-definitions-cp>` 
+* In response to the :ref:`View Event <protocol-definitions-viewevent>` notification call, :ref:`Demand-Side Platform <protocol-definitions-dsp>`
   returns its :ref:`Context Script <protocol-definitions-contextscript>`, and :ref:`Supply-Side Agent <protocol-definitions-ssa>` 
   makes an attempt to execute this script within its sandbox.
+
+Synchronizing Register Events for Each Creative
+-----------------------------------------------
+
+The following diagram presents the details of the workflow aimed at synchronizing :ref:`Register Events <protocol-definitions-registerevent>` 
+for each :ref:`Creative <protocol-definitions-creative>`:
+
+.. uml::
+    :align: center
+
+    skinparam monochrome true
+
+    participant "Supply-Side\nAgent"                as SSA
+    participant "Demand-Side\nContext Provider"     as DSCP
+
+    loop for each Creative
+        SSA ->      DSCP    : Post Register Event
+        DSCP -->    SSA     : Context Scripts
+        SSA ->      SSA     : Execute\nContext Scripts
+        SSA ->      DSCP    : Result of\nContext Scripts\n//optional//
+    end
 
 The following sequence of events occurs for each :ref:`Creative <protocol-definitions-creative>` to ensure that both
 :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>` are kept in synch 
 regarding :ref:`Register Events <protocol-definitions-registerevent>`:
 
 * Using an endpoint received in the response to the :ref:`View Event <protocol-definitions-viewevent>` notification call, 
-  :ref:`Supply-Side Agent <protocol-definitions-ssa>` notifies :ref:`Demand-Side Platform <protocol-definitions-dsp>` about 
+  :ref:`Supply-Side Agent <protocol-definitions-ssa>` notifies :ref:`Context Provider <protocol-definitions-cp>` about 
   :ref:`Register Event <protocol-definitions-registerevent>`.
-* :ref:`Demand-Side Platform <protocol-definitions-dsp>` redirects the :ref:`Register Event <protocol-definitions-registerevent>` notification call 
-  to its :ref:`Context Provider <protocol-definitions-cp>`.
 * In response to the :ref:`Register Event <protocol-definitions-registerevent>` notification call, :ref:`Context Provider <protocol-definitions-cp>` 
   returns its :ref:`Context Script <protocol-definitions-contextscript>`, and :ref:`Supply-Side Agent <protocol-definitions-ssa>` 
   makes an attempt to execute this script within its sandbox.
