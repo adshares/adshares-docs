@@ -8,6 +8,9 @@ The following diagram presents the main components taking part in :ref:`Adshares
 .. image:: index.svg
     :align: center
 
+
+Contents
+--------
 .. toctree::
     :maxdepth: 1
 

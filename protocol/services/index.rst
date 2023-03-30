@@ -3,6 +3,9 @@
 Services
 ========
 
+The following services can be integrated within :ref:`Supply-Side Platform <protocol-definitions-ssp>` or :ref:`Demand-Side Platform <protocol-definitions-dsp>`,
+or they can be externalized and delivered by third-party :ref:`Software Providers <protocol-definitions-softwareprovider>`.
+
 Contents
 --------
 .. toctree::
