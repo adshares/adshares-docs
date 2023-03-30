@@ -38,3 +38,6 @@ Whereas the communication between :ref:`Supply-Side Platform <protocol-definitio
 might be part of :ref:`Adshares Protocol <adshares-protocol>` in case :ref:`Ad Select Module <protocol-definitions-asm>` is externalized and delivered 
 by a third-party :ref:`Software Provider <protocol-definitions-softwareprovider>`. If this is the case, :ref:`Supply-Side Platform <protocol-definitions-ssp>` 
 calls its :ref:`Ad Select Module <protocol-definitions-asm>` to outsource to it the process of generating a list of :ref:`Creatives <protocol-definitions-creative>`.
+
+The details of the communication between :ref:`Supply-Side Platform <protocol-definitions-ssp>` and its :ref:`Ad Select Module <protocol-definitions-asm>`
+are described in the :ref:`Ad Select Service <protocol-services-asm>` section.

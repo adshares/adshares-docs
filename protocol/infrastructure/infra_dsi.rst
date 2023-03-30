@@ -37,3 +37,6 @@ Whereas the communication between :ref:`Demand-Side Platform <protocol-definitio
 might be part of :ref:`Adshares Protocol <adshares-protocol>` in case :ref:`Ad Pay Module <protocol-definitions-apm>` is externalized and delivered 
 by a third-party :ref:`Software Provider <protocol-definitions-softwareprovider>`. If this is the case, :ref:`Demand-Side Platform <protocol-definitions-dsp>` 
 calls its :ref:`Ad Pay Module <protocol-definitions-apm>` to outsource to it the process of generating :ref:`Payment Reports <protocol-definitions-paymentreport>`.
+
+The details of the communication between :ref:`Demand-Side Platform <protocol-definitions-dsp>` and its :ref:`Ad Pay Module <protocol-definitions-apm>`
+are described in the :ref:`Ad Pay Service <protocol-services-apm>` section.

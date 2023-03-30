@@ -133,4 +133,5 @@ Contents
     synchronization/index
     impressions/index
     payments/index
+    services/index
     taxonomy/index
