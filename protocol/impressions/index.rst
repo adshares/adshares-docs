@@ -43,7 +43,8 @@ regarding :ref:`Impression Events <protocol-definitions-impression>` and :ref:`C
 General rules
 -------------
 
-Here are general rules guiding the workflow around :ref:`Impression Events <protocol-definitions-impression>`:
+Here are general rules guiding the workflow around :ref:`Impression Events <protocol-definitions-impression>`
+and :ref:`Conversion Events <protocol-definitions-conversion>`:
 
 * All :ref:`Impression Events <protocol-definitions-impression>` originate from :ref:`Supply-Side Agent <protocol-definitions-ssa>`,
   as this is the only entity able to observe the :ref:`User <protocol-definitions-user>` interacting with :ref:`Creatives <protocol-definitions-creative>` 

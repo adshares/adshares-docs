@@ -40,7 +40,7 @@ for utilizing their :ref:`Sites <protocol-definitions-site>` within the last one
 It's important for :ref:`Demand-Side Platform <protocol-definitions-dsp>` to store the generated :ref:`Payment Reports <protocol-definitions-paymentreport>` 
 because :ref:`Supply-Side Platforms <protocol-definitions-ssp>` are expected to request those reports upon receiving their payments.
 
-The actual task of generating the :ref:`Payment Report <protocol-definitions-paymentreport>` can be done by :ref:`Demand-Side Platform <protocol-definitions-dsp>`
+The actual task of generating :ref:`Payment Reports <protocol-definitions-paymentreport>` can be done by :ref:`Demand-Side Platform <protocol-definitions-dsp>`
 itself, or it might be outsourced by :ref:`Demand-Side Platform <protocol-definitions-dsp>` to an external :ref:`Ad Pay Module <protocol-definitions-apm>`.
 
 In case an external :ref:`Ad Pay Module <protocol-definitions-apm>` is utilized, :ref:`Ad Pay Module <protocol-definitions-apm>` needs to receive 
@@ -58,7 +58,7 @@ are described in the :ref:`Ad Pay Service <protocol-services-apm>` section.
 :ref:`Ad Pay Module <protocol-definitions-apm>` verifies the received :ref:`Impression Events <protocol-definitions-impression>`, and the outcome
 of this verification is contained in the :ref:`Payment Report <protocol-definitions-paymentreport>`, i.e. :ref:`Ad Pay Module <protocol-definitions-apm>`
 includes a payment for an :ref:`Impression Events <protocol-definitions-impression>` in the :ref:`Payment Report <protocol-definitions-paymentreport>` 
-only if it's able to verify that the event has actually occured and was valid (not fake).
+only if it's able to verify that the event has actually occurred and was valid (not fake).
 
 The generated :ref:`Payment Report <protocol-definitions-paymentreport>` becomes the basis for 
 :ref:`Demand-Side Platform <protocol-definitions-dsp>` to proceed with executing payments. Payments are executed by 

@@ -71,7 +71,7 @@ Types of deductions
 -------------------
 
 Generally, money flows from :ref:`Advertisers <protocol-definitions-advertiser>` to :ref:`Publishers <protocol-definitions-publisher>`.
-But before funds reach a :ref:`Publisher <protocol-definitions-publisher>` some deductions are being made to compensate all entities
+But before funds reach a :ref:`Publisher <protocol-definitions-publisher>` some deductions are being made to reward all entities
 participating in the process.
 
 Funds get deposited

@@ -22,11 +22,9 @@ and other entities within the :ref:`Adshares Ecosystem <protocol-definitions-eco
 * :ref:`Supply-Side Platform <protocol-definitions-ssp>` calls :ref:`Context Provider <protocol-definitions-cp>` to retrieve 
   :ref:`Context Data <protocol-definitions-contextdata>` regarding :ref:`Users <protocol-definitions-user>`, :ref:`Sites <protocol-definitions-site>`
   and :ref:`Devices <protocol-definitions-device>`.
-* :ref:`Supply-Side Platform <protocol-definitions-ssp>` shares the received :ref:`Impression Events <protocol-definitions-impression>` 
+* :ref:`Supply-Side Platform <protocol-definitions-ssp>` shares the received :ref:`Click Events <protocol-definitions-clickevent>`
   with :ref:`Demand-Side Platform <protocol-definitions-dsp>` which a given :ref:`Creative <protocol-definitions-creative>` belongs to.
-* :ref:`Supply-Side Platform <protocol-definitions-ssp>` shares the received :ref:`Impression Events <protocol-definitions-impression>` 
-  with its :ref:`Context Provider <protocol-definitions-cp>`.
-* :ref:`Supply-Side Platform <protocol-definitions-ssp>` calls :ref:`Demand-Side Platform <protocol-definitions-dsp>` 
+* :ref:`Supply-Side Platform <protocol-definitions-ssp>` calls :ref:`Demand-Side Platform <protocol-definitions-dsp>`
   to receive a :ref:`Payment Report <protocol-definitions-paymentreport>`.
 
 :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Supply-Side Agent <protocol-definitions-ssa>` are free to communicate in any way they choose, 

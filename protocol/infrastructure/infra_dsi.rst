@@ -22,11 +22,10 @@ and other entities within the :ref:`Adshares Ecosystem <protocol-definitions-eco
 * :ref:`Demand-Side Platform <protocol-definitions-dsp>` calls :ref:`Context Provider <protocol-definitions-cp>` to retrieve 
   :ref:`Context Data <protocol-definitions-contextdata>` regarding :ref:`Users <protocol-definitions-user>`, :ref:`Sites <protocol-definitions-site>`
   and :ref:`Devices <protocol-definitions-device>`.
-* :ref:`Demand-Side Platform <protocol-definitions-dsp>` receives :ref:`Impression Events <protocol-definitions-impression>` shared with it 
-  by :ref:`Supply-Side Platform <protocol-definitions-ssp>`.
-* :ref:`Demand-Side Platform <protocol-definitions-dsp>` shares the received :ref:`Impression Events <protocol-definitions-impression>` 
-  with its :ref:`Context Provider <protocol-definitions-cp>`.
-* :ref:`Demand-Side Platform <protocol-definitions-dsp>` returns :ref:`Payment Reports <protocol-definitions-paymentreport>` requested by :ref:`Supply-Side Platforms <protocol-definitions-ssp>`.
+* :ref:`Demand-Side Platform <protocol-definitions-dsp>` receives :ref:`Click Events <protocol-definitions-clickevent>`
+  shared with it by :ref:`Supply-Side Platform <protocol-definitions-ssp>`.
+* :ref:`Demand-Side Platform <protocol-definitions-dsp>` returns :ref:`Payment Reports <protocol-definitions-paymentreport>` 
+  requested by :ref:`Supply-Side Platforms <protocol-definitions-ssp>`.
 
 :ref:`Demand-Side Platform <protocol-definitions-dsp>` and :ref:`Demand-Side Agent <protocol-definitions-dsa>` are free to communicate in any way they choose, 
 as this communication is *not* part of :ref:`Adshares Protocol <adshares-protocol>`. Thus, any interactions between :ref:`Demand-Side Platform <protocol-definitions-dsp>`

@@ -15,11 +15,10 @@ which instances of :ref:`Context Provider <protocol-definitions-cp>` they trust,
 Even in case :ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>` choose to trust
 the same instance of :ref:`Context Provider <protocol-definitions-cp>`, they need to query it separately.
 
-:ref:`Context Provider <protocol-definitions-cp>` needs to track :ref:`Impression Events <protocol-definitions-impression>`. Thus,
+:ref:`Context Provider <protocol-definitions-cp>` needs to track :ref:`Register Events <protocol-definitions-registerevent>`. Thus,
 :ref:`Supply-Side Platforms <protocol-definitions-ssp>` and :ref:`Demand-Side Platforms <protocol-definitions-dsp>` need to share with 
-:ref:`Context Provider <protocol-definitions-cp>` all the :ref:`Impression Events <protocol-definitions-impression>` that they receive.
+:ref:`Context Provider <protocol-definitions-cp>` all the :ref:`Register Events <protocol-definitions-registerevent>` that they receive.
 
-For :ref:`Register Events <protocol-definitions-registerevent>` and :ref:`View Events <protocol-definitions-viewevent>`, in response to 
-an :ref:`Impression Event <protocol-definitions-impression>` notification, :ref:`Context Provider <protocol-definitions-cp>` 
+In response to a :ref:`Register Event <protocol-definitions-registerevent>` notification, :ref:`Context Provider <protocol-definitions-cp>` 
 returns a :ref:`Context Script <protocol-definitions-contextscript>`, and then receives the results of this script being executed 
 by a :ref:`Supply-Side Agent <protocol-definitions-ssa>` within its sandbox.

@@ -196,8 +196,9 @@ for each :ref:`Creative <protocol-definitions-creative>`:
     end
 
 The following sequence of events occurs for each :ref:`Creative <protocol-definitions-creative>` to ensure that both
-:ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Demand-Side Platform <protocol-definitions-dsp>` are kept in synch 
-regarding :ref:`Register Events <protocol-definitions-registerevent>`:
+:ref:`Supply-Side Platform <protocol-definitions-ssp>` and :ref:`Context Provider <protocol-definitions-cp>` 
+(acting on behalf of :ref:`Demand-Side Platform <protocol-definitions-dsp>`) are kept in synch regarding 
+:ref:`Register Events <protocol-definitions-registerevent>`:
 
 * Using an endpoint received in the response to the :ref:`View Event <protocol-definitions-viewevent>` notification call, 
   :ref:`Supply-Side Agent <protocol-definitions-ssa>` notifies :ref:`Context Provider <protocol-definitions-cp>` about 
