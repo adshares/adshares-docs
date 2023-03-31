@@ -56,5 +56,6 @@ Contents
     :maxdepth: 1
 
     payments_moneyflow
+    payments_report_format
     payments_sending
     payments_receiving
