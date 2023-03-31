@@ -30,10 +30,9 @@ by an :ref:`Advertiser <protocol-definitions-advertiser>`, e.g. time duration, t
 From the technical perspective, :ref:`Demand-Side Inventory <protocol-definitions-demandinventory>` is an array of :ref:`Campaign Objects <protocol-campaign-object>`.
 
 .. note::
-    In centralize ecosystems the term *inventory* refers only to the supply side of the market, i.e. what :ref:`Publishers<protocol-definitions-publisher>` 
-    offer for sale and the minimum price they are willing to accept from :ref:`Advertisers <protocol-definitions-advertiser>`. 
-    However, in :ref:`Adshares Protocol <adshares-protocol>` this term has a more generic meaning, as it refers to assets that belong to either side of the market, 
-    i.e. :ref:`Publishers<protocol-definitions-publisher>` or :ref:`Advertisers <protocol-definitions-advertiser>`.
+    In centralized ecosystems the term *inventory* refers only to the supply side of the market, i.e. what :ref:`Publishers<protocol-definitions-publisher>` 
+    offer for sale to :ref:`Advertisers <protocol-definitions-advertiser>`. However, in :ref:`Adshares Protocol <adshares-protocol>` this term is more generic, 
+    and it refers to assets that belong to either side of the market, i.e. :ref:`Publishers<protocol-definitions-publisher>` or :ref:`Advertisers <protocol-definitions-advertiser>`.
 
 .. _protocol-definitions-creativeobject:
 
