@@ -9,7 +9,7 @@ DSP integration (experimental)
    Documentation can change at any time without notice.
 
 AdServer (the supply part) can integrate with an external DSP (Demand Side Platform).
-The term "external DSP" should be understood as DSP outside of the Adshares ecosystem.
+The term "external DSP" should be understood as DSP outside the Adshares ecosystem.
 
 This article describes interface which is required to assure communication between AdServer and external DSP.
 Later in article an external DSP will be referred as Bridge, because typical solution is to prepare a bridge between AdServer and existing DSP.
