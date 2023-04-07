@@ -20,6 +20,11 @@ Setting up ads.txt
 ------------------
 
 #. Obtain your ads.txt information: log in to your AdPanel account and go to the site details page. Copy the entry from ads.txt frame.
+
+   .. note::
+
+      All your sites shares the same ads.txt entry. You can use it for all your sites.
+
 #. Create an ads.txt file: Open a plain text editor such as Notepad (Windows) or TextEdit (Mac). Start a new file and paste in the ads.txt information copied from the panel. Each entry should be on a separate line and follow this format:
 
    .. code-block:: text
@@ -38,6 +43,3 @@ Setting up ads.txt
 #. AdServer will automatically verify the ads.txt file. Only after verification, the website will be activated and ads will be served.
 #. Regularly update your ads.txt file: Whenever you add or remove ad partners or change your publisher ID, update your ``ads.txt`` file accordingly. This ensures that your ad revenue remains protected and that your ad partners have the most up-to-date information.
 
-.. note::
-
-    All your sites shares the same ads.txt entry. You can use it for all your sites.
