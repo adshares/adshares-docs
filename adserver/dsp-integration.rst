@@ -54,13 +54,13 @@ Bridge events
 
     skinparam monochrome true
 
-    participant "Supply-Side\nAgent"      as SSA
-    participant "SS Context\nPlatform"    as SSCP
-    participant "Supply-Side\nPlatform"   as SSP
-    participant "Bridge"                  as B
-    participant "External DSP"            as EDSP
-    participant "DS Context\nPlatform"    as DSCP
-    participant "DS\nAgent"               as DSA
+    participant "Supply-Side\nAgent"             as SSA
+    participant "Supply-Side\nContext\nPlatform" as SSCP
+    participant "Supply-Side\nPlatform"          as SSP
+    participant "Bridge"                         as B
+    participant "External\nDSP"                  as EDSP
+    participant "Demand-Side\nContext\nPlatform" as DSCP
+    participant "Demand-Side\nAgent"             as DSA
 
     ==User Browses Through a Site==
 
@@ -69,8 +69,8 @@ Bridge events
     SSCP --> SSP  : User/Site/Device\nContext
     SSP ->   SSP  : Select best\nCreatives
 
-    SSP  ->  B    : Get Creatives
-    B    ->  EDSP : Find Creatives
+    SSP  ->  B    : Get\nCreatives
+    B    ->  EDSP : Find\nCreatives
     EDSP --> B    : Creatives
     B    --> SSP  : Creatives
     SSP  --> SSA  : Creatives
@@ -99,7 +99,7 @@ Bridge events
 
     SSA  ->  SSP  : Click Event
     SSP  ->  B    : Click Event\n//BE call//
-    B    --> SSP  : Redirect Click Event
+    B    --> SSP  : Redirect\nClick Event
     SSP  ->  EDSP : Click Event\n//redirected//
     EDSP ->  DSA  : Click Event\n//redirected//
 
