@@ -62,34 +62,45 @@ Bridge events
     participant "Demand-Side\nContext\nPlatform" as DSCP
     participant "Demand-Side\nAgent"             as DSA
 
-    ==User Browses Through a Site==
+    ==Fetching Creatives==
 
     SSA ->   SSP  : Find Creatives
     SSP ->   SSCP : Get\nUser/Site/Device\nContext
     SSCP --> SSP  : User/Site/Device\nContext
     SSP ->   SSP  : Select best\nCreatives
 
-    SSP  ->  B    : Get\nCreatives
+    SSP  ->  B    : Find\nCreatives
     B    ->  EDSP : Find\nCreatives
     EDSP --> B    : Creatives
     B    --> SSP  : Creatives
     SSP  --> SSA  : Creatives
 
+    ==Fetching Content for Each Creative==
+
     loop for each Creative
         SSA  ->  EDSP : Get Creative Content
         EDSP --> SSA  : Creative Content
-        SSA  -> SSP   : View Event
-        SSP  -> B     : View Event\n//BE call//
+    end
+
+    ==Synchronizing View Events for Each Creative==
+
+    loop for each Creative
+        SSA  -> SSP   : Post View Event
+        SSP  -> B     : Post\nView Event\n//BE call//
         
         alt Redirection
             B    --> SSP  : Redirect\nView Event
-            SSP  ->  EDSP : View Event\n//redirected//
-            SSA  ->  EDSP : Register Event
-            EDSP ->  DSCP : Register Event\n//redirected//
+            SSP  ->  EDSP : Post\nView Event\n//redirected//
+            EDSP --> SSA  : Context Scripts
+            SSA  ->  SSA  : Execute\nContext\nScripts
+            SSA  ->  EDSP : Post Register Event
+            EDSP ->  DSCP : Post\nRegister Event\n//redirected//
             DSCP --> SSA  : Context Scripts
+            SSA  ->  SSA  : Execute\nContext\nScripts
+            SSA  ->  DSCP : Result of Context Scripts //optional//
         else BE confirmation
-            B   ->  EDSP : View Event\nwith Context
-            B   --> SSP  : View Event\nconsumed
+            B   ->  EDSP : Post\nView Event\nwith Context
+            B   --> SSP  : Post\nView Event\nconsumed
             SSP --> SSA  : Pixel
         end
 
