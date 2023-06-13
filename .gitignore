@@ -3,3 +3,5 @@
 /_build/
 /var/
 .env.local
+.vscode
+*.drawio.bkp

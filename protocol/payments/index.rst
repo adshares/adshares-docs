@@ -1,117 +1,61 @@
-
-.. _payments:
+.. _protocol-payments:
 
 Payments
 ========
 
-Money flow
-----------
+:ref:`Demand-Side Platform <protocol-definitions-dsp>` needs to pay :ref:`Supply-Side Platform <protocol-definitions-ssp>` each time
+its :ref:`Creative <protocol-definitions-creative>` is chosen to be displayed on a :ref:`Site <protocol-definitions-site>`.
 
-.. uml::
-    :align: center
+The amount of this payment depends on the number of  :ref:`Impression Events <protocol-definitions-impression>` 
+and :ref:`Conversion Events <protocol-definitions-conversion>` that have taken place in a given time interval.
 
-    skinparam monochrome true
-    skinparam linetype ortho
+From the technical perspective, the payment takes place between :ref:`Demand-Side Platform <protocol-definitions-dsp>` and :ref:`Supply-Side Platform <protocol-definitions-ssp>`,
+but the actual payer is :ref:`Advertiser <protocol-definitions-advertiser>`, whereas the actual payee is :ref:`Publisher <protocol-definitions-publisher>`.
 
-    actor   "Advertiser"        as advertiser
-    actor   "Publisher"         as publisher
-    agent   "Software provider" as provider
-    agent   "Community"         as community
+Also, the cost for an :ref:`Advertiser <protocol-definitions-advertiser>` is a bit higher than the income of a :ref:`Publisher <protocol-definitions-publisher>` due to the fact that
+some deductions take place, as described in the :doc:`Money Flow <payments_moneyflow>` section.
 
-    node "Demand AdServer" as demandServerNode {
-        circle  " " as demandIn #black
-        card demandLicenseFee [
-            License fee
-            -----------
-            <i>license dependent
-            <i>CE free of charge
-        ]
-        card demandOperatorFee [
-            Operator fee
-            ------------
-            <i>set by the operator
-        ]
-        card demandCommunityFee [
-            Community fee
-            -------------
-            <i>1% fees
-            <i>set by the DAO
-        ]
-        circle  " " as demandOut #white
-    }
-
-    node "Supply AdServer" as supplyServerNode {
-        circle  " " as supplyIn #black
-        card supplyLicenseFee [
-            License fee
-            -----------
-            <i>license dependent
-            <i>CE free of charge
-        ]
-        card supplyOperatorFee [
-            Operator fee
-            ------------
-            <i>set by the operator
-        ]
-        circle  " " as supplyOut #white
-    }
-
-    advertiser -ri-> demandServerNode
-
-    demandIn -[dashed]do-> demandLicenseFee
-    demandLicenseFee --> provider
-    demandLicenseFee -[dashed]do-> demandOperatorFee
-    demandOperatorFee -[dashed]do-> demandCommunityFee
-    demandCommunityFee --> community
-    demandCommunityFee -[dashed]do-> demandOut
-
-    demandServerNode -[bold]ri-> supplyServerNode
-
-    supplyIn -[dashed]do-> supplyLicenseFee
-    supplyLicenseFee --> provider
-    supplyLicenseFee -[dashed]do-> supplyOperatorFee
-    supplyOperatorFee -[dashed]do-> supplyOut
-
-    supplyServerNode -ri-> publisher
-
-Workflow
---------
+The following diagram presents an overview of the payment process:
 
 .. uml::
     :align: center
 
     skinparam monochrome true
 
-    actor       "Publisher"         as publisher
-    collections "Supply AdServers"  as supplyServer
-    participant "ADS Blockchain"    as blockchain
-    participant "Demand AdServer"   as demandServer
+    actor       "Publisher"                 as publisher
+    collections "Supply-Side\nPlatforms"    as SSP
+    participant "ADS Blockchain"            as blockchain
+    collections "Demand-Side\nPlatforms"    as DSP
+    actor       "Advertiser"                as advertiser
 
     ==Outgoing payments==
 
+    advertiser -> DSP: Deposit funds
     loop every 1 hour
-        demandServer -> demandServer: Generate report
-        demandServer -> demandServer: Calculate payments
-        demandServer -> blockchain: Send multi transaction
+        DSP -> DSP: Payment Report
+        DSP -> DSP: Calculate payments
+        DSP -> blockchain: Send multi transaction
     end
 
     ==Incoming payments==
 
     loop periodically
-        supplyServer -> blockchain: Fetch transactions
-        blockchain --> supplyServer: List of transactions
-        supplyServer -> supplyServer: Analyze transactions
+        SSP -> blockchain: Fetch transactions
+        blockchain --> SSP: List of transactions
+        SSP -> SSP: Analyze transactions
 
-        supplyServer -> demandServer: Fetch report
-        demandServer --> supplyServer: Return report
-        supplyServer -> supplyServer: Analyze report
-        supplyServer -> publisher: Post profit
+        SSP -> DSP: Fetch Payment Report
+        DSP --> SSP: Payment Report
+        SSP -> SSP: Analyze Payment Report
     end
+    SSP -> publisher: Collect funds
 
 Contents
 --------
 .. toctree::
     :maxdepth: 1
 
-    payments_outgoing
-    payments_incoming
+    payments_moneyflow
+    payments_report_format
+    payments_sending
+    payments_receiving

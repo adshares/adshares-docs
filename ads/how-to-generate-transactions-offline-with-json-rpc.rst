@@ -1,6 +1,7 @@
+.. _ads-json-rpc:
 
 How to generate transactions offline with JSON-RPC
-==========================================================
+==================================================
 
 Abstract
 --------

@@ -1,7 +1,7 @@
 Taxonomy
 ========
 
-This API is based on :ref:`the taxonomy sections of the Adshares protocol <taxonomy>`.
+This API is based on :ref:`the taxonomy sections of the Adshares protocol<protocol-taxonomy>`.
 
 First, read about :ref:`authorization<api-authorization>` and :ref:`error handling<api-response-errors>`.
 

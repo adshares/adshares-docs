@@ -4,7 +4,7 @@ Adshares Docs
 =========================================
 
 Adshares is a Web3 & metaverse advertising standard. ADS blockchain & protocol designed for AdTech allows advertising in
-wesbites, metaverses, games, AR, VR using any media format.
+websites, metaverses, games, AR, VR using any media format.
 
 You are welcome to join our community. You can build new decentralized apps on our blockchain, integrate your solutions
 with the Adshares protocol, develop ad server modules or just use our open source AdServer.

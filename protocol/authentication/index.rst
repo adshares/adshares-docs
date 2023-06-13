@@ -1,26 +1,30 @@
-
-.. _authentication:
+.. _protocol-authentication:
 
 Authentication
 ==============
 
-Set up a blockchain account
----------------------------
-The foundation of the whole ecosystem is ADS blockchain.
-The first step is to set up an account on blockchain.
-This account will be used for handling incoming and outgoing payments, and sending broadcasts.
+Prerequisites
+-------------
 
-The account can be created by the node operator, but more convenient way is ADS wallet browser plugin.
-Detailed instruction can be found on `Setup guide <https://adshares.net/wallet#wallet-installation-steps>`_ or
+:ref:`ADS Blockchain <protocol-definitions-blockchain>` is the backbone of the whole ecosystem.
+
+Thus, the first step is to set up an :ref:`ADS Account <protocol-definitions-account>` on :ref:`ADS Blockchain <protocol-definitions-blockchain>`.
+This account will be used for handling incoming and outgoing :ref:`Payments <protocol-payments>`, and sending :ref:`Broadcasts <protocol-synchronization-sendbroadcast>`.
+
+The account can be created by the node operator, but a more convenient way is to use :ref:`ADS Browser Wallet <ads-browser-wallet>`.
+Detailed instructions can be found on `Setup guide <https://adshares.net/wallet#wallet-installation-steps>`_ or
 :ref:`How to use ADS Wallet page <how-to-use-ads-wallet>`.
 
-After creating an account you will receive an **account address**, a **public key** and a **secret key**.
+After creating an account, you will receive an **account address**, a **public key** and a **secret key**.
 
 ADS authentication
 ------------------
 
-Authentication between servers or modules is performed by sending a signed ``Authorization`` header with the ADS account
+Authentication between various entities within :ref:`Adshares Ecosystem <protocol-definitions-ecosystem>` is performed 
+by sending a signed ``Authorization`` header with the :ref:`ADS Account <protocol-definitions-account>`
 address. Checking the signature allows you to verify the account address and identify the sender.
+
+.. _protocol-authentication-header:
 
 Authentication header
 ^^^^^^^^^^^^^^^^^^^^^
@@ -36,12 +40,15 @@ Authentication header
 
 Example::
 
-    Authorization: ADS account="0001-00000001-8B4E", nonce="YTVlM2NmZWVlOTBkMzI4NA==", created="2022-10-10T14:42:37+00:00", signature="fd0ae5f6978b6af35a5fff98fc7311a4d56faf5f1b3c6aa13574b631f295934c7af96696b3f7024800dc6e6e4f409dddb4bfcc9d79cf3e07603a8f18e5a62000"
+    Authorization: ADS account="0001-00000001-8B4E", nonce="YTVlM2NmZWVlOTBkMzI4NA==", created="2022-10-10T14:42:37+00:00", 
+    signature="fd0ae5f6978b6af35a5fff98fc7311a4d56faf5f1b3c6aa13574b631f295934c7af96696b3f7024800dc6e6e4f409dddb4bfcc9d79cf3e07603a8f18e5a62000"
+
+.. _protocol-authentication-signing:
 
 Header signing
 ^^^^^^^^^^^^^^
 
-To sign the header you need an ADS account address, the appropriate secret/private key and a sodium library.
+To sign the header you need an :ref:`ADS Account <protocol-definitions-account>` address, the appropriate secret/private key and a sodium library.
 
 To test signatures you can use :ref:`command line tool <signing-message>`.
 
@@ -66,6 +73,8 @@ PHP example code:
         $created->format('c'),
         $signature
     );
+
+.. _protocol-authentication-verification:
 
 Header verification
 ^^^^^^^^^^^^^^^^^^^
@@ -101,4 +110,3 @@ PHP example code:
 
         $verified = sodium_crypto_sign_verify_detached(hex2bin($signature), $message, hex2bin($publicKey));
     }
-

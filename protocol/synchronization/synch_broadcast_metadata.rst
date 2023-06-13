@@ -1,19 +1,16 @@
+.. _protocol-synchronization-metadata:
 
-Be visible for others – send broadcast
-======================================
-To become a part of the network the adserver has to inform others that it is accessible.
-It should be done by broadcasting an URL to adserver meta data using ADS blockchain.
+Metadata Format
+---------------
 
-.. _adserver_metadata:
+The :ref:`Platform Metadata <protocol-definitions-platformmetadata>` should be located under a publicly accessible URL.
 
-Adserver's metadata
--------------------
-Prepare the metadata.
-The metadata should be in JSON format.
-All fields are enlisted below.
-They have string values unless stated otherwise.
+The :ref:`Platform Metadata <protocol-definitions-platformmetadata>` should be in the in JSON format.
 
-Metadata fields:
+All fields should be using string values, unless stated otherwise.
+
+Metadata Fields
+"""""""""""""""
 
 +-------------------+-------------------------------+-------------------------------------------------------------------+
 | Field             | Type                          | Description                                                       |
@@ -41,7 +38,9 @@ Metadata fields:
 +-------------------+-------------------------------+-------------------------------------------------------------------+
 | termsUrl          | string                        | The URL of the terms of use                                       |
 +-------------------+-------------------------------+-------------------------------------------------------------------+
-| inventoryUrl      | string                        | The URL which leads to adserver inventory (active campaigns)      |
+| supplyInventoryUrl| string                        | The URL which leads to Supply-Side Inventory (active Campaigns)   |
++-------------------+-------------------------------+-------------------------------------------------------------------+
+| demandinventoryUrl| string                        | The URL which leads to Demand-Side Inventory (active Sites)       |
 +-------------------+-------------------------------+-------------------------------------------------------------------+
 | adsAddress        | string                        | The address of adserver's ADS blockchain account                  |
 +-------------------+-------------------------------+-------------------------------------------------------------------+
@@ -69,7 +68,10 @@ Metadata fields:
 |                   |                               |                                                                   |
 +-------------------+-------------------------------+-------------------------------------------------------------------+
 
-Example::
+Metadata Example
+""""""""""""""""
+
+::
 
   {
     "module": "adserver",
@@ -80,7 +82,8 @@ Example::
     "panelUrl": "https:\/\/example.net",
     "privacyUrl": "https:\/\/app.example.net\/policies\/privacy.html",
     "termsUrl": "https:\/\/app.example.net\/policies\/terms.html",
-    "inventoryUrl": "https:\/\/app.example.net\/adshares\/inventory\/list",
+    "supplyInventoryUrl": "https:\/\/app.example.net\/adshares\/supplyinventory\/list",
+    "demandInventoryUrl": "https:\/\/app.example.net\/adshares\/demandinventory\/list",
     "adsAddress": "0001-00000000-9B6F",
     "registrationMode": "public",
     "supportEmail": "support@example.net",
@@ -92,40 +95,3 @@ Example::
       "sites": 223
     }
   }
-
-Broadcast
-----------
-The metadata must be located by publicly accessible URL.
-Encode this URL to uppercase hex string.
-Most programming languages have an utility to convert ASCII string to it's hexadecimal representation.
-Online converters can be used also.
-
-Example URL::
-
-  https://app.example.com/info.json
-
-Example URL after encoding::
-
-  68747470733A2F2F6170702E6578616D706C652E636F6D2F696E666F2E6A736F6E
-
-The encoded URL is the message to be broadcast.
-Broadcast should be done twice a day, i.e. every 12 hours.
-
-.. note::
-
-    Broadcast must be sent from the account set as ``adsAddress`` in metadata.
-
-**TODO** Do we want to show details of ads (install, set up, send message)?
-Instruction how to broadcast using *ads* client:
-:ref:`ADS API broadcast <broadcast>`
-
-We provide a PHP client for the ADS blockchain.
-Source code is available on GitHub: https://github.com/adshares/ads-php-client.
-Install package with Composer
-
-::
-
-    composer require adshares/ads-client
-
-We provide a JSON RPC client.
-Source code is available on GitHub: https://github.com/adshares/ads-json-rpc.
