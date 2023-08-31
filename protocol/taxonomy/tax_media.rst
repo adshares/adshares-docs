@@ -22,3 +22,6 @@ Media & vendors
     *   - `Polka City <https://www.polkacity.io/>`_
         - ``metaverse``
         - ``polkacity``
+    *   - `MILC Metaverse <https://metaverse.milc.global/>`_
+        - ``metaverse``
+        - ``milc``

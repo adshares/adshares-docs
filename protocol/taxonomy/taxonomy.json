@@ -1,7 +1,7 @@
 {
   "meta": {
     "name": "simple",
-    "version": "4.2.0"
+    "version": "4.2.1"
   },
   "parameters": {
     "@countries": {
@@ -770,55 +770,6 @@
             "name": "language",
             "label": "Language",
             "items": "@languages"
-          },
-          {
-            "type": "dict",
-            "name": "cookie3-tag",
-            "label": "Tags",
-            "items": {
-              "token": {
-                "label": "Tokens",
-                "values": {
-                  "cookie3-token-analytics": "Analytics",
-                  "cookie3-token-cex-token": "CEX Tokens",
-                  "cookie3-token-defi": "DeFi",
-                  "cookie3-token-fan-token": "Fan Tokens",
-                  "cookie3-token-gamefi": "GameFi",
-                  "cookie3-token-gambling": "Gambling",
-                  "cookie3-token-governance-token": "Governance Tokens",
-                  "cookie3-token-infrastructure": "Infrastructure",
-                  "cookie3-token-iot": "IOT",
-                  "cookie3-token-layer-2": "Layer 2",
-                  "cookie3-token-meme-tokens": "Meme Tokens",
-                  "cookie3-token-metaverse": "Metaverse",
-                  "cookie3-token-music": "Music",
-                  "cookie3-token-p2e": "P2E",
-                  "cookie3-token-privacy-coins": "Privacy Tokens",
-                  "cookie3-token-socialmedia-content": "SocialMedia Content",
-                  "cookie3-token-sports": "Sports",
-                  "cookie3-token-stablecoin": "Stablecoin",
-                  "cookie3-token-storage": "Storage",
-                  "cookie3-token-tourism": "Tourism",
-                  "cookie3-token-wrapped-tokens": "Wrapped Tokens"
-                }
-              },
-              "nft": {
-                "label": "NFTs",
-                "values": {
-                  "cookie3-nft-anime-asian": "Anime Asian",
-                  "cookie3-nft-community": "Community",
-                  "cookie3-nft-defi": "DeFi",
-                  "cookie3-nft-fashion": "Fashion",
-                  "cookie3-nft-metaverse": "Metaverse",
-                  "cookie3-nft-p2e": "P2E",
-                  "cookie3-nft-pfp": "PFP",
-                  "cookie3-nft-realestate": "RealEstate",
-                  "cookie3-nft-serum-utility": "Serum Utility",
-                  "cookie3-nft-sports": "Sports",
-                  "cookie3-nft-tickets": "Tickets"
-                }
-              }
-            }
           }
         ],
         "site": [
@@ -918,6 +869,48 @@
             "image/jpeg",
             "image/png"
           ]
+        }
+      ],
+      "targeting": []
+    },
+    {
+      "medium": "metaverse",
+      "name": "milc",
+      "label": "MILC Metaverse",
+      "formats": [
+        {
+          "path": "$[?(@.type=image)].mimes",
+          "value": [
+            "image/gif",
+            "image/jpeg",
+            "image/png"
+          ]
+        },
+        {
+          "path": "$[?(@.type=image)].scopes",
+          "value": {
+            "854x480": "WVGA",
+            "1280x720": "HD",
+            "1920x1080": "Full HD",
+            "3840x2160": "UHD",
+            "480x854": "Vertical WVGA",
+            "720x1280": "Vertical HD",
+            "1080x1920": "Vertical Full HD",
+            "2160x3840": "Vertical UHD"
+          }
+        },
+        {
+          "path": "$[?(@.type=video)].scopes",
+          "value": {
+            "854x480": "WVGA",
+            "1280x720": "HD",
+            "1920x1080": "Full HD",
+            "3840x2160": "UHD",
+            "480x854": "Vertical WVGA",
+            "720x1280": "Vertical HD",
+            "1080x1920": "Vertical Full HD",
+            "2160x3840": "Vertical UHD"
+          }
         }
       ],
       "targeting": []

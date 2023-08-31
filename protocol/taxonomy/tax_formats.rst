@@ -19,7 +19,7 @@ Format types & MIME types
         - ``web`` ``metaverse``
     *   - ``image/gif``
         - ``image``
-        - ``web`` ``metaverse:cryptovoxels``
+        - ``web`` ``metaverse:cryptovoxels`` ``metaverse:milc``
     *   - ``image/webp``
         - ``image``
         - ``web``
