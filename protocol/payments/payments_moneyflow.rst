@@ -30,7 +30,6 @@ The following diagram presents an overview of how the money flows between variou
         card demandCommunityFee [
             <u>Community fee
             <i>1% fees
-            <i>set by the DAO
         ]
         circle " " as demandOut #white
     }
@@ -88,7 +87,7 @@ The funds sent from :ref:`Demand-Side Platform <protocol-definitions-dsp>` to :r
 * License fee: an amount paid to a :ref:`Software Provider <protocol-definitions-softwareprovider>`. This fee depends on the license type.
   Software released as Community Edition (CE) is free of charge.
 * Operator fee: an amount paid to the operators of the software constituting :ref:`Demand-Side Platform <protocol-definitions-dsp>`.
-* Community fee: an amount set to 1% of the cashflow, as decided by :ref:`Adshares DAO <dao>`.
+* Community fee: an amount set to 1% of the cashflow.
 
 Funds get released
 ~~~~~~~~~~~~~~~~~~
