@@ -46,8 +46,7 @@ The Adshares dPoS blockchain layer is used to transfer value between advertisers
 one-to-one and one-to-many transfers. With 1,4 million transfers per second, Adshares is capable of holding the entire
 advertising industry’s settlements.
 
-There's plenty of benefits that comes from holding ADS coin. Take part in a true web3 advertising economy and have
-impact on the DAO governed ad industry.
+There's plenty of benefits that comes from holding ADS coin. Take part in a true web3 advertising economy.
 
 :ref:`Read more. <ads-blockchain>`
 
