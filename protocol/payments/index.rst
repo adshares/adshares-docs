@@ -35,7 +35,6 @@ Money flow
             Community fee
             -------------
             <i>1% fees
-            <i>set by the DAO
         ]
         circle  " " as demandOut #white
     }

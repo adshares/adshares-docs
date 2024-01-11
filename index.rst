@@ -18,7 +18,6 @@ with the Adshares protocol, develop ad server modules or just use our open sourc
     :hidden:
 
     foundations/index
-    dao/index
     ads/index
     protocol/index
     adserver/index
@@ -32,12 +31,6 @@ with the Adshares protocol, develop ad server modules or just use our open sourc
         :link-type: doc
 
         What is Adshares?
-
-    .. grid-item-card:: :octicon:`tasklist` Adshares DAO
-        :link: dao/index
-        :link-type: doc
-
-        Decentralized autonomous organization run by holders of the Adshares coin.
 
     .. grid-item-card:: :octicon:`package` ADS Blockchain
         :link: ads/index
